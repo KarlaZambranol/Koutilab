@@ -1,0 +1,92 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Para no confundirse con las letras del abecedario",
+        "incorrectAnswers": [
+            "Para que realice bien la operación",
+            "Por estetica del codigo",
+            "No recuerdo"
+        ],
+        "question": "¿Por qué se utizan simbolos y no letras en las operaciones?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "{ }",
+        "incorrectAnswers": [
+            " ' ' ",
+            " ( ) ",
+            " { } ;"
+        ],
+        "question": "¿Primero que debemos de escribir para que un funcion haga lo que queremos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "function nombre(){}",
+        "incorrectAnswers": [
+            "function nombre(){};",
+            "function 'nombre'(){}",
+            "function nombre();{}"
+        ],
+        "question": "Linea de codigo (JavaScript) si queremos hacer algo muchas veces",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": " hola()",
+        "incorrectAnswers": [
+            "hola ();",
+            "hola{}",
+            "'hola' ()"
+        ],
+        "question": "¿Para llamar una funcion que debemos de escribir en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "Falso",
+            "No,existirian errores",
+            "Si,pero utiliza muchas funciones"
+        ],
+        "question": "¿Podemos utilizar botones html para mandar a llamar un funcion de JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

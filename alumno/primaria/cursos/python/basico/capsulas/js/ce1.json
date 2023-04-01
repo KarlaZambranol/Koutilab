@@ -1,0 +1,183 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Datos",
+        "incorrectAnswers": [
+            "Variables",
+            "Conjuntos",
+            "Clases"
+        ],
+        "question": "¿Cómo se llama la información con la que trabaja Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Int, Spring y Bool",
+        "incorrectAnswers": [
+            "'True' y 'False'",
+            "'Hola', 'Adios' y 'e'",
+            "'1', '2', '3', '4', etc."
+        ],
+        "question": "¿Cuál es la clasificación de los diferentes tipos de datos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Operaciones matemáticas",
+        "incorrectAnswers": [
+            "Textos",
+            "Poemas",
+            "Dibujos"
+        ],
+        "question": "¿Qué otra cosa se puede hacer en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "int",
+        "incorrectAnswers": [
+            "string",
+            "boolean",
+            "varchar"
+        ],
+        "question": "¿Con que dato se pueden hacer las operaciones matemáticas?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "'Suma', 'Resta', 'Multiplicación' y 'División'",
+        "incorrectAnswers": [
+            "Suma",
+            "Resta",
+            "División"
+        ],
+        "question": "Ejemplos de operaciones matemáticas",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "100 ---> int",
+        "incorrectAnswers": [
+            "'14' ---> 'int'",
+            "int ---> 89",
+            "'Koutilab' ---> int"
+        ],
+        "question": "Selecciona un ejemplo de 'int'",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "'Koutilab' ---> string",
+        "incorrectAnswers": [
+            "Koutilab ---> int",
+            "string ---> Koutilab",
+            "9 ---> string"
+        ],
+        "question": "Selecciona un ejemplo de 'string'",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "False ---> bool",
+        "incorrectAnswers": [
+            "False ---> 'bool'",
+            "'False' ---> bool",
+            "'False' ---> 'bool'"
+        ],
+        "question": "Selecciona un ejemplo de 'bool'",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "(4+2)/3 = 2",
+        "incorrectAnswers": [
+            "int ---> 4+2",
+            "4+2 ---> int",
+            "string ---> 4/2"
+        ],
+        "question": "Ejemplos de operadores",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "5*2+10=13",
+        "incorrectAnswers": [
+            "int ---> 5*2+10=13",
+            "5*2+10=13 ---> int",
+            "bool ---> 5*2+10=13"
+        ],
+        "question": "Ejemplos de operadores",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

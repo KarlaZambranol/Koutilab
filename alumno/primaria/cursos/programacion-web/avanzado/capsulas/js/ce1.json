@@ -1,0 +1,129 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "<link rel='stylesheet' href'nombre'>",
+        "incorrectAnswers": [
+            "<link image='style' href'nombre'>",
+            "link rel='stylesheet' href'nombre'",
+            "www.com stylesheet"
+        ],
+        "question": "¿Cuál es la linea de codigo correcta para usar nuestro propio css?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "<script src='nombre'>",
+        "incorrectAnswers": [
+            "script src='nombre'",
+            "<script src=(nombre)>",
+            "<script src={nombre}>"
+        ],
+        "question": "Ahora en JavaScript ¿Qué linea de codigo debemos de usar para que funcione el Css?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": " * ",
+        "incorrectAnswers": [
+            " /* ",
+            " # ",
+            " . "
+        ],
+        "question": "¿Cuál es el selector que modifica todo?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "static, fixed y sticky",
+        "incorrectAnswers": [
+            "static",
+            "No recuerdo",
+            "Hypervinculo"
+        ],
+        "question": "Ejemplo o ejemplos de referencia de posicionamiento",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "5 diferente",
+        "incorrectAnswers": [
+            "5 diferentes",
+            "10 diferentes",
+            "23 diferentes"
+        ],
+        "question": "¿Cuántos tipos de posicionamiento existen?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Colección o formación",
+        "incorrectAnswers": [
+            "Ordenar y Sencillo",
+            "Listas y Datos",
+            "Todas las anteriores"
+        ],
+        "question": "Array ¿Qué significa?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": " 0 ",
+        "incorrectAnswers": [
+            " 1 ",
+            " 2 ",
+            "Todas las anteriores"
+        ],
+        "question": "¿Los indices de la lista desde que numero empiezan?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

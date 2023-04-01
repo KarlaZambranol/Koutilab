@@ -1,0 +1,89 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Parametros",
+        "incorrectAnswers": [
+            "No tienen componentes",
+            "Variables"
+        ],
+        "question": "¿Las funciones que componente tienen?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Para contar con mas informacion dentro de la funcion",
+        "incorrectAnswers": [
+            "Para que sea facil de entender una funcion",
+            "No tengo idea"
+        ],
+        "question": "¿Para que nos sirve un parametro?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "No recuerdo",
+            "Falso"
+        ],
+        "question": "Los parametros son como los ingredientes que necesitas para hacer un pastel.",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "especificos",
+        "incorrectAnswers": [
+            "dificiles",
+            "adaptables",
+            "adicionales"
+        ],
+        "question": "Los parametros son ______________ para cada funcion.",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "2",
+        "incorrectAnswers": [
+            "5",
+            "1",
+            "3"
+        ],
+        "question": "Esta funcion def sumar(a,b) ¿Cuantos parametros tiene?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

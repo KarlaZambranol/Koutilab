@@ -1,0 +1,183 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Elementos",
+        "incorrectAnswers": [
+            "Acciones",
+            "Conjuntos",
+            "Clases"
+        ],
+        "question": "¿Cómo se llaman las palabras que están dentro de <>?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "<!DOCTYPE html><html><body></body></html>",
+        "incorrectAnswers": [
+            "<!DOCTYPE html><html><body></body><html>",
+            "<DOCTYPE html><html><body></body><html>",
+            "<!DOCTYPE html></html></body></body></html>"
+        ],
+        "question": "¿Cuál es la estructura correcta de un html?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Casi todos los elementos necesitan un principio y un final",
+        "incorrectAnswers": [
+            "Todos los elementos necesitan un principio y un final",
+            "Casi todos los elementos necesitan un principio, medio y un final",
+            "Todos los elementos necesitan un principio, medio y un final"
+        ],
+        "question": "¿Qué necesitan todos los elementos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "<!-- hola -->",
+        "incorrectAnswers": [
+            "<¡-- hola -->",
+            "<¡-- hola --!>",
+            "<--¡ hola! -->"
+        ],
+        "question": "¿Cómo se hace un comentario en html?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "<div></div>",
+        "incorrectAnswers": [
+            "<<div>><</div>>",
+            "<div/></div>",
+            "</div></div>"
+        ],
+        "question": "¿Cómo se crea un div?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "<i></i>",
+        "incorrectAnswers": [
+            "</i></i>",
+            "<i><i>",
+            "</i><i>"
+        ],
+        "question": "¿Cómo se escriben las palabras italicas?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "<mark></mark>",
+        "incorrectAnswers": [
+            "<mark/></mark>",
+            "<mark><mark>",
+            "<mark><*mark>"
+        ],
+        "question": "¿Cuál es el codigo correcto para escribir un texto señalado con 'marcatexto'?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Las listas con viñetas son listas que no tienen orden. Y las listas numeradas son listas con orden.",
+        "incorrectAnswers": [
+            "Las listas con viñetas son listas que si tienen orden. Y las listas numeradas son listas sin orden.",
+            "Solo es el diseño que se le agrega después",
+            "Las listas con viñetas no son listas y no tienen orden. Y las listas numeradas son listas con orden."
+        ],
+        "question": "¿Por qué hay listas numeradas y listas con viñetas?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "<ol></ol> y <ul></ul>",
+        "incorrectAnswers": [
+            "<-ol></ol> y <-ul></ul>",
+            "</ol></ol> y </ul></ul>",
+            "<ol/></ol> y <ul/></ul>"
+        ],
+        "question": "¿Cómo se esciben las listas ordenadas y las no ordenadas?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "<img src='nombre_img'>",
+        "incorrectAnswers": [
+            "<img src='nombre_img'></img>",
+            "<img rsc='nombre_img'>",
+            "<img rsc='nombre_img'></img>"
+        ],
+        "question": "¿Cuál es el código para poner imagenes en nuestra página web?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

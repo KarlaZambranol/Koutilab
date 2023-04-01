@@ -1,0 +1,92 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Desde numeros hasta oraciones enteras ",
+        "incorrectAnswers": [
+            "Guarda imagenes",
+            "Guarda videos",
+            "No guarda nada"
+        ],
+        "question": "En las variables ¿Qué se puede guardar?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "Falso",
+            "No recuerdo",
+            "No se puede ocupar"
+        ],
+        "question": "¿Se puede guardar información y luego utilizarla en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Variables",
+        "incorrectAnswers": [
+            "Datos",
+            "Incognitas",
+            "No recuerdo"
+        ],
+        "question": "¿En dondé puedo guardar mi información en JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "let  ;",
+        "incorrectAnswers": [
+            "let ();",
+            "let ' '; ",
+            "'let'  ;"
+        ],
+        "question": "¿Cuál es forma correcta de usar let?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "NASA, SpaceX, Facebook y Google",
+        "incorrectAnswers": [
+            "Proyectos comunes",
+            "En videojuegos",
+            "WhatsApp"
+        ],
+        "question": "¿Quien utiliza JavaScript?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

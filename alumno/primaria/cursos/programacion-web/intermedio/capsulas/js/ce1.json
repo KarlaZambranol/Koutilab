@@ -1,0 +1,111 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Enlaces web",
+        "incorrectAnswers": [
+            "HTTPS://",
+            "Imagenes",
+            "www.com"
+        ],
+        "question": "¿Son una herramienta que utilizamos para compartir las paginas?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Es la dirección de una pagina",
+        "incorrectAnswers": [
+            "Es donde podemos compartir videos e imagenes",
+            "Es donde podemos compartir información",
+            "Todas las anteriores"
+        ],
+        "question": "¿Para qué sirve una URL?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "En palabras azules, en botones e imagenes",
+        "incorrectAnswers": [
+            "Videos y Botones",
+            "Imagenes y palabras azules",
+            "Todas las anteriores"
+        ],
+        "question": "¿Comó podemos encontrar las URL?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Hyperlink",
+        "incorrectAnswers": [
+            "URL",
+            "Link",
+            "Hypervinculo"
+        ],
+        "question": "¿Cuál es el nombre completo de los enlaces?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "22 tipos",
+        "incorrectAnswers": [
+            "5 tipos",
+            "10 tipos",
+            "23 tipos"
+        ],
+        "question": "¿Cuántos tipos de entradas existen?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Para decirle que va a utilizar información que nos envian",
+        "incorrectAnswers": [
+            "Para que el proyecto sea dinamico",
+            "Para darle estilo al proyecto",
+            "Todas las anteriores"
+        ],
+        "question": "JavaScript ¿Para qué sirve?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
