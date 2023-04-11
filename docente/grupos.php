@@ -176,6 +176,7 @@ $fila = mysqli_fetch_assoc($result);
                             <td>
                                 <a href="acciones/mostrar_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-info" style="margin-right: 5px;"><i class='fas fa-clipboard-list' style="color: white;"></i></a>
                                 <a href="acciones/editar_grupo.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-edit'></i></a>
+                                <a href="acciones/agregar_curso.php?id=<?php echo $data['id_grupo']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-plus'></i></a>
                                 <form style="padding: 0px 0px;" action="acciones/eliminar_grupo.php?id=<?php echo $data['id_grupo']; ?>" method="post" class="confirmar d-inline">
                                     <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
                                 </form>
@@ -221,7 +222,7 @@ $fila = mysqli_fetch_assoc($result);
                     </div>
                     <div class="input-box1">
                         <span class="details">Nombre del grupo: </span>
-                        <input type="text" name="nombre_grupo" placeholder="Nombre del grupo" required>
+                        <input type="text" name="nombre_grupo" placeholder="Ejemplo: A Matutino" required>
                     </div>
                     <div class="input-box1">
                         <span class="details">Grado: </span>

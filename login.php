@@ -143,7 +143,7 @@ if (!empty($_SESSION['rol'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 </head>
 
-<body>
+<body onload="recuperarDatos()">
     <div class="container" style="margin-top: -25px; margin-left: -50px;">
         <div class="panel">
             <div class="row">
@@ -169,13 +169,13 @@ if (!empty($_SESSION['rol'])) {
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <input type="text" id="usuario" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
+                            <input type="text" id="usuario_inicio" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="fas fa-user-lock"></i>
                             </div>
-                            <input type="password" id="contrasena" name="contrasena" class="input-field password1" value="<?php if (isset($password)) echo $password; ?>" placeholder="Contraseña" required>
+                            <input type="password" id="contrasena_inicio" name="contrasena" class="input-field password1" value="<?php if (isset($password)) echo $password; ?>" placeholder="Contraseña" required>
                             <span class="fa fa-fw fa-eye password-icon show-password1"></span>
 
                         </div>
@@ -183,7 +183,7 @@ if (!empty($_SESSION['rol'])) {
                             <div class="input-icon">
                                 <i class="fas fa-id-card"></i>
                             </div>
-                            <input type="password" id="clave" name="clave" class="input-field password2" placeholder="Clave de la escuela" value="<?php if (isset($clave)) echo $clave; ?>" required>
+                            <input type="password" id="clave_inicio" name="clave" class="input-field password2" placeholder="Clave de acceso" value="<?php if (isset($clave)) echo $clave; ?>" required>
                             <span class="fa fa-fw fa-eye password-icon show-password2"></span>
 
                         </div>
@@ -192,7 +192,7 @@ if (!empty($_SESSION['rol'])) {
                         </div>
                         <?php echo isset($alert) ? $alert : ''; ?>
 
-                        <input type="checkbox" class="check-box" style="scale: 90%;"><span>Recordar contraseña</span>
+                        <input type="checkbox" id="checkbox" class="check-box" style="scale: 90%;"><span>Recordar contraseña</span>
 
                         <button type="submit" class="submit-btn" style="margin-top: -2px;">Acceder</button>
                     </form>
@@ -232,6 +232,82 @@ if (!empty($_SESSION['rol'])) {
             </div>
         </div>
     </div>
+
+    <script>
+        // Guarda los datos del formulario en una cookie
+        function guardarDatos() {
+            var usuario_inicio = document.getElementById("usuario_inicio").value;
+            var contrasena_inicio = document.getElementById("contrasena_inicio").value;
+            var clave_inicio = document.getElementById("clave_inicio").value;
+            document.cookie = "usuario_inicio=" + usuario_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.cookie = "contrasena_inicio=" + contrasena_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.cookie = "clave_inicio=" + clave_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        }
+
+        function off() {
+            console.log("Reinicio")
+            var usuario_inicio = '';
+            var contrasena_inicio = '';
+            var clave_inicio = '';
+            document.cookie = "usuario_inicio=" + usuario_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.cookie = "contrasena_inicio=" + contrasena_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.cookie = "clave_inicio=" + clave_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        }
+
+        var checkbox = document.getElementById('checkbox');
+
+        checkbox.addEventListener("change", comprueba, false);
+
+        // Función para establecer el valor de una cookie
+        function setCookie(name, value) {
+            document.cookie = `${name}=${value}; path=/;`;
+        }
+
+        function comprueba() {
+            if (checkbox.checked) {
+                guardarDatos();
+                setCookie('checkbox', true);
+            } else {
+                off();
+            }
+        }
+    </script>
+
+    <script>
+        // Recupera los datos del formulario de la cookie
+        function recuperarDatos() {
+            var cookieData = document.cookie;
+            if (cookieData) {
+                var cookies = cookieData.split("; ");
+                for (var i = 0; i < cookies.length; i++) {
+                    var parts = cookies[i].split("=");
+                    var name = parts[0];
+                    var value = decodeURIComponent(parts[1]);
+                    if (name == "usuario_inicio") {
+                        document.getElementById("usuario_inicio").value = value;
+                    } else if (name == "contrasena_inicio") {
+                        document.getElementById("contrasena_inicio").value = value;
+                    } else if (name == "clave_inicio") {
+                        document.getElementById("clave_inicio").value = value;
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // Función para obtener el valor de una cookie
+        function getCookie(name) {
+            const cookieArray = document.cookie.split("; ");
+            for (let i = 0; i < cookieArray.length; i++) {
+                const cookie = cookieArray[i].split("=");
+                if (cookie[0] === name) {
+                    return cookie[1];
+                }
+            }
+            return "";
+        }
+    </script>
 
     <script>
         // EVITAR REENVIO DE DATOS.

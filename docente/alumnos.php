@@ -247,7 +247,7 @@ $data1 = mysqli_fetch_assoc($query1);
                         </select>
                     </div>
                     <div class="input-box1">
-                        <span class="details">Nombre: </span>
+                        <span class="details">Nombre completo: </span>
                         <input type="text" name="nombre" placeholder="Nombre del Alumno" required>
                     </div>
                     <div class="input-box1">
@@ -265,16 +265,12 @@ $data1 = mysqli_fetch_assoc($query1);
                     </div>
                     <div class="input-box1">
                         <span class="details">Usuario: </span>
+                        <!-- Generar usuario random -->
                         <input type="text" name="usuario" placeholder="Usuario del alumno" required>
                     </div>
-                    <!-- <div class="input-box1">
-                        <span class="details">Contraseña: </span>
-                        <input type="password" name="contrasena" placeholder="Contraseña del alumno" required>
-                        <span class="details">Contraseña: </span>
-                    </div> -->
                     <div class="campo">
                         <label for="password">Contraseña:</label>
-                        <input type="password" name="contrasena" id="password">
+                        <input type="password" name="contrasena" id="password" value="ABC123" readonly>
                         <span class="fa fa-fw fa-eye password-icon show-password1" style="margin-right: -155px; margin-top: -40px; background: #ffffff00;"></span>
                     </div>
                     <!-- <input type="hidden" name="clave" value="alumno" required> -->
