@@ -6,7 +6,8 @@ if (empty($_SESSION['active'])) {
 }
 ?>
 <!DOCTYPE html>
-<head>
+<head> 
+  <link rel="stylesheet" href="">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KOUTILAB <?php echo $_SESSION['user'];?></title>
