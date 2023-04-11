@@ -75,11 +75,11 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="container1">
-            <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
-                <h3 class="i-name">Editar alumno</h3>
-            </div>
+                <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
+                    <h3 class="i-name">Editar alumno</h3>
+                </div>
                 <form class="" action="" method="post">
-                   
+
                     <div class="user-details1">
 
                         <?php echo isset($alert) ? $alert : ''; ?>
@@ -87,14 +87,14 @@
 
                         <div class="input-box1">
                             <span class="details">Usuario</span>
-                            <input type="text" name="usuario" id="usuario" value="<?php echo $usuario; ?>" required>
+                            <input type="text" name="usuario" id="usuario" value="<?php echo $usuario; ?>" required readonly>
                         </div>
 
                         <div class="campo">
-                        <label for="password">Contraseña:</label>
-                        <input type="password" name="contrasena" id="password">
-                        <span class="fa fa-fw fa-eye password-icon show-password1" style="margin-right: 160px; margin-top: -230px; background: #ffffff00;"></span>
-                    </div>
+                            <label for="password">Contraseña:</label>
+                            <input type="password" name="contrasena" id="password">
+                            <span class="fa fa-fw fa-eye password-icon show-password1" style="margin-right: 160px; margin-top: -230px; background: #ffffff00;"></span>
+                        </div>
 
                         <div class="input-box1">
                             <span class="details">Nombre</span>
