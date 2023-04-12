@@ -54,66 +54,28 @@ h1 {
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
 }
 
-#gif {
+.gif {
   width: 550px;
   height: 550px;
+  top: 130%;
+  margin-left: 5%;
   position: absolute;
 }
+
 .gif1 {
-  top: 60%;
-  margin-left: 55%;
+  width: 550px;
+  height: 550px;
+  top: 340%;
+  margin-left: 53%;
+  position: absolute;
 }
+
 .gif2 {
-  top: 120%;
-  margin-left: 7%;
-}
-.gif3 {
-  top: 240%;
+  width: 550px;
+  height: 550px;
+  top: 560%;
   margin-left: 3%;
-}
-.gif4 {
-  top: 300%;
-  margin-left: 55%;
-}
-.gif5 {
-  top: 360%;
-  margin-left: 7%;
-}
-.gif6 {
-  top: 420%;
-  margin-left: 55%;
-}
-.gif7 {
-  top: 480%;
-  margin-left: 7%;
-}
-.gif8 {
-  top: 540%;
-  margin-left: 55%;
-}
-.gif9 {
-  top: 600%;
-  margin-left: 7%;
-}
-.gif10 {
-  top: 720%;
-  margin-left: 7%;
-}
-.gif11 {
-  top: 780%;
-  margin-left: 55%;
-}
-.gif12 {
-  top: 840%;
-  margin-left: 7%;
-}
-.gif13 {
-  top: 900%;
-  margin-left: 55%;
-}
-.gif14 {
-  top: 1020%;
-  margin-left: 55%;
+  position: absolute;
 }
 
 .containers {
@@ -167,7 +129,7 @@ h1 {
   font-size: 20px;
 }
 
-#bien {
+#bien{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -181,7 +143,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#intro {
+#intro{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -195,7 +157,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#teoria {
+#teoria{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -209,7 +171,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#prac {
+#prac{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -223,7 +185,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#game {
+#game{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -237,7 +199,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#eva {
+#eva{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -253,7 +215,7 @@ h1 {
 
 .btn0 {
   top: 43%;
-  margin-left: 50%;
+  margin-left: 50%;  
 }
 .btn1 {
   top: 63%;
@@ -410,8 +372,7 @@ h1 {
 .btn38 {
   top: 683%;
   margin-left: 40%;
-}
-.btn39 {
+}.btn39 {
   top: 703%;
   margin-left: 40%;
 }
@@ -492,6 +453,7 @@ h1 {
 }
 /* Fin freemium */
 
+
 .btn58 {
   top: 1023%;
   margin-left: 45%;
@@ -522,7 +484,11 @@ h1 {
 }
 /* Freemium */
 
+
 .btn64 {
   top: 1083%;
   margin-left: 45%;
 }
+
+
+

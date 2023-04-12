@@ -54,58 +54,28 @@ h1 {
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
 }
 
-#gif {
+.gif {
   width: 550px;
   height: 550px;
+  top: 130%;
+  margin-left: 5%;
   position: absolute;
 }
+
 .gif1 {
-  top: 120%;
-  margin-left: 7%;
+  width: 550px;
+  height: 550px;
+  top: 340%;
+  margin-left: 53%;
+  position: absolute;
 }
+
 .gif2 {
-  top: 180%;
-  margin-left: 55%;
-}
-.gif3 {
-  top: 240%;
-  margin-left: 3%;
-}
-.gif4 {
-  top: 300%;
-  margin-left: 55%;
-}
-.gif5 {
-  top: 360%;
-  margin-left: 7%;
-}
-.gif6 {
-  top: 480%;
-  margin-left: 7%;
-}
-.gif7 {
-  top: 540%;
-  margin-left: 55%;
-}
-.gif8 {
-  top: 660%;
-  margin-left: 55%;
-}
-.gif9 {
-  top: 720%;
-  margin-left: 7%;
-}
-.gif10 {
-  top: 840%;
-  margin-left: 7%;
-}
-.gif11 {
-  top: 900%;
-  margin-left: 55%;
-}
-.gif12 {
-  top: 1010%;
-  margin-left: 55%;
+  width: 550px;
+  height: 550px;
+  top: 520%;
+  margin-left: 53%;
+  position: absolute;
 }
 
 .containers {
@@ -159,7 +129,7 @@ h1 {
   font-size: 20px;
 }
 
-#bien {
+#bien{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -173,7 +143,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#intro {
+#intro{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -187,7 +157,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#teoria {
+#teoria{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -201,7 +171,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#prac {
+#prac{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -215,7 +185,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#game {
+#game{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -229,7 +199,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#eva {
+#eva{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -245,7 +215,7 @@ h1 {
 
 .btn0 {
   top: 43%;
-  margin-left: 50%;
+  margin-left: 50%;  
 }
 .btn1 {
   top: 63%;
@@ -278,6 +248,7 @@ h1 {
   margin-left: 70%;
 }
 /* Fin freemium */
+
 
 .btn8 {
   top: 143%;
@@ -331,6 +302,7 @@ h1 {
 }
 /* Fin freemium */
 
+
 .btn20 {
   top: 323%;
   margin-left: 40%;
@@ -366,6 +338,7 @@ h1 {
   margin-left: 75%;
 }
 /* Fin freemium */
+
 
 .btn28 {
   top: 423%;
@@ -410,8 +383,7 @@ h1 {
 .btn38 {
   top: 623%;
   margin-left: 50%;
-}
-.btn39 {
+}.btn39 {
   top: 643%;
   margin-left: 50%;
 }
@@ -430,6 +402,7 @@ h1 {
   margin-left: 15%;
 }
 /* Fin freemium */
+
 
 .btn43 {
   top: 663%;
@@ -515,6 +488,7 @@ h1 {
   margin-left: 40%;
 }
 
+
 /* Freemium */
 .btn63 {
   top: 823%;
@@ -530,12 +504,12 @@ h1 {
 }
 /* Fin freemium */
 
+
 /* Freemium */
 .btn66 {
   top: 1003%;
   margin-left: 40%;
-}
-.btn67 {
+}.btn67 {
   top: 1003%;
   margin-left: 30%;
 }

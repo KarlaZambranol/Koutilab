@@ -54,75 +54,30 @@ h1 {
   box-shadow: 0 0 12px rgba(61, 172, 244, 0.6);
 }
 
-#gif {
+.gif {
   width: 550px;
   height: 550px;
+  top: 130%;
+  margin-left: 5%;
   position: absolute;
 }
+
 .gif1 {
-  top: 60%;
-  margin-left: 55%;
+  width: 550px;
+  height: 550px;
+  top: 340%;
+  margin-left: 53%;
+  position: absolute;
 }
+
 .gif2 {
-  top: 120%;
-  margin-left: 7%;
+  width: 550px;
+  height: 550px;
+  top: 520%;
+  margin-left: 53%;
+  position: absolute;
 }
-.gif3 {
-  top: 180%;
-  margin-left: 55%;
-}
-.gif4 {
-  top: 240%;
-  margin-left: 7%;
-}
-.gif5 {
-  top: 300%;
-  margin-left: 55%;
-}
-.gif6 {
-  top: 420%;
-  margin-left: 55%;
-}
-.gif7 {
-  top: 480%;
-  margin-left: 7%;
-}
-.gif8 {
-  top: 540%;
-  margin-left: 55%;
-}
-.gif9 {
-  top: 600%;
-  margin-left: 7%;
-}
-.gif10 {
-  top: 660%;
-  margin-left: 55%;
-}
-.gif11 {
-  top: 720%;
-  margin-left: 7%;
-}
-.gif12 {
-  top: 840%;
-  margin-left: 7%;
-}
-.gif13 {
-  top: 900%;
-  margin-left: 55%;
-}
-.gif14 {
-  top: 960%;
-  margin-left: 7%;
-}
-.gif15 {
-  top: 1020%;
-  margin-left: 55%;
-}
-.gif16 {
-  top: 1080%;
-  margin-left: 7%;
-}
+
 .containers {
   max-width: 95%;
   width: 91%;
@@ -174,7 +129,8 @@ h1 {
   font-size: 20px;
 }
 
-#bien {
+
+#bien{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -188,7 +144,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#intro {
+#intro{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -202,7 +158,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#teoria {
+#teoria{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -216,7 +172,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#prac {
+#prac{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -230,7 +186,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#game {
+#game{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -244,7 +200,7 @@ h1 {
   transform: scale(1.05);
 }
 
-#eva {
+#eva{
   position: absolute;
   height: 117px;
   width: 117px;
@@ -260,7 +216,7 @@ h1 {
 
 .btn0 {
   top: 43%;
-  margin-left: 50%;
+  margin-left: 50%;  
 }
 .btn1 {
   top: 63%;
@@ -318,6 +274,7 @@ h1 {
 }
 /* Freemium */
 
+
 .btn14 {
   top: 263%;
   margin-left: 50%;
@@ -358,13 +315,14 @@ h1 {
 }
 .btn23 {
   top: 363%;
-  margin-left: 25%;
+  margin-left:25%;
 }
 .btn24 {
   top: 363%;
   margin-left: 15%;
 }
 /* Freemium */
+
 
 .btn25 {
   top: 423%;
@@ -421,8 +379,7 @@ h1 {
 .btn38 {
   top: 683%;
   margin-left: 40%;
-}
-.btn39 {
+}.btn39 {
   top: 703%;
   margin-left: 40%;
 }
@@ -474,6 +431,7 @@ h1 {
 }
 /* Freemium */
 
+
 .btn51 {
   top: 883%;
   margin-left: 50%;
@@ -524,6 +482,7 @@ h1 {
   margin-left: 10%;
 }
 /* Freemium */
+
 
 .btn62 {
   top: 1043%;

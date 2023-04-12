@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "Programacion web basica";
+$permiso = "Programacion web avanzada";
 $sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos a WHERE a.id_alumno = $id_user AND a.curso = '$permiso'");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
@@ -34,123 +34,110 @@ if (empty($existe)) {
         </div>
         <div class="container">
             <img class="igm" src="../img/PPP.png">
-            <img class="gif1" id="gif" src="../img/loop.gif">
-            <img class="gif2" id="gif" src="../img/foco.gif">
-            <img class="gif3" id="gif" src="../img/signo.gif">
-            <img class="gif4" id="gif" src="../img/loop.gif">
-            <img class="gif5" id="gif" src="../img/foco.gif">
-            <img class="gif6" id="gif" src="../img/signo.gif">
-            <img class="gif7" id="gif" src="../img/loop.gif">
-            <img class="gif8" id="gif" src="../img/foco.gif">
-            <img class="gif9" id="gif" src="../img/signo.gif">
-            <img class="gif10" id="gif" src="../img/loop.gif">
-            <img class="gif11" id="gif" src="../img/foco.gif">
-            <img class="gif12" id="gif" src="../img/signo.gif">
-            <img class="gif13" id="gif" src="../img/loop.gif">
-            <img class="gif14" id="gif" src="../img/foco.gif">
-            <img class="gif15" id="gif" src="../img/loop.gif">
-            <img class="gif16" id="gif" src="../img/foco.gif">
+            <img class="gif" src="../img/loop.gif">
+            <img class="gif1" src="../img/foco.gif">
+            <img class="gif2" src="../img/signo.gif">
             <div class="ruta">
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/bienvenida/"><button class="btn0" id="bien"></button></a> <!--Capsula introduccion al curso-->
                 <!-- HTML -->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/introduccion/"><button class="btn1" id="intro"></button></a><!--Capsula introduccion a HTML-->
-                <!-- TEMA 1 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/introduccion/"><button class="btn1"  id="intro"></button></a><!--Capsula introduccion a HTML-->
+                 <!-- TEMA 1 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn2" id="teoria"></button></a><!--Capsula teorica 1-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn3" id="prac"></button></a><!--Capsula practica 1-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn4" id="game"></button></a><!--Capsula juego 1-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn3"  id="prac"></button></a><!--Capsula practica 1-->   
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn4"  id="game"></button></a><!--Capsula juego 1--> 
                 <!-- TEMA 2 -->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn5" id="teoria"></button></a><!--Capsula teorica 2-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn6" id="prac"></button></a><!--Capsula practica 2-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn5" id="teoria"></button></a><!--Capsula teorica 2-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn6" id="prac"></button></a><!--Capsula practica 2--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn7" id="game"></button></a><!--Capsula juego 2-->
-                <!-- TEMA 3 -->
+                <!-- TEMA 3 --> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn8" id="teoria"></button></a><!--Capsula teorica 3-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn9" id="prac"></button></a><!--Capsula practica 3-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn9" id="prac"></button></a><!--Capsula practica 3--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn10" id="game"></button></a><!--Capsula juego 3-->
-                <!-- TEMA 4 -->
+                <!-- TEMA 4 --> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn11" id="teoria"></button></a><!--Capsula teorica 4-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn12" id="prac"></button></a><!--Capsula practica 4-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn12" id="prac"></button></a><!--Capsula practica 4--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn13" id="game"></button></a><!--Capsula juego 4-->
-                <!-- TEMA 5 -->
+                <!-- TEMA 5 --> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn14" id="teoria"></button></a><!--Capsula teorica 5-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn15" id="prac"></button></a><!--Capsula practica 5-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn16" id="game"></button></a><!--Capsula juego 5-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn15" id="prac"></button></a><!--Capsula practica 5--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn16" id="game"></button></a><!--Capsula juego 5--> 
                 <!-- EVALUATIVA HTML-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/"><button class="btn17" id="eva"></button></a><!--Capsula evaluativas HTML-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/"><button class="btn17" id="eva"></button></a><!--Capsula evaluativas HTML--> 
 
                 <!-- CSS -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/introduccion/"><button class="btn18" id="intro"></button></a><!--Capsula introduccion a CSS-->
                 <!-- TEMA 1 -->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn19" id="teoria"></button></a><!--Capsula teorica 1-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn20" id="prac"></button></a><!--Capsula practica 1-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn19" id="teoria"></button></a><!--Capsula teorica 1-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn20" id="prac"></button></a><!--Capsula practica 1--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn21" id="game"></button></a><!--Capsula juego 1-->
-                <!-- TEMA 2 -->
+                <!-- TEMA 2 --> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn22" id="teoria"></button></a><!--Capsula teorica 2-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn23" id="prac"></button></a><!--Capsula practica 2-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn23" id="prac"></button></a><!--Capsula practica 2--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn24" id="game"></button></a><!--Capsula juego 2-->
-                <!-- TEMA 3 -->
+                <!-- TEMA 3 --> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn25" id="teoria"></button></a><!--Capsula teorica 3-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn26" id="prac"></button></a><!--Capsula practica 3-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn26" id="prac"></button></a><!--Capsula practica 3--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn27" id="game"></button></a><!--Capsula juego 3-->
                 <!-- TEMA 4 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn28" id="teoria"></button></a><!--Capsula teorica 4-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn29" id="prac"></button></a><!--Capsula practica 4-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn30" id="game"></button></a><!--Capsula juego 4-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn29" id="prac"></button></a><!--Capsula practica 4-->   
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn30" id="game"></button></a><!--Capsula juego 4--> 
                 <!-- TEMA 5 -->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn31" id="teoria"></button></a><!--Capsula teorica 5-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn32" id="prac"></button></a><!--Capsula practica 5-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn31" id="teoria"></button></a><!--Capsula teorica 5-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn32" id="prac"></button></a><!--Capsula practica 5--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn33" id="game"></button></a><!--Capsula juego 5-->
-                <!-- EVALUATIVA CSS-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/"><button class="btn34" id="eva"></button></a><!--Capsula evaluativas CSS-->
+                 <!-- EVALUATIVA CSS-->
+                 <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/"><button class="btn34" id="eva"></button></a><!--Capsula evaluativas CSS--> 
 
                 <!-- JS -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/introduccion/"><button class="btn35" id="intro"></button></a><!--Capsula introduccion a JS-->
                 <!-- TEMA 1 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn36" id="teoria"></button></a><!--Capsula teorica 1-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn37" id="prac"></button></a><!--Capsula practica 1-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn38" id="game"></button></a><!--Capsula juego 1-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn37" id="prac"></button></a><!--Capsula practica 1--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn38" id="game"></button></a><!--Capsula juego 1--> 
                 <!-- TEMA 2 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn39" id="teoria"></button></a><!--Capsula teorica 2-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn40" id="prac"></button></a><!--Capsula practica 2-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn40" id="prac"></button></a><!--Capsula practica 2--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn41" id="game"></button></a><!--Capsula juego 2-->
-                <!-- TEMA 3 -->
+                <!-- TEMA 3 --> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn42" id="teoria"></button></a><!--Capsula teorica 3-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn43" id="prac"></button></a><!--Capsula practica 3-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn43" id="prac"></button></a><!--Capsula practica 3--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn44" id="game"></button></a><!--Capsula juego 3-->
-                <!-- TEMA 4 -->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn45" id="teoria"></button></a><!--Capsula teorica 4-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn46" id="prac"></button></a><!--Capsula practica 4-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn47" id="game"></button></a><!--Capsula juego 4-->
+                <!-- TEMA 4 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn45" id="teoria"></button></a><!--Capsula teorica 4-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn46" id="prac"></button></a><!--Capsula practica 4--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn47" id="game"></button></a><!--Capsula juego 4--> 
                 <!-- TEMA 5 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn48" id="teoria"></button></a><!--Capsula teorica 5-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn49" id="prac"></button></a><!--Capsula practica 5-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn49" id="prac"></button></a><!--Capsula practica 5--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn50" id="game"></button></a><!--Capsula juego 5-->
                 <!-- EVALUATIVA JS -->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/"><button class="btn51" id="eva"></button></a><!--Capsula evaluativas JS-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/"><button class="btn51" id="eva"></button></a><!--Capsula evaluativas JS-->  
 
                 <!-- PHP -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/introduccion/"><button class="btn52" id="intro"></button></a><!--Capsula introduccion a PHP-->
                 <!-- TEMA 1 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn53" id="teoria"></button></a><!--Capsula teorica 1-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn54" id="prac"></button></a><!--Capsula practica 1-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn55" id="game"></button></a><!--Capsula juego 1-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn54" id="prac"></button></a><!--Capsula practica 1--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn55" id="game"></button></a><!--Capsula juego 1--> 
                 <!-- TEMA 2 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn56" id="teoria"></button></a><!--Capsula teorica 2-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn57" id="prac"></button></a><!--Capsula practica 2-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn57" id="prac"></button></a><!--Capsula practica 2--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn58" id="game"></button></a><!--Capsula juego 2-->
-                <!-- TEMA 3 -->
+                <!-- TEMA 3 --> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn59" id="teoria"></button></a><!--Capsula teorica 3-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn60" id="prac"></button></a><!--Capsula practica 3-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn60" id="prac"></button></a><!--Capsula practica 3--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn61" id="game"></button></a><!--Capsula juego 3-->
-                <!-- TEMA 4 -->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn62" id="teoria"></button></a><!--Capsula teorica 4-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn63" id="prac"></button></a><!--Capsula practica 4-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn64" id="game"></button></a><!--Capsula juego 4-->
+                <!-- TEMA 4 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn62" id="teoria"></button></a><!--Capsula teorica 4-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn63" id="prac"></button></a><!--Capsula practica 4--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn64" id="game"></button></a><!--Capsula juego 4--> 
                 <!-- TEMA 5 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/"><button class="btn65" id="teoria"></button></a><!--Capsula teorica 5-->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn66" id="prac"></button></a><!--Capsula practica 5-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/"><button class="btn66" id="prac"></button></a><!--Capsula practica 5--> 
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/"><button class="btn67" id="game"></button></a><!--Capsula juego 5-->
                 <!-- EVALUATIVA PHP -->
-                <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/"><button class="btn68" id="eva"></button></a><!--Capsula evaluativas PHP-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/"><button class="btn68" id="eva"></button></a><!--Capsula evaluativas PHP-->  
             </div>
         </div>
     </div>
