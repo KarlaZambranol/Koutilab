@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula9";
+$permiso = "capsula33";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -45,8 +45,8 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Supongamos que queremos 
-                                    que nuestro sitio tenga un fondo principal 
+                                <p>Instrucciones: Supongamos que queremos
+                                    que nuestro sitio tenga un fondo principal
                                     color blanco y una cabecera color gris. Usando variables del CSS.
                                     <br>
                                 </p>
@@ -71,10 +71,11 @@ if (empty($existe) && $id_user != 1) {
     </div>
     <script>
         function miFunc() {
+            // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
-            var ulist = frame.querySelector("ul").querySelectorAll("li").length;
-            var olist = frame.querySelector("ol").querySelectorAll("li").length;
-            if (ulist == 5 && olist == 5) {
+            let style = frame.querySelectorAll("style").length;
+
+            if (style > 0) {
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',
@@ -82,21 +83,22 @@ if (empty($existe) && $id_user != 1) {
                     imageHeight: 350,
                     backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 1 + '&practico=' + 10;
+                    window.location.href = '../../acciones/insertar_pd34.php?validar=' + 'correcto' + '&permiso=' + 34 + '&id_curso=' + 1 + '&practico=' + 10;
                 });
             } else {
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd34.php?validar=' + 'incorrecto' + '&permiso=' + 34 + '&id_curso=' + 1 + '&practico=' + 10;
                     }
                 });
             }

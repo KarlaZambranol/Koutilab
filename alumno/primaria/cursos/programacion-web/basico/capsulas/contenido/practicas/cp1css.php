@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula3";
+$permiso = "capsula26";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -48,11 +48,11 @@ if (empty($existe) && $id_user != 1) {
                                 <p>Instrucciones: Conectar un archivo HTML con un archivo CSS.
                                     Donde se cambia el color de las letras del titulo, parrafo
                                     y el fondo.
-                                                <br> <br>
-                                                Ejemplo de como debe quedar:<br> <br>
-                                                <b style="color: red;">Contenido del libro</b><br>
-                                                <b style="color: blue;">El contenido de este libro se estructura 
-                                                en tres apartados bien diferenciados</b><br>
+                                    <br> <br>
+                                    Ejemplo de como debe quedar:<br> <br>
+                                    <b style="color: red;">Contenido del libro</b><br>
+                                    <b style="color: blue;">El contenido de este libro se estructura
+                                        en tres apartados bien diferenciados</b><br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -75,22 +75,12 @@ if (empty($existe) && $id_user != 1) {
     <script src="../../js/fund.js"></script>
     <script>
         function miFunc() {
+            // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
-            let titles = frame.querySelectorAll("h1").length;
-            let divs = frame.querySelectorAll("div").length;
-            let editor = document.getElementById("cd").value;
+            let bolds = frame.querySelectorAll("b").length;
+            let h1 = frame.querySelectorAll("h1").length;
 
-            if (titles < 1 || divs < 2) {
-                Swal.fire({
-                    icon: 'info',
-                    title: 'Oops...',
-                    text: '¡Verifica tu respuesta!',
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 1 + '&practico=' + 10;
-                    }
-                });
-            } else {
+            if (bolds > 0 && h1 > 0) {
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',
@@ -98,12 +88,23 @@ if (empty($existe) && $id_user != 1) {
                     imageHeight: 350,
                     backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 1 + '&practico=' + 10;
+                    window.location.href = '../../acciones/insertar_pd28.php?validar=' + 'correcto' + '&permiso=' + 28 + '&id_curso=' + 1 + '&practico=' + 10;
+                });
+            } else {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_pd28.php?validar=' + 'incorrecto' + '&permiso=' + 28 + '&id_curso=' + 1 + '&practico=' + 10;
+                    }
                 });
             }
         }

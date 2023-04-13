@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula12";
+$permiso = "capsula36";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -44,14 +44,14 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: A continuación se muestra un 
-                                    código HTML lo que tienes que hacer es general 
-                                    en un código CSS que el texto que se encuentra entre 
-                                    < h1> , < h2> y < p> se de un solo color (color de tu 
-                                    preferencia).
-                                    <br> <br>
-                                    Ejemplo de como debe quedar:<br> <br>
-                                    <img src="../../../../../../img/selectorpractica.png" style="height: 100px; width: 200px;">
+                                <p>Instrucciones: A continuación se muestra un
+                                    código HTML lo que tienes que hacer es general
+                                    en un código CSS que el texto que se encuentra entre
+                                    < h1> , < h2> y < p> se de un solo color (color de tu
+                                                preferencia).
+                                                <br> <br>
+                                                Ejemplo de como debe quedar:<br> <br>
+                                                <img src="../../../../../../img/selectorpractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
@@ -66,7 +66,7 @@ if (empty($existe) && $id_user != 1) {
             </div>
             <div class="">
                 <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onchange="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
+                <textarea onkeydown="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
                 <iframe class="editor" id="editor" srcdoc=" "></iframe>
             </div>
             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%; " disabled>Evaluar</button></a>
@@ -74,9 +74,13 @@ if (empty($existe) && $id_user != 1) {
     </div>
     <script>
         function miFunc() {
+            // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
-            let images = frame.querySelectorAll("img").length;
-            if (images == 3) {
+            let h1 = frame.querySelectorAll("h1").length;
+            let h2 = frame.querySelectorAll("h2").length;
+            let p = frame.querySelectorAll("p").length;
+
+            if (h1 > 0 && h2 > 0 && p > 0) {
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',
@@ -84,21 +88,22 @@ if (empty($existe) && $id_user != 1) {
                     imageHeight: 350,
                     backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd13.php?validar=' + 'correcto' + '&permiso=' + 13 + '&id_curso=' + 1 + '&practico=' + 10;
+                    window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'correcto' + '&permiso=' + 37 + '&id_curso=' + 1 + '&practico=' + 10;
                 });
             } else {
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd13.php?validar=' + 'incorrecto' + '&permiso=' + 13 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd37.php?validar=' + 'incorrecto' + '&permiso=' + 37 + '&id_curso=' + 1 + '&practico=' + 10;
                     }
                 });
             }

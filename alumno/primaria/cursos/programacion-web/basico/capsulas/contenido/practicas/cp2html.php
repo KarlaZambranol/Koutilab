@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula6";
+$permiso = "capsula5";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -47,7 +47,7 @@ if (empty($existe) && $id_user != 1) {
                             <td class="nombre">
                                 <p>Instrucciones: Realizar diferentes formatos de texto como negritas
                                     subrayado, suindices, superindices, cursiva, tamaño de palabras y espacio simple.
-                                    La frase que ocuparas en todos los ejemplos sera: 'Somos un gran equipo que conforma Koutilab 
+                                    La frase que ocuparas en todos los ejemplos sera: 'Somos un gran equipo que conforma Koutilab
                                     con caracteristicas importantes'.
                                     <br> <br>
                                     Ejemplos de como debe quedar:<br> <br>
@@ -88,21 +88,22 @@ if (empty($existe) && $id_user != 1) {
                     imageHeight: 350,
                     backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 1 + '&practico=' + 10;
+                    window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'correcto' + '&permiso=' + 6 + '&id_curso=' + 1 + '&practico=' + 10;
                 });
             } else {
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd6.php?validar=' + 'incorrecto' + '&permiso=' + 6 + '&id_curso=' + 1 + '&practico=' + 10;
                     }
                 });
             }

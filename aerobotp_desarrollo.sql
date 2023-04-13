@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-04-2023 a las 03:37:37
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Tiempo de generación: 13-04-2023 a las 20:07:58
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `acceso_cursos` (
   `id_acceso` int(11) NOT NULL,
   `curso` varchar(100) DEFAULT NULL,
   `id_alumno` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `acceso_cursos`
@@ -63,7 +63,7 @@ CREATE TABLE `admin` (
   `fondo` varchar(100) DEFAULT NULL,
   `nombre` varchar(100) DEFAULT NULL,
   `pais` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `admin`
@@ -91,14 +91,14 @@ CREATE TABLE `alumnos` (
   `fondo` varchar(100) DEFAULT NULL,
   `id_escuela` int(11) DEFAULT NULL,
   `id_docente` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `alumnos`
 --
 
 INSERT INTO `alumnos` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, `image`, `nivel_educativo`, `grado_escolar`, `nombre_grupo`, `fondo`, `id_escuela`, `id_docente`) VALUES
-(1, 'Alumno Desarrollo', 'alumno.desarrollo', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-6GBXLNEP', 'Mascota-Aerobot-01.png', 'Primaria', '1', NULL, 'portada-1.png', 1, 1);
+(1, 'Alumno Desarrollo', 'alumno.desarrollo', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-6GBXLNEP', 'Mascota-Aerobot-01.png', 'Primaria', '1', '1A', 'portada-1.png', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,7 @@ INSERT INTO `alumnos` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, 
 CREATE TABLE `capsulas` (
   `id_capsula` int(11) NOT NULL,
   `nombre` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `capsulas`
@@ -164,7 +164,41 @@ INSERT INTO `capsulas` (`id_capsula`, `nombre`) VALUES
 (46, 'capsula46'),
 (47, 'capsula47'),
 (48, 'capsula48'),
-(49, 'capsula49');
+(49, 'capsula49'),
+(50, 'capsula50'),
+(51, 'capsula51'),
+(52, 'capsula52'),
+(53, 'capsula53'),
+(54, 'capsula54'),
+(55, 'capsula55'),
+(56, 'capsula56'),
+(57, 'capsula57'),
+(58, 'capsula58'),
+(59, 'capsula59'),
+(60, 'capsula60'),
+(61, 'capsula61');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `capsulas_pago`
+--
+
+CREATE TABLE `capsulas_pago` (
+  `id_capsula_pago` int(11) NOT NULL,
+  `nombre` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `capsulas_pago`
+--
+
+INSERT INTO `capsulas_pago` (`id_capsula_pago`, `nombre`) VALUES
+(1, 'capsulapago1'),
+(2, 'capsulapago2'),
+(3, 'capsulapago3'),
+(4, 'capsulapago4'),
+(5, 'capsulapago5');
 
 -- --------------------------------------------------------
 
@@ -181,7 +215,7 @@ CREATE TABLE `cursos` (
   `php` int(11) DEFAULT NULL,
   `python` int(11) DEFAULT NULL,
   `id_alumno` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -192,7 +226,7 @@ CREATE TABLE `cursos` (
 CREATE TABLE `cursos_primaria` (
   `id_curso` int(11) NOT NULL,
   `curso` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cursos_primaria`
@@ -220,7 +254,82 @@ CREATE TABLE `detalle_capsulas` (
   `id_permiso` int(11) DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `id_curso` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalle_capsulas`
+--
+
+INSERT INTO `detalle_capsulas` (`id`, `id_permiso`, `id_usuario`, `id_curso`) VALUES
+(1, 1, 1, 1),
+(2, 2, 1, 1),
+(3, 3, 1, 1),
+(4, 4, 1, 1),
+(5, 5, 1, 1),
+(6, 6, 1, 1),
+(7, 7, 1, 1),
+(8, 8, 1, 1),
+(9, 9, 1, 1),
+(10, 10, 1, 1),
+(11, 11, 1, 1),
+(12, 12, 1, 1),
+(13, 13, 1, 1),
+(14, 14, 1, 1),
+(15, 15, 1, 1),
+(16, 16, 1, 1),
+(17, 17, 1, 1),
+(18, 18, 1, 1),
+(19, 19, 1, 1),
+(20, 20, 1, 1),
+(21, 21, 1, 1),
+(22, 22, 1, 1),
+(23, 23, 1, 1),
+(24, 24, 1, 1),
+(25, 25, 1, 1),
+(26, 26, 1, 1),
+(27, 27, 1, 1),
+(28, 28, 1, 1),
+(29, 29, 1, 1),
+(30, 30, 1, 1),
+(31, 31, 1, 1),
+(32, 32, 1, 1),
+(33, 33, 1, 1),
+(34, 34, 1, 1),
+(35, 35, 1, 1),
+(36, 36, 1, 1),
+(37, 37, 1, 1),
+(38, 38, 1, 1),
+(39, 39, 1, 1),
+(40, 40, 1, 1),
+(41, 41, 1, 1),
+(42, 42, 1, 1),
+(43, 43, 1, 1),
+(44, 44, 1, 1),
+(45, 45, 1, 1),
+(46, 46, 1, 1),
+(47, 47, 1, 1),
+(48, 48, 1, 1),
+(49, 49, 1, 1),
+(50, 50, 1, 1),
+(51, 51, 1, 1),
+(52, 52, 1, 1),
+(53, 53, 1, 1),
+(54, 54, 1, 1),
+(55, 55, 1, 1),
+(56, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_capsulas_pago`
+--
+
+CREATE TABLE `detalle_capsulas_pago` (
+  `id` int(11) NOT NULL,
+  `id_permiso` int(11) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `id_curso` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -237,7 +346,7 @@ CREATE TABLE `detalle_cursos` (
   `php` int(5) DEFAULT NULL,
   `python` int(5) DEFAULT NULL,
   `id_alumno` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -255,7 +364,7 @@ CREATE TABLE `detalle_estadisticas` (
   `teorico` int(11) DEFAULT NULL,
   `id_alumno` int(11) DEFAULT NULL,
   `id_curso` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -267,7 +376,14 @@ CREATE TABLE `detalle_grupos` (
   `id` int(11) NOT NULL,
   `id_alumno` int(11) DEFAULT NULL,
   `id_grupo` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalle_grupos`
+--
+
+INSERT INTO `detalle_grupos` (`id`, `id_alumno`, `id_grupo`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -281,7 +397,7 @@ CREATE TABLE `detalle_intentos` (
   `id_alumno` int(11) DEFAULT NULL,
   `intentos` int(11) DEFAULT NULL,
   `id_curso` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -297,7 +413,7 @@ CREATE TABLE `directores` (
   `clave` varchar(100) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `id_escuela` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -313,7 +429,7 @@ CREATE TABLE `docentes` (
   `clave` varchar(100) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `id_escuela` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `docentes`
@@ -344,7 +460,7 @@ CREATE TABLE `escuelas` (
   `clave_alumno` varchar(100) DEFAULT NULL,
   `clave_docente` varchar(100) DEFAULT NULL,
   `clave_director` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `escuelas`
@@ -369,7 +485,14 @@ CREATE TABLE `estadisticas` (
   `teorico` int(5) DEFAULT NULL,
   `id_alumno` int(5) DEFAULT NULL,
   `id_curso` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `estadisticas`
+--
+
+INSERT INTO `estadisticas` (`id_estadistica`, `trofeos`, `progreso`, `puntos`, `audiovisual`, `practico`, `teorico`, `id_alumno`, `id_curso`) VALUES
+(1, 0, 0, 0, 0, 0, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -394,7 +517,7 @@ CREATE TABLE `formulario` (
   `num_exterior` varchar(100) DEFAULT NULL,
   `colonia` varchar(100) DEFAULT NULL,
   `codigo_postal` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -409,7 +532,30 @@ CREATE TABLE `grupos` (
   `grado` varchar(100) DEFAULT NULL,
   `curso` varchar(100) DEFAULT NULL,
   `id_docente` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `grupos`
+--
+
+INSERT INTO `grupos` (`id_grupo`, `materia`, `nombre_grupo`, `grado`, `curso`, `id_docente`) VALUES
+(1, 'Desarrollo', '1A', '1°', 'Programacion web basica', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `payment`
+--
+
+CREATE TABLE `payment` (
+  `id_payment` int(11) NOT NULL,
+  `payment_id` varchar(255) NOT NULL,
+  `item_number` varchar(255) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `payment_amount` double(10,2) NOT NULL,
+  `payment_currency` varchar(255) NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -421,7 +567,7 @@ CREATE TABLE `roles` (
   `id_rol` int(11) NOT NULL,
   `clave` varchar(100) DEFAULT NULL,
   `rol` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -435,10 +581,7 @@ INSERT INTO `roles` (`id_rol`, `clave`, `rol`) VALUES
 (5, 'adminsecundario', 5),
 (6, 'ABC-6GBXLNEP', 2),
 (7, 'ABC-V9J8TPJW', 3),
-(8, 'ABC-BV1NUK4', 4),
-(9, 'ABC-6GBXLNEP', 2),
-(10, 'ABC-6GBXLNEP', 2),
-(11, 'ABC-6GBXLNEP', 2);
+(8, 'ABC-BV1NUK4', 4);
 
 -- --------------------------------------------------------
 
@@ -453,7 +596,7 @@ CREATE TABLE `sugerencias` (
   `asunto` varchar(100) DEFAULT NULL,
   `mensaje` varchar(100) DEFAULT NULL,
   `estado` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
@@ -484,6 +627,12 @@ ALTER TABLE `capsulas`
   ADD PRIMARY KEY (`id_capsula`);
 
 --
+-- Indices de la tabla `capsulas_pago`
+--
+ALTER TABLE `capsulas_pago`
+  ADD PRIMARY KEY (`id_capsula_pago`);
+
+--
 -- Indices de la tabla `cursos`
 --
 ALTER TABLE `cursos`
@@ -499,6 +648,12 @@ ALTER TABLE `cursos_primaria`
 -- Indices de la tabla `detalle_capsulas`
 --
 ALTER TABLE `detalle_capsulas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `detalle_capsulas_pago`
+--
+ALTER TABLE `detalle_capsulas_pago`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -562,6 +717,12 @@ ALTER TABLE `grupos`
   ADD PRIMARY KEY (`id_grupo`);
 
 --
+-- Indices de la tabla `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id_payment`);
+
+--
 -- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -599,7 +760,13 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT de la tabla `capsulas`
 --
 ALTER TABLE `capsulas`
-  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_capsula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT de la tabla `capsulas_pago`
+--
+ALTER TABLE `capsulas_pago`
+  MODIFY `id_capsula_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos`
@@ -617,6 +784,12 @@ ALTER TABLE `cursos_primaria`
 -- AUTO_INCREMENT de la tabla `detalle_capsulas`
 --
 ALTER TABLE `detalle_capsulas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT de la tabla `detalle_capsulas_pago`
+--
+ALTER TABLE `detalle_capsulas_pago`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -635,7 +808,7 @@ ALTER TABLE `detalle_estadisticas`
 -- AUTO_INCREMENT de la tabla `detalle_grupos`
 --
 ALTER TABLE `detalle_grupos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_intentos`
@@ -665,7 +838,7 @@ ALTER TABLE `escuelas`
 -- AUTO_INCREMENT de la tabla `estadisticas`
 --
 ALTER TABLE `estadisticas`
-  MODIFY `id_estadistica` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_estadistica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `formulario`
@@ -677,13 +850,19 @@ ALTER TABLE `formulario`
 -- AUTO_INCREMENT de la tabla `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `sugerencias`

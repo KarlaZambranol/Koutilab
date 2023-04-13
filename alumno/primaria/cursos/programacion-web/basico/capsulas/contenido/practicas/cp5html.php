@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula16";
+$permiso = "capsula14";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -45,11 +45,12 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Crear un hipervínculo de tu pagina web a otra pagina 
+                                <p>Instrucciones: Crear un hipervínculo de tu pagina web a otra pagina
                                     de tu agrado, el hipervínculo tendrá una oración.
                                     <br> <br>
                                     Ejemplos de como debe quedar:<br> <br>
-                                <p> Este es mi <p style=" color: blue;">link</p>
+                                <p> Este es mi
+                                <p style=" color: blue;">link</p>
                                 </p>
                             </td>
                             <td class="ne">
@@ -72,20 +73,12 @@ if (empty($existe) && $id_user != 1) {
         </div>
     </div>
     <script>
-        let check = true;
-
         function miFunc() {
+            // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
-            var nodes = frame.querySelectorAll("div");
-            //checar que hay 3 divs
-            if (nodes.length == 3) {
-                //aplicar nodecheck a cada div
-                nodes.forEach(nodeCheck);
-            } else {
-                check = false;
-            }
+            let a = frame.querySelectorAll("a").length;
 
-            if (check) {
+            if (a > 0) {
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',
@@ -93,34 +86,24 @@ if (empty($existe) && $id_user != 1) {
                     imageHeight: 350,
                     backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd17.php?validar=' + 'correcto' + '&permiso=' + 17 + '&id_curso=' + 1 + '&practico=' + 10;
+                    window.location.href = '../../acciones/insertar_pd15.php?validar=' + 'correcto' + '&permiso=' + 15 + '&id_curso=' + 1 + '&practico=' + 10;
                 });
             } else {
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd17.php?validar=' + 'incorrecto' + '&permiso=' + 17 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd15.php?validar=' + 'incorrecto' + '&permiso=' + 15 + '&id_curso=' + 1 + '&practico=' + 10;
                     }
                 });
-            }
-        }
-
-        let coloresValidos = ['red', 'green', 'white'];
-        let backgroundValidos = ['blue', 'yellow', 'green']
-
-        function nodeCheck(currentNode) {
-            if (check) {
-                if (!coloresValidos.includes(currentNode.style['color']) || !backgroundValidos.includes(currentNode.style['background-color'])) {
-                    check = false;
-                }
             }
         }
     </script>

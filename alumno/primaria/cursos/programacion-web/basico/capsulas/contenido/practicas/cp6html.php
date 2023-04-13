@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula19";
+$permiso = "capsula17";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -46,10 +46,10 @@ if (empty($existe) && $id_user != 1) {
                         <tr>
                             <td class="nombre">
                                 <p>Instrucciones: Agrega un video desde la carpeta local o por un
-                                        link solo con codigo HTML.
-                                                <br> <br>
-                                                Ejemplo de como debe quedar:<br> <br>
-                                                <img src="../../../../../../img/videopractica.png" style="height: 100px; width: 200px;">
+                                    link solo con codigo HTML.
+                                    <br> <br>
+                                    Ejemplo de como debe quedar:<br> <br>
+                                    <img src="../../../../../../img/videopractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
@@ -72,19 +72,12 @@ if (empty($existe) && $id_user != 1) {
         </div>
     </div>
     <script>
-        let check = false;
-
         function miFunc() {
+            // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
-            // "rgb(0, 128, 0)"
-            var head1 = window.getComputedStyle(frame.querySelector("h1"));
-            // "rgb(255, 255, 0)"
-            var head2 = window.getComputedStyle(frame.querySelector("h2"));
-            // "rgb(255, 255, 255)" 
-            // "rgb(128, 128, 128)"
-            var parr = window.getComputedStyle(frame.querySelector("p"));
-            anscheck(head1, head2, parr);
-            if (check) {
+            let videos = frame.querySelectorAll("video").length;
+
+            if (videos > 0) {
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',
@@ -92,33 +85,25 @@ if (empty($existe) && $id_user != 1) {
                     imageHeight: 350,
                     backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd20.php?validar=' + 'correcto' + '&permiso=' + 20 + '&id_curso=' + 1 + '&practico=' + 10;
+                    window.location.href = '../../acciones/insertar_pd18.php?validar=' + 'correcto' + '&permiso=' + 18 + '&id_curso=' + 1 + '&practico=' + 10;
                 });
             } else {
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd20.php?validar=' + 'incorrecto' + '&permiso=' + 20 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd18.php?validar=' + 'incorrecto' + '&permiso=' + 18 + '&id_curso=' + 1 + '&practico=' + 10;
                     }
                 });
             }
-        }
-
-        function anscheck(h1, h2, p) {
-            // checar los valores
-            let h1ans = h1['color'] == "rgb(0, 128, 0)";
-            let h2ans = h2['background-color'] == "rgb(255, 255, 0)";
-            let pans = p['color'] == "rgb(255, 255, 255)" && p['background-color'] == "rgb(128, 128, 128)";
-            // si alguno de los valores es false, se guarda false y se falla, de lo contrario se guardaria true
-            check = h1ans && h2ans && pans;
         }
     </script>
     <script src="../../js/fund.js"></script>

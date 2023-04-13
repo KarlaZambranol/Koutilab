@@ -6,11 +6,11 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula21";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$permiso = "capsulapago1";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago c INNER JOIN detalle_capsulas_pago d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
-if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+if (empty($existe)) {
+    header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula1html.php");
 }
 
 ?>
@@ -48,7 +48,7 @@ if (empty($existe) && $id_user != 1) {
                                 <p>Instrucciones: Crear un linea de tiempo sin estilos (CSS).
                                     Solo el formato de la fecha, titulo y parrafo.
                                     Utiliza < div> , < h3> y < p>
-                                    <br> <br>
+                                                <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -70,59 +70,39 @@ if (empty($existe) && $id_user != 1) {
     </div>
     <script>
         function miFunc() {
-
+            // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
-            var h1 = frame.querySelector("h1");
-            var p = frame.querySelector("p");
-            var ul = frame.querySelector("ul");
-            var img = frame.querySelector("img");
-            if (h1 == null || p == null || ul == null) {
-                alert("hacen falta cosas");
-            }
+            let divs = frame.querySelectorAll("div").length;
+            let h3 = frame.querySelectorAll("h3").length;
+            let ps = frame.querySelectorAll("p").length;
 
-            let elements = h1 != null && p != null && img != null && ul != null;
-            let listsize = ul.querySelectorAll("li").length > 2;
-            var styleh1 = window.getComputedStyle(h1);
-            var stylep = window.getComputedStyle(p);
-
-            let color = styleh1.getPropertyValue("color");
-            let bgc = stylep.getPropertyValue("background-color");
-            let hasColors = color != "rgb(0, 0, 0)" && bgc != "rgba(0, 0, 0, 0)";
-
-            if (elements) {
-                if (listsize) {
-                    if (hasColors) {
-                        Swal.fire({
-                            title: '¡Bien hecho!',
-                            text: 'ganaste: ' + puntosFinales + " puntos",
-                            imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                            imageHeight: 350,
-                            backdrop: `
+            if (divs > 0 && h3 > 0 && ps > 0) {
+                Swal.fire({
+                    title: '¡Bien hecho!',
+                    text: '¡Puntuación guardada con éxito!',
+                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
-                            confirmButtonColor: '#a14cd9',
-                            confirmButtonText: 'Aceptar',
-                        }).then((result) => {
-                            window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'incorrecto' + '&permiso=' + 22 + '&id_curso=' + 1 + '&practico=' + 10;
-                        });
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    window.location.href = '../../acciones/insertar_cp2.php?validar=' + 'correcto' + '&permiso=' + 2 + '&id_curso=' + 1 + '&practico=' + 10;
+                });
+            } else {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_cp2.php?validar=' + 'incorrecto' + '&permiso=' + 2 + '&id_curso=' + 1 + '&practico=' + 10;
                     }
-                }
+                });
             }
-            // fallo, quitar vidas
-            fail();
-        }
-
-        function fail() {
-            Swal.fire({
-                icon: 'info',
-                title: 'Oops...',
-                text: '¡Verifica tu respuesta!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'incorrecto' + '&permiso=' + 22 + '&id_curso=' + 1 + '&practico=' + 10;
-                }
-            });
         }
     </script>
     <script src="../../js/fund.js"></script>
