@@ -83,6 +83,46 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/introduccion/ci1html.php"><button class="btn1" id="intro"></button></a><!--Capsula introduccion a HTML-->
                 <!-- TEMA 1 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct1html.php"><button class="btn2" id="teoria"></button></a><!--Capsula teorica 1-->
+<<<<<<< HEAD
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp1html.php"><button class="btn3"  id="prac"></button></a><!--Capsula practica 1-->   
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj1.html"><button class="btn4"  id="game"></button></a><!--Capsula juego 1--> 
+                <!-- TEMA 2 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct2html.php"><button class="btn5" id="teoria"></button></a><!--Capsula teorica 2-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp2html.php"><button class="btn6" id="prac"></button></a><!--Capsula practica 2--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj2.html"><button class="btn7" id="game"></button></a><!--Capsula juego 2-->
+                <!-- TEMA 3 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct3html.php"><button class="btn8" id="teoria"></button></a><!--Capsula teorica 3-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp3html.php"><button class="btn9" id="prac"></button></a><!--Capsula practica 3--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj3.html"><button class="btn10" id="game"></button></a><!--Capsula juego 3-->
+                <!-- TEMA 4 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct4html.php"><button class="btn11" id="teoria"></button></a><!--Capsula teorica 4-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp4html.php"><button class="btn12" id="prac"></button></a><!--Capsula practica 4--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj4.html"><button class="btn13" id="game"></button></a><!--Capsula juego 4-->
+                <!-- TEMA 5 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct5html.php"><button class="btn14" id="teoria"></button></a><!--Capsula teorica 5-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp5html.php"><button class="btn15" id="prac"></button></a><!--Capsula practica 5--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj5.html"><button class="btn16" id="game"></button></a><!--Capsula juego 5--> 
+                <!-- TEMA 6 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct6html.php"><button class="btn17" id="teoria"></button></a><!--Capsula teorica 6-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp6html.php"><button class="btn18" id="prac"></button></a><!--Capsula practica 6--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj6.html"><button class="btn19" id="game"></button></a><!--Capsula juego 6-->
+                <!-- TEMA 7 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct7html.php"><button class="btn20" id="teoria"></button></a><!--Capsula teorica 7-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp7html.php"><button class="btn21" id="prac"></button></a><!--Capsula practica 7--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj7.html"><button class="btn22" id="game"></button></a><!--Capsula juego 7--> 
+                <!-- TEMA 8 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct8html.php"><button class="btn23" id="teoria"></button></a><!--Capsula teorica 8-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp8html.php"><button class="btn24" id="prac"></button></a><!--Capsula practica 8--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj8.html"><button class="btn25" id="game"></button></a><!--Capsula juego 8-->
+                <!-- TEMA 9 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct9html.php"><button class="btn26" id="teoria"></button></a><!--Capsula teorica 9-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp9html.php"><button class="btn27" id="prac"></button></a><!--Capsula practica 9--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj9.html"><button class="btn28" id="game"></button></a><!--Capsula juego 9-->
+                <!-- TEMA 10 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct10html.php"><button class="btn29" id="teoria"></button></a><!--Capsula teorica 10-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp10html.php"><button class="btn30" id="prac"></button></a><!--Capsula practica 10--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj10.html"><button class="btn31" id="game"></button></a><!--Capsula juego 10-->
+=======
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp1html.php"><button class="btn3" id="prac"></button></a><!--Capsula practica 1-->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj1.php"><button class="btn4" id="game"></button></a><!--Capsula juego 1-->
                 <!-- TEMA 2 -->
@@ -121,6 +161,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct10html.php"><button class="btn29" id="teoria" <?php echo 'style="' . (($existe_verificar_html2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 10-->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp10html.php"><button class="btn30" id="prac" <?php echo 'style="' . (($existe_verificar_html2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 10-->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj10.php"><button class="btn31" id="game" <?php echo 'style="' . (($existe_verificar_html2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_html2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 10-->
+>>>>>>> cb7565aaa8a370919fdf16a609d07ca9c4dd8018
                 <!-- EVALUATIVA HTML-->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/ce1html.php"><button class="btn32" id="eva"></button></a><!--Capsula evaluativas HTML-->
 
@@ -128,6 +169,46 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/introduccion/ci2css.php"><button class="btn33" id="intro"></button></a><!--Capsula introduccion a CSS-->
                 <!-- TEMA 1 -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct1css.php"><button class="btn34" id="teoria"></button></a><!--Capsula teorica 1-->
+<<<<<<< HEAD
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp1css.php"><button class="btn35" id="prac"></button></a><!--Capsula practica 1-->   
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj11.html"><button class="btn36" id="game"></button></a><!--Capsula juego 1--> 
+                <!-- TEMA 2 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct2css.php"><button class="btn37" id="teoria"></button></a><!--Capsula teorica 2-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp2css.php"><button class="btn38" id="prac"></button></a><!--Capsula practica 2--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj12.html"><button class="btn39" id="game"></button></a><!--Capsula juego 2-->
+                <!-- TEMA 3 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct3css.php"><button class="btn40" id="teoria"></button></a><!--Capsula teorica 3-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp3css.php"><button class="btn41" id="prac"></button></a><!--Capsula practica 3--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj13.html"><button class="btn42" id="game"></button></a><!--Capsula juego 3--> 
+                <!-- TEMA 4 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct4css.php"><button class="btn43" id="teoria"></button></a><!--Capsula teorica 4-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp4css.php"><button class="btn44" id="prac"></button></a><!--Capsula practica 4--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj14.html"><button class="btn45" id="game"></button></a><!--Capsula juego 4--> 
+                <!-- TEMA 5 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct5css.php"><button class="btn46" id="teoria"></button></a><!--Capsula teorica 5-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp5css.php"><button class="btn47" id="prac"></button></a><!--Capsula practica 5--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj15.html"><button class="btn48" id="game"></button></a><!--Capsula juego 5--> 
+                <!-- TEMA 6 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct6css.php"><button class="btn49" id="teoria"></button></a><!--Capsula teorica 6-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp6css.php"><button class="btn50" id="prac"></button></a><!--Capsula practica 6--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj16.html"><button class="btn51" id="game"></button></a><!--Capsula juego 6-->
+                <!-- TEMA 7 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct7css.php"><button class="btn52" id="teoria"></button></a><!--Capsula teorica 7-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp7css.php"><button class="btn53" id="prac"></button></a><!--Capsula practica 7--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj17.html"><button class="btn54" id="game"></button></a><!--Capsula juego 7-->
+                <!-- TEMA 8 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct8css.php"><button class="btn55" id="teoria"></button></a><!--Capsula teorica 8-->             
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp8css.php"><button class="btn56" id="prac"></button></a><!--Capsula practica 8--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj18.html"><button class="btn57" id="game"></button></a><!--Capsula juego 8--> 
+                <!-- TEMA 9 -->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct9css.php"><button class="btn58" id="teoria"></button></a><!--Capsula teorica 9-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp9css.php"><button class="btn59" id="prac"></button></a><!--Capsula practica 9--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj19.html"><button class="btn60" id="game"></button></a><!--Capsula juego 9-->
+                <!-- TEMA 10 --> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct10css.php"><button class="btn61" id="teoria"></button></a><!--Capsula teorica 10-->
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp10css.php"><button class="btn62" id="prac"></button></a><!--Capsula practica 10--> 
+                <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj20.html"><button class="btn63" id="game"></button></a><!--Capsula juego 10-->
+=======
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp1css.php"><button class="btn35" id="prac"></button></a><!--Capsula practica 1-->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj11.php"><button class="btn36" id="game"></button></a><!--Capsula juego 1-->
                 <!-- TEMA 2 -->
@@ -166,6 +247,7 @@ $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct10css.php"><button class="btn61" id="teoria" <?php echo 'style="' . (($existe_verificar_css2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula teorica 10-->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/practicas/cp10css.php"><button class="btn62" id="prac" <?php echo 'style="' . (($existe_verificar_css2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula practica 10-->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/juegos/cj20.php"><button class="btn63" id="game" <?php echo 'style="' . (($existe_verificar_css2 > 0 || $id_user == 1) ? 'display: block;' : 'display: none;') . ' ' . (($existe_comprada_css2 > 0) ? 'opacity: 1;' : 'opacity: 0.5;') . '"'; ?>></button></a><!--Capsula juego 10-->
+>>>>>>> cb7565aaa8a370919fdf16a609d07ca9c4dd8018
                 <!-- EVALUATIVA CSS -->
                 <a href="../cursos/programacion-web/basico/capsulas/contenido/evaluativas/ce2css.php"><button class="btn64" id="eva"></button></a><!--Capsula evaluativas HTML-->
             </div>
