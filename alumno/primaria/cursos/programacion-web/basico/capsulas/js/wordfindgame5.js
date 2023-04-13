@@ -224,6 +224,31 @@
 
         if (wordList.length === 0) {
           $('.puzzleSquare').addClass('complete');
+          var xmlhttp = new XMLHttpRequest();
+
+          var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 41 + "&id_curso=" + 1; //cancatenation
+
+          xmlhttp.onreadystatechange = function() {
+            Swal.fire({
+              title: '¡Bien hecho!',
+              text: '¡Puntuación guardada con éxito!',
+              imageUrl: "../../../../../../img/Thumbs-Up.gif",
+              imageHeight: 350,
+              backdrop: `
+              rgba(0,143,255,0.6)
+              url("../../../../../../img/fondo.gif")
+              `,
+              confirmButtonColor: '#a14cd9',
+              confirmButtonText: 'Aceptar',
+          }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+              }
+            });
+          }
+          xmlhttp.open("POST", "../acciones/insertar_pd41.php", true);
+          xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xmlhttp.send(param);
         }
       }
 

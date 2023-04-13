@@ -23,15 +23,21 @@ if (empty($existe) && $id_user != 1) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../../css/css-juegos/drag-drop.css">
     <title>KOUTILAB</title>
 </head>
 
-<body>
+<body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
         <h2 class="titulo" style="margin-left: 465px;"><b>ARRASTRAR Y SOLTAR</b></h2>
     </div>
+
+    <div class="timer">
+		<b style="margin-top: 10px;">Tiempo: <br>
+			<p id="tiempo"></p></b>
+	</div>
 
     <!-- Alerta -->
     <div id="mensaje"></div>
@@ -161,6 +167,37 @@ if (empty($existe) && $id_user != 1) {
     </div>
 
     <script>
+		var segundos = 180;
+
+		let puntos = 0;
+
+		function iniciarTiempo() {
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+
+          		var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 1; //cancatenation
+				Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                    }
+                });
+				xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
+			} else {
+				segundos --;
+				setTimeout("iniciarTiempo()", 1000);
+			}
+		}
+	</script>
+
+    <script>
         //Funcionamiento
 
         //Arreglo donde se declara el total de imagenes que se van a ocupar
@@ -189,12 +226,48 @@ if (empty($existe) && $id_user != 1) {
         function verificar() {
             if (arreglo[0] != "" && arreglo[1] != "" && arreglo[2] != "" && arreglo[3] != "" && arreglo[4] != "" && arreglo[5] != "" && arreglo[6] != "" && arreglo[7] != "" && arreglo[8] != "" && arreglo[9] != "") {
                 if (arreglo[0] == "html" && arreglo[1] == "html" && arreglo[2] == "html" && arreglo[3] == "html" && arreglo[4] == "html" && arreglo[5] == "css" && arreglo[6] == "css" && arreglo[7] == "css" && arreglo[8] == "css" && arreglo[9] == "css") {
-                    document.getElementById("mensaje").innerHTML = "Todas las palabras son correctas";
-                    document.getElementById("mensaje").style.fontSize = "15px";
-                    document.getElementById("mensaje").className = "alert alert-success";
+                    var xmlhttp = new XMLHttpRequest();
+
+                    var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 1; //cancatenation
+
+                    xmlhttp.onreadystatechange = function() {
+                        Swal.fire({
+                        title: '¡Bien hecho!',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                        rgba(0,143,255,0.6)
+                        url("../../../../../../img/fondo.gif")
+                        `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                        }
+                        });
+                    }
+                    xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send(param);
                 } else {
-                    document.getElementById("mensaje").innerHTML = "Verifica tus respuestas";
-                    document.getElementById("mensaje").className = "alert alert-danger";
+                    var xmlhttp = new XMLHttpRequest();
+
+                    var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 1; //cancatenation
+                    Swal.fire({
+                        title: 'Oops...',
+                        text: '¡Verifica tu respuesta!',
+                        imageUrl: "../../../../../../img/signo.gif",
+                        imageHeight: 350,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                        }
+                    });
+                    xmlhttp.open("POST", "../../acciones/insertar_pd22.php", true);
+                    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xmlhttp.send(param);
                 }
             }
         }

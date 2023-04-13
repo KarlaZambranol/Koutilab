@@ -134,7 +134,7 @@ if (empty($existe)) {
       <!-- HTML -->
       <!-- estructura visual -->
 
-      <div id="tablero" style="margin: 50px 0 0 120px; position: absolute; width: 950px;"></div>
+      <div id="tablero" style="margin: 50px 0 0 25px;"></div>
 
       <br />
 

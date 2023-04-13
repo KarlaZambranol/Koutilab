@@ -60,9 +60,10 @@ if (empty($existe) && $id_user != 1) {
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<link rel="stylesheet" href="../../css/css-juegos/crucigrama.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
+<body onload="iniciarTiempo();">
 	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo" style="margin-left: 480px;"><b>CRUCIGRAMA</b></h2>
@@ -70,6 +71,11 @@ if (empty($existe) && $id_user != 1) {
 
 	<!-- Alerta -->
 	<div id="mensaje" style="position: absolute;"></div>
+
+	<div class="timer">
+		<b style="margin-top: 10px;">Tiempo: <br>
+			<p id="tiempo"></p></b>
+	</div>
 
 	<!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
 	<div class="contenido" style="height: 700px;">
@@ -474,6 +480,38 @@ if (empty($existe) && $id_user != 1) {
 		<button class="verificar" style="margin-top: 700px;" onClick="verificar()">Comprobar respuestas</button>
 
 	</div>
+
+	<script>
+		var segundos = 180;
+
+		let puntos = 0;
+
+		function iniciarTiempo() {
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+
+          		var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 1; //cancatenation
+				Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                    }
+                });
+				xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
+			} else {
+				segundos --;
+				setTimeout("iniciarTiempo()", 1000);
+			}
+		}
+	</script>
+
 	<script>
 		// Deshabilitar todas las casillas
 		for (fila = 1; fila <= 11; fila++) {
@@ -604,8 +642,13 @@ if (empty($existe) && $id_user != 1) {
 		var errorActivo = 0;
 
 		function error() {
-			document.getElementById("mensaje").innerHTML = "Verifica tus respuestas";
-			document.getElementById("mensaje").className = "alert alert-danger";
+			Swal.fire({
+				title: "Verifica tus respuestas",
+				text: "Corrige tus respuestas antes de que termine el tiempo",
+				icon: "info",
+				confirmButtonColor: "#3085d6",
+				confirmButtonText: "Continuar",
+			})
 			errorActivo = 1;
 		}
 
@@ -631,9 +674,31 @@ if (empty($existe) && $id_user != 1) {
 
 			//Condicional para regresar que las repuestas sean correctas, en caso de no serlo, regresará error en la palabra que este mal
 			if (palabra1.toLowerCase() == "subindices" && palabra2.toLowerCase() == "subrayado" && palabra3.toLowerCase() == "marcatextos" && palabra4.toLowerCase() == "negrita" && palabra5.toLowerCase() == "cursiva") {
-				document.getElementById("mensaje").innerHTML = "Todas las palabras son correctas";
-				document.getElementById("mensaje").style.fontSize = "15px";
-				document.getElementById("mensaje").className = "alert alert-success";
+				var xmlhttp = new XMLHttpRequest();
+
+				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 1; //cancatenation
+
+				xmlhttp.onreadystatechange = function() {
+					Swal.fire({
+					title: '¡Bien hecho!',
+					text: '¡Puntuación guardada con éxito!',
+					imageUrl: "../../../../../../img/Thumbs-Up.gif",
+					imageHeight: 350,
+					backdrop: `
+					rgba(0,143,255,0.6)
+					url("../../../../../../img/fondo.gif")
+					`,
+					confirmButtonColor: '#a14cd9',
+					confirmButtonText: 'Aceptar',
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+					}
+					});
+				}
+				xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
 			} else {
 				if (palabra1.toLowerCase() != "subindices") {
 					palabra1_letra1.value = "";
