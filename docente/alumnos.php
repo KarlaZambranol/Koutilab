@@ -248,7 +248,7 @@ $data1 = mysqli_fetch_assoc($query1);
                     </div>
                     <div class="input-box1">
                         <span class="details">Nombre completo: </span>
-                        <input type="text" name="nombre" placeholder="Nombre del Alumno" required>
+                        <input type="text" onkeydown="generarUsuario()" name="nombre" id="nombrealumno" placeholder="Nombre del Alumno" required>
                     </div>
                     <div class="input-box1">
                         <span class="details">Nombre del grupo: </span>
@@ -266,7 +266,7 @@ $data1 = mysqli_fetch_assoc($query1);
                     <div class="input-box1">
                         <span class="details">Usuario: </span>
                         <!-- Generar usuario random -->
-                        <input type="text" name="usuario" placeholder="Usuario del alumno" required>
+                        <input type="text" name="usuario" id="usuarioalumno" placeholder="Usuario del alumno" required readonly>
                     </div>
                     <div class="campo">
                         <label for="password">Contraseña:</label>
@@ -447,6 +447,28 @@ $data1 = mysqli_fetch_assoc($query1);
             </video>
         </div>
     </dialog>
+
+    <script>
+        /* Función para generar clave para alumno */
+        function generarUsuarioAlumno() {
+            var pass = "";
+            var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            for (let i = 1; i <= 4; i++) {
+                var char = Math.floor(Math.random() * str.length + 1);
+                pass += str.charAt(char);
+            }
+            return pass;
+        }
+
+        function generarUsuario() {
+            var nombre = document.getElementById("nombrealumno").value;
+            var prefijo;
+            var resultado;
+            prefijo = nombre.substr(0, 10);
+            resultado = "@" + prefijo.toLowerCase() + "-" + generarUsuarioAlumno().toLowerCase();
+            document.getElementById("usuarioalumno").value = resultado.split(" ").join("");
+        }
+    </script>
 
     <script>
         function copyToClipBoard() {

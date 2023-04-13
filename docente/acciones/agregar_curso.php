@@ -90,6 +90,27 @@
                         </div>
 
                         <div class="input-box1">
+                            <span class="details">Cursos del grupo</span>
+                            <table width="100%" class="table border-top">
+                                <tbody>
+                                    <?php
+                                    include "../../acciones/conexion.php";
+                                    $query_alumnos = mysqli_query($conexion, "SELECT distinct ac.curso FROM alumnos a JOIN detalle_grupos dg ON dg.id_alumno = a.id_alumno JOIN acceso_cursos ac ON ac.id_alumno = dg.id_alumno WHERE dg.id_grupo = $idgrupo");
+                                    $result = mysqli_num_rows($query_alumnos);
+                                    if ($result > 0) {
+                                        while ($data = mysqli_fetch_assoc($query_alumnos)) {
+
+                                    ?>
+                                            <tr>
+                                                <td><?php echo $data['curso']; ?></td>
+                                            </tr>
+                                    <?php }
+                                    } ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="input-box1">
                             <span class="details">Cursos</span>
                             <select style="height: 44px;" name="curso" type="select" required>
                                 <option value="Programacion web basica">Programacion web basica</option>
@@ -107,8 +128,11 @@
                     </div>
 
                     <br>
-                    <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
-                    <a href="../grupos.php" class="btn btn-danger">Atrás</a>
+                    <div style="display: flex; text-align: center; justify-content: center; gap: 10px;">
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <a href="../grupos.php" class="btn btn-danger">Atrás</a>
+                    </div>
+
                 </form>
 
             </div>
