@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula21";
+$permiso = "capsula48";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -45,19 +45,17 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones:Crea un documento HTML con 5 
+                                <p>Instrucciones:Crea un documento HTML con 5
                                     divisiones, cada una separada de la anterior
-                                    por dos elementos. En cada división introduce 
-                                    un texto (p.ej. div 1, div 2, div 3…) y aplícale 
+                                    por dos elementos. En cada división introduce
+                                    un texto (p.ej. div 1, div 2, div 3…) y aplícale
                                     un estilo de borde diferente utilizando la propiedad
-                                    border-style. 
+                                    border-style.
                                     <br> <br>
-                                    Ejemplo de como debe quedar:<br> <br>
-                                    <img src="../../../../../../img/bordespractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
-                            
+                                <img src="../../../../../../img/bordespractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>
@@ -75,59 +73,37 @@ if (empty($existe) && $id_user != 1) {
     </div>
     <script>
         function miFunc() {
-
+            // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
-            var h1 = frame.querySelector("h1");
-            var p = frame.querySelector("p");
-            var ul = frame.querySelector("ul");
-            var img = frame.querySelector("img");
-            if (h1 == null || p == null || ul == null) {
-                alert("hacen falta cosas");
-            }
+            let divs = frame.querySelectorAll("div").length;
 
-            let elements = h1 != null && p != null && img != null && ul != null;
-            let listsize = ul.querySelectorAll("li").length > 2;
-            var styleh1 = window.getComputedStyle(h1);
-            var stylep = window.getComputedStyle(p);
-
-            let color = styleh1.getPropertyValue("color");
-            let bgc = stylep.getPropertyValue("background-color");
-            let hasColors = color != "rgb(0, 0, 0)" && bgc != "rgba(0, 0, 0, 0)";
-
-            if (elements) {
-                if (listsize) {
-                    if (hasColors) {
-                        Swal.fire({
-                            title: '¡Bien hecho!',
-                            text: 'ganaste: ' + puntosFinales + " puntos",
-                            imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                            imageHeight: 350,
-                            backdrop: `
+            if (divs > 4) {
+                Swal.fire({
+                    title: '¡Bien hecho!',
+                    text: '¡Puntuación guardada con éxito!',
+                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                    imageHeight: 350,
+                    backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
-                            confirmButtonColor: '#a14cd9',
-                            confirmButtonText: 'Aceptar',
-                        }).then((result) => {
-                            window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'incorrecto' + '&permiso=' + 22 + '&id_curso=' + 1 + '&practico=' + 10;
-                        });
+                    confirmButtonColor: '#a14cd9',
+                    confirmButtonText: 'Aceptar',
+                }).then((result) => {
+                    window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'correcto' + '&permiso=' + 49 + '&id_curso=' + 1 + '&practico=' + 10;
+                });
+            } else {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'incorrecto' + '&permiso=' + 49 + '&id_curso=' + 1 + '&practico=' + 10;
                     }
-                }
+                });
             }
-            // fallo, quitar vidas
-            fail();
-        }
-
-        function fail() {
-            Swal.fire({
-                icon: 'info',
-                title: 'Oops...',
-                text: '¡Verifica tu respuesta!',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '../../acciones/insertar_pd22.php?validar=' + 'incorrecto' + '&permiso=' + 22 + '&id_curso=' + 1 + '&practico=' + 10;
-                }
-            });
         }
     </script>
     <script src="../../js/fund.js"></script>

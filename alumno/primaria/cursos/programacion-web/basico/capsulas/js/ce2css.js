@@ -59,23 +59,26 @@ function fetchQuiz() {
                     const answer = div1.children;
                     if (answer[0].innerText == data[i].correctAnswer) {
                         score++;
-                        Swal.fire(
-                            'Buen trabajo',
-                            '¡Respuesta correcta!',
-                            'success'
-                        )
+                        Swal.fire({
+                            title: 'Buen trabajo',
+                            text: '¡Respuesta correcta!',
+                            imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                            imageHeight: 350,
+                        })
                     } else {
                         Swal.fire({
-                            icon: 'info',
                             title: 'Oops...',
                             text: '¡Verifica tu respuesta!',
+                            imageUrl: "../../../../../../img/signo.gif",
+                            imageHeight: 350,
                         })
                     }
                 } else {
                     Swal.fire({
-                        icon: 'error',
                         title: 'Oops...',
                         text: '¡No has seleccionado una respuesta!',
+                        imageUrl: "../../../../../../img/loop.gif",
+                        imageHeight: 350,
                     })
                 }
                 document.getElementById("score").innerHTML = score + "/" + (i + 1);
@@ -120,7 +123,7 @@ function fetchQuiz() {
             //save score button
             save.addEventListener("click", () => {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 21 + "&id_curso=" + 1; //cancatenation
+                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 51 + "&id_curso=" + 1; //cancatenation
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -131,7 +134,7 @@ function fetchQuiz() {
                             imageHeight: 350,
                             backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'Aceptar',
@@ -140,7 +143,7 @@ function fetchQuiz() {
                         });
                     }
                 }
-                xmlhttp.open("POST", "../../acciones/insertar_pd21.php", true);
+                xmlhttp.open("POST", "../../acciones/insertar_pd51.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
             });

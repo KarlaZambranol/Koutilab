@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula6";
+$permiso = "capsula30";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -39,27 +39,23 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Ejemplo de resultado</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: En un documento CSS con ayuda de un 
-                                    archivo HTML coloca un fondo de color, así también 
+                                <p>Instrucciones: En un documento CSS con ayuda de un
+                                    archivo HTML coloca un fondo de color, así también
                                     como títulos de diferentes tamaños y párrafos.En el archivo
-                                    CSS donde se le dará el estilo se debe de seguir la sintaxis 
+                                    CSS donde se le dará el estilo se debe de seguir la sintaxis
                                     anteriormente mencionada, como por ejemplo debe llevar un selector,
                                     propiedad, valor y las declaraciones.
                                     <br> <br>
-                                    Ejemplos de como debe quedar:<br> <br>
-                                    h1 {color:red; font-size: 12px;}
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
+                            <img src="../../../../../../img/sintaxiscsspractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>
@@ -78,11 +74,10 @@ if (empty($existe) && $id_user != 1) {
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
-            let bolds = frame.querySelectorAll("b").length;
-            let italics = frame.querySelectorAll("i").length;
-            let marks = frame.querySelectorAll("mark").length;
+            let h1 = frame.querySelectorAll("h1").length;
+            let p = frame.querySelectorAll("p").length;
 
-            if (bolds > 0 && italics > 0 && marks > 0) {
+            if (h1 > 0 && p > 0) {
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',
@@ -90,21 +85,22 @@ if (empty($existe) && $id_user != 1) {
                     imageHeight: 350,
                     backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
                 }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'correcto' + '&permiso=' + 7 + '&id_curso=' + 1 + '&practico=' + 10;
+                    window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 1 + '&practico=' + 10;
                 });
             } else {
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd7.php?validar=' + 'incorrecto' + '&permiso=' + 7 + '&id_curso=' + 1 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 1 + '&practico=' + 10;
                     }
                 });
             }

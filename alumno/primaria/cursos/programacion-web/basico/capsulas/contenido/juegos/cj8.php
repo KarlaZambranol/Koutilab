@@ -1,0 +1,80 @@
+<!-- Este juego debe insertar el permiso 25 -->
+<?php
+session_start();
+$id_user = $_SESSION['idUser'];
+if (empty($_SESSION['active'])) {
+	header('location: ../../../../../../../../index.php');
+}
+include "../../../../../../../../acciones/conexion.php";
+$id_user = $_SESSION['idUser'];
+$permiso = "capsula24";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
+$existe = mysqli_fetch_all($sql);
+if (empty($existe) && $id_user != 1) {
+	header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>KOUTILAB</title>
+	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/sopa-letras.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/wordfind.js"></script>
+	<script type="text/javascript" src="../../js/wordfindgame.js"></script>
+</head>
+
+<body>
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo" style="margin-left: 475px;"><b>SOPA DE LETRAS</b></h2>
+	</div>
+
+	<div class="contenido">
+		<!-- Titulo secundario -->
+		<h5 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h5>
+		<br>
+
+		<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
+		<div class="words">
+			<h6><b>Palabras a buscar:</b></h6>
+			<div id='Palabras'></div>
+		</div>
+
+		<div class="linea"></div>
+
+		<!-- Sección donde se agrega la sopa de letras -->
+		<div class="soup">
+			<div id='juego'></div>
+
+			<!-- Boton para resolver la sopa de letras, mantener comentado -->
+			<!-- <button id='solve'>Resolver el juego</button> -->
+		</div>
+
+	</div>
+
+	<script>
+		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
+		// para mantener proporcion
+		var words = ['BUTTON', 'NAME', 'TYPE', 'VALUE', 'PHP', 'DISABLED', 'PRESIONAR', 'INPUT'];
+		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
+
+		var puzzle = wordfind.newPuzzle(words, {
+			height: 18,
+			width: 18,
+			fillBlanks: false
+		});
+		wordfind.print(puzzle);
+
+		$('#solve').click(function() {
+			wordfindgame.solve(gamePuzzle, words);
+		});
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+
+</html>
