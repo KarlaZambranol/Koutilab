@@ -39,42 +39,24 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Ejemplo de resultado</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: 1. haga 1 lista, que contenga el nombre de 5 compañeros
+                                <p>Instrucciones: 
+                                    1. haga 1 lista, que contenga el nombre de 5 compañeros
                                     de la escuela, esta lista debe ser no ordenada.
-                                    <br>
-                                    Ejemplos de como debe quedar:<br>
-                                <ul style="margin-left: 40px;">
-                                    <li>Juan</li>
-                                    <li>Diego</li>
-                                    <li>Ana</li>
-                                    <li>Rosa</li>
-                                    <li>Maria</li>
-                                </ul>
                                 <br>
                                 2. haga 1 lista, que contenga el nombre de 5 sus 5 juguetes favoritos,
                                 Estos juguetes deben estar ordenados, es claramente subjetivo
                                 y no afecta el orden al resultado.
                                 <br>
-                                Ejemplos de como debe quedar:<br>
-                                <ol style="margin-left: 40px;">
-                                    <li>Carrito</li>
-                                    <li>Muñeca</li>
-                                    <li>Lego</li>
-                                    <li>Patines</i>
-                                    <li>Pelota</li>
-                                </ol>
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
+                                <img src="../../../../../../img/listasorpractica.png" style="height: 150px; width: 450px;">
                             </td>
                         </tr>
                     </tbody>

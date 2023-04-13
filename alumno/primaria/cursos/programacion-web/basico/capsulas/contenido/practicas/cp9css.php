@@ -52,12 +52,10 @@ if (empty($existe) && $id_user != 1) {
                                     un estilo de borde diferente utilizando la propiedad
                                     border-style.
                                     <br> <br>
-                                    Ejemplo de como debe quedar:<br> <br>
-                                    <img src="../../../../../../img/bordespractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
-
+                                <img src="../../../../../../img/bordespractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

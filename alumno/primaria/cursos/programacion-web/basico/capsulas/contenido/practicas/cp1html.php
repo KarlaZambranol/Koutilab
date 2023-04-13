@@ -39,7 +39,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Ejemplo de resultado</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,18 +49,10 @@ if (empty($existe) && $id_user != 1) {
                                     En el que se van a utilizar titulos < title>. Tiene que escribir un renglón que diga 'Este parrafo esta dentro de un div' , usando un < div>.
                                             Finalmente tiene que hacer otro renglón debajo que diga 'Es un parrafo dentro de una linea de codigo de PHP pero a la vez es completada por el codigo HTML' con otro < div> y < ?php ?>.
                                                     <br> <br>
-                                                    Ejemplo de como debe quedar:<br> <br>
-                                                    <b></b><br>
-                                                    Este parrafo esta dentro de un div<br>
-                                                    Es un parrafo dentro de una linea de codigo de PHP pero a la vez es completada por el codigo HTML <br>
-                                                    <br> <br>
-
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
+                                <img src="../../../../../../img/titulodpractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

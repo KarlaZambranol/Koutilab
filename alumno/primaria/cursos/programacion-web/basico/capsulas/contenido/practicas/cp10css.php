@@ -49,12 +49,10 @@ if (empty($existe)) {
                                     division que contenga una sombra en los 4 lados
                                     del color de tu preferencia
                                     <br> <br>
-                                    Ejemplo de como debe quedar:<br> <br>
-                                    <img src="../../../../../../img/sombraspractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
-
+                                <img src="../../../../../../img/sombraspractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

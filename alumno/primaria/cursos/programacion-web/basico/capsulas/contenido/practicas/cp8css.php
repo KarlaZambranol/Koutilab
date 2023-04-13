@@ -53,12 +53,10 @@ if (empty($existe)) {
                                     el cuarto valor es para la izquierda
                                     Para recordar el orden , comience en la parte superior y siga en el sentido de las agujas del reloj .
                                     <br> <br>
-                                    Ejemplo de como debe quedar:<br> <br>
-                                    <img src="../../../../../../img/boxmodelpractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
-
+                                <img src="../../../../../../img/boxmodelpractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

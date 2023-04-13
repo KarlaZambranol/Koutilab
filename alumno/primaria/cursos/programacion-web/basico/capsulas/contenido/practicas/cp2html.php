@@ -39,7 +39,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Ejemplo de resultado</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,14 +50,10 @@ if (empty($existe) && $id_user != 1) {
                                     La frase que ocuparas en todos los ejemplos sera: 'Somos un gran equipo que conforma Koutilab
                                     con caracteristicas importantes'.
                                     <br> <br>
-                                    Ejemplos de como debe quedar:<br> <br>
-                                    Somos un gran equipo que conforma <b>Koutilab</b> con caracteristicas <b>importantes.
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
+                                <img src="../../../../../../img/formatotpractica.png" style="height: 150px; width: 450px;">
                             </td>
                         </tr>
                     </tbody>

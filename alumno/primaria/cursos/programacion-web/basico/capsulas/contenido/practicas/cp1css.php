@@ -39,7 +39,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Ejemplo de resultado</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,16 +49,10 @@ if (empty($existe) && $id_user != 1) {
                                     Donde se cambia el color de las letras del titulo, parrafo
                                     y el fondo.
                                     <br> <br>
-                                    Ejemplo de como debe quedar:<br> <br>
-                                    <b style="color: red;">Contenido del libro</b><br>
-                                    <b style="color: blue;">El contenido de este libro se estructura
-                                        en tres apartados bien diferenciados</b><br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
+                            <img src="../../../../../../img/htmlcsspractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

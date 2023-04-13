@@ -39,7 +39,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -51,11 +51,7 @@ if (empty($existe) && $id_user != 1) {
                                     <br>
                                 </p>
                             </td>
-                            <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
-                            </td>
+                
                         </tr>
                     </tbody>
                 </table>

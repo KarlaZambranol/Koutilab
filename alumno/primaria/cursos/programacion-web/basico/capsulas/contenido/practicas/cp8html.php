@@ -51,7 +51,7 @@ if (empty($existe) && $id_user != 1) {
                                 </p>
                             </td>
                             <td class="ne">
-
+                                <img src="../../../../../../img/botonpractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

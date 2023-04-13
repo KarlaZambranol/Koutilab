@@ -52,12 +52,10 @@ if (empty($existe) && $id_user != 1) {
                                     Escribe diferentes párrafos.
                                     Asígnale a uno de ellos ese atributo id.
                                     <br> <br>
-                                    Ejemplo de como debe quedar:<br> <br>
-                                    <img src="../../../../../../img/selectoridpractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
-
+                                <img src="../../../../../../img/selectoridpractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

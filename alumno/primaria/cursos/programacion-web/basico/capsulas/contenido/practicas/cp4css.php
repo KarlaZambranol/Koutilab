@@ -38,7 +38,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Ejemplo del resultado</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,14 +50,10 @@ if (empty($existe) && $id_user != 1) {
                                     < h1> , < h2> y < p> se de un solo color (color de tu
                                                 preferencia).
                                                 <br> <br>
-                                                Ejemplo de como debe quedar:<br> <br>
-                                                <img src="../../../../../../img/selectorpractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
+                            <img src="../../../../../../img/selectorpractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

@@ -39,7 +39,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Ejemplo de resultado</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,14 +51,10 @@ if (empty($existe) && $id_user != 1) {
                                     entre < span> , darle la clase .classy para darle
                                         un estilo al parrafo
                                         <br> <br>
-                                        Ejemplo de como debe quedar:<br> <br>
-                                        <img src="../../../../../../img/selectorcpractica.png" style="height: 100px; width: 200px;">
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
+                                <img src="../../../../../../img/selectorcpractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>

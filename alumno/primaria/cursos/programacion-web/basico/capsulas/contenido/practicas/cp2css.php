@@ -39,7 +39,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Ejemplo de resultado</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,14 +52,10 @@ if (empty($existe) && $id_user != 1) {
                                     anteriormente mencionada, como por ejemplo debe llevar un selector,
                                     propiedad, valor y las declaraciones.
                                     <br> <br>
-                                    Ejemplos de como debe quedar:<br> <br>
-                                    h1 {color:red; font-size: 12px;}
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/" type="video/mp4" />
-                                </video>
+                            <img src="../../../../../../img/sintaxiscsspractica.png" style="height: 200px; width: 400px;">
                             </td>
                         </tr>
                     </tbody>
