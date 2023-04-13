@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 $id_user = $_SESSION['idUser'];
 if (empty($_SESSION['active'])) {
@@ -6,13 +6,14 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula8";
+$permiso = "capsula2";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
   header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
-?>
+
+?> -->
 
 <!DOCTYPE html>
 
@@ -21,7 +22,7 @@ if (empty($existe) && $id_user != 1) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KOUTILAB</title>
   <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-  <link rel="stylesheet" href="../../css/capsula-juego.css" />
+  <link rel="stylesheet" href="../../css/css-juegos/memorama.css" />
   <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -40,14 +41,15 @@ if (empty($existe) && $id_user != 1) {
       <!-- efectos visuales -->
       <div class="" style="
           display: flex;
+          width: 1180px;
           align-items: center;
           justify-content: center;
-          margin: 0 auto;
-          position: relative;
+          margin: -40px 0 0 0;
+          position: absolute;
           top: 180px;
         ">
         <h1>
-          Tiempo
+          Tiempo:
           <h1 id="tiempo"></h1>
         </h1>
       </div>
@@ -132,11 +134,11 @@ if (empty($existe) && $id_user != 1) {
       <!-- HTML -->
       <!-- estructura visual -->
 
-      <div id="tablero"></div>
+      <div id="tablero" style="margin: 50px 0 0 120px; position: absolute; width: 950px;" ></div>
 
       <br />
 
-      <div class="nuevo-juego" onclick="generarTablero()">Nuevo Juego</div>
+      <div class="nuevo-juego" id="generar" onclick="generarTablero()">Jugar</div>
     </div>
   </div>
 
@@ -145,12 +147,12 @@ if (empty($existe) && $id_user != 1) {
   <script>
     let iconos = [];
     let selecciones = [];
-    let tiempo = 60000;
+    let tiempo = 0;
     let intentos = 0;
     let puntos = 0;
     let reloj = 0;
     let total = 0;
-    let final = Date.now() + 60000;
+    let final = 0;
     let gano = false;
     // generarTablero()
     let nombreJugador = "";
@@ -158,9 +160,8 @@ if (empty($existe) && $id_user != 1) {
       value: nombre
     } = Swal.fire({
       title: "Juego de memoria",
-      input: "text",
-      inputLabel: "Ingresa tu nombre",
-      inputPlaceholder: "Nombre",
+      timer: 3000,
+      timerProgressBar: true
     }).then((result) => {
       nombreJugador = result.value;
       console.log(result.value);
@@ -169,28 +170,29 @@ if (empty($existe) && $id_user != 1) {
 
     function cargarIconos() {
       iconos = [
-        '<i class="fa-solid fa-wifi"></i>',
-        '<i class="fa-solid fa-globe"></i>',
-        '<i class="fa-solid fa-circle-info"></i>',
-        '<i class="fa-brands fa-html5"></i>',
-        '<i class="fa-solid fa-laptop-code"></i>',
-        '<i class="fa-brands fa-edge-legacy"></i>',
-        '<i class="fa-brands fa-chrome"></i>',
-        '<i class="fa-brands fa-safari"></i>',
-        '<i class="fa-brands fa-firefox-browser"></i>',
-        '<i class="fa-solid fa-list-ol"></i>',
-        '<i class="fa-solid fa-list"></i>',
-        '<i class="fa-solid fa-code"></i>'
+        '<i class="fas fa-mouse-pointer" style="color: white;"></i>',
+        '<i class="fas fa-heart" style="color: pink;"></i>',
+        '<i class="fas fa-ellipsis-h" color: cyan;></i>',
+        '<i class="fas fa-keyboard" style="color: gray;"></i>',
+        '<i class="fab fa-html5" style="color: orange;"></i>',
+        '<i class="fab fa-css3-alt" style="color: cyan;"></i>',
+        '<i class="fas fa-exclamation" style="color: yellow;"></i>',
+        '<i class="fas fa-terminal"></i>',
+        '<i class="fas fa-globe" style="color: gold;"></i>',
+        '<i class="fas fa-check" style="color: green;"></i>',
+        '<i class="fas fa-code" style="color: gray;"></i>',
+        '<i class="far fa-file-code" style="color: purple;"></i>'
       ];
     }
 
     function generarTablero() {
+      $('#generar').remove();
       cargarIconos();
-      tiempo = 60000;
+      tiempo = 180000;
       intentos = 0;
       reloj = 0;
       total = 0;
-      final = Date.now() + 60000;
+      final = Date.now() + 180000;
       selecciones = [];
       let tablero = document.getElementById("tablero");
       let tarjetas = [];
@@ -301,7 +303,8 @@ if (empty($existe) && $id_user != 1) {
             gano = true;
             //Guardar puntaje
             var xmlhttp = new XMLHttpRequest();
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 9 + "&id_curso=" + 1; //cancatenation
+
+            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 3 + "&id_curso=" + 1; //cancatenation
             xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
                 Swal.fire({
@@ -317,9 +320,11 @@ if (empty($existe) && $id_user != 1) {
                 });
               }
             }
-            xmlhttp.open("POST", "../../acciones/insertar_pd9.php", true);
+            xmlhttp.open("POST", "../../acciones/insertar_pd3.php", true);
             xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xmlhttp.send(param);
+
+            //Alerta
             Swal.fire({
               title: "Ganaste " + nombreJugador,
               text: "ganaste en " + intentos + " intentos puntuaje total 100",
@@ -328,7 +333,7 @@ if (empty($existe) && $id_user != 1) {
               confirmButtonText: "Siguiente",
             }).then((result) => {
               if (result.isConfirmed) {
-                window.location.reload();
+                window.location.href = '../../../../../../rutas/ruta-pw-b.php';
               }
             });
             // alert();

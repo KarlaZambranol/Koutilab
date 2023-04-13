@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 $id_user = $_SESSION['idUser'];
 if (empty($_SESSION['active'])) {
@@ -13,7 +13,7 @@ if (empty($existe) && $id_user != 1) {
   header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
-?>
+?> -->
 
 <!DOCTYPE html>
 
@@ -22,7 +22,7 @@ if (empty($existe) && $id_user != 1) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KOUTILAB</title>
   <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-  <link rel="stylesheet" href="../../css/capsula-juego.css" />
+  <link rel="stylesheet" href="../../css/css-juegos/memorama.css" />
   <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -41,14 +41,15 @@ if (empty($existe) && $id_user != 1) {
       <!-- efectos visuales -->
       <div class="" style="
           display: flex;
+          width: 1180px;
           align-items: center;
           justify-content: center;
-          margin: 0 auto;
-          position: relative;
+          margin: -40px 0 0 0;
+          position: absolute;
           top: 180px;
         ">
         <h1>
-          Tiempo
+          Tiempo:
           <h1 id="tiempo"></h1>
         </h1>
       </div>
@@ -133,11 +134,11 @@ if (empty($existe) && $id_user != 1) {
       <!-- HTML -->
       <!-- estructura visual -->
 
-      <div id="tablero"></div>
+      <div id="tablero" style="margin: 50px 0 0 120px; position: absolute; width: 950px;" ></div>
 
       <br />
 
-      <div class="nuevo-juego" onclick="generarTablero()">Nuevo Juego</div>
+      <div class="nuevo-juego" id="generar" onclick="generarTablero()">Jugar</div>
     </div>
   </div>
 
@@ -159,7 +160,7 @@ if (empty($existe) && $id_user != 1) {
       value: nombre
     } = Swal.fire({
       title: "Juego de memoria",
-      timer: 2000,
+      timer: 3000,
       timerProgressBar: true
     }).then((result) => {
       nombreJugador = result.value;
@@ -169,28 +170,29 @@ if (empty($existe) && $id_user != 1) {
 
     function cargarIconos() {
       iconos = [
-        '<img src="https://cdn-icons-png.flaticon.com/512/3489/3489104.png" height="100px">',
-        '<i class="fa-regular fa-comment"></i>',
-        '<img src="https://cdn-icons-png.flaticon.com/512/2252/2252079.png" height="100px">',
-        '<img src="https://cdn-icons-png.flaticon.com/512/970/970456.png" height="100px">',
-        '<img src="https://cdn-icons-png.flaticon.com/512/9749/9749500.png" height="100px">',
-        '<img src="https://cdn-icons-png.flaticon.com/512/732/732050.png" height="100px">',
-        '<img src="https://cdn-icons-png.flaticon.com/512/2500/2500028.png" height="100px">',
-        '<img src="https://cdn-icons-png.flaticon.com/512/6741/6741222.png" height="100px">',
-        '<img src="https://cdn-icons-png.flaticon.com/512/94/94699.png" height="100px">',
-        '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7XKTNoCDzyT2rWM52r_o1_Tb4SnJgflncAQ6UT3_KLnb_V-S5jC2hbaQ-YFTvnOjrtn8&usqp=CAU" height="100%">',
-        '<i class="fa-regular fa-file-code"></i>',
-        '<i class="fa-regular fa-keyboard"></i>'
+        '<i class="fas fa-image"></i>',
+        '<i class="far fa-images"></i>',
+        '<i class="fab fa-php"></i>',
+        '<i class="fas fa-keyboard"></i>',
+        '<i class="fab fa-html5"></i>',
+        '<i class="fab fa-css3-alt"></i>',
+        '<i class="fas fa-list-ol"></i>',
+        '<i class="fas fa-heading"></i>',
+        '<i class="fas fa-bold"></i>',
+        '<i class="fas fa-italic"></i>',
+        '<i class="fas fa-code"></i>',
+        '<i class="far fa-file-code"></i>'
       ];
     }
 
     function generarTablero() {
+      $('#generar').remove();
       cargarIconos();
-      tiempo = 120000;
+      tiempo = 180000;
       intentos = 0;
       reloj = 0;
       total = 0;
-      final = Date.now() + 120000;
+      final = Date.now() + 180000;
       selecciones = [];
       let tablero = document.getElementById("tablero");
       let tarjetas = [];
