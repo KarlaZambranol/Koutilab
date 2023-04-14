@@ -42,8 +42,6 @@ $insertar_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupos(id_alumno,
 
 $insertar_acceso_curso = mysqli_query($conexion, "INSERT INTO acceso_cursos(curso, id_alumno) VALUES ('$accesoCurso', '$idalumno')");
 
-$insertar_estadisticas = mysqli_query($conexion, "INSERT INTO estadisticas(trofeos, progreso, puntos, audiovisual, practico, teorico, id_alumno, id_curso) VALUES (0, 0, 0, 0, 0, 0, '$idalumno', $nombregrupo)");
-
 $insertar_clave = mysqli_query($conexion, "INSERT INTO roles(clave, rol) VALUES ('$clave', '2')");
 
 

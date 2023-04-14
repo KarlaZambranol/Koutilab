@@ -40,13 +40,7 @@ CREATE TABLE `acceso_cursos` (
 INSERT INTO `acceso_cursos` (`id_acceso`, `curso`, `id_alumno`) VALUES
 (1, 'Programacion web basica', 1),
 (2, 'Programacion web intermedio', 1),
-(3, 'Programacion web avanzado', 1),
-(4, 'Python basico', 1),
-(5, 'Python intermedio', 1),
-(6, 'Python avanzado', 1),
-(7, 'Arduino basico', 1),
-(8, 'Arduino intermedio', 1),
-(9, 'Arduino avanzado', 1);
+(3, 'Programacion web avanzado', 1);
 
 -- --------------------------------------------------------
 
@@ -235,13 +229,7 @@ CREATE TABLE `cursos_primaria` (
 INSERT INTO `cursos_primaria` (`id_curso`, `curso`) VALUES
 (1, 'Programacion web basica'),
 (2, 'Programacion web intermedio'),
-(3, 'Programación web avanzado'),
-(4, 'Python basico'),
-(5, 'Python intermedio'),
-(6, 'Python avanzado'),
-(7, 'Arduino basico'),
-(8, 'Arduino intermedio'),
-(9, 'Arduino avanzado');
+(3, 'Programación web avanzado');
 
 -- --------------------------------------------------------
 
