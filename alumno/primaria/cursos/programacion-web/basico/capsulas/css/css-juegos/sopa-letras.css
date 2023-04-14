@@ -68,7 +68,7 @@ body::-webkit-scrollbar-track {
   height: 500px;
   position: absolute;
   text-align: center;
-} 
+}
 
 .soup {
   float: right;
@@ -173,4 +173,31 @@ button::-moz-focus-inner {
   position: fixed;
   border-radius: 60px;
   z-index: 5;
+}
+
+.btn-b {
+  width: 5%;
+  padding: 5px 5px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(
+    to right,
+    rgba(129, 179, 243, 0.8),
+    rgba(132, 196, 44, 0.8)
+  );
+  border: 0px;
+  outline: none;
+  border-radius: 50%;
+  float: right;
+}
+
+@media (max-width: 750px) {
+  .btn-b {
+    width: 10%;
+  }
+}
+
+.btn-b i {
+  font-size: 25px;
 }

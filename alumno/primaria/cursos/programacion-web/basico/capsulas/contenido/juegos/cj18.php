@@ -57,8 +57,13 @@ if (empty($existe)) {
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href="../../css/css-juegos/crucigrama.css">
 </head>
@@ -74,11 +79,14 @@ if (empty($existe)) {
 
 	<div class="timer">
 		<b style="margin-top: 10px;">Tiempo: <br>
-			<p id="tiempo"></p></b>
+			<p id="tiempo"></p>
+		</b>
 	</div>
 
 	<!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
 	<div class="contenido">
+		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
+				<i class="fas fa-reply"></i></button></a>
 		<!-- Titulo secundario -->
 		<h5 class="titulo"><b>Busca la palabra que describe el texto</b></h5>
 		<br>
@@ -425,22 +433,22 @@ if (empty($existe)) {
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-          		var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 9 + "&id_curso=" + 1; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 9 + "&id_curso=" + 1; //cancatenation
 				Swal.fire({
-                    title: 'Oops...',
-                    text: '¡Verifica tu respuesta!',
-                    imageUrl: "../../../../../../img/signo.gif",
-                    imageHeight: 350,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = '../../../../../../rutas/ruta-pw-b.php';
-                    }
-                });
+					title: 'Oops...',
+					text: '¡Verifica tu respuesta!',
+					imageUrl: "../../../../../../img/signo.gif",
+					imageHeight: 350,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.href = 'cj18.php';
+					}
+				});
 				xmlhttp.open("POST", "../../acciones/insertar_cp9.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 			} else {
-				segundos --;
+				segundos--;
 				setTimeout("iniciarTiempo()", 1000);
 			}
 		}
@@ -591,20 +599,20 @@ if (empty($existe)) {
 
 				xmlhttp.onreadystatechange = function() {
 					Swal.fire({
-					title: '¡Bien hecho!',
-					text: '¡Puntuación guardada con éxito!',
-					imageUrl: "../../../../../../img/Thumbs-Up.gif",
-					imageHeight: 350,
-					backdrop: `
+						title: '¡Bien hecho!',
+						text: '¡Puntuación guardada con éxito!',
+						imageUrl: "../../../../../../img/Thumbs-Up.gif",
+						imageHeight: 350,
+						backdrop: `
 					rgba(0,143,255,0.6)
 					url("../../../../../../img/fondo.gif")
 					`,
-					confirmButtonColor: '#a14cd9',
-					confirmButtonText: 'Aceptar',
-				}).then((result) => {
-					if (result.isConfirmed) {
-						window.location.href = '../../../../../../rutas/ruta-pw-b.php';
-					}
+						confirmButtonColor: '#a14cd9',
+						confirmButtonText: 'Aceptar',
+					}).then((result) => {
+						if (result.isConfirmed) {
+							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+						}
 					});
 				}
 				xmlhttp.open("POST", "../../acciones/insertar_cp9.php", true);

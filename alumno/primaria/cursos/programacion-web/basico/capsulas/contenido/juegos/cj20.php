@@ -23,9 +23,14 @@ if (empty($existe)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../../css/css-juegos/drag-drop.css">
     <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png">
 </head>
 
 <body onload="iniciarTiempo();">
@@ -38,12 +43,15 @@ if (empty($existe)) {
     <div id="mensaje"></div>
 
     <div class="timer">
-		<b style="margin-top: 10px;">Tiempo: <br>
-			<p id="tiempo"></p></b>
-	</div>
+        <b style="margin-top: 10px;">Tiempo: <br>
+            <p id="tiempo"></p>
+        </b>
+    </div>
 
     <!-- Contenido donde se encuentran las imagenes y los espacios donde van a ir -->
     <div class="contenido">
+        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
+                <i class="fas fa-reply"></i></button></a>
 
         <div class="div-vertical"></div>
 
@@ -167,17 +175,17 @@ if (empty($existe)) {
     </div>
 
     <script>
-		var segundos = 180;
+        var segundos = 180;
 
-		let puntos = 0;
+        let puntos = 0;
 
-		function iniciarTiempo() {
-			document.getElementById('tiempo').innerHTML = segundos + " segundos";
-			if (segundos == 0) {
-				var xmlhttp = new XMLHttpRequest();
+        function iniciarTiempo() {
+            document.getElementById('tiempo').innerHTML = segundos + " segundos";
+            if (segundos == 0) {
+                var xmlhttp = new XMLHttpRequest();
 
-          		var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 12 + "&id_curso=" + 1; //cancatenation
-				Swal.fire({
+                var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 12 + "&id_curso=" + 1; //cancatenation
+                Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
                     imageUrl: "../../../../../../img/signo.gif",
@@ -187,15 +195,15 @@ if (empty($existe)) {
                         window.location.href = '../../../../../../rutas/ruta-pw-b.php';
                     }
                 });
-				xmlhttp.open("POST", "../../acciones/insertar_cp12.php", true);
-				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xmlhttp.send(param);
-			} else {
-				segundos --;
-				setTimeout("iniciarTiempo()", 1000);
-			}
-		}
-	</script>
+                xmlhttp.open("POST", "../../acciones/insertar_cp12.php", true);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xmlhttp.send(param);
+            } else {
+                segundos--;
+                setTimeout("iniciarTiempo()", 1000);
+            }
+        }
+    </script>
 
     <script>
         //Funcionamiento
@@ -232,20 +240,20 @@ if (empty($existe)) {
 
                     xmlhttp.onreadystatechange = function() {
                         Swal.fire({
-                        title: '¡Bien hecho!',
-                        text: '¡Puntuación guardada con éxito!',
-                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                        imageHeight: 350,
-                        backdrop: `
+                            title: '¡Bien hecho!',
+                            text: '¡Puntuación guardada con éxito!',
+                            imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                            imageHeight: 350,
+                            backdrop: `
                         rgba(0,143,255,0.6)
                         url("../../../../../../img/fondo.gif")
                         `,
-                        confirmButtonColor: '#a14cd9',
-                        confirmButtonText: 'Aceptar',
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
-                        }
+                            confirmButtonColor: '#a14cd9',
+                            confirmButtonText: 'Aceptar',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                            }
                         });
                     }
                     xmlhttp.open("POST", "../../acciones/insertar_cp12.php", true);
@@ -262,7 +270,7 @@ if (empty($existe)) {
                         imageHeight: 350,
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+                            window.location.href = 'cj20.php';
                         }
                     });
                     xmlhttp.open("POST", "../../acciones/insertar_cp12.php", true);
