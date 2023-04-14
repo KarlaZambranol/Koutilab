@@ -66,7 +66,7 @@ $fila = mysqli_fetch_assoc($result);
             <div class="item">
                 <a href="dashboard.php" class="">
                     <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-book"></i>
                     </div>
                     <div class="title">
                         <span>Dashboard</span>

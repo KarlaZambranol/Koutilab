@@ -53,7 +53,7 @@ WHERE d.id_docente = $id_user"));
             <div class="item" style="background-color: rgba(61,172,244, .4);">
                 <a href="dashboard.php" class="">
                     <div class="icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-book"></i>
                     </div>
                     <div class="title">
                         <span>Dashboard</span>

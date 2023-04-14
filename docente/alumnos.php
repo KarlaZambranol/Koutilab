@@ -88,7 +88,7 @@ $data1 = mysqli_fetch_assoc($query1);
             <div class="item">
                 <a href="dashboard.php" class="">
                     <div class="icon" style="height: 40px; margin: 5px 0px 5px 0px;">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-book"></i>
                     </div>
                     <div class="title">
                         <span>Dashboard</span>
@@ -270,7 +270,7 @@ $data1 = mysqli_fetch_assoc($query1);
                     </div>
                     <div class="campo">
                         <label for="password">Contraseña:</label>
-                        <input type="password" name="contrasena" id="password" value="ABC123" readonly>
+                        <input type="password" name="contrasena" id="password" value="ABC123">
                         <span class="fa fa-fw fa-eye password-icon show-password1" style="margin-right: -155px; margin-top: -40px; background: #ffffff00;"></span>
                     </div>
                     <!-- <input type="hidden" name="clave" value="alumno" required> -->
