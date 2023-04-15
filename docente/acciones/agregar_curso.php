@@ -115,13 +115,6 @@
                             <select style="height: 44px;" name="curso" type="select" required>
                                 <option value="Programacion web basica">Programacion web basica</option>
                                 <option value="Programacion web intermedio">Programacion web intermedio</option>
-                                <option value="Programacion web avanzado">Programacion web avanzado</option>
-                                <option value="Python basico">Python basico</option>
-                                <option value="Python intermedio">Python intermedio</option>
-                                <option value="Python avanzado">Python avanzado</option>
-                                <option value="Arduino basico">Arduino basico</option>
-                                <option value="Arduino intermedio">Arduino intermedio</option>
-                                <option value="Arduino avanzado">Arduino avanzado</option>
                             </select>
                         </div>
 
