@@ -6,7 +6,7 @@ if (empty($_SESSION['active'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
-$permiso = "capsula18";
+$permiso = "capsula6";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
@@ -25,15 +25,15 @@ if (empty($existe) && $id_user != 1) {
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../../js/wordfind.js"></script>
-	<script type="text/javascript" src="../../js/wordfindgame2.js"></script>
+	<script type="text/javascript" src="../../js/wordfindgame1.js"></script>
 	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+</head> 
 <body onload="iniciarTiempo();">
-	<!-- Titulo general --> 
+	<!-- Titulo general -->
 	<div class="titulo-gen">
         <h2 class="titulo" style="margin-left: 475px;"><b>SOPA DE LETRAS</b></h2>
     </div>
@@ -47,7 +47,6 @@ if (empty($existe) && $id_user != 1) {
 
 	<div class="contenido">
 
-	
 	<a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i></button></a>
 		<!-- Titulo secundario -->
@@ -57,14 +56,14 @@ if (empty($existe) && $id_user != 1) {
 		<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
 		<div class="words">
 			<h6><b>Palabras a buscar:</b></h6>
-			<div id='Palabras' style="font-size: 120%;"></div>
+			<div id='Palabras' style="font-size: 130%;"></div>
 		</div>
 
         <div class="linea"></div>
 
 		<!-- Sección donde se agrega la sopa de letras -->
 		<div class="soup">
-			<div id='juego' style="margin: 0 0 0 40px;"></div>
+			<div id='juego' style="margin: 10px 0 0 60px;"></div>
 
 			<!-- Boton para resolver la sopa de letras, mantener comentado -->
 			<!-- <button id='solve'>Resolver el juego</button> -->
@@ -82,7 +81,7 @@ if (empty($existe) && $id_user != 1) {
 			if (segundos == 0) {
 				var xmlhttp = new XMLHttpRequest();
 
-				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 19 + "&id_curso=" + 2; //cancatenation
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 2; //cancatenation
 				Swal.fire({
 					title: 'Oops...',
 					text: '¡Verifica tu respuesta!',
@@ -90,10 +89,10 @@ if (empty($existe) && $id_user != 1) {
 					imageHeight: 350,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						window.location.href = 'cj6.php';
+						window.location.href = 'cj2.php';
 					}
 				});
-				xmlhttp.open("POST", "../../acciones/insertar_pd19.php", true);
+				xmlhttp.open("POST", "../../acciones/insertar_pd7.php", true);
 				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 				xmlhttp.send(param);
 			} else {
@@ -106,7 +105,7 @@ if (empty($existe) && $id_user != 1) {
     <script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
-    	var words = ['CELDA','CAPTION','ENCABEZADO','COL', 'ROWGROUP', 'INFORMACION', 'COLGROUP', 'ROW'];
+    	var words = [ 'DIRECTORIOS' ,'ARCHIVOS','CARPETAS','UBICACION','ESTRUCTURA', 'CATEGORIAS', 'MODELOS', 'DIVICION'];
     	var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras'); 
         
     	var puzzle = wordfind.newPuzzle(words,{height: 18, width:18, fillBlanks: false});
