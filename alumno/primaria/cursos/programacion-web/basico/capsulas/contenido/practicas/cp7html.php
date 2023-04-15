@@ -71,9 +71,15 @@ if (empty($existe) && $id_user != 1) {
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
             var frame = document.getElementById("editor").contentWindow.document;
+<<<<<<< HEAD
             let iframe = frame.querySelectorAll("iframe").length;
 
             if (iframe > 0) {
+=======
+            let frames = frame.querySelectorAll("iframe").length;
+
+            if (frames > 0) {
+>>>>>>> 9871cf4e6d2e936fee39beb602bed1d9bd88635f
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',

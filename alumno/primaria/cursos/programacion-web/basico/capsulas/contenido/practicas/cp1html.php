@@ -44,6 +44,7 @@ if (empty($existe) && $id_user != 1) {
                     </thead>
                     <tbody>
                         <tr>
+
                             <td class="nombre">
                                 <p>Instrucciones: Agregar un parrafo con su titulo dentro de un div.
                                     <br> <br>
@@ -70,10 +71,14 @@ if (empty($existe) && $id_user != 1) {
             // checar que haya por lo menos 1 div, titles y p
             var frame = document.getElementById("editor").contentWindow.document;
             let div = frame.querySelectorAll("div").length;
+<<<<<<< HEAD
             let titles = frame.querySelectorAll("titles").length;
+=======
+            let titles = frame.querySelectorAll("title").length;
+>>>>>>> 9871cf4e6d2e936fee39beb602bed1d9bd88635f
             let p = frame.querySelectorAll("p").length;
 
-            if (bolds > 0 && phps > 0 && titles > 0) {
+            if (div > 0 && titles > 0 && p > 0) {
                 Swal.fire({
                     title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',

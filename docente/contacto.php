@@ -53,8 +53,8 @@ WHERE d.id_docente = $id_user"));
             <div class="item separator"></div>
             <div class="item">
                 <a href="dashboard.php" class="">
-                    <div class="icon" >
-                        <i class="fas fa-chart-line"></i>
+                    <div class="icon">
+                        <i class="fas fa-book"></i>
                     </div>
                     <div class="title">
                         <span>Dashboard</span>
