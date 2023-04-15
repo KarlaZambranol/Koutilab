@@ -45,14 +45,12 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: hacer un programa con una estructura combinada PHP con HTML
-                                    En el que se van a utilizar titulos < title>. Tiene que escribir un renglón que diga 'Este parrafo esta dentro de un div' , usando un < div>.
-                                            Finalmente tiene que hacer otro renglón debajo que diga 'Es un parrafo dentro de una linea de codigo de PHP pero a la vez es completada por el codigo HTML' con otro < div> y < ?php ?>.
-                                                    <br> <br>
+                                <p>Instrucciones: Agregar un parrafo con su titulo dentro de un div.
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/titulodpractica.png" style="height: 200px; width: 400px;">
+                                <img src="../../../../../../img/titulodpractica.png" style="height: 100px; width: 200px;">
                             </td>
                         </tr>
                     </tbody>
@@ -69,11 +67,11 @@ if (empty($existe) && $id_user != 1) {
     <script src="../../js/fund.js"></script>
     <script>
         function miFunc() {
-            // checar que haya por lo menos 1 bold, italics y mark
+            // checar que haya por lo menos 1 div, titles y p
             var frame = document.getElementById("editor").contentWindow.document;
-            let bolds = frame.querySelectorAll("b").length;
-            let phps = frame.querySelectorAll("php").length;
-            let titles = frame.querySelectorAll("title").length;
+            let div = frame.querySelectorAll("div").length;
+            let titles = frame.querySelectorAll("titles").length;
+            let p = frame.querySelectorAll("p").length;
 
             if (bolds > 0 && phps > 0 && titles > 0) {
                 Swal.fire({
