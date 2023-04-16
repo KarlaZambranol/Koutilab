@@ -386,8 +386,6 @@ body::-webkit-scrollbar-track {
   text-align: start;
 }
 
-
-
 .board1 {
   width: 91%;
   margin: 30px 0 30px 30px;
@@ -959,9 +957,15 @@ canvas {
 }
 
 .password-icon {
-    float: right;
-    position: sticky;
-    margin: -25px 10px 0 0;
-    cursor: pointer;
-    display: inline;
-  }
+  float: right;
+  position: sticky;
+  margin: -25px 10px 0 0;
+  cursor: pointer;
+  display: inline;
+}
+
+.grafico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -28,9 +28,9 @@ $accesoCurso = $resultadoCurso['curso'];
 
 $insertar_alumno = mysqli_query($conexion, "INSERT INTO alumnos(
   nombre, usuario, contrasena, clave, nivel_educativo, 
-  grado_escolar, nombre_grupo, id_escuela, id_docente) VALUES (
+  grado_escolar, nombre_grupo, id_escuela, id_docente, image, fondo) VALUES (
     '$nombre', '$usuario', '$contrasena', '$clave', '$nivel_educativo', '$grado_escolar', 
-    '$nombre_grupo', '$id_escuela', '$id_docente')");
+    '$nombre_grupo', '$id_escuela', '$id_docente', 'Mascota-Aerobot-01.png', 'portada-1.png')");
 
 
 

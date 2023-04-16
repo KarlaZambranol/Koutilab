@@ -169,7 +169,7 @@ if (!empty($_SESSION['rol'])) {
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <input type="text" id="usuario_inicio" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
+                            <input type="text" id="usuario_inicio" name="usuario" class="input-field" placeholder="Nombre de usuario" value="@<?php if (isset($user)) echo $user; ?>" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">
@@ -207,7 +207,7 @@ if (!empty($_SESSION['rol'])) {
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <input type="text" id="usuario" name="usuario" class="input-field" placeholder="Nombre de usuario" required>
+                            <input type="text" id="usuario" name="usuario" class="input-field" placeholder="Nombre de usuario" value="@" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">
