@@ -47,7 +47,7 @@ if (empty($existe) && $id_user != 1) {
 	</div>
 
 	<div class="contenido">
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
+		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i></button></a>
 		<!-- Titulo secundario -->
 		<h5 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h5>
@@ -72,7 +72,7 @@ if (empty($existe) && $id_user != 1) {
 	</div>
 
 	<script>
-		var segundos = 180;
+		var segundos = 240;
 
 		let puntos = 0;
 

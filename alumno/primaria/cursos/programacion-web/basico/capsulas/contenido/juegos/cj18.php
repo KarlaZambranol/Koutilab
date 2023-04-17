@@ -85,7 +85,7 @@ if (empty($existe)) {
 
 	<!-- Contenido donde está el crucigrama y las frases que desacriben la palabra buscada -->
 	<div class="contenido">
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
+		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i></button></a>
 		<!-- Titulo secundario -->
 		<h5 class="titulo"><b>Busca la palabra que describe el texto</b></h5>
@@ -424,7 +424,7 @@ if (empty($existe)) {
 	</div>
 
 	<script>
-		var segundos = 180;
+		var segundos = 240;
 
 		let puntos = 0;
 

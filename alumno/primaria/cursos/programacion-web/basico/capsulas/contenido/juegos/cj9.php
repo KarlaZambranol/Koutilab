@@ -188,11 +188,11 @@ if (empty($existe)) {
     function generarTablero() {
       $('#generar').remove();
       cargarIconos();
-      tiempo = 180000;
+      tiempo = 240000;
       intentos = 0;
       reloj = 0;
       total = 0;
-      final = Date.now() + 180000;
+      final = Date.now() + 240000;
       selecciones = [];
       let tablero = document.getElementById("tablero");
       let tarjetas = [];
