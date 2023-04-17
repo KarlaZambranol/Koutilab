@@ -44,13 +44,13 @@ if (empty($existe)) {
 
     <div class="timer">
         <b style="margin-top: 10px;">Tiempo: <br>
-            <p id="tiempo"></p>
+            <p id="tiempo" style="margin: 0;"></p>
         </b>
     </div>
 
     <!-- Contenido donde se encuentran las imagenes y los espacios donde van a ir -->
     <div class="contenido">
-        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
+        <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i></button></a>
 
         <div class="div-vertical"></div>
@@ -175,7 +175,7 @@ if (empty($existe)) {
     </div>
 
     <script>
-        var segundos = 180;
+        var segundos = 240;
 
         let puntos = 0;
 

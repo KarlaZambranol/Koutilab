@@ -251,18 +251,18 @@ body::-webkit-scrollbar-track {
 .timer {
   text-align: center;
   padding: 3%;
-  font-size: 75%;
-  margin: 60px 0 0 1150px;
-  width: 45px;
-  height: 45px;
+  margin: 30px 0 0 1110px;
+  width: 70px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #85c42caf;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
   position: fixed;
-  border-radius: 60px;
+  border-radius: 100px;
   z-index: 5;
+  font-size: 130%;
 }
 
 .btn-b {
