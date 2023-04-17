@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!empty($_SESSION['rol'])) {
     $rol_sesion = $_SESSION['rol'];
 
