@@ -213,6 +213,48 @@ h1 {
   transform: scale(1.05);
 }
 
+#teoriap{
+  position: absolute;
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/CTP.png);
+}
+#teoriap:hover {
+  box-shadow: 0 10px 10px rgba(129, 179, 243);
+  transform: scale(1.05);
+}
+
+#pracp{
+  position: absolute;
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/CPP.png);
+}
+#pracp:hover {
+  box-shadow: 0 10px 10px rgba(129, 179, 243);
+  transform: scale(1.05);
+}
+
+#gamep{
+  position: absolute;
+  height: 117px;
+  width: 117px;
+  border-radius: 50%;
+  color: transparent;
+  border: none;
+  background-image: url(../img/CJP.png);
+}
+#gamep:hover {
+  box-shadow: 0 10px 10px rgba(129, 179, 243);
+  transform: scale(1.05);
+}
+
 .btn0 {
   top: 43%;
   margin-left: 50%;  
