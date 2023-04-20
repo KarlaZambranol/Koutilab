@@ -141,6 +141,7 @@ if (!empty($_SESSION['rol'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/23412c6a8d.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body onload="recuperarDatos()">
@@ -194,6 +195,8 @@ if (!empty($_SESSION['rol'])) {
 
                         <input type="checkbox" id="checkbox" class="check-box" style="scale: 90%;"><span>Recordar contraseña</span>
 
+                        <a href="recuperar-contrasena.php" class="remember">Olvidé mi contraseña</a>
+
                         <button type="submit" class="submit-btn" style="margin-top: -2px;">Acceder</button>
                     </form>
                     <form action="acciones/registrarse.php" method="POST" id="Registrarse" class="input-group">
@@ -224,14 +227,28 @@ if (!empty($_SESSION['rol'])) {
                             <input type="password" id="clave" name="clave" class="input-field password4" placeholder="Clave" required>
                             <span class="fa fa-fw fa-eye password-icon show-password4"></span>
 
-                        </div>
+                        </div> 
                         <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span>Acepto los términos y condiciones</span>
-                        <button type="submit" class="submit-btn" style="margin-top: -2px;">Registrarse</button>
+                        <button type="submit" onclick="registroExitoso(); return false;" class="submit-btn" style="margin-top: -2px;">Registrarse</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        //Alerta de registro exitoso
+        const form = document.querySelector('#Registrarse');
+
+        form.addEventListener('submit', function(event) {
+            Swal.fire({
+                title: '¡Excelente!',
+                text: 'Registro exitoso',
+                icon: 'success',
+                showConfirmButton: false,
+            });
+        });
+    </script>
 
     <script>
         // Guarda los datos del formulario en una cookie

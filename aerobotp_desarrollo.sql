@@ -78,6 +78,7 @@ CREATE TABLE `alumnos` (
   `usuario` varchar(100) DEFAULT NULL,
   `contrasena` varchar(100) DEFAULT NULL,
   `clave` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `nivel_educativo` varchar(100) DEFAULT NULL,
   `grado_escolar` varchar(100) DEFAULT NULL,
@@ -399,6 +400,7 @@ CREATE TABLE `directores` (
   `usuario` varchar(100) DEFAULT NULL,
   `contrasena` varchar(100) DEFAULT NULL,
   `clave` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `id_escuela` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -415,6 +417,7 @@ CREATE TABLE `docentes` (
   `usuario` varchar(100) DEFAULT NULL,
   `contrasena` varchar(100) DEFAULT NULL,
   `clave` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `id_escuela` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -519,6 +522,7 @@ CREATE TABLE `grupos` (
   `nombre_grupo` varchar(100) DEFAULT NULL,
   `grado` varchar(100) DEFAULT NULL,
   `curso` varchar(100) DEFAULT NULL,
+  `clave` varchar(100) DEFAULT NULL,
   `id_docente` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

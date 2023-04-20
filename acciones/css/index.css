@@ -246,3 +246,10 @@ form .input-icon {
   cursor: pointer;
   display: inline;
 }
+
+.remember {
+  margin: 28px 0 0 175px;
+  position: absolute;
+  color: #59819d;
+  text-decoration: none;
+}
