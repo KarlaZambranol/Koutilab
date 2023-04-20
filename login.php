@@ -13,6 +13,18 @@ if (!empty($_SESSION['rol'])) {
         header('location: director/perfil.php');
     } else if ($rol_sesion == 5) {
         header('location: adminsecundario/dashboard.php');
+    } else if ($rol_sesion == 6) {
+        header('location: alumno/secundaria/perfil.php');
+    } else if ($rol_sesion == 7) {
+        header('location: docente-secundaria/dashboard.php');
+    } else if ($rol_sesion == 8) {
+        header('location: director/perfil.php');
+    } else if ($rol_sesion == 9) {
+        header('location: alumno/preparatoria/perfil.php');
+    } else if ($rol_sesion == 10) {
+        header('location: docente-preparatoria/dashboard.php');
+    } else if ($rol_sesion == 11) {
+        header('location: director/perfil.php');
     }
 } else {
     if (!empty($_POST)) {
@@ -122,6 +134,114 @@ if (!empty($_SESSION['rol'])) {
                  </div>';
                         session_destroy();
                     }
+                } else if ($rol['rol'] == 6) {
+                    $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
+                    mysqli_close($conexion);
+                    $resultado_alumno = mysqli_num_rows($query_alumno);
+                    if ($resultado_alumno > 0) {
+                        $dato_alumno = mysqli_fetch_array($query_alumno);
+                        $_SESSION['active'] = true;
+                        $_SESSION['rol'] = 6;
+                        $_SESSION['idUser'] = $dato_alumno['id_alumno'];
+                        $_SESSION['nombre'] = $dato_alumno['nombre'];
+                        $_SESSION['user'] = $dato_alumno['usuario'];
+                        header('location: alumno/secundaria/perfil.php');
+                    } else {
+                        $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                        session_destroy();
+                    }
+                } else if ($rol['rol'] == 7) {
+                    $query_docente = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
+                    mysqli_close($conexion);
+                    $resultado_docente = mysqli_num_rows($query_docente);
+                    if ($resultado_docente > 0) {
+                        $dato_docente = mysqli_fetch_array($query_docente);
+                        $_SESSION['active'] = true;
+                        $_SESSION['rol'] = 7;
+                        $_SESSION['idUser'] = $dato_docente['id_docente'];
+                        $_SESSION['nombre'] = $dato_docente['nombre'];
+                        $_SESSION['user'] = $dato_docente['usuario'];
+                        header('location: docente-secundaria/dashboard.php');
+                    } else {
+                        $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                        session_destroy();
+                    }
+                } else if ($rol['rol'] == 8) {
+                    $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
+                    mysqli_close($conexion);
+                    $resultado_director = mysqli_num_rows($query_director);
+                    if ($resultado_director > 0) {
+                        $dato_director = mysqli_fetch_array($query_director);
+                        $_SESSION['active'] = true;
+                        $_SESSION['rol'] = 8;
+                        $_SESSION['idUser'] = $dato_director['id_director'];
+                        $_SESSION['nombre'] = $dato_director['nombre'];
+                        $_SESSION['user'] = $dato_director['usuario'];
+                        header('location: director/perfil.php');
+                    } else {
+                        $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                        session_destroy();
+                    }
+                } else if ($rol['rol'] == 9) {
+                    $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
+                    mysqli_close($conexion);
+                    $resultado_alumno = mysqli_num_rows($query_alumno);
+                    if ($resultado_alumno > 0) {
+                        $dato_alumno = mysqli_fetch_array($query_alumno);
+                        $_SESSION['active'] = true;
+                        $_SESSION['rol'] = 9;
+                        $_SESSION['idUser'] = $dato_alumno['id_alumno'];
+                        $_SESSION['nombre'] = $dato_alumno['nombre'];
+                        $_SESSION['user'] = $dato_alumno['usuario'];
+                        header('location: alumno/preparatoria/perfil.php');
+                    } else {
+                        $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                        session_destroy();
+                    }
+                } else if ($rol['rol'] == 10) {
+                    $query_docente = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
+                    mysqli_close($conexion);
+                    $resultado_docente = mysqli_num_rows($query_docente);
+                    if ($resultado_docente > 0) {
+                        $dato_docente = mysqli_fetch_array($query_docente);
+                        $_SESSION['active'] = true;
+                        $_SESSION['rol'] = 10;
+                        $_SESSION['idUser'] = $dato_docente['id_docente'];
+                        $_SESSION['nombre'] = $dato_docente['nombre'];
+                        $_SESSION['user'] = $dato_docente['usuario'];
+                        header('location: docente-preparatoria/dashboard.php');
+                    } else {
+                        $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                        session_destroy();
+                    }
+                } else if ($rol['rol'] == 11) {
+                    $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
+                    mysqli_close($conexion);
+                    $resultado_director = mysqli_num_rows($query_director);
+                    if ($resultado_director > 0) {
+                        $dato_director = mysqli_fetch_array($query_director);
+                        $_SESSION['active'] = true;
+                        $_SESSION['rol'] = 11;
+                        $_SESSION['idUser'] = $dato_director['id_director'];
+                        $_SESSION['nombre'] = $dato_director['nombre'];
+                        $_SESSION['user'] = $dato_director['usuario'];
+                        header('location: director/perfil.php');
+                    } else {
+                        $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                        session_destroy();
+                    }
                 }
             }
         }
@@ -146,7 +266,7 @@ if (!empty($_SESSION['rol'])) {
 
 <body onload="recuperarDatos()">
     <div class="container" style="margin-top: -25px; margin-left: -50px;">
-        <div class="panel"> 
+        <div class="panel">
             <div class="row">
                 <div class="col liquid">
                     <!-- Owl-Carousel -->
@@ -233,7 +353,7 @@ if (!empty($_SESSION['rol'])) {
                             <input type="password" id="clave" name="clave" class="input-field password4" placeholder="Clave" required>
                             <span class="fa fa-fw fa-eye password-icon show-password4"></span>
 
-                        </div> 
+                        </div>
                         <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span>Acepto los términos y condiciones</span>
                         <button type="submit" onclick="registroExitoso(); return false;" class="submit-btn" style="margin-top: -2px;">Registrarse</button>
                     </form>

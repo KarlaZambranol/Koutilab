@@ -5,6 +5,7 @@ $nombre = $_POST['nombre'];
 $usuario = $_POST['usuario'];
 $contrasena = md5($_POST['contrasena']);
 $clave = $_POST['clave'];
+$email = $_POST['email'];
 $query = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$usuario'");
 $result = mysqli_fetch_array($query);
 $query1 = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$usuario'");
@@ -61,7 +62,7 @@ if ($result > 0  || $result1 > 0 || $result2 > 0) {
 } else {
 
   if ($result_clave_alumno > 0) {
-    $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_alumno, '$nivel_educativo')");
+    $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo, email) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_alumno, '$nivel_educativo', '$email')");
     if ($query_insert_alumno) {
       $alert = '<div class="alert alert-primary" role="alert">
                           Alumno registrado
@@ -73,7 +74,7 @@ if ($result > 0  || $result1 > 0 || $result2 > 0) {
                   </div>';
     }
   } else if ($result_clave_docente > 0) {
-    $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes(nombre, usuario, contrasena, clave, id_escuela) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_docente)");
+    $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_docente, '$email')");
     if ($query_insert_docente) {
       $alert = '<div class="alert alert-primary" role="alert">
                           Docente registrado
@@ -85,7 +86,7 @@ if ($result > 0  || $result1 > 0 || $result2 > 0) {
                   </div>';
     }
   } else if ($result_clave_director > 0) {
-    $query_insert_director = mysqli_query($conexion, "INSERT INTO directores(nombre, usuario, contrasena, clave, id_escuela) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_director)");
+    $query_insert_director = mysqli_query($conexion, "INSERT INTO directores(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_director, '$email')");
     if ($query_insert_director) {
       $alert = '<div class="alert alert-primary" role="alert">
                           Director registrado
