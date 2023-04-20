@@ -146,7 +146,7 @@ if (!empty($_SESSION['rol'])) {
 
 <body onload="recuperarDatos()">
     <div class="container" style="margin-top: -25px; margin-left: -50px;">
-        <div class="panel">
+        <div class="panel"> 
             <div class="row">
                 <div class="col liquid">
                     <!-- Owl-Carousel -->
@@ -211,6 +211,12 @@ if (!empty($_SESSION['rol'])) {
                                 <i class="fas fa-user"></i>
                             </div>
                             <input type="text" id="usuario" name="usuario" class="input-field" placeholder="Nombre de usuario" value="@" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input type="email" id="email" name="email" class="input-field" placeholder="Correo electrónico" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">

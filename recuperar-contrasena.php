@@ -26,11 +26,11 @@
                     <!-- /Owl-Carousel -->
                 </div>
                 <div class="form-box"><br><br>
-                    <div class="button-box" style="margin-left: 55px;">
+                    <div class="button-box" style="margin: 10px 0 0 55px;">
                         <div id="elegir"  style="width: 240px;"></div>
                         <button type="button" class="toggle-btn" style="margin: 0 0 0 35px;">Recuperar contraseña</button>
                     </div>
-                    <div class="logop" style="margin: 0 0 0 -70px;">
+                    <div class="logop" style="margin: 30px 0 0 -70px;">
                         <img src="acciones/img/koutilab.png" alt="KOUTILAB">
                     </div>
                     <form action="acciones/recuperar-clave.php" class="input-group" method="POST" style="margin: 50px 0 0 0;">
