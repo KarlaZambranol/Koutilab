@@ -62,7 +62,7 @@ if ($result > 0  || $result1 > 0 || $result2 > 0) {
 } else {
 
   if ($result_clave_alumno > 0) {
-    $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo, email) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_alumno, '$nivel_educativo', '$email')");
+    $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo, email) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_alumno, '$nivel_educativo_alumno', '$email')");
     if ($query_insert_alumno) {
       $alert = '<div class="alert alert-primary" role="alert">
                           Alumno registrado
@@ -98,20 +98,4 @@ if ($result > 0  || $result1 > 0 || $result2 > 0) {
                   </div>';
     }
   }
-
-  // $query_clave_alumno = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_alumno = '$clave'");
-  // $query_clave_docente = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_docente = '$clave'");
-  // $query_clave_director = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_director = '$clave'");
-
-  // $query_insert = mysqli_query($conexion, "INSERT INTO usuario(usuario,correo,contrasena,clave) values ('$usuario', '$email', '$contrasena','$usuario')");
-  // if ($query_insert) {
-  //   $alert = '<div class="alert alert-primary" role="alert">
-  //                         Usuario registrado
-  //                     </div>';
-  //   header("Location: index.php");
-  // } else {
-  //   $alert = '<div class="alert alert-danger" role="alert">
-  //                     Error al registrar
-  //                 </div>';
-  // }
 }
