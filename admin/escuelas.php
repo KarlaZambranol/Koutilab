@@ -256,16 +256,16 @@ $fila = mysqli_fetch_assoc($result);
                     </div>
                     <div class="input-box">
                         <span class="details">Nivel Educativo:</span>
-                        <select required style="height: 44px;" name="nivel_educativo">
+                        <select required style="height: 44px;" name="nivel_educativo" id="nivel_educativo">
                             <option value="">Elige una opción</option>
                             <option value="Primaria">Primaria</option>
                             <option value="Secundaria">Secundaria</option>
                             <option value="Preparatoria">Preparatoria</option>
-                            <option value="Primaria - Secundaria">Primaria - Secundaria</option>
-                            <option value="Secundaria - Preparatoria">Secundaria - Preparatoria</option>
-                            <option value="Todos">Los tres niveles</option>
                         </select>
                     </div>
+                    <input type="hidden" name="rol_alumno" id="rol_alumno" required>
+                    <input type="hidden" name="rol_docente" id="rol_docente" required>
+                    <input type="hidden" name="rol_director" id="rol_director" required>
                     <div class="input-box">
                         <span class="details">País:</span>
                         <input type="text" placeholder="País" name="pais" value="<?php echo $user['pais']; ?>" required readonly>
@@ -363,6 +363,30 @@ $fila = mysqli_fetch_assoc($result);
         </form>
         </div>
     </dialog>
+
+    <script>
+        const select = document.getElementById("nivel_educativo");
+        const input_alumno = document.getElementById("rol_alumno");
+        const input_docente = document.getElementById("rol_docente");
+        const input_director = document.getElementById("rol_director");
+
+        select.addEventListener("change", () => {
+
+            if (select.value == 'Primaria') {
+                input_alumno.value = 2;
+                input_docente.value = 3;
+                input_director.value = 4;
+            } else if (select.value == 'Secundaria') {
+                input_alumno.value = 6;
+                input_docente.value = 7;
+                input_director.value = 8;
+            } else if (select.value == 'Preparatoria') {
+                input_alumno.value = 9;
+                input_docente.value = 10;
+                input_director.value = 11;
+            }
+        });
+    </script>
 
     <script>
         function copyToClipBoard1() {

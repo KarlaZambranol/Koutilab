@@ -158,6 +158,21 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <li><i class='fas fa-file-alt'></i></i> &nbsp;<b>Teórico:</b> <?php echo $resultadoEstadistica["teorico"] ?> de <?php echo $totalTeorico ?> </li>
                 </ul>
             </div>
+            <div class="dos1">
+                <ul class="lista-datos">
+                    <li><b>&nbsp;Contraseña:</b></li>
+                    <li>
+                        <form enctype="multipart/form-data" action="" method="post">
+                            <div class="user-details1">
+                                <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
+                                    <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+                                    <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn-grd" style="scale: 80%; width: 60%;">
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
 
         </div>
         <div class="latd">
@@ -758,5 +773,50 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             });
         }
     </script>
+
+    <?php
+    if (isset($_POST['enviarcontrasena'])) {
+        $idalumno = $_SESSION['idUser'];
+        $contrasena = md5($_POST['contrasena']);
+
+        $sql_update = mysqli_query($conexion, "UPDATE alumnos SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
+
+        if ($sql_update) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: 'Excelente!',
+          text: 'Cambio de contraseña exitosa',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+        } else {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Cambio de contraseña no exitosa',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+        }
+    }
+    ?>
 
 </body>

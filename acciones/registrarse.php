@@ -23,6 +23,9 @@ if ($result_clave_alumno == 0) {
   if (isset($data_alumno['id_escuela'])) {
     $id_escuela_alumno = $data_alumno['id_escuela'];
   }
+  if (isset($data_alumno['nivel_educativo'])) {
+    $nivel_educativo_alumno = $data_alumno['nivel_educativo'];
+  }
 }
 
 //Buscar si la clave pertenece a un docente
@@ -58,7 +61,7 @@ if ($result > 0  || $result1 > 0 || $result2 > 0) {
 } else {
 
   if ($result_clave_alumno > 0) {
-    $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_alumno)");
+    $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_alumno, '$nivel_educativo')");
     if ($query_insert_alumno) {
       $alert = '<div class="alert alert-primary" role="alert">
                           Alumno registrado

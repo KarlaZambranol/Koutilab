@@ -181,6 +181,7 @@ $data1 = mysqli_fetch_assoc($query1);
                     <td><b>Nivel educativo</b></td>
                     <td><b>Grado escolar</b></td>
                     <td><b>Grupo</b></td>
+                    <td><b>Correo</b></td>
                     <td><b>Acción</b></td>
                 </tr>
             </thead>
@@ -189,7 +190,7 @@ $data1 = mysqli_fetch_assoc($query1);
                 <?php
                 include "../acciones/conexion.php";
 
-                $query_alumnos = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.nivel_educativo, a.grado_escolar, a.nombre_grupo FROM alumnos a
+                $query_alumnos = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.nivel_educativo, a.grado_escolar, a.nombre_grupo, a.email FROM alumnos a
                 JOIN docentes d
                 ON a.id_docente = d.id_docente
                 WHERE d.id_docente = '$id_user'");
@@ -203,6 +204,7 @@ $data1 = mysqli_fetch_assoc($query1);
                             <td><?php echo $data['nivel_educativo']; ?></td>
                             <td><?php echo $data['grado_escolar']; ?></td>
                             <td><?php echo $data['nombre_grupo']; ?></td>
+                            <td><?php echo $data['email']; ?></td>
                             <td>
                                 <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" class="btn btn-info" style="margin-right: 5px;"><i class='fas fa-chart-line' style="color: white;"></i></a>
                                 <a href="acciones/editar_alumno.php?id=<?php echo $data['id_alumno']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-edit'></i></a>
@@ -283,7 +285,10 @@ $data1 = mysqli_fetch_assoc($query1);
                         <span class="details"></span><br>
                         <button type="button" class="btn-grd" onclick="copyToClipBoard()">Copiar clave</button>
                     </div>
-
+                    <div class="input-box1">
+                        <span class="details">Correo:</span>
+                        <input type="email" name="email" id="email" placeholder="ejemplo@gmail.com" required>
+                    </div>
                 </div>
                 <button type="submit" class="btn-grd">Registrar</button>
 

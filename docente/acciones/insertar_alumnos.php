@@ -18,6 +18,7 @@ $acceso_curso = $_POST['acceso_curso'];
 $cct = $_POST['cct'];
 $id_escuela = $_POST['id_escuela'];
 $id_docente = $_POST['id_docente'];
+$email = $_POST['email'];
 
 $id_user = $_SESSION['idUser'];
 
@@ -28,9 +29,9 @@ $accesoCurso = $resultadoCurso['curso'];
 
 $insertar_alumno = mysqli_query($conexion, "INSERT INTO alumnos(
   nombre, usuario, contrasena, clave, nivel_educativo, 
-  grado_escolar, nombre_grupo, id_escuela, id_docente, image, fondo) VALUES (
+  grado_escolar, nombre_grupo, id_escuela, id_docente, image, fondo, email) VALUES (
     '$nombre', '$usuario', '$contrasena', '$clave', '$nivel_educativo', '$grado_escolar', 
-    '$nombre_grupo', '$id_escuela', '$id_docente', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+    '$nombre_grupo', '$id_escuela', '$id_docente', 'Mascota-Aerobot-01.png', 'portada-1.png', '$email')");
 
 
 

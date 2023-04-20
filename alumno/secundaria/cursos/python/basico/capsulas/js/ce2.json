@@ -1,0 +1,128 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Escribir instrucciones",
+        "incorrectAnswers": [
+            "Dejar comentarios",
+            "Utilizar variables",
+            "style:''"
+        ],
+        "question": "¿Qué se debe de hacer en Python para que la computadora lo entienda (codigo)?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Comando",
+        "incorrectAnswers": [
+            "Variable",
+            "Dato",
+            "No recuerdo"
+        ],
+        "question": "Print ¿Qué es?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Hola me llamo Juan Diego y estoy estudiando Derecho, mucho gusto",
+        "incorrectAnswers": [
+            "y estoy estudiando Derecho, mucho gusto",
+            "Hola me llamo Juan Diego",
+            "No sé"
+        ],
+    "question": "Que salida de pantalla tendra el siguiente codigo: nombre='Juan Diego'\ncarrera='Derecho'\nprint('Hola me llamo'Juan Diego'+nombre+'y estudio'+carrera+',mucho gusto'",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Para imprimir cosas en la pantalla",
+        "incorrectAnswers": [
+            "Para dibujar",
+            "Para retornar cosas",
+            "Para hacer una operacion"
+        ],
+        "question": "¿Para que utilizamos el comando 'Print'?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "print ('Gabriel Coding' 'Think Twice, Code Once')",
+        "incorrectAnswers": [
+            "print('Gabriel Coding')",
+            "print ('Gabriel Coding', 'Think Twice, Code Once', sep = ' - ')",
+            "print ('Gabriel Coding', 'Think Twice, Code Once', sep = ' - ', end = '.')"
+        ],
+        "question": "¿Cuál es una sentencia 'print()' con argumentos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "print('Gabriel Coding')",
+        "incorrectAnswers": [
+            "print ('Gabriel Coding' 'Think Twice, Code Once')",
+            "print ('Gabriel Coding', 'Think Twice, Code Once",
+            "print ('Gabriel Coding', 'Think Twice, Code Once', sep = ' - ', end = '.')"
+        ],
+        "question": "¿Cuál es una sentencia 'print()' básica?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "lista=['jose',5,'Maria']*5\nprint(lista[:])",
+        "incorrectAnswers": [
+            "lista=['jose',5,'Maria']*5",
+            "print(lista[:])",
+            "style:'h1{ color=red;'}"
+        ],
+        "question": "¿Cuál es la opción correcta de imprimir una lista?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
