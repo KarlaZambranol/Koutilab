@@ -364,16 +364,25 @@ if (!empty($_SESSION['rol'])) {
 
     <script>
         //Alerta de registro exitoso
-        const form = document.querySelector('#Registrarse');
-
-        form.addEventListener('submit', function(event) {
+        function registroExitoso() {
             Swal.fire({
-                title: '¡Excelente!',
-                text: 'Registro exitoso',
-                icon: 'success',
-                showConfirmButton: false,
+                title: '¡Excelente',
+                text: '¡Registro con éxito!',
+                imageUrl: "img/Thumbs-Up.gif",
+                imageHeight: 350,
+                backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("img/fondo.gif")
+                    `,
+                confirmButtonColor: '#a14cd9',
+                confirmButtonText: 'Aceptar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('Registrarse').submit();
+                }
+
             });
-        });
+        }
     </script>
 
     <script>
