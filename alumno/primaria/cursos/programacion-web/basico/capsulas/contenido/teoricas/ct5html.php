@@ -36,6 +36,7 @@ if (isset($resultadoIntentos['intentos'])) {
 } else {
     $puntosGanados = 10;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -95,27 +96,35 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/teorica5html/CT55555.gif');"></li>
                         <li style="background-image: url('../../img/teorica5html/CT555555.gif');"></li>
                         <li>
-                        <div style="width:80%; margin-left:10%; ">
+                            <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd14.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Para definir los hipervínculos se utiliza la etiqueta?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">< i></label>
+                                        <label for="checkbox1">
+                                            < i>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">< a></label>
+                                        <label for="checkbox2">
+                                            < a>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">< hiper></label>
+                                        <label for="checkbox3">
+                                            < hiper>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">< b></label>
+                                        <label for="checkbox4">
+                                            < b>
+                                        </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <input type="hidden" name="permiso" value="14">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

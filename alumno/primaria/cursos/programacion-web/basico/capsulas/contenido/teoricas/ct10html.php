@@ -13,29 +13,6 @@ if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula2html.php");
 }
 
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_permiso = $permiso_intento AND id_usuario = '$id_user' AND id_curso = 1");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
-} else {
-    $puntosGanados = 10;
-}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +28,7 @@ if (isset($resultadoIntentos['intentos'])) {
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
 </head>
 
 <body>
@@ -95,27 +72,35 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/teorica10html/CT1010101010.gif');"></li>
                         <li style="background-image: url('../../img/teorica10html/CT101010101010.gif');"></li>
                         <li>
-                        <div style="width:80%; margin-left:10%; ">
+                            <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp4.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuál son las etiquetas que se utiliza para crear un menu?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">< nav> y < a></label>
+                                        <label for="checkbox1">
+                                            < nav> y < a>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">< i> y < li></label>
+                                        <label for="checkbox2">
+                                            < i> y < li>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">< ul> y < li></label>
+                                        <label for="checkbox3">
+                                            < ul> y < li>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">< nav> y < li></label>
+                                        <label for="checkbox4">
+                                            < nav> y < li>
+                                        </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <input type="hidden" name="permiso" value="4">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
@@ -155,7 +140,7 @@ if (isset($resultadoIntentos['intentos'])) {
         function comprueba() {
             if (checkbox1.checked) {
                 Swal.fire({
-                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teoricos',
+                    title: '¡Bien hecho! ',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

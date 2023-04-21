@@ -12,8 +12,9 @@ $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
+
 //Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 2;
+$permiso_intento = 27;
 $sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_permiso = $permiso_intento AND id_usuario = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
@@ -95,27 +96,33 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/teorica1css/CT11111.gif');"></li>
                         <li style="background-image: url('../../img/teorica1css/CT111111.gif');"></li>
                         <li>
-                        <div style="width:80%; margin-left:10%; ">
+                            <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd27.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Por el metodo 1 como se vincula una hoja de CSS utilizando HEAD?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">< link rel="" type"" href=""></label>
+                                        <label for="checkbox1">
+                                            < link rel="" type"" href="">
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">< link rel type href></label>
+                                        <label for="checkbox2">
+                                            < link rel type href>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3"><  rel="" type"" href=""></label>
+                                        <label for="checkbox3">
+                                            < rel="" type"" href="">
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4"> link rel="" type"" href="" </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <input type="hidden" name="permiso" value="27">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

@@ -36,6 +36,7 @@ if (isset($resultadoIntentos['intentos'])) {
 } else {
     $puntosGanados = 10;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +96,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/teorica3html/CT33333.gif');"></li>
                         <li style="background-image: url('../../img/teorica3html/CT333333.gif');"></li>
                         <li>
-                        <div style="width:80%; margin-left:10%; ">
+                            <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd8.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuáles son los 2 tipos de listas?</h1>
@@ -115,7 +116,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Listas enumeradas con letras y listas enumeradas con numeros</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <input type="hidden" name="permiso" value="8">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

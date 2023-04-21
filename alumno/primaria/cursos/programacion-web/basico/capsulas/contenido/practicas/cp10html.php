@@ -45,9 +45,9 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Crea un menú sencillo con algunas opciones 
-                                    en forma de lista y un título del menú. Estas opciones no van a tener un link < ul> y < a>. 
-                                    <br> <br>
+                                <p>Instrucciones: Crea un menú sencillo con algunas opciones
+                                    en forma de lista y un título del menú. Estas opciones no van a tener un link < ul> y < a>.
+                                            <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -76,7 +76,7 @@ if (empty($existe)) {
 
             if (ul > 0 && a > 0) {
                 Swal.fire({
-                    title: '¡Bien hecho!',
+                    title: '¡Bien hecho! ',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

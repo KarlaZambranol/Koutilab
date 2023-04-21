@@ -594,7 +594,6 @@ if (empty($existe)) {
 			//Condicional para regresar que las repuestas sean correctas, en caso de no serlo, regresará error en la palabra que este mal
 			if (palabra1.toLowerCase() == "boxmodel" && palabra2.toLowerCase() == "contenido" && palabra3.toLowerCase() == "relleno" && palabra4.toLowerCase() == "borde" && palabra5.toLowerCase() == "margen") {
 				var xmlhttp = new XMLHttpRequest();
-
 				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 9 + "&id_curso=" + 1; //cancatenation
 
 				xmlhttp.onreadystatechange = function() {

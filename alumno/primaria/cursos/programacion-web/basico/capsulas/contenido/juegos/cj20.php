@@ -235,7 +235,6 @@ if (empty($existe)) {
             if (arreglo[0] != "" && arreglo[1] != "" && arreglo[2] != "" && arreglo[3] != "" && arreglo[4] != "" && arreglo[5] != "" && arreglo[6] != "" && arreglo[7] != "" && arreglo[8] != "" && arreglo[9] != "") {
                 if (arreglo[0] == "html" && arreglo[1] == "html" && arreglo[2] == "html" && arreglo[3] == "html" && arreglo[4] == "html" && arreglo[5] == "css" && arreglo[6] == "css" && arreglo[7] == "css" && arreglo[8] == "css" && arreglo[9] == "css") {
                     var xmlhttp = new XMLHttpRequest();
-
                     var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 12 + "&id_curso=" + 1; //cancatenation
 
                     xmlhttp.onreadystatechange = function() {

@@ -13,6 +13,30 @@ if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 24;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_permiso = $permiso_intento AND id_usuario = '$id_user' AND id_curso = 1");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
+} else {
+    $puntosGanados = 10;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -45,8 +69,8 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Agrega un botón < button> solo con código HTML. Colócale un título arriba de botón y texto dentro del botón < h1>. 
-                                    <br> <br>
+                                <p>Instrucciones: Agrega un botón < button> solo con código HTML. Colócale un título arriba de botón y texto dentro del botón < h1>.
+                                            <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -69,13 +93,14 @@ if (empty($existe) && $id_user != 1) {
     <script>
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
+            var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("editor").contentWindow.document;
             let h1 = frame.querySelectorAll("h1").length;
             let buttons = frame.querySelectorAll("button").length;
 
             if (h1 > 0 && buttons > 0) {
                 Swal.fire({
-                    title: '¡Bien hecho!',
+                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

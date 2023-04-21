@@ -46,8 +46,8 @@ if (empty($existe)) {
                         <tr>
                             <td class="nombre">
                                 <p>Instrucciones: Crear una línea de tiempo sin estilos (CSS).
-                                    Solo el formato de la fecha, titulo y párrafo. Utiliza < div>, < h3> y < p> 
-                                    <br> <br>
+                                    Solo el formato de la fecha, titulo y párrafo. Utiliza < div>, < h3> y < p>
+                                                <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -77,7 +77,7 @@ if (empty($existe)) {
 
             if (divs > 0 && h3 > 0 && ps > 0) {
                 Swal.fire({
-                    title: '¡Bien hecho!',
+                    title: '¡Bien hecho! ',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

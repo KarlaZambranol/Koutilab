@@ -318,12 +318,11 @@ if (empty($existe)) {
 			//Condicional para regresar que las repuestas sean correctas, en caso de no serlo, regresará error en la palabra que este mal
 			if (palabra1.toLowerCase() == "nav" && palabra2.toLowerCase() == "menu" && palabra3.toLowerCase() == "lista" && palabra4.toLowerCase() == "li") {
 				var xmlhttp = new XMLHttpRequest();
-
 				var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 6 + "&id_curso=" + 1; //cancatenation
 
 				xmlhttp.onreadystatechange = function() {
 					Swal.fire({
-						title: '¡Bien hecho!',
+						title: '¡Bien hecho! ',
 						text: '¡Puntuación guardada con éxito!',
 						imageUrl: "../../../../../../img/Thumbs-Up.gif",
 						imageHeight: 350,

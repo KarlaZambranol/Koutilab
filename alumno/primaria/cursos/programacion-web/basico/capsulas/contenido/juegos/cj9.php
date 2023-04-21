@@ -303,12 +303,11 @@ if (empty($existe)) {
             gano = true;
             //Guardar puntaje
             var xmlhttp = new XMLHttpRequest();
-
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 3 + "&id_curso=" + 1; //cancatenation
             xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
                 Swal.fire({
-                  title: '¡Bien hecho!',
+                  title: '¡Bien hecho! ',
                   text: '¡Puntuación guardada con éxito!',
                   imageUrl: "../../../../../../img/Thumbs-Up.gif",
                   imageHeight: 350,

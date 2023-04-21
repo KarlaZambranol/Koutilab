@@ -13,6 +13,30 @@ if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 12;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_permiso = $permiso_intento AND id_usuario = '$id_user' AND id_curso = 1");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
+} else {
+    $puntosGanados = 10;
+}
+
 ?>
 <!DOCTYPE html>
 
@@ -47,7 +71,7 @@ if (empty($existe) && $id_user != 1) {
                                 <p>Instrucciones: Pediremos 3 fotos, una de un animal, una de un personaje de caricaturas
                                     y otra de su comida favorita. Estas imágenes tienen que tener un tamaño específico
                                     de 300 pixeles de ancho por 200 pixeles de alto. < img>
-                                    <br> <br>
+                                        <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -71,12 +95,13 @@ if (empty($existe) && $id_user != 1) {
     <script>
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
+            var puntos = <?php echo $puntosGanados; ?>;
             var frame = document.getElementById("editor").contentWindow.document;
             let img = frame.querySelectorAll("img").length;
 
             if (img > 2) {
                 Swal.fire({
-                    title: '¡Bien hecho!',
+                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

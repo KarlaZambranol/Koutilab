@@ -13,30 +13,6 @@ if (empty($existe)) {
     header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula2css.php");
 }
 
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_permiso = $permiso_intento AND id_usuario = '$id_user' AND id_curso = 1");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-    $totalIntentos = $resultadoIntentos['intentos'];
-    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-        $puntosGanados = 8;
-    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 6;
-    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-        $puntosGanados = 0;
-    } else {
-        $puntosGanados = 0;
-    }
-} else {
-    $puntosGanados = 10;
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +72,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/teorica10css/CT1010101010.gif');"></li>
                         <li style="background-image: url('../../img/teorica10css/CT101010101010.gif');"></li>
                         <li>
-                        <div style="width:80%; margin-left:10%; ">
+                            <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_cp10.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Se pueden agregar sombras al texto?</h1>
@@ -116,7 +92,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">No recuerdo</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <input type="hidden" name="permiso" value="10">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
@@ -142,7 +118,6 @@ if (isset($resultadoIntentos['intentos'])) {
     <script>
         //checar respuesta
 
-        var puntos = <?php echo $puntosGanados; ?>;
         var checkbox1 = document.getElementById('checkbox1');
         var checkbox2 = document.getElementById('checkbox2');
         var checkbox3 = document.getElementById('checkbox3');
@@ -156,7 +131,7 @@ if (isset($resultadoIntentos['intentos'])) {
         function comprueba() {
             if (checkbox1.checked) {
                 Swal.fire({
-                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teoricos',
+                    title: '¡Bien hecho!',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

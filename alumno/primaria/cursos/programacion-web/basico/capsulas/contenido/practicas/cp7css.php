@@ -13,6 +13,30 @@ if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 46;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_permiso = $permiso_intento AND id_usuario = '$id_user' AND id_curso = 1");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
+} else {
+    $puntosGanados = 10;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,10 +70,10 @@ if (empty($existe) && $id_user != 1) {
                         <tr>
                             <td class="nombre">
                                 <p>Instrucciones: Crear un selector id. Té propongo un ejercicio práctico solo usando
-                                    el archivo HTML: Pintáremos todos los párrafos de un mismo color con excepción de uno. 
-                                    Crea una regla dentro de la etiqueta style con el selector para un atributo determinado. 
+                                    el archivo HTML: Pintáremos todos los párrafos de un mismo color con excepción de uno.
+                                    Crea una regla dentro de la etiqueta style con el selector para un atributo determinado.
                                     Escribe diferentes párrafos. Asígnale a uno de ellos ese atributo id. < p>
-                                    <br> <br>
+                                        <br> <br>
                                 </p>
                             </td>
                             <td class="ne">
@@ -72,11 +96,12 @@ if (empty($existe) && $id_user != 1) {
     <script>
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
+            var puntos = <?php echo $puntosGanados; ?>;
             var p = document.getElementById("p").contentWindow.document;
 
             if (p > 0) {
                 Swal.fire({
-                    title: '¡Bien hecho!',
+                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,

@@ -36,7 +36,6 @@ if (isset($resultadoIntentos['intentos'])) {
 } else {
     $puntosGanados = 10;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +95,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/teorica2html/CT22222.gif');"></li>
                         <li style="background-image: url('../../img/teorica2html/CT222222.gif');"></li>
                         <li>
-                        <div style="width:80%; margin-left:10%; ">
+                            <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd5.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuantos formatos de texto existen?</h1>
