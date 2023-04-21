@@ -45,12 +45,12 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: En un documento CSS con ayuda de un
-                                    archivo HTML coloca un fondo de color, así también
-                                    como títulos de diferentes tamaños y párrafos.En el archivo
-                                    CSS donde se le dará el estilo se debe de seguir la sintaxis
-                                    anteriormente mencionada, como por ejemplo debe llevar un selector,
-                                    propiedad, valor y las declaraciones.
+                                <p>Instrucciones: En un documento CSS con ayuda de un archivo HTML coloca un fondo de color, 
+                                    así también como títulos de diferentes tamaños y párrafos.En el archivo CSS donde se le dará 
+                                    el estilo se debe de seguir la sintaxis anteriormente mencionada, como por ejemplo debe llevar 
+                                    un selector,propiedad, valor y las declaraciones. 
+                                    < h1>
+                                    < p>
                                     <br> <br>
                                 </p>
                             </td>

@@ -45,8 +45,8 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Crea un menu sencillo con algunas opciones
-                                    en forma de lista y un titulo del menu. Estas opciones no van a tener un link.
+                                <p>Instrucciones: Crea un menú sencillo con algunas opciones 
+                                    en forma de lista y un título del menú. Estas opciones no van a tener un link < ul> y < a>. 
                                     <br> <br>
                                 </p>
                             </td>

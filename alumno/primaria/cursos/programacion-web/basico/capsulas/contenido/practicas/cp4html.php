@@ -46,7 +46,7 @@ if (empty($existe) && $id_user != 1) {
                             <td class="nombre">
                                 <p>Instrucciones: Pediremos 3 fotos, una de un animal, una de un personaje de caricaturas
                                     y otra de su comida favorita. Estas imágenes tienen que tener un tamaño específico
-                                    de 300 pixeles de ancho por 200 pixeles de alto.
+                                    de 300 pixeles de ancho por 200 pixeles de alto. < img>
                                     <br> <br>
                                 </p>
                             </td>

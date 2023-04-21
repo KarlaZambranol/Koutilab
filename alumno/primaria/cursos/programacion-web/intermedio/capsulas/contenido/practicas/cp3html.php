@@ -45,7 +45,7 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Determinar el código HTML que corresponde a la siguiente lista
+                                <p> Determinar el código HTML que corresponde a la siguiente lista.
                                     <br><br>
                                 </p>
                             </td>

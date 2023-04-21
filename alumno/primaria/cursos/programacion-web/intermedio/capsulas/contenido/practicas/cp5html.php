@@ -45,7 +45,7 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea dos tablas como las de los ejemplos
+                                <p> Crea dos tablas como las de los ejemplos.
                                     <br><br>
                                 </p>
                             </td>

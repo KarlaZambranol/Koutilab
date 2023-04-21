@@ -45,8 +45,7 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Agrega un boton solo con codigo HTML.
-                                    Colocale un titulo arriba de boton y texto dentro del boton.
+                                <p>Instrucciones: Agrega un botón < button> solo con código HTML. Colócale un título arriba de botón y texto dentro del botón < h1>. 
                                     <br> <br>
                                 </p>
                             </td>

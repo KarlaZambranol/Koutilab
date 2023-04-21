@@ -44,7 +44,7 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea una variable llamada "nombre" yu nombre a esa variable.
+                                <p> Crea una variable llamada "nombre" y tu nombre va en esa variable.
                                     <br><br>
                                 </p>
                             </td>

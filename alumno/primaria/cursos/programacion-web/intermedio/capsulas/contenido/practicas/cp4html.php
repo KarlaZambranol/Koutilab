@@ -45,7 +45,7 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea la siguiente tabla
+                                <p> Crea la siguiente tabla.
                                     <br><br>
                                 </p>
                             </td>

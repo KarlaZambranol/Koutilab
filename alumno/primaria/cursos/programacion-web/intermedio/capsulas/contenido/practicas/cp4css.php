@@ -45,9 +45,9 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> En un documento html escribe en texto 
-                                    en el cual tenga como valores font-family: georgia,
-                                    font-size:medium, font-style: italic y un font-weight: bold. como se muestra a comtinuación
+                                <p> En un documento html escribe en texto en el cual tenga como valores font-family: 
+                                    georgia,font-size:medium, font-style: italic y un font-weight: bold.
+                                    Como se muestra a continuación.
                                     <br><br>
                             </td>
                             <td class="ne">

@@ -45,10 +45,9 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>En un documento html crea 7 div que esten contenidas 
-                                    en un grid-container con las siguientes propiedades 
-                                    grid-template-columns, grid-template-rows,  como se muestra 
-                                    a continuación:
+                                <p> En un documento html crea 7 div que estén contenidas en un 
+                                    grid-container con las siguientes propiedades grid-template-columns, grid-template-rows.
+                                    Como se muestra a continuación:
                                     <br><br>
                                 </p>
                             </td>

@@ -45,8 +45,7 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> En un documento html aplica los distintos 
-                                    valores de colores como se muestra a continuacion.
+                                <p> En un documento html aplica los distintos valores de colores como se muestra a continuación.
                                     <br><br>
                                 </p>
                             </td>

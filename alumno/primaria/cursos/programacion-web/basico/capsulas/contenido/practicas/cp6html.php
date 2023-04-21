@@ -45,8 +45,7 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Agrega un video desde la carpeta local o por un
-                                    link solo con codigo HTML.
+                                <p>Instrucciones: Agrega un video desde la carpeta local o por un link solo con código HTML. < video>
                                     <br> <br>
                                 </p>
                             </td>

@@ -46,12 +46,12 @@ if (empty($existe) && $id_user != 1) {
                         <tr>
                             <td class="nombre">
                                 <p>Instrucciones: 
-                                    1. haga 1 lista, que contenga el nombre de 5 compañeros
-                                    de la escuela, esta lista debe ser no ordenada.
+                                    1. Haga 1 lista, que contenga el nombre de 5 compañeros
+                                    de la escuela, esta lista debe ser no ordenada. < ul>
                                 <br>
-                                2. haga 1 lista, que contenga el nombre de 5 sus 5 juguetes favoritos,
+                                2. Haga 1 lista, que contenga el nombre de sus 5 juguetes favoritos,
                                 Estos juguetes deben estar ordenados, es claramente subjetivo
-                                y no afecta el orden al resultado.
+                                y no afecta el orden al resultado. < ol>
                                 <br>
                                 </p>
                             </td>

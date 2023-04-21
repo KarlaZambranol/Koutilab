@@ -45,12 +45,10 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: A continuación se muestra un
-                                    código HTML lo que tienes que hacer es general
-                                    en un código CSS que el texto que se encuentra
-                                    entre < span> , darle la clase .classy para darle
-                                        un estilo al parrafo
-                                        <br> <br>
+                                <p>Instrucciones: A continuación, se muestra un código HTML lo que tienes 
+                                    que hacer es general en un código CSS que el texto que se encuentra entre
+                                    < span>, darle la clase .classy para darle un estilo al párrafo. 
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">

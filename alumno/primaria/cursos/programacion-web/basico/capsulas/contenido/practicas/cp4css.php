@@ -44,12 +44,10 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: A continuación se muestra un
-                                    código HTML lo que tienes que hacer es general
-                                    en un código CSS que el texto que se encuentra entre
-                                    < h1> , < h2> y < p> se de un solo color (color de tu
-                                                preferencia).
-                                                <br> <br>
+                                <p>Instrucciones:A continuación, se muestra un código HTML lo que tienes que hacer es 
+                                    general en un código CSS que el texto que se encuentra entre < h1>, < h2> y < p> se 
+                                    dé un solo color (color de tu preferencia). 
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">

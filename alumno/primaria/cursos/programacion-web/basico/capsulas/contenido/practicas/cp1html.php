@@ -46,7 +46,9 @@ if (empty($existe) && $id_user != 1) {
                         <tr>
 
                             <td class="nombre">
-                                <p>Instrucciones: Agregar un parrafo con su titulo dentro de un div.
+                                <p>Instrucciones: Agregar un párrafo con su título dentro de un div (todas las etiquetas se deben de cerrar). 
+                                    < div>
+                                    < h1>
                                     <br> <br>
                                 </p>
                             </td>

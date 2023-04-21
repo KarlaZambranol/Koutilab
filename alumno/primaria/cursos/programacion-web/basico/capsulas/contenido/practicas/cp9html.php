@@ -45,10 +45,9 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Crear un linea de tiempo sin estilos (CSS).
-                                    Solo el formato de la fecha, titulo y parrafo.
-                                    Utiliza < div> , < h3> y < p>
-                                                <br> <br>
+                                <p>Instrucciones: Crear una línea de tiempo sin estilos (CSS).
+                                    Solo el formato de la fecha, titulo y párrafo. Utiliza < div>, < h3> y < p> 
+                                    <br> <br>
                                 </p>
                             </td>
                             <td class="ne">

@@ -72,16 +72,30 @@ if (empty($existe)) {
                         <li style="background-image: url('../../img/teorica2html/CT22222.gif');"></li>
                         <li style="background-image: url('../../img/teorica2html/CT222222.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                        <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd5.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>¿Cuales son las dos formas de dividir la estructura de los directorios?</h1>
-                                    <input type="hidden" name="permiso" value="5">
+                                    <h1>¿Cuáles son las dos formas de dividir la estructura de los directorios?</h1>
+                                    <div>
+                                        <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox1">Categorias y Sub-sitios</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox2">Fecha y nombre</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox3">Tamaño y caracteristicas</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox4">Lenguaje y fecha</label>
+                                    </div>
+                                    <input type="hidden" name="permiso" value="2">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="2">
+                                    <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <textarea name="pregunta" onkeyup="actualizar2()" id="pregunta" placeholder="Escriba aquí su respuesta" rows="5" cols="40"></textarea>
-                                    <button onclick="miFunc(); return false;" type="submit" class="btn-grd" id="update" disabled>Evaluar</button>
                                 </form>
                             </div>
                         </li>
@@ -90,20 +104,41 @@ if (empty($existe)) {
         </div>
     </div>
     <script>
-        function miFunc() {
-            //checar respuesta
+        window.addEventListener("load", function() {
+            var form = document.querySelector("form");
+            var fields = form.querySelectorAll("div");
+            var randomIndex = Math.floor(Math.random() * fields.length);
 
-            let ta = document.getElementById('pregunta').value;
+            for (var i = 0; i < fields.length; i++) {
+                var index = (i + randomIndex) % fields.length;
+                form.appendChild(fields[index]);
+            }
+        });
+    </script>
+    <script>
+        //checar respuesta
 
-            if (ta == 'Categorias y Sub-sitios' || ta=='Categorias' || ta=='Sub-sitios' || ta=='Subsitios') {
+        var puntos = <?php echo $puntosGanados; ?>;
+        var checkbox1 = document.getElementById('checkbox1');
+        var checkbox2 = document.getElementById('checkbox2');
+        var checkbox3 = document.getElementById('checkbox3');
+        var checkbox4 = document.getElementById('checkbox4');
+
+        checkbox1.addEventListener("change", comprueba, true);
+        checkbox2.addEventListener("change", comprueba, true);
+        checkbox3.addEventListener("change", comprueba, true);
+        checkbox4.addEventListener("change", comprueba, true);
+
+        function comprueba() {
+            if (checkbox1.checked) {
                 Swal.fire({
-                    title: '¡Bien hecho!',
+                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teoricos',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,
                     backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                     confirmButtonColor: '#a14cd9',
                     confirmButtonText: 'Aceptar',
@@ -115,11 +150,34 @@ if (empty($existe)) {
                     }
 
                 });
-            } else {
+            } else if (checkbox2.checked) {
                 Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('evaluar').submit();
+                    }
+                });
+            } else if (checkbox3.checked) {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('evaluar').submit();
+                    }
+                });
+            } else if (checkbox4.checked) {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.getElementById('evaluar').submit();

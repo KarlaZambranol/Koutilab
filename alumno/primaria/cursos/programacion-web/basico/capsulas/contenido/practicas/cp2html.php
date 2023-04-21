@@ -45,10 +45,11 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Realizar diferentes formatos de texto como negritas
-                                    subrayado, suindices, superindices, cursiva, tamaño de palabras y espacio simple.
-                                    La frase que ocuparas en todos los ejemplos sera: 'Somos un gran equipo que conforma Koutilab
-                                    con caracteristicas importantes'.
+                                <p>Instrucciones: Realizar diferentes formatos de texto como negritas subrayado y cursiva. 
+                                    La frase que ocuparas será la de tu preferencia. 
+                                    < b>
+                                    < i>
+                                    < mark>
                                     <br> <br>
                                 </p>
                             </td>

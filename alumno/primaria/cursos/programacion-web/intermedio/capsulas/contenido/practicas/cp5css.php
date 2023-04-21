@@ -45,10 +45,9 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> En un documento html pon 6 div en un contenedor 
-                                    que tenga un background asul  y que contenga un 
-                                    flex-direction: column;  flex-wrap: wrap; y un flex-flow 
-                                    como se muestra a continuacion
+                                <p> En un documento html pon 6 div en un contenedor que tenga un background azul 
+                                    y que contenga un flex-direction: column;  flex-wrap: wrap; y un flex-flow.
+                                    Como se muestra a continuación.
                                     <br><br>
                                 </p>
                             </td>

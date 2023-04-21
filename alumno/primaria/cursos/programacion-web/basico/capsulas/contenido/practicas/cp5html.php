@@ -45,8 +45,8 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Crear un hipervínculo de tu pagina web a otra pagina
-                                    de tu agrado, el hipervínculo tendrá una oración.
+                                <p>Instrucciones: Crear un hipervínculo de tu página web a 
+                                    otra página de tu agrado, el hipervínculo tendrá una oración. < a>
                                     <br> <br>
                                 </p>
                             </td>

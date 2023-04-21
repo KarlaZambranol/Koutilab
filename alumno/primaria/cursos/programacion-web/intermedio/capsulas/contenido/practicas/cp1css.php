@@ -45,9 +45,8 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> En un documento html agrega una etiqueta a 
-                                    y agragale las siguentes pseudo-clases:
-                                    :hover, :active, :link y :visited  
+                                <p> En un documento html agrega una etiqueta < a>.
+                                Agregale las siguientes pseudo-clases:, :hover, :active, :link y :visited. 
                                     <br><br>
                                 </p>
                             </td>

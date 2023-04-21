@@ -45,7 +45,7 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea los siguientes controles de texto
+                                <p> Crea los siguientes controles de texto.
                                     <br><br>
                                 </p>
                             </td>

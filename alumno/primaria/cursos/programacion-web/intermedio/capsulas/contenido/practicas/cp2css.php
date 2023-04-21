@@ -45,9 +45,8 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> En un documento html crea un fondo multiple 
-                                    en 3 imagenes que esten uno a la iquierda y otro 
-                                    a la derecha como se muestra  a continuacion
+                                <p> En un documento html crea un fondo múltiple en 3 imágenes
+                                    que estén uno a la izquierda y otro a la derecha como se muestra  a continuación.
                                     <br><br>
                                 </p>
                             </td>

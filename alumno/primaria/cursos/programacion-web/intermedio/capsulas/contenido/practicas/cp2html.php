@@ -45,7 +45,7 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Ahora crea una organizacion de directorios utilizando listas ordenadas y no ordenadas
+                                <p> Ahora crea una organización de directorios utilizando listas ordenadas y no ordenadas
                                     <br><br>
                                 </p>
                             </td>

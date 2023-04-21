@@ -45,9 +45,8 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Realiza que tus etiquetas de
-                                    párrafo estén de color azul y el demás texto
-                                    que tenga tu pagina sea color negro.
+                                <p>Instrucciones: Realiza que tus etiquetas de párrafo estén de color azul 
+                                    y el demás texto que tenga tu página sea color negro. < p>
                                     <br> <br>
                                 </p>
                             </td>

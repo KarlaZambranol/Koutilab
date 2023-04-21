@@ -45,9 +45,9 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Supongamos que queremos
-                                    que nuestro sitio tenga un fondo principal
-                                    color blanco y una cabecera color gris. Usando variables del CSS.
+                                <p> Instrucciones: Supongamos que queremos que nuestro
+                                    sitio tenga un fondo principal color blanco y una cabecera
+                                    color gris. Usando variables del CSS. 'style'
                                     <br>
                                 </p>
                             </td>

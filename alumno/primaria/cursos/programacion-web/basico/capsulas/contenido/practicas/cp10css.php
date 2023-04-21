@@ -45,9 +45,8 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: En un documento html crea una
-                                    division que contenga una sombra en los 4 lados
-                                    del color de tu preferencia
+                                <p>Instrucciones: En un documento HTML crea una división que
+                                    contenga una sombra en los 4 lados del color de tu preferencia < div>. 
                                     <br> <br>
                                 </p>
                             </td>

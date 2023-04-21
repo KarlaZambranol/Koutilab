@@ -12,6 +12,29 @@ $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
+//Verificar si ya se tiene permiso y no dar puntos de más
+$permiso_intento = 2;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_permiso = $permiso_intento AND id_usuario = '$id_user' AND id_curso = 1");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
+
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
+} else {
+    $puntosGanados = 10;
+}
 
 ?>
 
@@ -72,16 +95,30 @@ if (empty($existe) && $id_user != 1) {
                         <li style="background-image: url('../../img/teorica1css/CT11111.gif');"></li>
                         <li style="background-image: url('../../img/teorica1css/CT111111.gif');"></li>
                         <li>
-                            <div style="width:80%; margin-left:10%; ">
+                        <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd27.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Por el metodo 1 como se vincula una hoja de CSS utilizando HEAD?</h1>
-                                    <input type="hidden" name="permiso" value="27">
+                                    <div>
+                                        <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox1">< link rel="" type"" href=""></label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox2">< link rel type href></label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox3"><  rel="" type"" href=""></label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox4"> link rel="" type"" href="" </label>
+                                    </div>
+                                    <input type="hidden" name="permiso" value="2">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <textarea name="pregunta" onkeydown="actualizar1()" id="pregunta" placeholder="Escriba aquí su respuesta" rows="5" cols="40"></textarea>
-                                    <button onclick="miFunc(); return false;" type="submit" class="btn-grd" id="update" disabled>Evaluar</button>
                                 </form>
                             </div>
                         </li>
@@ -90,14 +127,35 @@ if (empty($existe) && $id_user != 1) {
         </div>
     </div>
     <script>
-        function miFunc() {
-            //checar respuesta
+        window.addEventListener("load", function() {
+            var form = document.querySelector("form");
+            var fields = form.querySelectorAll("div");
+            var randomIndex = Math.floor(Math.random() * fields.length);
 
-            let ta = document.getElementById('pregunta').value;
+            for (var i = 0; i < fields.length; i++) {
+                var index = (i + randomIndex) % fields.length;
+                form.appendChild(fields[index]);
+            }
+        });
+    </script>
+    <script>
+        //checar respuesta
 
-            if (ta == '< link rel="" type"" href="">') {
+        var puntos = <?php echo $puntosGanados; ?>;
+        var checkbox1 = document.getElementById('checkbox1');
+        var checkbox2 = document.getElementById('checkbox2');
+        var checkbox3 = document.getElementById('checkbox3');
+        var checkbox4 = document.getElementById('checkbox4');
+
+        checkbox1.addEventListener("change", comprueba, true);
+        checkbox2.addEventListener("change", comprueba, true);
+        checkbox3.addEventListener("change", comprueba, true);
+        checkbox4.addEventListener("change", comprueba, true);
+
+        function comprueba() {
+            if (checkbox1.checked) {
                 Swal.fire({
-                    title: '¡Bien hecho!',
+                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teoricos',
                     text: '¡Puntuación guardada con éxito!',
                     imageUrl: "../../../../../../img/Thumbs-Up.gif",
                     imageHeight: 350,
@@ -115,7 +173,29 @@ if (empty($existe) && $id_user != 1) {
                     }
 
                 });
-            } else {
+            } else if (checkbox2.checked) {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('evaluar').submit();
+                    }
+                });
+            } else if (checkbox3.checked) {
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('evaluar').submit();
+                    }
+                });
+            } else if (checkbox4.checked) {
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',

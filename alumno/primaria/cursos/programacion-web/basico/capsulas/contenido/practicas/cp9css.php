@@ -45,12 +45,10 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones:Crea un documento HTML con 5
-                                    divisiones, cada una separada de la anterior
-                                    por dos elementos. En cada división introduce
-                                    un texto (p.ej. div 1, div 2, div 3…) y aplícale
-                                    un estilo de borde diferente utilizando la propiedad
-                                    border-style.
+                                <p>Instrucciones:Crea un documento HTML con 5 divisiones, cada una separada de 
+                                    la anterior por dos elementos. En cada división introduce un texto (p.ej. 
+                                    div 1, div 2, div 3…) y aplícale un estilo de borde diferente utilizando la 
+                                    propiedad border-style < div>. 
                                     <br> <br>
                                 </p>
                             </td>

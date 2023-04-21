@@ -152,7 +152,7 @@ if (isset($resultadoIntentos['intentos'])) {
         checkbox2.addEventListener("change", comprueba, true);
         checkbox3.addEventListener("change", comprueba, true);
         checkbox4.addEventListener("change", comprueba, true);
-
+        
         function comprueba() {
             if (checkbox1.checked) {
                 Swal.fire({

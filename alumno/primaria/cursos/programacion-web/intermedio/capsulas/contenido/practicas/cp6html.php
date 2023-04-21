@@ -45,7 +45,7 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Crea la siguiente tabla
+                                <p> Crea la siguiente tabla.
                                     <br><br>
                                 </p>
                             </td>

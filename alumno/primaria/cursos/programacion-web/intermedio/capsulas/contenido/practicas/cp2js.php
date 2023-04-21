@@ -46,8 +46,7 @@ if (empty($existe) && $id_user != 1) {
                         <tr>
                             <td class="nombre">
                                 <p> Crea una constante llamada "PI" y asigna el valor 3.1416. 
-                                    Luego, calcula el diámetro de un círculo utilizando la constante 
-                                    "PI" y un radio cualquiera.
+                                    Luego, calcula el diámetro de un círculo utilizando la constante "PI" y un radio cualquiera.
                                     <br><br>
                                 </p>
                             </td>

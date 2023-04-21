@@ -45,12 +45,10 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Crear un selector id.
-                                    Te propongo un ejercicio práctico solo usando el archivo HTML:
-                                    Pintaremos todos los párrafos de un mismo color con excepción de uno.
-                                    Crea una regla dentro de la etiqueta style con el selector para un atributo determinado.
-                                    Escribe diferentes párrafos.
-                                    Asígnale a uno de ellos ese atributo id.
+                                <p>Instrucciones: Crear un selector id. Té propongo un ejercicio práctico solo usando
+                                    el archivo HTML: Pintáremos todos los párrafos de un mismo color con excepción de uno. 
+                                    Crea una regla dentro de la etiqueta style con el selector para un atributo determinado. 
+                                    Escribe diferentes párrafos. Asígnale a uno de ellos ese atributo id. < p>
                                     <br> <br>
                                 </p>
                             </td>

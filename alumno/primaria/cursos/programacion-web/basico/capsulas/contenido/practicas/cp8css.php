@@ -45,13 +45,13 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: En un documento html realiar el siguiente box model con las siguentes medidas margin: 30px 60px 45px 85px;
-                                    Al usar 4 valores:
-                                    el primer valor es para arriba
-                                    el segundo valor es para la derecha
-                                    el tercer valor es para la parte inferior
-                                    el cuarto valor es para la izquierda
-                                    Para recordar el orden , comience en la parte superior y siga en el sentido de las agujas del reloj .
+                                <p>Instrucciones: En un documento HTML realizar el siguiente box model con las siguientes medidas margin: 30px 60px 45px 85px; 
+                                    Al usar 4 valores: 
+                                    El primer valor es para arriba 
+                                    El segundo valor es para la derecha 
+                                    El tercer valor es para la parte inferior 
+                                    El cuarto valor es para la izquierda 
+                                    Para recordar el orden, comience en la parte superior y siga en el sentido de las agujas del reloj. < div>
                                     <br> <br>
                                 </p>
                             </td>

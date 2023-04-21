@@ -45,10 +45,10 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> En un documento html crea 6 div 3n el cual les 
-                                    establescas u orden o bien puedes alterar cada una de 
-                                    sus posiciones y a uno de los div dale un flexx-grow, flex , 
-                                    flex-shrink, flex-basis, como se muestra a contiuación:
+                                <p> En un documento html crea 6 div 3n el cual les establezcan 
+                                    u orden o bien puedes alterar cada una de sus posiciones y 
+                                    a uno de los div dale un flexx-grow, flex ,flex-shrink, flex-basis.
+                                    Como se muestra a continuación:
                                         <br><br>
                                 </p>
                             </td>

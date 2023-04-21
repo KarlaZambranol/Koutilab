@@ -45,9 +45,8 @@ if (empty($existe) && $id_user != 1) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: Conectar un archivo HTML con un archivo CSS.
-                                    Donde se cambia el color de las letras del titulo, parrafo
-                                    y el fondo.
+                                <p>Instrucciones: Conectar un archivo HTML con un archivo CSS. 
+                                    Donde se cambia el color de las letras del título, párrafo y el fondo < b> y < h1>. 
                                     <br> <br>
                                 </p>
                             </td>
