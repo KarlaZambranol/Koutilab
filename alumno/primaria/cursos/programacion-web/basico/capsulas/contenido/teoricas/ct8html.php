@@ -96,27 +96,35 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/teorica8html/CT88888.gif');"></li>
                         <li style="background-image: url('../../img/teorica8html/CT888888.gif');"></li>
                         <li>
-                        <div style="width:80%; margin-left:10%; ">
+                            <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd23.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuál es la etiqueta para insertar un boton?</h1>
                                     <div>
                                         <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox1">< button></label>
+                                        <label for="checkbox1">
+                                            < button>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox2">< iframe></label>
+                                        <label for="checkbox2">
+                                            < iframe>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox3">< div></label>
+                                        <label for="checkbox3">
+                                            < div>
+                                        </label>
                                     </div>
                                     <div>
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
-                                        <label for="checkbox4">< form></label>
+                                        <label for="checkbox4">
+                                            < form>
+                                        </label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <input type="hidden" name="permiso" value="23">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">

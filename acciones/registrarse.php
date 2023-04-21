@@ -62,7 +62,7 @@ if ($result > 0  || $result1 > 0 || $result2 > 0) {
 } else {
 
   if ($result_clave_alumno > 0) {
-    $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo, email) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_alumno, '$nivel_educativo_alumno', '$email')");
+    $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo, email, image, fondo) values ('$nombre', '$usuario', '$contrasena', '$clave', $id_escuela_alumno, '$nivel_educativo_alumno', '$email', 'Mascota-Aerobot-01.png', 'portada-1.png')");
     if ($query_insert_alumno) {
       $alert = '<div class="alert alert-primary" role="alert">
                           Alumno registrado

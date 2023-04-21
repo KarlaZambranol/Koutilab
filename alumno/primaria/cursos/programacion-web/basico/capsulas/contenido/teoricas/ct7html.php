@@ -96,7 +96,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/teorica7html/CT77777.gif');"></li>
                         <li style="background-image: url('../../img/teorica7html/CT777777.gif');"></li>
                         <li>
-                        <div style="width:80%; margin-left:10%; ">
+                            <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd20.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Cuáles son las 3 etiquetas para integrar PDF?</h1>
@@ -116,7 +116,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                         <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
                                         <label for="checkbox4">Ninguna de las anteriores</label>
                                     </div>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <input type="hidden" name="permiso" value="20">
                                     <input type="hidden" name="teorico" value="10">
                                     <input type="hidden" name="id_curso" value="1">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
