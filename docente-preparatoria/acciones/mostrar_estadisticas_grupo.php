@@ -45,9 +45,9 @@
         </div>
     </div>
     <div class="d-flex justify-content-center" style="margin-top: -50px;">
-        <div class="board p-2" style="width: 90%;">
+        <div class="board p-2" style="width: 90%; overflow: hidden;">
             <div class="dos1">
-                <ul class="lista-datos" style="height: 600px;">
+                <ul class="lista-datos" style="height: 880px;">
                     <div class="grafico">
                         <canvas id="myChart1"></canvas>
                     </div>
