@@ -46,7 +46,6 @@ if (!empty($_POST)) {
             $rol = mysqli_fetch_array($validar_rol);
             if ($rol['rol'] == 1) {
                 $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_admin = mysqli_num_rows($query_admin);
                 if ($resultado_admin > 0) {
                     $dato_admin = mysqli_fetch_array($query_admin);
@@ -64,7 +63,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 2) {
                 $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_alumno = mysqli_num_rows($query_alumno);
                 if ($resultado_alumno > 0) {
                     $dato_alumno = mysqli_fetch_array($query_alumno);
@@ -82,7 +80,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 3) {
                 $query_docente = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_docente = mysqli_num_rows($query_docente);
                 if ($resultado_docente > 0) {
                     $dato_docente = mysqli_fetch_array($query_docente);
@@ -100,7 +97,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 4) {
                 $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_director = mysqli_num_rows($query_director);
                 if ($resultado_director > 0) {
                     $dato_director = mysqli_fetch_array($query_director);
@@ -118,7 +114,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 5) {
                 $query_adminsecundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_adminsecundario = mysqli_num_rows($query_adminsecundario);
                 if ($resultado_adminsecundario > 0) {
                     $dato_adminsecundario = mysqli_fetch_array($query_adminsecundario);
@@ -136,7 +131,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 6) {
                 $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_alumno = mysqli_num_rows($query_alumno);
                 if ($resultado_alumno > 0) {
                     $dato_alumno = mysqli_fetch_array($query_alumno);
@@ -154,7 +148,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 7) {
                 $query_docente = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_docente = mysqli_num_rows($query_docente);
                 if ($resultado_docente > 0) {
                     $dato_docente = mysqli_fetch_array($query_docente);
@@ -172,7 +165,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 8) {
                 $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_director = mysqli_num_rows($query_director);
                 if ($resultado_director > 0) {
                     $dato_director = mysqli_fetch_array($query_director);
@@ -190,7 +182,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 9) {
                 $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_alumno = mysqli_num_rows($query_alumno);
                 if ($resultado_alumno > 0) {
                     $dato_alumno = mysqli_fetch_array($query_alumno);
@@ -208,7 +199,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 10) {
                 $query_docente = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_docente = mysqli_num_rows($query_docente);
                 if ($resultado_docente > 0) {
                     $dato_docente = mysqli_fetch_array($query_docente);
@@ -226,7 +216,6 @@ if (!empty($_POST)) {
                 }
             } else if ($rol['rol'] == 11) {
                 $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                mysqli_close($conexion);
                 $resultado_director = mysqli_num_rows($query_director);
                 if ($resultado_director > 0) {
                     $dato_director = mysqli_fetch_array($query_director);
@@ -319,30 +308,30 @@ if (!empty($_POST)) {
 
                         <button type="submit" class="submit-btn" style="margin-top: -2px;">Acceder</button>
                     </form>
-                    <form action="acciones/registrarse.php" method="POST" id="Registrarse" class="input-group">
+                    <form action="" method="POST" id="Registrarse" class="input-group">
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <input type="text" id="nombre" name="nombre" class="input-field" placeholder="Ingrese su nombre" required>
+                            <input type="text" id="nombre_registar" name="nombre_registrar" class="input-field" placeholder="Ingrese su nombre" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <input type="text" id="usuario" name="usuario" class="input-field" placeholder="Nombre de usuario" value="@" required>
+                            <input type="text" id="usuario_registrar" name="usuario_registrar" class="input-field" placeholder="Nombre de usuario" value="@" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <input type="email" id="email" name="email" class="input-field" placeholder="Correo electrónico" required>
+                            <input type="email" id="email_registrar" name="email_registrar" class="input-field" placeholder="Correo electrónico" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">
                                 <i class="fas fa-user-lock"></i>
                             </div>
-                            <input type="password" id="contrasena" name="contrasena" class="input-field password3" placeholder="Contraseña" required>
+                            <input type="password" id="contrasena_registrar" name="contrasena_registrar" class="input-field password3" placeholder="Contraseña" required>
                             <span class="fa fa-fw fa-eye password-icon show-password3"></span>
 
                         </div>
@@ -350,40 +339,212 @@ if (!empty($_POST)) {
                             <div class="input-icon">
                                 <i class="fas fa-id-card"></i>
                             </div>
-                            <input type="password" id="clave" name="clave" class="input-field password4" placeholder="Clave" required>
+                            <input type="password" id="clave_registrar" name="clave_registrar" class="input-field password4" placeholder="Clave" required>
                             <span class="fa fa-fw fa-eye password-icon show-password4"></span>
 
                         </div>
                         <input type="checkbox" class="check-box" style="margin-top: 5px; scale: 90%; margin-left: 20px;"><span>Acepto los términos y condiciones</span>
-                        <button type="submit" onclick="registroExitoso(); return false;" class="submit-btn" style="margin-top: -2px;">Registrarse</button>
+                        <button type="submit" name="registrar_usuario" class="submit-btn" style="margin-top: -2px;">Registrarse</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        //Alerta de registro exitoso
-        function registroExitoso() {
-            Swal.fire({
-                title: '¡Excelente',
-                text: '¡Registro con éxito!',
-                imageUrl: "img/Thumbs-Up.gif",
-                imageHeight: 350,
-                backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("img/fondo.gif")
-                    `,
-                confirmButtonColor: '#a14cd9',
-                confirmButtonText: 'Aceptar',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('Registrarse').submit();
-                }
+    <?php
+    if (isset($_POST['registrar_usuario'])) {
+        require_once "acciones/conexion.php";
 
-            });
+        $nombre_registrar = $_POST['nombre_registrar'];
+        $usuario_registrar = $_POST['usuario_registrar'];
+        $contrasena_registrar = md5($_POST['contrasena_registrar']);
+        $clave_registrar = $_POST['clave_registrar'];
+        $email_registrar = $_POST['email_registrar'];
+        $query_registrar = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$usuario_registrar'");
+        $result_registrar = mysqli_fetch_array($query_registrar);
+        $query1_registrar = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$usuario_registrar'");
+        $result1_registrar = mysqli_fetch_array($query1_registrar);
+        $query2_registrar = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$usuario_registrar'");
+        $result2_registrar = mysqli_fetch_array($query2_registrar);
+
+        //Buscar si la clave pertenece a un alumno
+        $query_clave_alumno = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_alumno = '$clave_registrar'");
+        $result_clave_alumno = mysqli_fetch_array($query_clave_alumno);
+        $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_alumno = '$clave_registrar'"));
+        if (isset($data_alumno['id_escuela'])) {
+            $id_escuela_alumno = $data_alumno['id_escuela'];
         }
-    </script>
+        if (isset($data_alumno['nivel_educativo'])) {
+            $nivel_educativo_alumno = $data_alumno['nivel_educativo'];
+        }
+
+        //Buscar si la clave pertenece a un docente
+        $query_clave_docente = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_docente = '$clave_registrar'");
+        $result_clave_docente = mysqli_fetch_array($query_clave_docente);
+        $data_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_docente = '$clave_registrar'"));
+        if (isset($data_docente['id_escuela'])) {
+            $id_escuela_docente = $data_docente['id_escuela'];
+        }
+
+        //Buscar si la clave pertenece a un director
+        $query_clave_director = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_director = '$clave_registrar'");
+        $result_clave_director = mysqli_fetch_array($query_clave_director);
+        $data_director = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_director = '$clave_registrar'"));
+        if (isset($data_director['id_escuela'])) {
+            $id_escuela_director = $data_director['id_escuela'];
+        }
+
+        if ($result_registrar > 0  || $result1_registrar > 0 || $result2_registrar > 0) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Usuario ya existente',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+        } else {
+
+            if ($result_clave_alumno > 0) {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$nivel_educativo_alumno', '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_docente > 0) {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+                if ($query_insert_docente) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de docente exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0) {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Clave incorrecta!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+            }
+        }
+    }
+    ?>
 
     <script>
         // Guarda los datos del formulario en una cookie
