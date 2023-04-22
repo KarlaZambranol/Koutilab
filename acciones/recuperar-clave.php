@@ -57,35 +57,11 @@ if ($cantidadConsulta) {
             background: #ececec;
             border-top: 3px solid #E64A19;
         }
-        .btnlink{
-            padding:15px 30px;
-            text-align:center;
-            background-color:#cecece;
-            color: crimson !important;
-            font-weight: 600;
-            text-decoration: blue;
-        }
-        .btnlink:hover{
-            color: #fff !important;
-        }
-        .imgBanner{
-            width:100%;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            padding:0px;
-        }
         .misection{
             color: #34495e;
             margin: 4% 10% 2%;
             text-align: center;
             font-family: sans-serif;
-        }
-        .mt-5{
-            margin-top:50px;
-        }
-        .mb-5{
-            margin-bottom:50px;
         }
         </style>
     ';
@@ -98,8 +74,8 @@ if ($cantidadConsulta) {
         <tr>
             <td style="background-color: #ffffff;">
                 <div class="misection">
-                    <h2 style="color: red; margin: 0 0 7px">Hola, '.$dataConsulta['nombre'].'</h2>
-                    <p style="margin: 2px; font-size: 18px">te hemos creado una nueva clave temporal para que puedas iniciar sesión, la clave temporal es: <strong>'.$clave1.'</strong> y tu usuario es: <strong> '.$dataConsulta['usuario'].'</strong> <br><br> Por si lo llegas a ocupar, tu clave de acceso es: <strong> '.$dataConsulta['clave'].'</strong></p>
+                    <h2 style="color: #84c42c; margin: 0 0 7px">Hola, '.$dataConsulta['nombre'].'</h2>
+                    <p style="margin: 2px; font-size: 18px">El equipo de desarrollo de Koutilab te ha creado una nueva clave temporal para que puedas iniciar sesión, la clave temporal es: <strong>'.$clave1.'</strong> y tu usuario es: <strong> '.$dataConsulta['usuario'].'</strong> No olvides cambiar tu contraseña nuevamente una vez que inicies sesión. <br><br> Por si lo llegas a ocupar, tu clave de acceso es: <strong> '.$dataConsulta['clave'].'</strong></p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
@@ -165,35 +141,11 @@ if ($cantidadConsulta) {
             background: #ececec;
             border-top: 3px solid #E64A19;
         }
-        .btnlink{
-            padding:15px 30px;
-            text-align:center;
-            background-color:#cecece;
-            color: crimson !important;
-            font-weight: 600;
-            text-decoration: blue;
-        }
-        .btnlink:hover{
-            color: #fff !important;
-        }
-        .imgBanner{
-            width:100%;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-            padding:0px;
-        }
         .misection{
             color: #34495e;
             margin: 4% 10% 2%;
             text-align: center;
             font-family: sans-serif;
-        }
-        .mt-5{
-            margin-top:50px;
-        }
-        .mb-5{
-            margin-bottom:50px;
         }
         </style>
     ';
@@ -206,8 +158,8 @@ if ($cantidadConsulta) {
         <tr>
             <td style="background-color: #ffffff;">
                 <div class="misection">
-                    <h2 style="color: red; margin: 0 0 7px">Hola, '.$dataConsulta1['nombre'].'</h2>
-                    <p style="margin: 2px; font-size: 18px">te hemos creado una nueva clave temporal para que puedas iniciar sesión, la clave temporal es: <strong>'.$clave1.'</strong> y tu usuario es: <strong> '.$dataConsulta1['usuario'].'</strong> <br><br> Por si lo llegas a ocupar, tu clave de acceso es: <strong> '.$dataConsulta1['clave'].'</strong> </p>
+                    <h2 style="color: #84c42c; margin: 0 0 7px">Hola, '.$dataConsulta1['nombre'].'</h2>
+                    <p style="margin: 2px; font-size: 18px">El equipo de desarrollo de Koutilab te ha creado una nueva clave temporal para que puedas iniciar sesión, la clave temporal es: <strong>'.$clave1.'</strong> y tu usuario es: <strong> '.$dataConsulta1['usuario'].'</strong> No olvides cambiar tu contraseña nuevamente una vez que inicies sesión. <br><br> Por si lo llegas a ocupar, tu clave de acceso es: <strong> '.$dataConsulta1['clave'].'</strong> </p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>

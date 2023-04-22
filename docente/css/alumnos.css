@@ -968,4 +968,10 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -260px;
+} 
+
+#myChart1
+{
+  scale: 55%;
 }
