@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../../../../../../../index.php');
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 ?>
 
@@ -32,10 +32,10 @@ if (empty($_SESSION['active'])) {
                     <li>
                         <a itlist="itList_7" href="#" class="item-select-slid"></a>
                     </li>
-                    
+
                 </ul>
                 <ul id="slider">
-                <li style="background-image: url('../../img/Alertas.gif'); z-index:0; opacity: 1;">
+                    <li style="background-image: url('../../img/Alertas.gif'); z-index:0; opacity: 1;">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd70.php">
                             <input type="hidden" name="permiso" value="26">
                             <input type="hidden" name="id_curso" value="1">

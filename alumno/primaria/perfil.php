@@ -777,7 +777,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
     <?php
     if (isset($_POST['enviarcontrasena'])) {
-        $idalumno = $_SESSION['idUser'];
+        $idalumno = $_SESSION['id_alumno_primaria'];
         $contrasena = md5($_POST['contrasena']);
 
         $sql_update = mysqli_query($conexion, "UPDATE alumnos SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");

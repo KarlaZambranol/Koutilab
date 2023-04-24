@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-	header('location: ../../../../../../../../index.php');
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula18";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
@@ -17,6 +17,7 @@ if (empty($existe) && $id_user != 1) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>KOUTILAB</title>
 	<link rel="shortcut icon" href="../../../../../../img/lgk.png">
@@ -32,11 +33,12 @@ if (empty($existe) && $id_user != 1) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body onload="iniciarTiempo();">
-	<!-- Titulo general --> 
+	<!-- Titulo general -->
 	<div class="titulo-gen">
-        <h2 class="titulo" style="margin-left: 475px;"><b>SOPA DE LETRAS</b></h2>
-    </div>
+		<h2 class="titulo" style="margin-left: 475px;"><b>SOPA DE LETRAS</b></h2>
+	</div>
 
 	<div class="timer">
 
@@ -47,12 +49,12 @@ if (empty($existe) && $id_user != 1) {
 
 	<div class="contenido">
 
-	
-	<a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
+
+		<a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i></button></a>
 		<!-- Titulo secundario -->
 		<h5 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h5>
-    	<br>
+		<br>
 
 		<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
 		<div class="words">
@@ -60,7 +62,7 @@ if (empty($existe) && $id_user != 1) {
 			<div id='Palabras' style="font-size: 120%;"></div>
 		</div>
 
-        <div class="linea"></div>
+		<div class="linea"></div>
 
 		<!-- Sección donde se agrega la sopa de letras -->
 		<div class="soup">
@@ -69,7 +71,7 @@ if (empty($existe) && $id_user != 1) {
 			<!-- Boton para resolver la sopa de letras, mantener comentado -->
 			<!-- <button id='solve'>Resolver el juego</button> -->
 		</div>
-    	
+
 	</div>
 
 	<script>
@@ -103,18 +105,25 @@ if (empty($existe) && $id_user != 1) {
 		}
 	</script>
 
-    <script>
+	<script>
 		// Se pueden agregar las palabras que quieran, pero agregar al menos una palabra de 10 letras
 		// para mantener proporcion
-    	var words = ['CELDA','CAPTION','ENCABEZADO','COL', 'ROWGROUP', 'INFORMACION', 'COLGROUP', 'ROW'];
-    	var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras'); 
-        
-    	var puzzle = wordfind.newPuzzle(words,{height: 18, width:18, fillBlanks: false});
-    	wordfind.print(puzzle);   
-        
-    	$('#solve').click( function() {wordfindgame.solve(gamePuzzle, words);});
-    </script>
+		var words = ['CELDA', 'CAPTION', 'ENCABEZADO', 'COL', 'ROWGROUP', 'INFORMACION', 'COLGROUP', 'ROW'];
+		var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras');
+
+		var puzzle = wordfind.newPuzzle(words, {
+			height: 18,
+			width: 18,
+			fillBlanks: false
+		});
+		wordfind.print(puzzle);
+
+		$('#solve').click(function() {
+			wordfindgame.solve(gamePuzzle, words);
+		});
+	</script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
+
 </html>

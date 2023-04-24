@@ -803,7 +803,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
     <?php
     if (isset($_POST['enviarcontrasena'])) {
-        $idalumno = $_SESSION['idUser'];
+        $idalumno = $_SESSION['id_alumno_preparatoria'];
         $contrasena = md5($_POST['contrasena']);
 
         $sql_update = mysqli_query($conexion, "UPDATE alumnos SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
@@ -848,7 +848,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
     <?php
     if (isset($_POST['enviarclave'])) {
-        $idalumno = $_SESSION['idUser'];
+        $idalumno = $_SESSION['id_alumno_preparatoria'];
         $clavegrupo = $_POST['clavegrupo'];
 
         $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos WHERE clave = '$clavegrupo'"));

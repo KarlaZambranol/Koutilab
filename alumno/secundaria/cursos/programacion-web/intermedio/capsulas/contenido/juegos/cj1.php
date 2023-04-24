@@ -1,12 +1,12 @@
 <!-- Este juego debe insertar el permiso 4 -->
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../../../../../../../index.php');
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_alumno_secundaria'];
 $permiso = "capsula3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
@@ -18,19 +18,21 @@ if (empty($existe) && $id_user != 1) {
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <link rel="stylesheet" href="../../css/css-juegos/drag-drop.css">
-        <title>KOUTILAB</title>
-        <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../../css/css-juegos/drag-drop.css">
+    <title>KOUTILAB</title>
+    <link rel="shortcut icon" href="../../../../../../img/lgk.png">
+</head>
+
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
@@ -50,7 +52,7 @@ if (empty($existe) && $id_user != 1) {
     <div class="contenido">
 
         <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
-            <i class="fas fa-reply"></i></button>
+                <i class="fas fa-reply"></i></button>
         </a>
 
         <div class="div-vertical"></div>
@@ -59,8 +61,8 @@ if (empty($existe) && $id_user != 1) {
 
         <!-- Titulo secundario -->
         <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
-    	<br>
-        
+        <br>
+
         <!-- Area donde se encuentran las imagenes inicialmente -->
         <div class="imagenes">
             <div class="caja-img">
@@ -92,62 +94,82 @@ if (empty($existe) && $id_user != 1) {
             </div>
             <div class="caja-img">
                 <img src="../../img/img_juegos/img/acentuado5.png" alt="" draggable="true" ondragstart="drag(event)" id="css" class="imagen1">
-            </div> 
-        </div> 
+            </div>
+        </div>
 
         <!-- Caja donde se encuentran los espacios para colocar las imagenes de HTML -->
         <div class="caja-html">
             <!-- Etiquetas HTML -->
-            <div class="ht1"><div class="html-b-t">ESPECIALES</div></div>
-            <div class="ht2"><div class="html-b-t">ESPECIALES</div></div>
-            <div class="ht3"><div class="html-b-t">ESPECIALES</div></div>
-            <div class="ht4"><div class="html-b-t">ESPECIALES</div></div>
-            <div class="ht5"><div class="html-b-t">ESPECIALES</div></div>
+            <div class="ht1">
+                <div class="html-b-t">ESPECIALES</div>
+            </div>
+            <div class="ht2">
+                <div class="html-b-t">ESPECIALES</div>
+            </div>
+            <div class="ht3">
+                <div class="html-b-t">ESPECIALES</div>
+            </div>
+            <div class="ht4">
+                <div class="html-b-t">ESPECIALES</div>
+            </div>
+            <div class="ht5">
+                <div class="html-b-t">ESPECIALES</div>
+            </div>
 
             <!-- Contenedores HTML -->
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="0" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="0" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="1" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="1" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="2" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="2" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="3" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="3" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="4" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="4" ondragover="allowDrop(event)"></div>
             </div>
         </div>
 
-       
+
 
         <!-- Caja donde se encuentran los espacios para colocar las imagenes de CSS -->
         <div class="caja-css">
             <!-- Etiquetas CSS -->
-            <div class="ht1"><div class="html-b-t">ACENTUADO</div></div>
-            <div class="ht2"><div class="html-b-t">ACENTUADO</div></div>
-            <div class="ht3"><div class="html-b-t">ACENTUADO</div></div>
-            <div class="ht4"><div class="html-b-t">ACENTUADO</div></div>
-            <div class="ht5"><div class="html-b-t">ACENTUADO</div></div>
+            <div class="ht1">
+                <div class="html-b-t">ACENTUADO</div>
+            </div>
+            <div class="ht2">
+                <div class="html-b-t">ACENTUADO</div>
+            </div>
+            <div class="ht3">
+                <div class="html-b-t">ACENTUADO</div>
+            </div>
+            <div class="ht4">
+                <div class="html-b-t">ACENTUADO</div>
+            </div>
+            <div class="ht5">
+                <div class="html-b-t">ACENTUADO</div>
+            </div>
 
             <!-- Contenedores CSS -->
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="5" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="5" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="6" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="6" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="7" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="7" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="8" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="8" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="9" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="9" ondragover="allowDrop(event)"></div>
             </div>
         </div>
         <div class="btn-v">
@@ -209,7 +231,7 @@ if (empty($existe) && $id_user != 1) {
                 var data = ev.dataTransfer.getData("text");
                 arreglo[parseInt(ev.target.id)] = data;
                 ev.target.appendChild(document.getElementById(data));
-            } 
+            }
         }
 
         //Funcion para validar las respuestas, primero si nungun campo esta vacio y luego si son las correctas
@@ -270,4 +292,5 @@ if (empty($existe) && $id_user != 1) {
         })
     </script>
 </body>
+
 </html>

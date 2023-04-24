@@ -1,0 +1,92 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Nos sirve para hacer algo muchas veces de manera automatica",
+        "incorrectAnswers": [
+            "Nos sirve para reducir algo muchas veces",
+            "Nos sirve para aumentar algo",
+            "Es un valor positivo"
+        ],
+        "question": "¿Qué significa Loop?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Cuando se cumple la condición",
+        "incorrectAnswers": [
+            "Cuando no se cumple la condición",
+            "No recuerdo",
+            "Cuando se repite varias veces la condición"
+        ],
+        "question": "¿Cuándo termina Loop?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": " While y For",
+        "incorrectAnswers": [
+            "Int y For",
+            "While y Varchar",
+            "Existen 2"
+        ],
+        "question": "¿Cuántos tipos de ciclos existen?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Son una lista de valores diferentes",
+        "incorrectAnswers": [
+            "Son diferentes imagenes",
+            "Reducir las comparaciones",
+            "Cancelar las comparaciones"
+        ],
+        "question": "¿Qué son los objetos?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "const",
+        "incorrectAnswers": [
+            "boolean",
+            "while",
+            "for"
+        ],
+        "question": "¿Cuál es la palabra que cambia a Let?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

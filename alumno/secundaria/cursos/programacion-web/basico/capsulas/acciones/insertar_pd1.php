@@ -1,7 +1,7 @@
 <!-- Permisos para BIENVENIDA -->
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_alumno_secundaria'];
 include('../../../../../../../acciones/conexion.php');
 if (!$conexion) {
     die("Connection failed: " . mysqli_connect_error());

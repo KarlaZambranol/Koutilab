@@ -1,0 +1,124 @@
+[
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Falso",
+        "incorrectAnswers": [
+            "No recuerdo",
+            "Verdadero"
+        ],
+        "question": "¿Es posible tener un ciclo infinito sobre un for en python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "No recuerdo",
+            "Falso"
+        ],
+        "question": "¿Una característica del ciclo while es que no conocemos con anticipación el número de iteraciones?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "No recuerdo",
+            "Falso"
+        ],
+        "question": "¿La diferencia entre un ciclo for y un ciclo while es que el while se ejecuta en base a una condición, mientras que el for lo hace en base a una secuencia?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "33",
+        "incorrectAnswers": [
+            "50",
+            "110",
+            "30"
+        ],
+        "question": "En el código: a = (1, 5, 8, 4, 5) sum_x = 10 for i in a: sum_x += i print sum_x ¿Cuanto es el valor final de la variable sum_x?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "print('Hola mundo')",
+        "incorrectAnswers": [
+            "print 'Hola mundo'",
+            "print='Hola mundo'",
+            "print:'Hola mundo'"
+        ],
+        "question": "¿Cuál de las siguientes opciones es correcta?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Entre comillas",
+        "incorrectAnswers": [
+            "Entre parentesis",
+            "Entre comas",
+            "Luego de una coma"
+        ],
+        "question": "Para que Python reconozca que un dato se trata de un texto, este deberá escribirse:",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "No recuerdo",
+            "Falso"
+        ],
+        "question": "Usamos for cuando sabemos de antemano cuántas veces se va a repetir la ejecución de un bloque de código.",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

@@ -1,0 +1,91 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "Funciones",
+        "incorrectAnswers": [
+            "Variables",
+            "Constantes",
+            "Todas las Anteriores"
+        ],
+        "question": "Lo utilizamos como receta para hacer cosas en un codigo",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+"correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "Falso",
+            "Todas las Anteriores"
+        ],
+        "question": "¿Las funciones son un grupo de instrucciones que se pueden reutilizar una y otra vez?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "Verdadero",
+        "incorrectAnswers": [
+            "Falso",
+            "No estoy segur@"
+        ],
+        "question": "¿La funcion print(), input() con incorporadas?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "Incorporadas y las que nosotros definimos para despues utilizarnos",
+        "incorrectAnswers": [
+            "Incorporadas",
+            "print()",
+            "No recuedo"
+        ],
+        "question": "¿Cuales son los dos tipos de funciones?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "5",
+        "correctAnswer": "Definicion y Llamada",
+        "incorrectAnswers": [
+            "Incorporadas",
+            "def()",
+            "Llamada"
+        ],
+        "question": "¿Cuales son las dos partes de una funcion?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]
