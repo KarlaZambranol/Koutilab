@@ -20,7 +20,7 @@
     <?php
     require "../../acciones/conexion.php";
     session_start();
-    $id_user = $_SESSION['idUser'];
+    $id_user = $_SESSION['id_docente_preparatoria'];
     // Validar datos
     if (empty($_REQUEST['id'])) {
         header("Location: ../../docente/alumnos.php");
@@ -32,7 +32,7 @@
     $result_sql = mysqli_num_rows($query1);
     if ($result_sql == 0) {
         header("Location: ../../docente/alumnos.php");
-    } 
+    }
 
     ?>
 
@@ -43,51 +43,51 @@
     </div>
 
     <div class="d-flex justify-content-center" style="margin-top: -50px;">
-    <div class="board p-4" style="width: 90%;">
-        <table id="alumnos" width="100%" class="table border-top">
-            <thead>
-                <tr>
-                    <td><b></b></td>
-                    <td><b>Programación web básica</b></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <h5>Trofeos</h5>
-                    </td>
-                    <td>
-                        <h5><?php echo $data1["trofeos"] ?></h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h5>Puntaje</h5>
-                    </td>
-                    <td>
-                        <h5><?php echo $data1["puntos"] ?></h5>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <h5>Práctico</h5>
-                    </td>
-                    <td>
-                        <h5><?php echo $data1["practico"] ?></h5>
-                    </td>
+        <div class="board p-4" style="width: 90%;">
+            <table id="alumnos" width="100%" class="table border-top">
+                <thead>
+                    <tr>
+                        <td><b></b></td>
+                        <td><b>Programación web básica</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h5>Trofeos</h5>
+                        </td>
+                        <td>
+                            <h5><?php echo $data1["trofeos"] ?></h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Puntaje</h5>
+                        </td>
+                        <td>
+                            <h5><?php echo $data1["puntos"] ?></h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Práctico</h5>
+                        </td>
+                        <td>
+                            <h5><?php echo $data1["practico"] ?></h5>
+                        </td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <h5>Teorico</h5>
-                    </td>
-                    <td>
-                        <h5><?php echo $data1["teorico"] ?></h5>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <a href="../alumnos.php" class="btn btn-danger">Atrás</a>
-    </div>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Teorico</h5>
+                        </td>
+                        <td>
+                            <h5><?php echo $data1["teorico"] ?></h5>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="../alumnos.php" class="btn btn-danger">Atrás</a>
+        </div>
     </div>
 </body>

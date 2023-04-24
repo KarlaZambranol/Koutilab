@@ -1,8 +1,9 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../index.php');
+session_start();
+$id_user = $_SESSION['id_alumno_secundaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+    header('location: ../../acciones/cerrarsesion.php');
 }
 include('../../acciones/conexion.php');
 $query = mysqli_query($conexion, "SELECT * FROM cursos WHERE id_alumno = $id_user");

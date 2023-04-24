@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../index.php');
+$id_user = $_SESSION['id_admin'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
+    header('location: ../acciones/cerrarsesion.php');
 }
 include('../../acciones/conexion.php');
 
@@ -41,7 +41,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $usuario = $_POST['usuario'];
             $nombre = $_POST['nombre'];
             $pais = $_POST['pais'];
-            $id_user = $_SESSION['idUser'];
+            $id_user = $_SESSION['id_admin'];
             $sql_update = mysqli_query($conexion, "UPDATE admin SET usuario = '$usuario', nombre = '$nombre', pais = '$pais' WHERE id_admin = $idadmin");
             $alert = '<div class="alert alert-success" role="alert">Administrador actualizado</div>';
         } else if (($_POST['usuario']) && ($_POST['nombre']) && ($_POST['contrasena'])) {
@@ -50,7 +50,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $nombre = $_POST['nombre'];
             $pais = $_POST['pais'];
             $contrasena = md5($_POST['contrasena']);
-            $id_user = $_SESSION['idUser'];
+            $id_user = $_SESSION['id_admin'];
             $sql_update = mysqli_query($conexion, "UPDATE admin SET usuario = '$usuario', nombre = '$nombre', contrasena = '$contrasena', pais = '$pais' WHERE id_admin = $idadmin");
             $alert = '<div class="alert alert-success" role="alert">Administrador actualizado</div>';
         }
@@ -80,9 +80,9 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     <div class="row">
         <div class="col-md-7 mx-auto">
             <div class="container">
-            <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
-                <h3 class="i-name">Editar administrador</h3>
-            </div>
+                <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
+                    <h3 class="i-name">Editar administrador</h3>
+                </div>
                 <form class="" action="" method="post">
                     <div class="user-details">
                         <?php echo isset($alert) ? $alert : ''; ?> <input type="hidden" name="id" value="<?php echo $idadmin; ?>">

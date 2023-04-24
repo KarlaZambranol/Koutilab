@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("../../acciones/conexion.php");
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_docente_primaria'];
 
 if (!empty($_GET['id'])) {
     $id = $_GET['id'];

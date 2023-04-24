@@ -51,7 +51,7 @@ if (!empty($_POST)) {
                     $dato_admin = mysqli_fetch_array($query_admin);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 1;
-                    $_SESSION['idUser'] = $dato_admin['id_admin'];
+                    $_SESSION['id_admin'] = $dato_admin['id_admin'];
                     $_SESSION['nombre'] = $dato_admin['nombre'];
                     $_SESSION['user'] = $dato_admin['usuario'];
                     header('location: admin/dashboard.php');
@@ -68,7 +68,7 @@ if (!empty($_POST)) {
                     $dato_alumno = mysqli_fetch_array($query_alumno);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 2;
-                    $_SESSION['idUser'] = $dato_alumno['id_alumno'];
+                    $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
                     $_SESSION['nombre'] = $dato_alumno['nombre'];
                     $_SESSION['user'] = $dato_alumno['usuario'];
                     header('location: alumno/primaria/perfil.php');
@@ -85,7 +85,7 @@ if (!empty($_POST)) {
                     $dato_docente = mysqli_fetch_array($query_docente);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 3;
-                    $_SESSION['idUser'] = $dato_docente['id_docente'];
+                    $_SESSION['id_docente_primaria'] = $dato_docente['id_docente'];
                     $_SESSION['nombre'] = $dato_docente['nombre'];
                     $_SESSION['user'] = $dato_docente['usuario'];
                     header('location: docente/dashboard.php');
@@ -102,7 +102,7 @@ if (!empty($_POST)) {
                     $dato_director = mysqli_fetch_array($query_director);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 4;
-                    $_SESSION['idUser'] = $dato_director['id_director'];
+                    $_SESSION['id_director_primaria'] = $dato_director['id_director'];
                     $_SESSION['nombre'] = $dato_director['nombre'];
                     $_SESSION['user'] = $dato_director['usuario'];
                     header('location: director/perfil.php');
@@ -119,7 +119,7 @@ if (!empty($_POST)) {
                     $dato_adminsecundario = mysqli_fetch_array($query_adminsecundario);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 4;
-                    $_SESSION['idUser'] = $dato_adminsecundario['id_admin'];
+                    $_SESSION['id_admin_secundario'] = $dato_adminsecundario['id_admin'];
                     $_SESSION['nombre'] = $dato_adminsecundario['nombre'];
                     $_SESSION['user'] = $dato_adminsecundario['usuario'];
                     header('location: adminsecundario/dashboard.php');
@@ -136,7 +136,7 @@ if (!empty($_POST)) {
                     $dato_alumno = mysqli_fetch_array($query_alumno);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 6;
-                    $_SESSION['idUser'] = $dato_alumno['id_alumno'];
+                    $_SESSION['id_alumno_secundaria'] = $dato_alumno['id_alumno'];
                     $_SESSION['nombre'] = $dato_alumno['nombre'];
                     $_SESSION['user'] = $dato_alumno['usuario'];
                     header('location: alumno/secundaria/perfil.php');
@@ -153,7 +153,7 @@ if (!empty($_POST)) {
                     $dato_docente = mysqli_fetch_array($query_docente);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 7;
-                    $_SESSION['idUser'] = $dato_docente['id_docente'];
+                    $_SESSION['id_docente_secundaria'] = $dato_docente['id_docente'];
                     $_SESSION['nombre'] = $dato_docente['nombre'];
                     $_SESSION['user'] = $dato_docente['usuario'];
                     header('location: docente-secundaria/dashboard.php');
@@ -170,7 +170,7 @@ if (!empty($_POST)) {
                     $dato_director = mysqli_fetch_array($query_director);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 8;
-                    $_SESSION['idUser'] = $dato_director['id_director'];
+                    $_SESSION['id_director_secundaria'] = $dato_director['id_director'];
                     $_SESSION['nombre'] = $dato_director['nombre'];
                     $_SESSION['user'] = $dato_director['usuario'];
                     header('location: director/perfil.php');
@@ -187,7 +187,7 @@ if (!empty($_POST)) {
                     $dato_alumno = mysqli_fetch_array($query_alumno);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 9;
-                    $_SESSION['idUser'] = $dato_alumno['id_alumno'];
+                    $_SESSION['id_alumno_preparatoria'] = $dato_alumno['id_alumno'];
                     $_SESSION['nombre'] = $dato_alumno['nombre'];
                     $_SESSION['user'] = $dato_alumno['usuario'];
                     header('location: alumno/preparatoria/perfil.php');
@@ -204,7 +204,7 @@ if (!empty($_POST)) {
                     $dato_docente = mysqli_fetch_array($query_docente);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 10;
-                    $_SESSION['idUser'] = $dato_docente['id_docente'];
+                    $_SESSION['id_docente_preparatoria'] = $dato_docente['id_docente'];
                     $_SESSION['nombre'] = $dato_docente['nombre'];
                     $_SESSION['user'] = $dato_docente['usuario'];
                     header('location: docente-preparatoria/dashboard.php');
@@ -221,7 +221,7 @@ if (!empty($_POST)) {
                     $dato_director = mysqli_fetch_array($query_director);
                     $_SESSION['active'] = true;
                     $_SESSION['rol'] = 11;
-                    $_SESSION['idUser'] = $dato_director['id_director'];
+                    $_SESSION['id_director_preparatoria'] = $dato_director['id_director'];
                     $_SESSION['nombre'] = $dato_director['nombre'];
                     $_SESSION['user'] = $dato_director['usuario'];
                     header('location: director/perfil.php');

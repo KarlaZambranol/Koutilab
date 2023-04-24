@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../index.php');
+$id_user = $_SESSION['id_admin_secundario'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin_secundario'])) {
+    header('location: ../acciones/cerrarsesion.php');
 }
 include('../../acciones/conexion.php');
 
@@ -49,7 +49,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $codigo_postal = $_POST['codigo_postal'];
             $nivel_educativo = $_POST['nivel_educativo'];
             $autorizacion = $_POST['autorizacion'];
-            $id_user = $_SESSION['idUser'];
+            $id_user = $_SESSION['id_admin_secundario'];
             $sql_update = mysqli_query($conexion, "INSERT INTO escuelas(nombre_escuela, cct, nombre_director, calle, num_exterior, colonia, estado, codigo_postal, nivel_educativo, pais, autorizacion, id_admin) VALUES ('$nombre_escuela', '$cct', '$nombre_director', '$calle', '$num_exterior', '$colonia', '$estado', '$codigo_postal', '$nivel_educativo', '$pais', '$autorizacion', '$id_user')");
             $alert = '<div class="alert alert-success" role="alert">Escuela registrada</div>';
         }
@@ -88,7 +88,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                 <form class="" action="" method="post">
                     <h2>Registar escuela</h2>
                     <div class="user-details1">
-                        <?php echo isset($alert) ? $alert : ''; ?> 
+                        <?php echo isset($alert) ? $alert : ''; ?>
                         <div class="input-box1">
                             <span class="details">Escuela</span>
                             <input type="text" name="nombre_escuela" id="nombre_escuela" value="<?php echo $nombre_escuela; ?>" required>
@@ -176,7 +176,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                                 <option value="Todos">Los tres niveles</option>
                             </select>
                         </div>
-                    <input type="hidden" name="autorizacion" placeholder="Nombre" value="<?php echo $user['nombre'] ?>">
+                        <input type="hidden" name="autorizacion" placeholder="Nombre" value="<?php echo $user['nombre'] ?>">
 
                     </div>
                     <br>

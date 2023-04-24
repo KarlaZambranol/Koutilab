@@ -21,7 +21,7 @@
     <?php
     require "../../acciones/conexion.php";
     session_start();
-    $id_user = $_SESSION['idUser'];
+    $id_user = $_SESSION['id_docente_preparatoria'];
     // Validar datos
     if (empty($_REQUEST['id'])) {
         header("Location: ../../docente/grupos.php");

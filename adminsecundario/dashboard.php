@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-  header('location: ../index.php');
+$id_user = $_SESSION['id_admin_secundario'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin_secundario'])) {
+  header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
@@ -430,7 +430,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
   <?php
   if (isset($_POST['enviarcontrasena'])) {
-    $idadmin = $_SESSION['idUser'];
+    $idadmin = $_SESSION['id_admin_secundario'];
     $contrasena = md5($_POST['contrasena']);
 
     $sql_update = mysqli_query($conexion, "UPDATE admin SET contrasena = '$contrasena' WHERE id_admin = '$idadmin'");

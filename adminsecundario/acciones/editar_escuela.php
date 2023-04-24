@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../index.php');
+$id_user = $_SESSION['id_admin_secundario'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin_secundario'])) {
+    header('location: ../acciones/cerrarsesion.php');
 }
 include('../../acciones/conexion.php');
 
@@ -48,7 +48,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $codigo_postal = $_POST['codigo_postal'];
             $nivel_educativo = $_POST['nivel_educativo'];
             $autorizacion = $_POST['autorizacion'];
-            $id_user = $_SESSION['idUser'];
+            $id_user = $_SESSION['id_admin_secundario'];
             $sql_update = mysqli_query($conexion, "UPDATE escuelas SET nombre_escuela = '$nombre_escuela', cct = '$cct', nombre_director = '$nombre_director', calle = '$calle', num_exterior = '$num_exterior', estado = '$estado', codigo_postal = '$codigo_postal', nivel_educativo = '$nivel_educativo', pais = '$pais', autorizacion = '$autorizacion', id_admin = '$id_user' WHERE id_escuela = $idescuela");
             $alert = '<div class="alert alert-success" role="alert">Escuela actualizada</div>';
         }

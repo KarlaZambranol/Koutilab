@@ -2,7 +2,7 @@
 
 include('../../../acciones/conexion.php');
 session_start();
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_alumno_preparatoria'];
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos WHERE id_alumno = $id_user"));
 
 

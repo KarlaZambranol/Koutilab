@@ -1,7 +1,8 @@
 <?php
 session_start();
-if (empty($_SESSION['active'])) {
-  header('location: ../');
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+  header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 ?>
 

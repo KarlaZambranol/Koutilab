@@ -21,7 +21,7 @@
     <?php
     require "../../acciones/conexion.php";
     session_start();
-    $id_user = $_SESSION['idUser'];
+    $id_user = $_SESSION['id_docente_primaria'];
 
     if (!empty($_POST)) {
         $alert = "";

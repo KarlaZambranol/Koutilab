@@ -21,7 +21,7 @@
     <?php
     require "../../acciones/conexion.php";
     session_start();
-    $id_user = $_SESSION['idUser'];
+    $id_user = $_SESSION['id_docente_secundaria'];
     // Validar datos
     if (empty($_REQUEST['id'])) {
         header("Location: ../../docente/grupos.php");
@@ -42,49 +42,49 @@
         </div>
     </div>
     <div class="d-flex justify-content-center" style="margin-top: -50px;">
-    <div class="board p-2" style="width: 90%;">
-        <table id="alumnos" width="100%" class="table border-top">
-            <thead>
-                <tr>
-                    <td><b>Nombre</b></td>
-                    <td><b>Nivel educativo</b></td>
-                    <td><b>Grado escolar</b></td>
-                    <td><b>Grupo</b></td>
-                    <td><b>Trofeos</b></td>
-                    <td><b>Puntaje</b></td>
-                    <td><b>Práctico</b></td>
-                    <td><b>Teorico</b></td>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                include "../../acciones/conexion.php";
-                $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.nivel_educativo, a.grado_escolar, a.nombre_grupo, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas e
+        <div class="board p-2" style="width: 90%;">
+            <table id="alumnos" width="100%" class="table border-top">
+                <thead>
+                    <tr>
+                        <td><b>Nombre</b></td>
+                        <td><b>Nivel educativo</b></td>
+                        <td><b>Grado escolar</b></td>
+                        <td><b>Grupo</b></td>
+                        <td><b>Trofeos</b></td>
+                        <td><b>Puntaje</b></td>
+                        <td><b>Práctico</b></td>
+                        <td><b>Teorico</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include "../../acciones/conexion.php";
+                    $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.nivel_educativo, a.grado_escolar, a.nombre_grupo, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas e
                 JOIN alumnos a
                 ON e.id_alumno = a.id_alumno
                 JOIN detalle_grupos dg
                 ON dg.id_alumno = a.id_alumno
                 WHERE dg.id_grupo = '$idgrupo';");
-                $result = mysqli_num_rows($query_grupo);
-                if ($result > 0) {
-                    while ($data = mysqli_fetch_assoc($query_grupo)) {
-                ?>
-                        <tr>
-                            <td><?php echo $data['nombre']; ?></td>
-                            <td><?php echo $data['nivel_educativo']; ?></td>
-                            <td><?php echo $data['grado_escolar']; ?></td>
-                            <td><?php echo $data['nombre_grupo']; ?></td>
-                            <td><?php echo $data['trofeos']; ?></td>
-                            <td><?php echo $data['puntos']; ?></td>
-                            <td><?php echo $data['practico']; ?></td>
-                            <td><?php echo $data['teorico']; ?></td>
-                        </tr>
-                <?php }
-                } ?>
-            </tbody>
-        </table>
-        <a href="../grupos.php" class="btn btn-danger">Atrás</a>
-    </div>
+                    $result = mysqli_num_rows($query_grupo);
+                    if ($result > 0) {
+                        while ($data = mysqli_fetch_assoc($query_grupo)) {
+                    ?>
+                            <tr>
+                                <td><?php echo $data['nombre']; ?></td>
+                                <td><?php echo $data['nivel_educativo']; ?></td>
+                                <td><?php echo $data['grado_escolar']; ?></td>
+                                <td><?php echo $data['nombre_grupo']; ?></td>
+                                <td><?php echo $data['trofeos']; ?></td>
+                                <td><?php echo $data['puntos']; ?></td>
+                                <td><?php echo $data['practico']; ?></td>
+                                <td><?php echo $data['teorico']; ?></td>
+                            </tr>
+                    <?php }
+                    } ?>
+                </tbody>
+            </table>
+            <a href="../grupos.php" class="btn btn-danger">Atrás</a>
+        </div>
     </div>
 
     <script>

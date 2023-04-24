@@ -20,7 +20,7 @@ $id_escuela = $_POST['id_escuela'];
 $id_docente = $_POST['id_docente'];
 $email = $_POST['email'];
 
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_docente_primaria'];
 
 $consulta_curso = mysqli_query($conexion, "SELECT * FROM grupos WHERE nombre_grupo = '$nombre_grupo'");
 $resultadoCurso = mysqli_fetch_assoc($consulta_curso);

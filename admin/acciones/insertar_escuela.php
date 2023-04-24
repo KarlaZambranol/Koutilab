@@ -14,7 +14,7 @@ $pais = $_POST['pais'];
 $codigo_postal = $_POST['codigo_postal'];
 $nivel_educativo = $_POST['nivel_educativo'];
 $autorizacion = $_POST['autorizacion'];
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_admin'];
 
 //Claves
 $clave_director = $_POST['clave_director'];

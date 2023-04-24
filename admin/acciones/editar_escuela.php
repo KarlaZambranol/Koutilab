@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../index.php');
+$id_user = $_SESSION['id_admin'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
+    header('location: ../acciones/cerrarsesion.php');
 }
 include('../../acciones/conexion.php');
 
@@ -48,7 +48,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
             $codigo_postal = $_POST['codigo_postal'];
             $nivel_educativo = $_POST['nivel_educativo'];
             $autorizacion = $_POST['autorizacion'];
-            $id_user = $_SESSION['idUser'];
+            $id_user = $_SESSION['id_admin'];
             $sql_update = mysqli_query($conexion, "UPDATE escuelas SET nombre_escuela = '$nombre_escuela', cct = '$cct', nombre_director = '$nombre_director', calle = '$calle', num_exterior = '$num_exterior', estado = '$estado', codigo_postal = '$codigo_postal', nivel_educativo = '$nivel_educativo', pais = '$pais', autorizacion = '$autorizacion', id_admin = '$id_user' WHERE id_escuela = $idescuela");
             $alert = '<div class="alert alert-success" role="alert">Escuela actualizada</div>';
         }
@@ -85,9 +85,9 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
     <div class="row">
         <div class="col-md-9 mx-auto">
             <div class="container" style="margin-top: -40px;">
-            <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
-                <h3 class="i-name">Modificar escuela</h3>
-            </div>
+                <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
+                    <h3 class="i-name">Modificar escuela</h3>
+                </div>
                 <form class="" action="" method="post">
                     <div class="user-details">
                         <?php echo isset($alert) ? $alert : ''; ?> <input type="hidden" name="id" value="<?php echo $idescuela; ?>">
@@ -175,7 +175,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                             <span class="details">Código Postal</span>
                             <input type="text" name="codigo_postal" id="codigo_postal" value="<?php echo $codigo_postal; ?>" required>
                         </div>
-                    <input type="hidden" name="autorizacion" placeholder="Nombre" value="<?php echo $user['nombre'] ?>">
+                        <input type="hidden" name="autorizacion" placeholder="Nombre" value="<?php echo $user['nombre'] ?>">
 
                     </div>
                     <br>

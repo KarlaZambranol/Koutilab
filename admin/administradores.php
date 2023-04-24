@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../index.php');
+$id_user = $_SESSION['id_admin'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
+    header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
 
@@ -136,7 +136,7 @@ $fila = mysqli_fetch_assoc($result);
                 </a>
             </div>
             <div class="item separator"></div>
-            
+
         </div>
     </div>
     <div id="interface">
@@ -265,7 +265,7 @@ $fila = mysqli_fetch_assoc($result);
                     </div>
                     <div class="input-box1">
                         <span class="details"></span><br>
-                        <button  style="width: 150px; margin-right: 190px; margin-top: 5px;" type="button" class="btn-grd" onclick="copyToClipBoard()">Copiar clave</button>
+                        <button style="width: 150px; margin-right: 190px; margin-top: 5px;" type="button" class="btn-grd" onclick="copyToClipBoard()">Copiar clave</button>
                     </div>
                     <br>
                 </div>

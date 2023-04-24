@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../index.php');
+$id_user = $_SESSION['id_admin'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_admin'])) {
+  header('location: ../acciones/cerrarsesion.php');
 }
 include('../acciones/conexion.php');
 $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id_admin = $id_user"));
@@ -201,25 +201,25 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
       </div>
       <div class="card" style="scale: 80%; margin-bottom: 0px">
-        <a href="#" >
+        <a href="#">
           <div><i class="fas fa-money-check-alt fa-6x"></i></div>
           <h2>Acceso 1</h2>
         </a>
       </div>
       <div class="card" style="scale: 80%; margin-bottom: 0px">
-        <a href="#" >
+        <a href="#">
           <div><i class="fas fa-chalkboard fa-6x"></i></div>
           <h2>Acceso 2</h2>
         </a>
       </div>
       <div class="card" style="scale: 80%; margin-bottom: 0px">
-        <a href="#" >
+        <a href="#">
           <div><i class="fas fa-chart-pie fa-6x"></i></div>
           <h2>Acceso 3</h2>
         </a>
       </div>
       <div class="card" style="scale: 80%; margin-bottom: 0px">
-        <a href="#" >
+        <a href="#">
           <div><i class="fas fa-project-diagram fa-6x"></i></div>
           <h2>Acceso 4</h2>
         </a>
@@ -485,7 +485,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
 
   <?php
   if (isset($_POST['enviarcontrasena'])) {
-    $idadmin = $_SESSION['idUser'];
+    $idadmin = $_SESSION['id_admin'];
     $contrasena = md5($_POST['contrasena']);
 
     $sql_update = mysqli_query($conexion, "UPDATE admin SET contrasena = '$contrasena' WHERE id_admin = '$idadmin'");

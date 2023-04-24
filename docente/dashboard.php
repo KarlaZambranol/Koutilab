@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../index.php');
+$id_user = $_SESSION['id_docente_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_docente_primaria'])) {
+    header('location: ../acciones/cerrarsesion.php');
 }
 
 include('../acciones/conexion.php');
@@ -492,7 +492,7 @@ WHERE d.id_docente = $id_user"));
 
     <?php
     if (isset($_POST['enviarcontrasena'])) {
-        $iddocente = $_SESSION['idUser'];
+        $iddocente = $_SESSION['id_docente_primaria'];
         $contrasena = md5($_POST['contrasena']);
 
         $sql_update = mysqli_query($conexion, "UPDATE docentes SET contrasena = '$contrasena' WHERE id_docente = '$iddocente'");
