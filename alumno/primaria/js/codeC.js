@@ -2,7 +2,7 @@ let editor = document.querySelector("#editor");
 
 ace.edit(editor, {
   theme: "ace/theme/xcode",
-  mode: "ace/mode/c_cpp",
+  mode: "ace/mode/javascript",
 });
 
 editor.setOptions({
