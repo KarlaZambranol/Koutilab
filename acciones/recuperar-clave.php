@@ -45,7 +45,6 @@ if ($cantidadConsulta) {
             font-size: 16px;
             font-weight: 300;
             color: #888;
-            background-color:rgba(230, 225, 225, 0.5);
             line-height: 30px;
             text-align: center;
         }
@@ -54,31 +53,35 @@ if ($cantidadConsulta) {
             min-height:auto;
             text-align: center;
             margin: 0 auto;
-            background: #ececec;
-            border-top: 3px solid #E64A19;
+            background: rgba(129, 178, 243, 0.2);
+            border: 3px solid #84c42c;
         }
         .misection{
             color: #34495e;
             margin: 4% 10% 2%;
-            text-align: center;
+            text-align: justify;
             font-family: sans-serif;
         }
-        </style>
+    </style>
     ';
     
     $cuerpo .= '
     </head>
     <body>
         <div class="contenedor">
-        <table style="max-width: 600px; padding: 10px; margin:0 auto; border-collapse: collapse;">
+        <table style="max-width: 600px; padding: 10px; margin: 0 auto; border-collapse: collapse;">
         <tr>
             <td style="background-color: #ffffff;">
                 <div class="misection">
-                    <h2 style="color: #84c42c; margin: 0 0 7px">Hola, '.$dataConsulta['nombre'].'</h2>
-                    <p style="margin: 2px; font-size: 18px">El equipo de desarrollo de Koutilab te ha creado una nueva clave temporal para que puedas iniciar sesión, la clave temporal es: <strong>'.$clave1.'</strong> y tu usuario es: <strong> '.$dataConsulta['usuario'].'</strong> No olvides cambiar tu contraseña nuevamente una vez que inicies sesión. <br><br> Por si lo llegas a ocupar, tu clave de acceso es: <strong> '.$dataConsulta['clave'].'</strong></p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+					<img src="https://koutilab.com/img/koutilab.png" alt="koutilab" style="position: absolute; width: 100px; margin: -10px 0 0 420px;">
+					<br>
+                    <h2 style="color: #84c42c; margin: 0 0 7px; text-align: center;">¡Hola '.$dataConsulta['nombre'].'!</h2>
+                    <p style="margin: 2px; font-size: 20px">El equipo de desarrollo de Koutilab te ha creado una nueva clave 
+						temporal para que puedas iniciar sesión, la clave temporal es: <strong>'.$clave1.'</strong> y tu usuario 
+						es: <strong> '.$dataConsulta['usuario'].'</strong> No olvides cambiar tu contraseña nuevamente una 
+						vez que inicies sesión. <br><br> Por si lo llegas a ocupar, tu clave de acceso 
+						es: <strong> '.$dataConsulta['clave'].'</strong>
+					</p>
                     <p>&nbsp;</p>
                 </div>
             </td>
@@ -129,7 +132,6 @@ if ($cantidadConsulta) {
             font-size: 16px;
             font-weight: 300;
             color: #888;
-            background-color:rgba(230, 225, 225, 0.5);
             line-height: 30px;
             text-align: center;
         }
@@ -138,31 +140,35 @@ if ($cantidadConsulta) {
             min-height:auto;
             text-align: center;
             margin: 0 auto;
-            background: #ececec;
-            border-top: 3px solid #E64A19;
+            background: rgba(129, 178, 243, 0.2);
+            border: 3px solid #84c42c;
         }
         .misection{
             color: #34495e;
             margin: 4% 10% 2%;
-            text-align: center;
+            text-align: justify;
             font-family: sans-serif;
         }
-        </style>
+    </style>
     ';
     
     $cuerpo .= '
     </head>
     <body>
         <div class="contenedor">
-        <table style="max-width: 600px; padding: 10px; margin:0 auto; border-collapse: collapse;">
+        <table style="max-width: 600px; padding: 10px; margin: 0 auto; border-collapse: collapse;">
         <tr>
             <td style="background-color: #ffffff;">
                 <div class="misection">
-                    <h2 style="color: #84c42c; margin: 0 0 7px">Hola, '.$dataConsulta1['nombre'].'</h2>
-                    <p style="margin: 2px; font-size: 18px">El equipo de desarrollo de Koutilab te ha creado una nueva clave temporal para que puedas iniciar sesión, la clave temporal es: <strong>'.$clave1.'</strong> y tu usuario es: <strong> '.$dataConsulta1['usuario'].'</strong> No olvides cambiar tu contraseña nuevamente una vez que inicies sesión. <br><br> Por si lo llegas a ocupar, tu clave de acceso es: <strong> '.$dataConsulta1['clave'].'</strong> </p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
+					<img src="https://koutilab.com/img/koutilab.png" alt="koutilab" style="position: absolute; width: 100px; margin: -10px 0 0 420px;">
+					<br>
+                    <h2 style="color: #84c42c; margin: 0 0 7px; text-align: center;">¡Hola '.$dataConsulta1['nombre'].'!</h2>
+                    <p style="margin: 2px; font-size: 20px">El equipo de desarrollo de Koutilab te ha creado una nueva clave 
+						temporal para que puedas iniciar sesión, la clave temporal es: <strong>'.$clave1.'</strong> y tu usuario 
+						es: <strong> '.$dataConsulta1['usuario'].'</strong> No olvides cambiar tu contraseña nuevamente una 
+						vez que inicies sesión. <br><br> Por si lo llegas a ocupar, tu clave de acceso 
+						es: <strong> '.$dataConsulta1['clave'].'</strong>
+					</p>
                     <p>&nbsp;</p>
                 </div>
             </td>
