@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../../../../../../../index.php');
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago c INNER JOIN detalle_capsulas_pago d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
@@ -46,7 +46,7 @@ if (empty($existe)) {
                         <tr>
                             <td class="nombre">
                                 <p> En un documento html crea un fondo múltiple en 3 imágenes
-                                    que estén uno a la izquierda y otro a la derecha como se muestra  a continuación.
+                                    que estén uno a la izquierda y otro a la derecha como se muestra a continuación.
                                     <br><br>
                                 </p>
                             </td>

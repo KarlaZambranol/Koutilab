@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../../../../../../../index.php');
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago12";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago c INNER JOIN detalle_capsulas_pago d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2;");
 $existe = mysqli_fetch_all($sql);
@@ -44,8 +44,8 @@ if (empty($existe)) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p> Aquí te dejo una práctica sencilla para 
-                                    que puedas practicar cómo utilizar cuadros de 
+                                <p> Aquí te dejo una práctica sencilla para
+                                    que puedas practicar cómo utilizar cuadros de
                                     diálogo en JavaScript:
                                     1.Pide al usuario que introduzca su edad utilizando el cuadro de diálogo prompt().
                                     2.Si el usuario introduce un número válido, muestra un mensaje que indique si es mayor de edad o no.

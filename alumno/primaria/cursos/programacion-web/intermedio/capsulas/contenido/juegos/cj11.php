@@ -1,12 +1,11 @@
-
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../../../../../../../index.php');
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula28";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
@@ -51,7 +50,7 @@ if (empty($existe) && $id_user != 1) {
     <!-- Contenido donde se encuentran las imagenes y los espacios donde van a ir -->
     <div class="contenido">
         <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
-            <i class="fas fa-reply"></i></button>
+                <i class="fas fa-reply"></i></button>
         </a>
 
         <div class="div-vertical"></div>

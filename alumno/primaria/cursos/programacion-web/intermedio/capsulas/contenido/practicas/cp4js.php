@@ -1,11 +1,11 @@
 <?php
 session_start();
-$id_user = $_SESSION['idUser'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../../../../../../../index.php');
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['idUser'];
+$id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula11";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
@@ -46,7 +46,7 @@ if (empty($existe) && $id_user != 1) {
                             <td class="nombre">
                                 <p> Aquí hay una práctica divertida para entender mejor los operadores relacionales en JavaScript.
                                     1.Piensa en dos números enteros aleatorios.
-                                    2. Luego, escribe un código en JavaScript que compare los dos números y muestre un mensaje en 
+                                    2. Luego, escribe un código en JavaScript que compare los dos números y muestre un mensaje en
                                     la pantalla indicando si el primer número es mayor, menor o igual al segundo número.
                                     <br><br>
                             </td>
