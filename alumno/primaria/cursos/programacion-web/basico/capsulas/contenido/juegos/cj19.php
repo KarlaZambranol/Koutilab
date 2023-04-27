@@ -2,7 +2,7 @@
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-  header('location: ../../../../../../../../acciones/cerrarsesion.php');
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
@@ -13,215 +13,97 @@ if (empty($existe) && $id_user != 1) {
   header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
 
-//Verificar si ya se tiene permiso y no dar puntos de más
-$permiso_intento = 50;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_permiso = $permiso_intento AND id_usuario = '$id_user' AND id_curso = 1");
-$result_sql_permisos = mysqli_num_rows($sql_permisos);
-//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
-
-//Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
-$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
-if (isset($resultadoIntentos['intentos'])) {
-  $totalIntentos = $resultadoIntentos['intentos'];
-  if ($totalIntentos == 2 && $result_sql_permisos == 0) {
-    $puntosGanados = 8;
-  } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
-    $puntosGanados = 6;
-  } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
-    $puntosGanados = 0;
-  } else {
-    $puntosGanados = 0;
-  }
-} else {
-  $puntosGanados = 10;
-}
-
 ?>
 
 <!DOCTYPE html>
+<html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KOUTILAB</title>
-  <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-  <link rel="stylesheet" href="../../css/css-juegos/memorama.css" />
-  <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<title>KOUTILAB</title>
+	<link rel="shortcut icon" href="../../../../../../img/lgk.png">
+
+	<link rel="stylesheet" type="text/css" href="../../css/css-juegos/memorama.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/wordfind.js"></script>
+	<script type="text/javascript" src="../../js/wordfindgame1.js"></script>
+	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-  <div class="body">
-    <div class="container">
-      <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
-          <i class="fas fa-reply"></i></button></a><br /><br />
-      <div class="new-g" style="text-align: center">Memorama</div>
-      <br />
-      <!-- CSS -->
-      <!-- efectos visuales -->
-      <div class="" style="
-          display: flex;
-          width: 1180px;
-          align-items: center;
-          justify-content: center;
-          margin: -40px 0 0 0;
-          position: absolute;
-          top: 180px;
-        ">
-        <h1>
-          Tiempo:
-          <h1 id="tiempo"></h1>
-        </h1>
-      </div>
-      <style>
-        :root {
-          --w: calc(70vw / 6);
-          --h: calc(70vh / 4);
+
+	<!-- Titulo general -->
+	<div class="titulo-gen">
+		<h2 class="titulo" style="margin-left: 490px;"><b>MEMORAMA</b></h2>
+	</div>
+
+	<!-- Tiempo -->
+	<div class="timer">
+		<b style="margin-top: 10px;">Tiempo: <br>
+			<p id="tiempo"></p>
+		</b>
+	</div>
+
+	<div class="contenido">
+
+		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+			<i class="fas fa-reply"></i></button>
+		</a>
+
+		<!-- Titulo secundario -->
+		<h5 class="titulo"><b>Encuentra todos los pares de tarjetas para poder ganar el juego</b></h5>
+		<br>
+
+		<!-- Boton de iniciar juego, al iniciar, desaparece -->
+		<div class="nuevo-juego" id="generar" onclick="generarTablero()">
+			Iniciar juego
+		</div>
+
+		<!-- Generador del tablero -->
+		<div id="tablero"></div>
+
+	</div>
+
+	<script>
+
+		let cantidadTarjetas = 24;
+        let iconos = []
+        let selecciones = []
+
+		//Iconos pertenecientes a las tarjetas
+        function cargarIconos() {
+            iconos = [
+				'<i class="fas fa-mouse-pointer" style="color: white;"></i>',
+				'<i class="fas fa-heart" style="color: pink;"></i>',
+				'<i class="fas fa-ellipsis-h" color: cyan;></i>',
+				'<i class="fas fa-keyboard" style="color: gray;"></i>',
+				'<i class="fab fa-html5" style="color: orange;"></i>',
+				'<i class="fab fa-css3-alt" style="color: cyan;"></i>',
+				'<i class="fas fa-exclamation" style="color: yellow;"></i>',
+				'<i class="fas fa-terminal"></i>',
+				'<i class="fas fa-globe" style="color: gold;"></i>',
+				'<i class="fas fa-check" style="color: green;"></i>',
+				'<i class="fas fa-code" style="color: gray;"></i>',
+				'<i class="far fa-file-code" style="color: purple;"></i>'
+            ]
         }
 
-        * {
-          transition: all 0.5s;
-        }
-
-        div {
-          display: inline-block;
-        }
-
-        .area-tarjeta,
-        .tarjeta,
-        .cara {
-          cursor: pointer;
-          width: var(--w);
-          min-width: 100px;
-          height: var(--h);
-        }
-
-        .tarjeta {
-          position: relative;
-          transform-style: preserve-3d;
-          animation: iniciar 5s;
-        }
-
-        .cara {
-          position: absolute;
-          backface-visibility: hidden;
-          box-shadow: inset 0 0 0 5px white;
-          font-size: 500%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .trasera {
-          background-color: lightcyan;
-          transform: rotateY(180deg);
-        }
-
-        .superior {
-          background: linear-gradient(orange, darkorange);
-        }
-
-        .nuevo-juego {
-          cursor: pointer;
-          background: linear-gradient(orange, darkorange);
-          padding: 20px;
-          border-radius: 50px;
-          border: white 5px solid;
-          font-size: 130%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto;
-          position: relative;
-          top: 180px;
-          width: 150px;
-        }
-
-        @keyframes iniciar {
-
-          20%,
-          90% {
-            transform: rotateY(180deg);
-          }
-
-          0%,
-          100% {
-            transform: rotateY(0deg);
-          }
-        }
-      </style>
-
-      <!-- HTML -->
-      <!-- estructura visual -->
-
-      <div id="tablero" style="margin: 50px 0 0 25px;"></div>
-
-      <br />
-
-      <div class="nuevo-juego" id="generar" onclick="generarTablero()">Jugar</div>
-    </div>
-  </div>
-
-  <!-- JS -->
-  <!-- parte lógica -->
-  <script>
-    let iconos = [];
-    let selecciones = [];
-    let tiempo = 0;
-    let intentos = 0;
-    let puntos = 0;
-    let reloj = 0;
-    let total = 0;
-    let final = 0;
-    let gano = false;
-    // generarTablero()
-    let nombreJugador = "";
-    let {
-      value: nombre
-    } = Swal.fire({
-      title: "Juego de memoria",
-      timer: 3000,
-      timerProgressBar: true
-    }).then((result) => {
-      nombreJugador = result.value;
-      console.log(result.value);
-      // generarTablero()
-    });
-
-    function cargarIconos() {
-      iconos = [
-        '<i class="fas fa-mouse-pointer" style="color: white;"></i>',
-        '<i class="fas fa-heart" style="color: pink;"></i>',
-        '<i class="fas fa-ellipsis-h" color: cyan;></i>',
-        '<i class="fas fa-keyboard" style="color: gray;"></i>',
-        '<i class="fab fa-html5" style="color: orange;"></i>',
-        '<i class="fab fa-css3-alt" style="color: cyan;"></i>',
-        '<i class="fas fa-exclamation" style="color: yellow;"></i>',
-        '<i class="fas fa-terminal"></i>',
-        '<i class="fas fa-globe" style="color: gold;"></i>',
-        '<i class="fas fa-check" style="color: green;"></i>',
-        '<i class="fas fa-code" style="color: gray;"></i>',
-        '<i class="far fa-file-code" style="color: purple;"></i>'
-      ];
-    }
-
-    function generarTablero() {
-      $('#generar').remove();
-      cargarIconos();
-      tiempo = 240000;
-      intentos = 0;
-      reloj = 0;
-      total = 0;
-      final = Date.now() + 240000;
-      selecciones = [];
-      let tablero = document.getElementById("tablero");
-      let tarjetas = [];
-      for (let i = 0; i < 24; i++) {
-        tarjetas.push(`
+		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
+        function generarTablero() {
+			iniciarTiempo()
+            cargarIconos()
+			$('#generar').remove();
+            let len = iconos.length
+            selecciones = []
+            let tablero = document.getElementById("tablero")
+            let tarjetas = []
+            
+            for (let i = 0; i < cantidadTarjetas; i++) {
+                tarjetas.push(`
                 <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
                     <div class="tarjeta" id="tarjeta${i}">
                         <div class="cara trasera" id="trasera${i}">
@@ -231,193 +113,119 @@ if (isset($resultadoIntentos['intentos'])) {
                             <i class="far fa-question-circle"></i>
                         </div>
                     </div>
-                </div>
-                `);
-        if (i % 2 == 1) {
-          iconos.splice(0, 1);
-        }
-      }
-      tarjetas.sort(() => Math.random() - 0.5);
-      tablero.innerHTML = tarjetas.join(" ");
-      document.getElementById("tiempo").innerHTML = "" + reloj;
-
-      // setTimeout(() => {
-
-      //     reloj++;
-
-      //     document.getElementById("tiempo").innerHTML = ": " + reloj
-      // }, 1000);
-      tiempoRes();
-      // setTimeout(() => {
-      //     Swal.fire({
-      //         title: 'Perdiste',
-      //         text: "se te acabo el tiempo",
-      //         icon: 'info',
-      //         confirmButtonColor: '#3085d6',
-      //         confirmButtonText: 'Reintentar'
-      //     }).then((result) => {
-      //         if (result.isConfirmed) {
-      //             window.location.reload()
-      //         }
-      //     })
-      //     // generarTablero();
-      // }, tiempo);
-    }
-
-    function tiempoRes() {
-      let cronometro = document.getElementById("tiempo");
-
-      let elcrono = setInterval(tiempo, 10);
-
-      function tiempo() {
-        if (gano) {} else {
-          let diferencia = final - Date.now();
-          let sg = diferencia / 1000;
-          if (diferencia <= 0) {
-            clearInterval(elcrono);
-            cronometro.classList.add("rojo");
-            sg = 0.0;
-          }
-          cronometro.innerHTML = sg;
-          if (sg == 0) {
-            Swal.fire({
-              title: "Perdiste",
-              text: "se te acabo el tiempo, Puntos" + puntos,
-              icon: "info",
-              confirmButtonColor: "#3085d6",
-              confirmButtonText: "Reintentar",
-            }).then((result) => {
-              if (result.isConfirmed) {
-                window.location.reload();
-              }
-            });
-          }
-        }
-      }
-    }
-
-    function seleccionarTarjeta(i) {
-      let tarjeta = document.getElementById("tarjeta" + i);
-      if (tarjeta.style.transform != "rotateY(180deg)") {
-        tarjeta.style.transform = "rotateY(180deg)";
-        selecciones.push(i);
-      }
-      if (selecciones.length == 2) {
-        deseleccionar(selecciones);
-        selecciones = [];
-      }
-    }
-
-    function deseleccionar(selecciones) {
-      setTimeout(() => {
-        let trasera1 = document.getElementById("trasera" + selecciones[0]);
-        let trasera2 = document.getElementById("trasera" + selecciones[1]);
-        if (trasera1.innerHTML != trasera2.innerHTML) {
-          intentos++;
-
-          let tarjeta1 = document.getElementById("tarjeta" + selecciones[0]);
-          let tarjeta2 = document.getElementById("tarjeta" + selecciones[1]);
-          tarjeta1.style.transform = "rotateY(0deg)";
-          tarjeta2.style.transform = "rotateY(0deg)";
-        } else {
-          intentos++;
-          puntos += 8.3;
-          total++;
-          if (total == 12) {
-            gano = true;
-            //Guardar puntaje
-            var xmlhttp = new XMLHttpRequest();
-            var puntos = <?php echo $puntosGanados; ?>;
-            var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 50 + "&id_curso=" + 1; //cancatenation
-            xmlhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                Swal.fire({
-                  title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' trofeos',
-                  text: '¡Puntuación guardada con éxito!',
-                  imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                  imageHeight: 350,
-                  backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
-                    `,
-                  confirmButtonColor: '#a14cd9',
-                  confirmButtonText: 'Aceptar',
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    window.location.href = '../../../../../../rutas/ruta-pw-b.php';
-                  }
-                });
-              }
+                </div>        
+                `)
+                if (i % 2 == 1) {
+                    iconos.splice(0, 1)
+                }
             }
-            xmlhttp.open("POST", "../../acciones/insertar_pd50.php", true);
-            xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlhttp.send(param);
-
-            //Alerta
-            Swal.fire({
-              title: "Ganaste " + nombreJugador,
-              text: "ganaste en " + intentos + " intentos puntuaje total 100",
-              icon: "info",
-              confirmButtonColor: "#3085d6",
-              confirmButtonText: "Siguiente",
-            }).then((result) => {
-              if (result.isConfirmed) {
-                window.location.href = '../../../../../../rutas/ruta-pw-b.php';
-              }
-            });
-            // alert();
-            // generarTablero()
-          }
-          trasera1.style.background = "plum";
-          trasera2.style.background = "plum";
+            tarjetas.sort(() => Math.random() - 0.5)
+            tablero.innerHTML = tarjetas.join(" ")
         }
-        console.log(
-          "🚀 ~ file: index.html ~ line 295 ~ setTimeout ~ intentos",
-          intentos
-        );
-      }, 1000);
-    }
-  </script>
-  <script>
-    function disableIE() {
-      if (document.all) {
-        return false;
-      }
-    }
 
-    function disableNS(e) {
-      if (document.layers || (document.getElementById && !document.all)) {
-        if (e.which == 2 || e.which == 3) {
-          return false;
+		//Selecionador de tarjetas
+        function seleccionarTarjeta(i) {
+            let tarjeta = document.getElementById("tarjeta" + i)
+            if (tarjeta.style.transform != "rotateY(180deg)") {
+                tarjeta.style.transform = "rotateY(180deg)"
+                selecciones.push(i)
+            }
+            if (selecciones.length == 2) {
+                deseleccionar(selecciones)
+                selecciones = []
+            }
         }
-      }
-    }
-    if (document.layers) {
-      document.captureEvents(Event.MOUSEDOWN);
-      document.onmousedown = disableNS;
-    } else {
-      document.onmouseup = disableNS;
-      document.oncontextmenu = disableIE;
-    }
-    document.oncontextmenu = new Function("return false");
-  </script>
-  <script>
-    onkeydown = (e) => {
-      let tecla = e.which || e.keyCode;
 
-      // Evaluar si se ha presionado la tecla Ctrl:
-      if (e.ctrlKey) {
-        // Evitar el comportamiento por defecto del nevagador:
-        e.preventDefault();
-        e.stopPropagation();
+		//Quitar seleccion y verificar que la tarjeta sea identica a su par
+        function deseleccionar(selecciones) {
+            setTimeout(() => {
+                let trasera1 = document.getElementById("trasera" + selecciones[0])
+                let trasera2 = document.getElementById("trasera" + selecciones[1])
+                if (trasera1.innerHTML != trasera2.innerHTML) {
+                    let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
+                    let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
+                    tarjeta1.style.transform = "rotateY(0deg)"
+                    tarjeta2.style.transform = "rotateY(0deg)"
+                }else{
+                    trasera1.style.background = "rgba(61, 172, 244, 0.5)"
+                    trasera2.style.background = "rgba(61, 172, 244, 0.5)"
+                }
+				if (verificar()) {
+					var xmlhttp = new XMLHttpRequest();
 
-        // Mostrar el resultado de la combinación de las teclas:
-        if (tecla === 85) console.log("Ha presionado las teclas Ctrl + U");
+					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 50 + "&id_curso=" + 1; //cancatenation
+					xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						Swal.fire({
+						title: '¡Bien hecho!',
+						text: '¡Puntuación guardada con éxito!',
+						imageUrl: "../../../../../../img/Thumbs-Up.gif",
+						imageHeight: 350,
+						backdrop: `
+							rgba(0,143,255,0.6)
+							url("../../../../../../img/fondo.gif")
+							`,
+						confirmButtonColor: '#a14cd9',
+						confirmButtonText: 'Aceptar',
+						}).then((result) => {
+						if (result.isConfirmed) {
+							window.location.href = '../../../../../../rutas/ruta-pw-b.php';
+						}
+						});
+					}
+					}
+					xmlhttp.open("POST", "../../acciones/insertar_pd50.php", true);
+					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xmlhttp.send(param);
+				}
+            }, 1000);
+        }
+ 
+		//Verificar si ambas son iguales
+		function verificar(){
+			for (let i = 0; i < cantidadTarjetas; i++) {
+				let trasera = document.getElementById("trasera" + i);
+				if (trasera.style.background != "rgba(61, 172, 244, 0.5)") {
+					return false;
+				}
+			}
+			return true;
+		}
 
-        if (tecla === 83) console.log("Ha presionado las teclas Ctrl + S");
-      }
-    };
-  </script>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  <script defer src="../../js/functions.js"></script>
+    </script>
+
+	<script>
+		var segundos = 240;
+		let puntos = 0;
+
+		//Funcion que inicia el tiempo y verifica si acabo para dar anuncio de que perdió el jugador
+		function iniciarTiempo() {
+			document.getElementById('tiempo').innerHTML = segundos + " segundos";
+			if (segundos == 0) {
+				var xmlhttp = new XMLHttpRequest();
+
+				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 50 + "&id_curso=" + 1; //cancatenation
+				Swal.fire({
+					title: 'Oops...',
+					text: '¡Verifica tu respuesta!',
+					imageUrl: "../../../../../../img/signo.gif",
+					imageHeight: 350,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.href = 'cj19.php';
+					}
+				});
+				xmlhttp.open("POST", "../../acciones/insertar_pd50.php", true);
+				xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				xmlhttp.send(param);
+			} else {
+				segundos--;
+				setTimeout("iniciarTiempo()", 1000);
+			}
+		}
+	</script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
+
+</html>
