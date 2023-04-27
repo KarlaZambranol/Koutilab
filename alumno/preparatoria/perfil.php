@@ -4,20 +4,10 @@ $id_user = $_SESSION['id_alumno_preparatoria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
     header('location: ../../acciones/cerrarsesion.php');
 }
+
 include('../../acciones/conexion.php');
 $query = mysqli_query($conexion, "SELECT * FROM cursos WHERE id_alumno = $id_user");
 $data = mysqli_fetch_assoc($query);
-
-//Verificar si ya se tiene permiso en ruta 1
-$permiso_ruta_r1 = "Programacion web basica";
-$sql_verificar_r1 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos a WHERE a.id_alumno = $id_user AND a.curso = '$permiso_ruta_r1'");
-$existe_verificar_r1 = mysqli_num_rows($sql_verificar_r1);
-
-//Verificar si ya se tiene permiso en ruta 2
-$permiso_ruta_r2 = "Programacion web intermedio";
-$sql_verificar_r2 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos a WHERE a.id_alumno = $id_user AND a.curso = '$permiso_ruta_r2'");
-$existe_verificar_r2 = mysqli_num_rows($sql_verificar_r2);
-
 
 //Estadisticas de todos los cursos del alumno
 $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, audiovisual, SUM(audiovisual) AS total_audiovisual, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas WHERE id_alumno = $id_user");
@@ -150,23 +140,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <li><i class="fas fa-school"></i> <b>&nbsp;Escuela:</b> <?php echo $user_escuela["nombre_escuela"] ?></li>
                     <li><i class="fas fa-graduation-cap"></i> <b>&nbsp;Nivel educativo:</b> <?php echo $user["nivel_educativo"] ?></li>
                     <li><i class="fas fa-fingerprint"></i> <b>&nbsp;&nbsp;CCT:</b> <?php echo $user_escuela["cct"] ?></li>
-                    <li><i class="fas fa-user-tie"></i> <b>&nbsp; Profesor:</b> <?php if (isset($user_docente)) echo $user_docente["nombre"]; ?></li>
-                </ul>
-            </div>
-
-            <div class="dos1">
-                <ul class="lista-datos">
-                    <li><b>&nbsp;Unirse a un grupo:</b></li>
-                    <li>
-                        <form enctype="multipart/form-data" action="" method="post">
-                            <div class="user-details1">
-                                <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
-                                    <input type="text" name="clavegrupo" value="" placeholder="Clave de grupo">
-                                    <input type="submit" name="enviarclave" value="Unirse" class="btn-grd" style="scale: 80%; width: 60%;">
-                                </div>
-                            </div>
-                        </form>
-                    </li>
+                    <li><i class="fas fa-user-tie"></i> <b>&nbsp; Profesor:</b> <?php echo $user_docente["nombre"] ?></li>
                 </ul>
             </div>
 
@@ -206,7 +180,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             <div class="titlec">
                 <h2>CURSOS</h2>
             </div>
-            <div class="card" <?php echo 'style="' . (($existe_verificar_r1 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+            <div class="card">
                 <a href="rutas/ruta-pw-b.php">
                     <div class="container">
                         <div class="box">
@@ -218,7 +192,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
                 </a>
             </div>
-            <div class="card" <?php echo 'style="' . (($existe_verificar_r2 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+            <div class="card">
                 <a href="rutas/ruta-pw-i.php">
                     <div class="container">
                         <div class="box">
@@ -226,6 +200,18 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                                 <?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>%
                             </div>
                             <h2>Diseño web intermedio</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="rutas/ruta-pw-a.php">
+                    <div class="container">
+                        <div class="box">
+                            <div class="chart" data-percent="<?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>%
+                            </div>
+                            <h2>Diseño web avanzado</h2>
                         </div>
                     </div>
                 </a>
@@ -832,66 +818,6 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
       Swal.fire({
           title: '¡Advertencia!',
           text: 'Cambio de contraseña no exitosa',
-          icon: 'info',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Reintentar',
-        }).then((result) => {
-          if (result.isConfirmed) {
-              window.location.href = 'perfil.php';
-          }
-        });
-      </script>
-        ";
-        }
-    }
-    ?>
-
-    <?php
-    if (isset($_POST['enviarclave'])) {
-        $idalumno = $_SESSION['id_alumno_preparatoria'];
-        $clavegrupo = $_POST['clavegrupo'];
-
-        $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos WHERE clave = '$clavegrupo'"));
-        if (isset($data_alumno['id_grupo'])) {
-            $id_grupo_alumno = $data_alumno['id_grupo'];
-            $insertar_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupos(id_alumno, id_grupo) VALUES ($idalumno, $id_grupo_alumno)");
-        }
-        if (isset($data_alumno['id_docente'])) {
-            $id_docente_alumno = $data_alumno['id_docente'];
-            $sql_update = mysqli_query($conexion, "UPDATE alumnos SET id_docente = $id_docente_alumno WHERE id_alumno = $idalumno");
-        }
-        if (isset($data_alumno['curso'])) {
-            $curso_alumno = $data_alumno['curso'];
-            $insertar_acceso_curso = mysqli_query($conexion, "INSERT INTO acceso_cursos(curso, id_alumno) VALUES ('$curso_alumno', $idalumno)");
-        }
-
-
-
-
-        if ($insertar_grupo && $insertar_acceso_curso && $sql_update) {
-            echo
-            "
-      <script>
-      Swal.fire({
-          title: 'Excelente!',
-          text: 'Registro de grupo exitoso',
-          icon: 'success',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'Aceptar',
-        }).then((result) => {
-          if (result.isConfirmed) {
-              window.location.href = 'perfil.php';
-          }
-        });
-      </script>
-        ";
-        } else {
-            echo
-            "
-      <script>
-      Swal.fire({
-          title: '¡Revisa bien tu clave!',
-          text: 'Registro de grupo no exitoso',
           icon: 'info',
           confirmButtonColor: '#3085d6',
           confirmButtonText: 'Reintentar',
