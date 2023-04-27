@@ -123,7 +123,7 @@ if (isset($resultadoIntentos['intentos'])) {
 					<b style="margin-left: 80px;">Horizontales:</b>
 					<td>
 						<div class="horizontal">
-							1.Para que nuestro texto sea con efecto de ______ se utiliza 1 etiqueta. < u> </ u>
+							1. Para que nuestro texto sea con efecto de ______ se utiliza 1 etiqueta. < u> </ u>
 							<br><br>
 							2. Para que nuestro texto sea resaltado en ______ se utilizan 2 etiquetas diferente. < i> </ i> y < em> </ em>
 						</div>

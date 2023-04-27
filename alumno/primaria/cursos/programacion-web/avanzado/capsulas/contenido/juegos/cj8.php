@@ -42,6 +42,13 @@ if (empty($existe) && $id_user != 1) {
 		<h5 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h5>
     	<br>
 
+		<!-- Tiempo -->
+	<div class="timer">
+		<b style="margin-top: 10px;">Tiempo: <br>
+			<p id="tiempo"></p>
+		</b>
+	</div>
+
 		<!-- Sección donde se agregan las palabras a buscar dentro de la sopa de letras -->
 		<div class="words">
 			<h6><b>Palabras a buscar:</b></h6>

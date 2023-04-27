@@ -99,8 +99,8 @@ if (empty($existe)) {
 					<td>
 						<div class="horizontal" style="margin-top: 40px;">
 							1. Es lo que nos permite crear la etiqueta de HTML < ul>.
-								<br><br>
-								2. Nombre de la etiqueta de HTML que nos permite crear una barra de herramientas.
+							<br><br>
+							2. Nombre de la etiqueta de HTML que nos permite crear una barra de herramientas.
 						</div>
 					</td>
 					<b style="margin-left: 160px;">Verticales:</b>

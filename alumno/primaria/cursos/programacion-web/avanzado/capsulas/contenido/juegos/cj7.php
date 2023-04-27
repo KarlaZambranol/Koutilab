@@ -35,6 +35,13 @@ if (empty($existe) && $id_user != 1) {
         <h2 class="titulo" style="margin-left: 465px;"><b>ARRASTRAR Y SOLTAR</b></h2>
     </div>
 
+    <!-- Tiempo -->
+	<div class="timer">
+		<b style="margin-top: 10px;">Tiempo: <br>
+			<p id="tiempo"></p>
+		</b>
+	</div>
+    
     <!-- Alerta -->
     <div id="mensaje"></div>
 

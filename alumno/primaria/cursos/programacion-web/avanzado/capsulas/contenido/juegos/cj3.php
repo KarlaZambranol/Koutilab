@@ -38,6 +38,13 @@ if (empty($existe) && $id_user != 1) {
         <h2 class="titulo" style="margin-left: 475px;"><b>SOPA DE LETRAS</b></h2>
     </div>
 
+	<!-- Tiempo -->
+	<div class="timer">
+		<b style="margin-top: 10px;">Tiempo: <br>
+			<p id="tiempo"></p>
+		</b>
+	</div>
+
 	<div class="contenido">
 		<!-- Titulo secundario -->
 		<h5 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h5>

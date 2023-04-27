@@ -98,10 +98,10 @@ if (empty($existe) && $id_user != 1) {
 					<td>
 						<div class="horizontal">
 							1.Etiqueta < dd> Se emplea para indicar las " " de los elementos de una lista de definición
-								<br><br>
-								2. Etiqueta < dt> Se emplea para definir los " " de los elementos de una lista de definición
-									<br><br>
-									3.Para realizar una lista de definición, la etiqueta principal es " " y su cierre (definition list).
+							<br><br>
+							2. Etiqueta < dt> Se emplea para definir los " " de los elementos de una lista de definición
+							<br><br>
+							3.Para realizar una lista de definición, la etiqueta principal es " " y su cierre (definition list).
 						</div>
 					</td>
 					<b style="margin-left: 160px;">Verticales:</b>
