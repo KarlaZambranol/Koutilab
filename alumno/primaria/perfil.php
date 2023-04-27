@@ -204,6 +204,18 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
                 </a>
             </div>
+            <div class="card">
+                <a href="rutas/ruta-pw-a.php">
+                    <div class="container">
+                        <div class="box">
+                            <div class="chart" data-percent="<?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>%
+                            </div>
+                            <h2>Diseño web avanzado</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
