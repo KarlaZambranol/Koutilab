@@ -6,7 +6,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_docente_primaria'])) {
 }
 
 include('../acciones/conexion.php');
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes d
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_primaria d
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
@@ -261,7 +261,7 @@ WHERE d.id_docente = $id_user"));
                 $name = $_POST['nombre'];
                 $contrasena = $_POST['contrasena'];
 
-                $sql = "UPDATE docentes SET contrasena='" . $contrasena . "'";
+                $sql = "UPDATE docentes_primaria SET contrasena='" . $contrasena . "'";
                 $resultado = mysqli_query($conexion, $sql);
 
                 if ($resultado) {
@@ -467,7 +467,7 @@ WHERE d.id_docente = $id_user"));
         } else {
             $newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generate new image name
             $newImageName .= '.' . $imageExtension;
-            $query = "UPDATE docentes SET image = '$newImageName' WHERE id_docente = $id";
+            $query = "UPDATE docentes_primaria SET image = '$newImageName' WHERE id_docente = $id";
             mysqli_query($conexion, $query);
             move_uploaded_file($tmpName, 'acciones/img/' . $newImageName);
             echo
@@ -495,7 +495,7 @@ WHERE d.id_docente = $id_user"));
         $iddocente = $_SESSION['id_docente_primaria'];
         $contrasena = md5($_POST['contrasena']);
 
-        $sql_update = mysqli_query($conexion, "UPDATE docentes SET contrasena = '$contrasena' WHERE id_docente = '$iddocente'");
+        $sql_update = mysqli_query($conexion, "UPDATE docentes_primaria SET contrasena = '$contrasena' WHERE id_docente = '$iddocente'");
 
         if ($sql_update) {
             echo

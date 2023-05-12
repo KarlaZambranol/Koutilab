@@ -182,7 +182,7 @@ $fila = mysqli_fetch_assoc($result);
                 <?php
                 include "../acciones/conexion.php";
 
-                $query_escuelas = mysqli_query($conexion, "SELECT * FROM escuelas");
+                $query_escuelas = mysqli_query($conexion, "SELECT * FROM escuelas WHERE estatus = 1");
                 $result = mysqli_num_rows($query_escuelas);
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query_escuelas)) {
@@ -261,11 +261,12 @@ $fila = mysqli_fetch_assoc($result);
                             <option value="Primaria">Primaria</option>
                             <option value="Secundaria">Secundaria</option>
                             <option value="Preparatoria">Preparatoria</option>
+                            <option value="Universidad">Universidad</option>
                         </select>
                     </div>
-                    <input type="hidden" name="rol_alumno" id="rol_alumno" required>
+                    <!-- <input type="hidden" name="rol_alumno" id="rol_alumno" required>
                     <input type="hidden" name="rol_docente" id="rol_docente" required>
-                    <input type="hidden" name="rol_director" id="rol_director" required>
+                    <input type="hidden" name="rol_director" id="rol_director" required> -->
                     <div class="input-box">
                         <span class="details">País:</span>
                         <input type="text" placeholder="País" name="pais" value="<?php echo $user['pais']; ?>" required readonly>

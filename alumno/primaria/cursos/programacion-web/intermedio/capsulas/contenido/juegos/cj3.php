@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula9";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
@@ -98,10 +98,10 @@ if (empty($existe) && $id_user != 1) {
 					<td>
 						<div class="horizontal">
 							1.Etiqueta < dd> Se emplea para indicar las " " de los elementos de una lista de definición
-							<br><br>
-							2. Etiqueta < dt> Se emplea para definir los " " de los elementos de una lista de definición
-							<br><br>
-							3.Para realizar una lista de definición, la etiqueta principal es " " y su cierre (definition list).
+								<br><br>
+								2. Etiqueta < dt> Se emplea para definir los " " de los elementos de una lista de definición
+									<br><br>
+									3.Para realizar una lista de definición, la etiqueta principal es " " y su cierre (definition list).
 						</div>
 					</td>
 					<b style="margin-left: 160px;">Verticales:</b>

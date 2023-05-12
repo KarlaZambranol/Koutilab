@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula21";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
@@ -17,6 +17,7 @@ if (empty($existe) && $id_user != 1) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +30,7 @@ if (empty($existe) && $id_user != 1) {
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
 </head>
+
 <body onload="iniciarTiempo();">
     <!-- Titulo general -->
     <div class="titulo-gen">
@@ -36,12 +38,12 @@ if (empty($existe) && $id_user != 1) {
     </div>
 
     <!-- Tiempo -->
-	<div class="timer">
-		<b style="margin-top: 10px;">Tiempo: <br>
-			<p id="tiempo"></p>
-		</b>
-	</div>
-    
+    <div class="timer">
+        <b style="margin-top: 10px;">Tiempo: <br>
+            <p id="tiempo"></p>
+        </b>
+    </div>
+
     <!-- Alerta -->
     <div id="mensaje"></div>
 
@@ -54,8 +56,8 @@ if (empty($existe) && $id_user != 1) {
 
         <!-- Titulo secundario -->
         <h4 class="titulo"><b>Arrastra el fragmento de código a tipo que le pertenece</b></h4>
-    	<br>
-        
+        <br>
+
         <!-- Area donde se encuentran las imagenes inicialmente -->
         <div class="imagenes">
             <div class="caja-img">
@@ -87,62 +89,82 @@ if (empty($existe) && $id_user != 1) {
             </div>
             <div class="caja-img">
                 <img src="../../img/img_juegos/img/valores5.png" alt="" draggable="true" ondragstart="drag(event)" id="css" class="imagen1">
-            </div> 
-        </div> 
+            </div>
+        </div>
 
         <!-- Caja donde se encuentran los espacios para colocar las imagenes de HTML -->
         <div class="caja-html">
             <!-- Etiquetas HTML -->
-            <div class="ht1"><div class="html-b-t">POSICION</div></div>
-            <div class="ht2"><div class="html-b-t">POSICION</div></div>
-            <div class="ht3"><div class="html-b-t">POSICION</div></div>
-            <div class="ht4"><div class="html-b-t">POSICION</div></div>
-            <div class="ht5"><div class="html-b-t">POSICION</div></div>
+            <div class="ht1">
+                <div class="html-b-t">POSICION</div>
+            </div>
+            <div class="ht2">
+                <div class="html-b-t">POSICION</div>
+            </div>
+            <div class="ht3">
+                <div class="html-b-t">POSICION</div>
+            </div>
+            <div class="ht4">
+                <div class="html-b-t">POSICION</div>
+            </div>
+            <div class="ht5">
+                <div class="html-b-t">POSICION</div>
+            </div>
 
             <!-- Contenedores HTML -->
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="0" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="0" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="1" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="1" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="2" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="2" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="3" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="3" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="4" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="4" ondragover="allowDrop(event)"></div>
             </div>
         </div>
 
-       
+
 
         <!-- Caja donde se encuentran los espacios para colocar las imagenes de CSS -->
         <div class="caja-css">
             <!-- Etiquetas CSS -->
-            <div class="ht1"><div class="html-b-t">VALORES</div></div>
-            <div class="ht2"><div class="html-b-t">VALORES</div></div>
-            <div class="ht3"><div class="html-b-t">VALORES</div></div>
-            <div class="ht4"><div class="html-b-t">VALORES</div></div>
-            <div class="ht5"><div class="html-b-t">VALORES</div></div>
+            <div class="ht1">
+                <div class="html-b-t">VALORES</div>
+            </div>
+            <div class="ht2">
+                <div class="html-b-t">VALORES</div>
+            </div>
+            <div class="ht3">
+                <div class="html-b-t">VALORES</div>
+            </div>
+            <div class="ht4">
+                <div class="html-b-t">VALORES</div>
+            </div>
+            <div class="ht5">
+                <div class="html-b-t">VALORES</div>
+            </div>
 
             <!-- Contenedores CSS -->
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="5" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="5" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="6" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="6" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="7" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="7" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="8" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="8" ondragover="allowDrop(event)"></div>
             </div>
             <div class="caja-contenedor">
-                <div class="box" ondrop="drop(event)" id="9" ondragover="allowDrop(event)"></div> 
+                <div class="box" ondrop="drop(event)" id="9" ondragover="allowDrop(event)"></div>
             </div>
         </div>
         <div class="btn-v">
@@ -204,7 +226,7 @@ if (empty($existe) && $id_user != 1) {
                 var data = ev.dataTransfer.getData("text");
                 arreglo[parseInt(ev.target.id)] = data;
                 ev.target.appendChild(document.getElementById(data));
-            } 
+            }
         }
 
         //Funcion para validar las respuestas, primero si nungun campo esta vacio y luego si son las correctas
@@ -265,4 +287,5 @@ if (empty($existe) && $id_user != 1) {
         })
     </script>
 </body>
+
 </html>

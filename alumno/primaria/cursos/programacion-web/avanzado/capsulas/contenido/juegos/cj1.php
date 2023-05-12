@@ -2,12 +2,12 @@
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
 	header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
@@ -58,8 +58,7 @@ if (empty($existe) && $id_user != 1) {
 	<title>KOUTILAB</title>
 	<link rel="shortcut icon" href="../../../../../../img/lgk.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<link rel="stylesheet" href="../../css/css-juegos/crucigrama.css">
 	<script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -132,15 +131,13 @@ if (empty($existe) && $id_user != 1) {
 			<table>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila1C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila1C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila1C2" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila1C3"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila1C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila1C4" />
@@ -157,37 +154,31 @@ if (empty($existe) && $id_user != 1) {
 				</tr>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila2C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila2C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila2C2" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila2C3"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila2C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila2C4" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila2C5"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila2C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila2C6"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila2C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila2C7"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila2C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 				</tr>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila3C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila3C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila3C2" />
@@ -210,144 +201,117 @@ if (empty($existe) && $id_user != 1) {
 				</tr>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila4C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila4C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila4C2" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila4C3"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila4C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila4C4" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila4C5"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila4C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila4C6"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila4C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila4C7"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila4C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila5C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila5C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila5C2" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila5C3"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila5C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila5C4" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila5C5"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila5C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila5C6"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila5C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila5C7"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila5C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila6C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila6C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila6C2" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila6C3"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila6C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila6C4" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila6C5"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila6C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila6C6"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila6C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casillas" type="text" maxlength="1" id="fila6C7"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);">
+						<input class="casillas" type="text" maxlength="1" id="fila6C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila7C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila7C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila7C2"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila7C2" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila7C3"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila7C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila7C4" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila7C5"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila7C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila7C6"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila7C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila7C7"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila7C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila8C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila8C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila8C2"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila8C2" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila8C3"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila8C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila8C4" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila8C5"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila8C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila8C6"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila8C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila8C7"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila8C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 				</tr>
 				<tr>
@@ -370,38 +334,31 @@ if (empty($existe) && $id_user != 1) {
 						<input class="casilla" type="text" maxlength="1" id="fila9C6" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila9C7"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila9C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila10C1"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila10C1" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila10C2"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila10C2" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila10C3"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila10C3" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
 						<input class="casilla" type="text" maxlength="1" id="fila10C4" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila10C5"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila10C5" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila10C6"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila10C6" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 
 					<td>
-						<input class="casilla" type="text" maxlength="1" id="fila10C7"
-							style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
+						<input class="casilla" type="text" maxlength="1" id="fila10C7" style="border-style: none; background-color: rgba(255, 255, 255, 0);" />
 					</td>
 				</tr>
 			</table>
@@ -550,6 +507,7 @@ if (empty($existe) && $id_user != 1) {
 
 		//Mensaje de verificar respuesta en caso de haber respuestas erroneas
 		var errorActivo = 0;
+
 		function error() {
 			Swal.fire({
 				title: "Verifica tus respuestas",
@@ -689,9 +647,7 @@ if (empty($existe) && $id_user != 1) {
 			}
 		}
 	</script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
 </html>

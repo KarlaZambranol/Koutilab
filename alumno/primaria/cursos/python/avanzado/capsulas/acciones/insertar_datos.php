@@ -6,7 +6,7 @@ $id_user = $_SESSION['id_alumno_primaria'];
 
 //Datos permisos
 $permiso = $_POST['permiso'];
-$insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_permisos(id_usuario, id_permiso) VALUES ($id_user, $permiso)");
+$insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_permisos(id_alumno, id_capsula) VALUES ($id_user, $permiso)");
 
 //Datos estadisticas
 $trofeos = $_POST['trofeos'];
@@ -25,7 +25,7 @@ $totalPuntos = $resultadoEstadistica['total_puntos'];
 $totalAudivisual = $resultadoEstadistica['total_audivisual'];
 $totalPractico = $resultadoEstadistica['total_practico'];
 $totalTeorico = $resultadoEstadistica['total_teorico'];
-$insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', audivisual = '$totalAudivisual', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user");
+$insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_primaria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', audivisual = '$totalAudivisual', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user");
 
 
 //Datos cursos

@@ -29,7 +29,7 @@ $productPrice = 2;
 $productId = 1;
 $orderNumber = 1;
 $id_curso = 1;
-$id_permiso = 2;
+$id_capsula = 2;
 ?>
 <!DOCTYPE html>
 <html>
@@ -89,7 +89,7 @@ $id_permiso = 2;
                                 onAuthorize: function(data, actions) {
                                     return actions.payment.execute()
                                         .then(function() {
-                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>" + "&id_usuario=<?php echo $id_user; ?>" + "&id_permiso=<?php echo $id_permiso; ?>" + "&id_curso=<?php echo $id_curso; ?>";
+                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>" + "&id_alumno=<?php echo $id_user; ?>" + "&id_capsula=<?php echo $id_capsula; ?>" + "&id_curso=<?php echo $id_curso; ?>";
                                         });
                                 },
                                 style: {

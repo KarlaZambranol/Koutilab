@@ -6,8 +6,8 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 include "../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
-$permiso = "Programacion web basica";
-$sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos a WHERE a.id_alumno = $id_user AND a.curso = '$permiso'");
+$permiso = "1";
+$sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_primaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../cursos/programacion-web/basico/capsulas/acciones/acceso_cursos.php");
@@ -17,42 +17,42 @@ include "verificar-ruta-pw-b.php";
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de html
 $capsula_verificar_html1 = "capsula7";
-$sql_verificar_html1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_html1' AND d.id_curso = 1");
+$sql_verificar_html1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_html1' AND d.id_curso = 1");
 $existe_verificar_html1 = mysqli_num_rows($sql_verificar_html1);
 
 //Verificar si esta comprada la capsula 1 de html
 $capsula_comprada_html1 = "capsulapago1";
-$sql_comprada_html1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago c INNER JOIN detalle_capsulas_pago d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_html1' AND d.id_curso = 1;");
+$sql_comprada_html1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_html1' AND d.id_curso = 1;");
 $existe_comprada_html1 = mysqli_num_rows($sql_comprada_html1);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 2 de html
 $capsula_verificar_html2 = "capsula13";
-$sql_verificar_html2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_html2' AND d.id_curso = 1");
+$sql_verificar_html2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_html2' AND d.id_curso = 1");
 $existe_verificar_html2 = mysqli_num_rows($sql_verificar_html2);
 
 //Verificar si esta comprada la capsula 2 de html
 $capsula_comprada_html2 = "capsulapago2";
-$sql_comprada_html2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago c INNER JOIN detalle_capsulas_pago d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_html2' AND d.id_curso = 1;");
+$sql_comprada_html2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_html2' AND d.id_curso = 1;");
 $existe_comprada_html2 = mysqli_num_rows($sql_comprada_html2);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de css
 $capsula_verificar_css1 = "capsula29";
-$sql_verificar_css1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_css1' AND d.id_curso = 1");
+$sql_verificar_css1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_css1' AND d.id_curso = 1");
 $existe_verificar_css1 = mysqli_num_rows($sql_verificar_css1);
 
 //Verificar si esta comprada la capsula 1 de css
 $capsula_comprada_css1 = "capsulapago3";
-$sql_comprada_css1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago c INNER JOIN detalle_capsulas_pago d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_css1' AND d.id_curso = 1;");
+$sql_comprada_css1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_css1' AND d.id_curso = 1;");
 $existe_comprada_css1 = mysqli_num_rows($sql_comprada_css1);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 2 de css
 $capsula_verificar_css2 = "capsula47";
-$sql_verificar_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_css2' AND d.id_curso = 1");
+$sql_verificar_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_verificar_css2' AND d.id_curso = 1");
 $existe_verificar_css2 = mysqli_num_rows($sql_verificar_css2);
 
 //Verificar si esta comprada la capsula 2 de css
 $capsula_comprada_css2 = "capsulapago4";
-$sql_comprada_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago c INNER JOIN detalle_capsulas_pago d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_css2' AND d.id_curso = 1;");
+$sql_comprada_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$capsula_comprada_css2' AND d.id_curso = 1;");
 $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
 
 ?>

@@ -1,236 +1,353 @@
 <?php
 session_start();
-// if (!empty($_SESSION['rol'])) {
-//     $rol_sesion = $_SESSION['rol'];
 
-//     if ($rol_sesion == 1) {
-//         header('location: admin/dashboard.php');
-//     } else if ($rol_sesion == 2) {
-//         header('location: alumno/primaria/perfil.php');
-//     } else if ($rol_sesion == 3) {
-//         header('location: docente/dashboard.php');
-//     } else if ($rol_sesion == 4) {
-//         header('location: director/perfil.php');
-//     } else if ($rol_sesion == 5) {
-//         header('location: adminsecundario/dashboard.php');
-//     } else if ($rol_sesion == 6) {
-//         header('location: alumno/secundaria/perfil.php');
-//     } else if ($rol_sesion == 7) {
-//         header('location: docente-secundaria/dashboard.php');
-//     } else if ($rol_sesion == 8) {
-//         header('location: director/perfil.php');
-//     } else if ($rol_sesion == 9) {
-//         header('location: alumno/preparatoria/perfil.php');
-//     } else if ($rol_sesion == 10) {
-//         header('location: docente-preparatoria/dashboard.php');
-//     } else if ($rol_sesion == 11) {
-//         header('location: director/perfil.php');
-//     }
-// } else {
 if (!empty($_POST)) {
     $alert = '';
-    if (empty($_POST['usuario']) || empty($_POST['clave'])) {
+    if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {
         $alert = '<div class="alert alert-danger" role="alert">
-            Ingrese su usuario y su clave
+            Ingrese su usuario y su contraseña
             </div>';
     } else {
         require_once "acciones/conexion.php";
         $user = mysqli_real_escape_string($conexion, $_POST['usuario']);
         $password = mysqli_real_escape_string($conexion, $_POST['contrasena']);
         $contrasena = md5(mysqli_real_escape_string($conexion, $_POST['contrasena']));
-        $clave = mysqli_real_escape_string($conexion, $_POST['clave']);
 
-        $validar_rol = mysqli_query($conexion, "SELECT * FROM roles WHERE clave = '$clave'");
-        $resultado_rol = mysqli_num_rows($validar_rol);
-        if ($resultado_rol > 0) {
-            $rol = mysqli_fetch_array($validar_rol);
-            if ($rol['rol'] == 1) {
-                $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_admin = mysqli_num_rows($query_admin);
-                if ($resultado_admin > 0) {
-                    $dato_admin = mysqli_fetch_array($query_admin);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 1;
-                    $_SESSION['id_admin'] = $dato_admin['id_admin'];
-                    $_SESSION['nombre'] = $dato_admin['nombre'];
-                    $_SESSION['user'] = $dato_admin['usuario'];
-                    header('location: admin/dashboard.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+        //Validar inicio de sesión de un admin
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user'");
+        $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+        //Validar inicio de sesión de un alumno de primaria
+        $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$user'");
+        $result_validar_alumno_primaria = mysqli_fetch_array($query_validar_alumno_primaria);
+
+        //Validar inicio de sesión de un docente de primaria
+        $query_validar_docente_primaria = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE usuario = '$user'");
+        $result_validar_docente_primaria = mysqli_fetch_array($query_validar_docente_primaria);
+
+        //Validar inicio de sesión de un director de primaria
+        $query_validar_director_primaria = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE usuario = '$user'");
+        $result_validar_director_primaria = mysqli_fetch_array($query_validar_director_primaria);
+
+        //Validar inicio de sesión de un alumno de secundaria
+        $query_validar_alumno_secundaria = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE usuario = '$user'");
+        $result_validar_alumno_secundaria = mysqli_fetch_array($query_validar_alumno_secundaria);
+
+        //Validar inicio de sesión de un docente de secundaria
+        $query_validar_docente_secundaria = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE usuario = '$user'");
+        $result_validar_docente_secundaria = mysqli_fetch_array($query_validar_docente_secundaria);
+
+        //Validar inicio de sesión de un director de secundaria
+        $query_validar_director_secundaria = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE usuario = '$user'");
+        $result_validar_director_secundaria = mysqli_fetch_array($query_validar_director_secundaria);
+
+        //Validar inicio de sesión de un alumno de preparatoria
+        $query_validar_alumno_preparatoria = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE usuario = '$user'");
+        $result_validar_alumno_preparatoria = mysqli_fetch_array($query_validar_alumno_preparatoria);
+
+        //Validar inicio de sesión de un docente de preparatoria
+        $query_validar_docente_preparatoria = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE usuario = '$user'");
+        $result_validar_docente_preparatoria = mysqli_fetch_array($query_validar_docente_preparatoria);
+
+        //Validar inicio de sesión de un director de preparatoria
+        $query_validar_director_preparatoria = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE usuario = '$user'");
+        $result_validar_director_preparatoria = mysqli_fetch_array($query_validar_director_preparatoria);
+
+        //Validar inicio de sesión de un alumno de universidad
+        $query_validar_alumno_universidad = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE usuario = '$user'");
+        $result_validar_alumno_universidad = mysqli_fetch_array($query_validar_alumno_universidad);
+
+        //Validar inicio de sesión de un docente de universidad
+        $query_validar_docente_universidad = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE usuario = '$user'");
+        $result_validar_docente_universidad = mysqli_fetch_array($query_validar_docente_universidad);
+
+        //Validar inicio de sesión de un director de universidad
+        $query_validar_director_universidad = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE usuario = '$user'");
+        $result_validar_director_universidad = mysqli_fetch_array($query_validar_director_universidad);
+
+        //Validar inicio de sesión de un alumno de personal
+        $query_validar_alumno_personal = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE usuario = '$user'");
+        $result_validar_alumno_personal = mysqli_fetch_array($query_validar_alumno_personal);
+
+        //Validar inicio de sesión de un docente de personal
+        $query_validar_docente_personal = mysqli_query($conexion, "SELECT * FROM docentes_personal WHERE usuario = '$user'");
+        $result_validar_docente_personal = mysqli_fetch_array($query_validar_docente_personal);
+
+        //Validar inicio de sesión de un director de personal
+        $query_validar_director_personal = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$user'");
+        $result_validar_director_personal = mysqli_fetch_array($query_validar_director_personal);
+
+        if ($result_validar_admin > 0) {
+            $query_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_admin = mysqli_num_rows($query_admin);
+            if ($resultado_admin > 0) {
+                $dato_admin = mysqli_fetch_array($query_admin);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 1;
+                $_SESSION['id_admin'] = $dato_admin['id_admin'];
+                $_SESSION['nombre'] = $dato_admin['nombre'];
+                $_SESSION['user'] = $dato_admin['usuario'];
+                header('location: admin/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                  Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 2) {
-                $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_alumno = mysqli_num_rows($query_alumno);
-                if ($resultado_alumno > 0) {
-                    $dato_alumno = mysqli_fetch_array($query_alumno);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 2;
-                    $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
-                    $_SESSION['nombre'] = $dato_alumno['nombre'];
-                    $_SESSION['user'] = $dato_alumno['usuario'];
-                    header('location: alumno/primaria/perfil.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_primaria > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 3;
+                $_SESSION['id_alumno_primaria'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                header('location: alumno/primaria/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 3) {
-                $query_docente = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_docente = mysqli_num_rows($query_docente);
-                if ($resultado_docente > 0) {
-                    $dato_docente = mysqli_fetch_array($query_docente);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 3;
-                    $_SESSION['id_docente_primaria'] = $dato_docente['id_docente'];
-                    $_SESSION['nombre'] = $dato_docente['nombre'];
-                    $_SESSION['user'] = $dato_docente['usuario'];
-                    header('location: docente/dashboard.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_docente_primaria > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 4;
+                $_SESSION['id_docente_primaria'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                header('location: docente/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 4) {
-                $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_director = mysqli_num_rows($query_director);
-                if ($resultado_director > 0) {
-                    $dato_director = mysqli_fetch_array($query_director);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 4;
-                    $_SESSION['id_director_primaria'] = $dato_director['id_director'];
-                    $_SESSION['nombre'] = $dato_director['nombre'];
-                    $_SESSION['user'] = $dato_director['usuario'];
-                    header('location: director/perfil.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_director_primaria > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 5;
+                $_SESSION['id_director_primaria'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 5) {
-                $query_adminsecundario = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_adminsecundario = mysqli_num_rows($query_adminsecundario);
-                if ($resultado_adminsecundario > 0) {
-                    $dato_adminsecundario = mysqli_fetch_array($query_adminsecundario);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 4;
-                    $_SESSION['id_admin_secundario'] = $dato_adminsecundario['id_admin'];
-                    $_SESSION['nombre'] = $dato_adminsecundario['nombre'];
-                    $_SESSION['user'] = $dato_adminsecundario['usuario'];
-                    header('location: adminsecundario/dashboard.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_secundaria > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 6;
+                $_SESSION['id_alumno_secundaria'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                header('location: alumno/secundaria/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 6) {
-                $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_alumno = mysqli_num_rows($query_alumno);
-                if ($resultado_alumno > 0) {
-                    $dato_alumno = mysqli_fetch_array($query_alumno);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 6;
-                    $_SESSION['id_alumno_secundaria'] = $dato_alumno['id_alumno'];
-                    $_SESSION['nombre'] = $dato_alumno['nombre'];
-                    $_SESSION['user'] = $dato_alumno['usuario'];
-                    header('location: alumno/secundaria/perfil.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_docente_secundaria > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 7;
+                $_SESSION['id_docente_secundaria'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                header('location: docente-secundaria/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 7) {
-                $query_docente = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_docente = mysqli_num_rows($query_docente);
-                if ($resultado_docente > 0) {
-                    $dato_docente = mysqli_fetch_array($query_docente);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 7;
-                    $_SESSION['id_docente_secundaria'] = $dato_docente['id_docente'];
-                    $_SESSION['nombre'] = $dato_docente['nombre'];
-                    $_SESSION['user'] = $dato_docente['usuario'];
-                    header('location: docente-secundaria/dashboard.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_director_secundaria > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 8;
+                $_SESSION['id_director_secundaria'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 8) {
-                $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_director = mysqli_num_rows($query_director);
-                if ($resultado_director > 0) {
-                    $dato_director = mysqli_fetch_array($query_director);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 8;
-                    $_SESSION['id_director_secundaria'] = $dato_director['id_director'];
-                    $_SESSION['nombre'] = $dato_director['nombre'];
-                    $_SESSION['user'] = $dato_director['usuario'];
-                    header('location: director/perfil.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_preparatoria > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 9;
+                $_SESSION['id_alumno_preparatoria'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                header('location: alumno/preparatoria/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 9) {
-                $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_alumno = mysqli_num_rows($query_alumno);
-                if ($resultado_alumno > 0) {
-                    $dato_alumno = mysqli_fetch_array($query_alumno);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 9;
-                    $_SESSION['id_alumno_preparatoria'] = $dato_alumno['id_alumno'];
-                    $_SESSION['nombre'] = $dato_alumno['nombre'];
-                    $_SESSION['user'] = $dato_alumno['usuario'];
-                    header('location: alumno/preparatoria/perfil.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_docente_preparatoria > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 10;
+                $_SESSION['id_docente_preparatoria'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                header('location: docente-preparatoria/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 10) {
-                $query_docente = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_docente = mysqli_num_rows($query_docente);
-                if ($resultado_docente > 0) {
-                    $dato_docente = mysqli_fetch_array($query_docente);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 10;
-                    $_SESSION['id_docente_preparatoria'] = $dato_docente['id_docente'];
-                    $_SESSION['nombre'] = $dato_docente['nombre'];
-                    $_SESSION['user'] = $dato_docente['usuario'];
-                    header('location: docente-preparatoria/dashboard.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_director_preparatoria > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 11;
+                $_SESSION['id_director_preparatoria'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
-            } else if ($rol['rol'] == 11) {
-                $query_director = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$user' AND contrasena = '$contrasena' AND clave = '$clave'");
-                $resultado_director = mysqli_num_rows($query_director);
-                if ($resultado_director > 0) {
-                    $dato_director = mysqli_fetch_array($query_director);
-                    $_SESSION['active'] = true;
-                    $_SESSION['rol'] = 11;
-                    $_SESSION['id_director_preparatoria'] = $dato_director['id_director'];
-                    $_SESSION['nombre'] = $dato_director['nombre'];
-                    $_SESSION['user'] = $dato_director['usuario'];
-                    header('location: director/perfil.php');
-                } else {
-                    $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_universidad > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 12;
+                $_SESSION['id_alumno_universidad'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                header('location: alumno/universidad/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
                         Usuario o contraseña incorrecta
                  </div>';
-                    session_destroy();
-                }
+                session_destroy();
+            }
+        } else if ($result_validar_docente_universidad > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 13;
+                $_SESSION['id_docente_universidad'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                header('location: docente-universidad/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_universidad > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 14;
+                $_SESSION['id_director_universidad'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_alumno_personal > 0) {
+            $query_alumno = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_alumno = mysqli_num_rows($query_alumno);
+            if ($resultado_alumno > 0) {
+                $dato_alumno = mysqli_fetch_array($query_alumno);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 15;
+                $_SESSION['id_alumno_personal'] = $dato_alumno['id_alumno'];
+                $_SESSION['nombre'] = $dato_alumno['nombre'];
+                $_SESSION['user'] = $dato_alumno['usuario'];
+                header('location: alumno/personal/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_docente_personal > 0) {
+            $query_docente = mysqli_query($conexion, "SELECT * FROM docentes_personal WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_docente = mysqli_num_rows($query_docente);
+            if ($resultado_docente > 0) {
+                $dato_docente = mysqli_fetch_array($query_docente);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 16;
+                $_SESSION['id_docente_personal'] = $dato_docente['id_docente'];
+                $_SESSION['nombre'] = $dato_docente['nombre'];
+                $_SESSION['user'] = $dato_docente['usuario'];
+                header('location: docente-personal/dashboard.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
+            }
+        } else if ($result_validar_director_personal > 0) {
+            $query_director = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$user' AND contrasena = '$contrasena'");
+            $resultado_director = mysqli_num_rows($query_director);
+            if ($resultado_director > 0) {
+                $dato_director = mysqli_fetch_array($query_director);
+                $_SESSION['active'] = true;
+                $_SESSION['rol'] = 17;
+                $_SESSION['id_director_personal'] = $dato_director['id_director'];
+                $_SESSION['nombre'] = $dato_director['nombre'];
+                $_SESSION['user'] = $dato_director['usuario'];
+                header('location: director/perfil.php');
+            } else {
+                $alert = '<div style="color: red; margin-left: 80px;" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrecta
+                 </div>';
+                session_destroy();
             }
         }
     }
@@ -289,14 +406,6 @@ if (!empty($_POST)) {
                             <span class="fa fa-fw fa-eye password-icon show-password1"></span>
 
                         </div>
-                        <div class="form-group">
-                            <div class="input-icon">
-                                <i class="fas fa-id-card"></i>
-                            </div>
-                            <input type="password" id="clave_inicio" name="clave" class="input-field password2" placeholder="Clave de acceso" value="<?php if (isset($clave)) echo $clave; ?>" required>
-                            <span class="fa fa-fw fa-eye password-icon show-password2"></span>
-
-                        </div>
                         <div class="alert alert-danger text-center d-none" id="alerta" role="alert">
 
                         </div>
@@ -339,7 +448,7 @@ if (!empty($_POST)) {
                             <div class="input-icon">
                                 <i class="fas fa-id-card"></i>
                             </div>
-                            <input type="password" id="clave_registrar" name="clave_registrar" class="input-field password4" placeholder="Clave" required>
+                            <input type="password" id="clave_registrar" name="clave_registrar" class="input-field password4" placeholder="Clave">
                             <span class="fa fa-fw fa-eye password-icon show-password4"></span>
 
                         </div>
@@ -352,7 +461,7 @@ if (!empty($_POST)) {
     </div>
 
     <?php
-    if (isset($_POST['registrar_usuario'])) {
+    if (isset($_POST['registrar_usuario']) && !empty($_POST['clave_registrar'])) {
         require_once "acciones/conexion.php";
 
         $nombre_registrar = $_POST['nombre_registrar'];
@@ -360,12 +469,70 @@ if (!empty($_POST)) {
         $contrasena_registrar = md5($_POST['contrasena_registrar']);
         $clave_registrar = $_POST['clave_registrar'];
         $email_registrar = $_POST['email_registrar'];
-        $query_registrar = mysqli_query($conexion, "SELECT * FROM alumnos WHERE usuario = '$usuario_registrar'");
-        $result_registrar = mysqli_fetch_array($query_registrar);
-        $query1_registrar = mysqli_query($conexion, "SELECT * FROM docentes WHERE usuario = '$usuario_registrar'");
-        $result1_registrar = mysqli_fetch_array($query1_registrar);
-        $query2_registrar = mysqli_query($conexion, "SELECT * FROM directores WHERE usuario = '$usuario_registrar'");
-        $result2_registrar = mysqli_fetch_array($query2_registrar);
+
+        //Validar inicio de sesión de un admin
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
+        $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+        //Validar inicio de sesión de un alumno de primaria
+        $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_primaria = mysqli_fetch_array($query_validar_alumno_primaria);
+
+        //Validar inicio de sesión de un docente de primaria
+        $query_validar_docente_primaria = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_primaria = mysqli_fetch_array($query_validar_docente_primaria);
+
+        //Validar inicio de sesión de un director de primaria
+        $query_validar_director_primaria = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_primaria = mysqli_fetch_array($query_validar_director_primaria);
+
+        //Validar inicio de sesión de un alumno de secundaria
+        $query_validar_alumno_secundaria = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_secundaria = mysqli_fetch_array($query_validar_alumno_secundaria);
+
+        //Validar inicio de sesión de un docente de secundaria
+        $query_validar_docente_secundaria = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_secundaria = mysqli_fetch_array($query_validar_docente_secundaria);
+
+        //Validar inicio de sesión de un director de secundaria
+        $query_validar_director_secundaria = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_secundaria = mysqli_fetch_array($query_validar_director_secundaria);
+
+        //Validar inicio de sesión de un alumno de preparatoria
+        $query_validar_alumno_preparatoria = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_preparatoria = mysqli_fetch_array($query_validar_alumno_preparatoria);
+
+        //Validar inicio de sesión de un docente de preparatoria
+        $query_validar_docente_preparatoria = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_preparatoria = mysqli_fetch_array($query_validar_docente_preparatoria);
+
+        //Validar inicio de sesión de un director de preparatoria
+        $query_validar_director_preparatoria = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_preparatoria = mysqli_fetch_array($query_validar_director_preparatoria);
+
+        //Validar inicio de sesión de un alumno de universidad
+        $query_validar_alumno_universidad = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_universidad = mysqli_fetch_array($query_validar_alumno_universidad);
+
+        //Validar inicio de sesión de un docente de universidad
+        $query_validar_docente_universidad = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_universidad = mysqli_fetch_array($query_validar_docente_universidad);
+
+        //Validar inicio de sesión de un director de universidad
+        $query_validar_director_universidad = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_universidad = mysqli_fetch_array($query_validar_director_universidad);
+
+        //Validar inicio de sesión de un alumno de personal
+        $query_validar_alumno_personal = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_personal = mysqli_fetch_array($query_validar_alumno_personal);
+
+        //Validar inicio de sesión de un docente de personal
+        $query_validar_docente_personal = mysqli_query($conexion, "SELECT * FROM docentes_personal WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_personal = mysqli_fetch_array($query_validar_docente_personal);
+
+        //Validar inicio de sesión de un director de personal
+        $query_validar_director_personal = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_personal = mysqli_fetch_array($query_validar_director_personal);
 
         //Buscar si la clave pertenece a un alumno
         $query_clave_alumno = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_alumno = '$clave_registrar'");
@@ -385,6 +552,9 @@ if (!empty($_POST)) {
         if (isset($data_docente['id_escuela'])) {
             $id_escuela_docente = $data_docente['id_escuela'];
         }
+        if (isset($data_docente['nivel_educativo'])) {
+            $nivel_educativo_docente = $data_docente['nivel_educativo'];
+        }
 
         //Buscar si la clave pertenece a un director
         $query_clave_director = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_director = '$clave_registrar'");
@@ -393,8 +563,12 @@ if (!empty($_POST)) {
         if (isset($data_director['id_escuela'])) {
             $id_escuela_director = $data_director['id_escuela'];
         }
+        if (isset($data_director['nivel_educativo'])) {
+            $nivel_educativo_director = $data_director['nivel_educativo'];
+        }
 
-        if ($result_registrar > 0  || $result1_registrar > 0 || $result2_registrar > 0) {
+
+        if ($result_validar_admin > 0  || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_docente_personal > 0 || $result_validar_director_personal > 0) {
             echo
             "
       <script>
@@ -413,8 +587,8 @@ if (!empty($_POST)) {
         ";
         } else {
 
-            if ($result_clave_alumno > 0) {
-                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos(nombre, usuario, contrasena, clave, id_escuela, nivel_educativo, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$nivel_educativo_alumno', '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+            if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Primaria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_primaria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
                 if ($query_insert_alumno) {
                     echo
                     "
@@ -450,8 +624,119 @@ if (!empty($_POST)) {
       </script>
         ";
                 }
-            } else if ($result_clave_docente > 0) {
-                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Secundaria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_secundaria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Preparatoria') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Universidad') {
+                $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_universidad(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+                if ($query_insert_alumno) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Primaria') {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_primaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
                 if ($query_insert_docente) {
                     echo
                     "
@@ -487,8 +772,230 @@ if (!empty($_POST)) {
       </script>
         ";
                 }
-            } else if ($result_clave_director > 0) {
-                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+            } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Secundaria') {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_secundaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+                if ($query_insert_docente) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de docente exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Preparatoria') {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+                if ($query_insert_docente) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de docente exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Universidad') {
+                $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_universidad(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
+                if ($query_insert_docente) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de docente exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Primaria') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_primaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Secundaria') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_secundaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Preparatoria') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
+                if ($query_insert_director) {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de director exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                } else {
+                    echo
+                    "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+                }
+            } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Universidad') {
+                $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_universidad(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
                 if ($query_insert_director) {
                     echo
                     "
@@ -543,6 +1050,135 @@ if (!empty($_POST)) {
         ";
             }
         }
+    } else if (isset($_POST['registrar_usuario']) && empty($_POST['clave_registrar'])) {
+
+        require_once "acciones/conexion.php";
+
+        $nombre_registrar = $_POST['nombre_registrar'];
+        $usuario_registrar = $_POST['usuario_registrar'];
+        $contrasena_registrar = md5($_POST['contrasena_registrar']);
+        $email_registrar = $_POST['email_registrar'];
+
+        //Validar inicio de sesión de un admin
+        $query_validar_admin = mysqli_query($conexion, "SELECT * FROM admin WHERE usuario = '$usuario_registrar'");
+        $result_validar_admin = mysqli_fetch_array($query_validar_admin);
+
+        //Validar inicio de sesión de un alumno de primaria
+        $query_validar_alumno_primaria = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_primaria = mysqli_fetch_array($query_validar_alumno_primaria);
+
+        //Validar inicio de sesión de un docente de primaria
+        $query_validar_docente_primaria = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_primaria = mysqli_fetch_array($query_validar_docente_primaria);
+
+        //Validar inicio de sesión de un director de primaria
+        $query_validar_director_primaria = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_primaria = mysqli_fetch_array($query_validar_director_primaria);
+
+        //Validar inicio de sesión de un alumno de secundaria
+        $query_validar_alumno_secundaria = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_secundaria = mysqli_fetch_array($query_validar_alumno_secundaria);
+
+        //Validar inicio de sesión de un docente de secundaria
+        $query_validar_docente_secundaria = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_secundaria = mysqli_fetch_array($query_validar_docente_secundaria);
+
+        //Validar inicio de sesión de un director de secundaria
+        $query_validar_director_secundaria = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_secundaria = mysqli_fetch_array($query_validar_director_secundaria);
+
+        //Validar inicio de sesión de un alumno de preparatoria
+        $query_validar_alumno_preparatoria = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_preparatoria = mysqli_fetch_array($query_validar_alumno_preparatoria);
+
+        //Validar inicio de sesión de un docente de preparatoria
+        $query_validar_docente_preparatoria = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_preparatoria = mysqli_fetch_array($query_validar_docente_preparatoria);
+
+        //Validar inicio de sesión de un director de preparatoria
+        $query_validar_director_preparatoria = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_preparatoria = mysqli_fetch_array($query_validar_director_preparatoria);
+
+        //Validar inicio de sesión de un alumno de universidad
+        $query_validar_alumno_universidad = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_universidad = mysqli_fetch_array($query_validar_alumno_universidad);
+
+        //Validar inicio de sesión de un docente de universidad
+        $query_validar_docente_universidad = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_universidad = mysqli_fetch_array($query_validar_docente_universidad);
+
+        //Validar inicio de sesión de un director de universidad
+        $query_validar_director_universidad = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_universidad = mysqli_fetch_array($query_validar_director_universidad);
+
+        //Validar inicio de sesión de un alumno de personal
+        $query_validar_alumno_personal = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE usuario = '$usuario_registrar'");
+        $result_validar_alumno_personal = mysqli_fetch_array($query_validar_alumno_personal);
+
+        //Validar inicio de sesión de un docente de personal
+        $query_validar_docente_personal = mysqli_query($conexion, "SELECT * FROM docentes_personal WHERE usuario = '$usuario_registrar'");
+        $result_validar_docente_personal = mysqli_fetch_array($query_validar_docente_personal);
+
+        //Validar inicio de sesión de un director de personal
+        $query_validar_director_personal = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$usuario_registrar'");
+        $result_validar_director_personal = mysqli_fetch_array($query_validar_director_personal);
+
+        if ($result_validar_admin > 0  || $result_validar_alumno_primaria > 0 || $result_validar_docente_primaria > 0 || $result_validar_director_primaria > 0 || $result_validar_alumno_secundaria > 0 || $result_validar_docente_secundaria > 0 || $result_validar_director_secundaria > 0 || $result_validar_alumno_preparatoria > 0 || $result_validar_docente_preparatoria > 0 || $result_validar_director_preparatoria > 0 || $result_validar_alumno_universidad > 0 || $result_validar_docente_universidad > 0 || $result_validar_director_universidad > 0 || $result_validar_alumno_personal > 0 || $result_validar_docente_personal > 0 || $result_validar_director_personal > 0) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Usuario ya existente',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+        } else {
+
+            $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_personal(nombre, usuario, contrasena, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+            if ($query_insert_alumno) {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: '¡Excelente!',
+          text: 'Registro de alumno exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+            } else {
+                echo
+                "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: '¡Algo salió mal!',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
+            }
+        }
     }
     ?>
 
@@ -551,20 +1187,16 @@ if (!empty($_POST)) {
         function guardarDatos() {
             var usuario_inicio = document.getElementById("usuario_inicio").value;
             var contrasena_inicio = document.getElementById("contrasena_inicio").value;
-            var clave_inicio = document.getElementById("clave_inicio").value;
             document.cookie = "usuario_inicio=" + usuario_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
             document.cookie = "contrasena_inicio=" + contrasena_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-            document.cookie = "clave_inicio=" + clave_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
         }
 
         function off() {
             console.log("Reinicio")
             var usuario_inicio = '';
             var contrasena_inicio = '';
-            var clave_inicio = '';
             document.cookie = "usuario_inicio=" + usuario_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
             document.cookie = "contrasena_inicio=" + contrasena_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-            document.cookie = "clave_inicio=" + clave_inicio + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
         }
 
         var checkbox = document.getElementById('checkbox');
@@ -600,8 +1232,6 @@ if (!empty($_POST)) {
                         document.getElementById("usuario_inicio").value = value;
                     } else if (name == "contrasena_inicio") {
                         document.getElementById("contrasena_inicio").value = value;
-                    } else if (name == "clave_inicio") {
-                        document.getElementById("clave_inicio").value = value;
                     }
                 }
             }

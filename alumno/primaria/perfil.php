@@ -6,66 +6,66 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 }
 
 include('../../acciones/conexion.php');
-$query = mysqli_query($conexion, "SELECT * FROM cursos WHERE id_alumno = $id_user");
-$data = mysqli_fetch_assoc($query);
+// $query = mysqli_query($conexion, "SELECT * FROM cursos WHERE id_alumno = $id_user");
+// $data = mysqli_fetch_assoc($query);
 
 //Estadisticas de todos los cursos del alumno
-$consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, audiovisual, SUM(audiovisual) AS total_audiovisual, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas WHERE id_alumno = $id_user");
+$consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_primaria WHERE id_alumno = $id_user");
 $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
 
 //Estadisticas programacion web basica
-$query_programacion_web_basica = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 1");
+$query_programacion_web_basica = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 1");
 $data_programacion_web_basica = mysqli_fetch_assoc($query_programacion_web_basica);
 
 //Estadisticas programacion web intermedio
-$query_programacion_web_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 2");
+$query_programacion_web_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 2");
 $data_programacion_web_intermedio = mysqli_fetch_assoc($query_programacion_web_intermedio);
 
 //Estadisticas programacion web avanzado
-$query_programacion_web_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 3");
+$query_programacion_web_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 3");
 $data_programacion_web_avanzado = mysqli_fetch_assoc($query_programacion_web_avanzado);
 
 //Estadisticas python basico
-$query_python_basico = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 4");
+$query_python_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 4");
 $data_python_basico = mysqli_fetch_assoc($query_python_basico);
 
 //Estadisticas python intermedio
-$query_python_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 5");
+$query_python_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 5");
 $data_python_intermedio = mysqli_fetch_assoc($query_python_intermedio);
 
 //Estadisticas python avanzado
-$query_python_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 6");
+$query_python_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 6");
 $data_python_avanzado = mysqli_fetch_assoc($query_python_avanzado);
 
 //Estadisticas arduino basico
-$query_arduino_basico = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 7");
+$query_arduino_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 7");
 $data_arduino_basico = mysqli_fetch_assoc($query_arduino_basico);
 
 //Estadisticas arduino intermedio
-$query_arduino_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 8");
+$query_arduino_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 8");
 $data_arduino_intermedio = mysqli_fetch_assoc($query_arduino_intermedio);
 
 //Estadisticas arduino avanzado
-$query_arduino_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user AND id_curso = 9");
+$query_arduino_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 9");
 $data_arduino_avanzado = mysqli_fetch_assoc($query_arduino_avanzado);
 
 //Información solo de alumno
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos WHERE id_alumno = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_primaria a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
 
 //Información para alumno - escuela
-$user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM alumnos a
+$user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM alumnos_primaria a
 JOIN escuelas e 
 ON a.id_escuela = e.id_escuela
 WHERE a.id_alumno = $id_user"));
 
 //Información para alumno - docente
-$user_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT d.* FROM alumnos a
-JOIN docentes d 
+$user_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT d.* FROM alumnos_primaria a
+JOIN docentes_primaria d 
 ON a.id_docente = d.id_docente
 WHERE a.id_alumno = $id_user"));
 
 //Conteo de cursos
-$sql = "SELECT COUNT(*) id_alumno FROM acceso_cursos
+$sql = "SELECT COUNT(*) id_alumno FROM acceso_cursos_primaria
 WHERE id_alumno = $id_user";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
@@ -124,7 +124,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <a href="../../acciones/cerrarsesion.php"><i class="fa fa-sign-out" style="color: white;">&nbsp;&nbsp;Cerrar sesión</i></a>
                 </button>
                 <?php
-                $data2 = mysqli_query($conexion, "SELECT * FROM alumnos WHERE id_alumno = '$id_user'");
+                $data2 = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE id_alumno = '$id_user'");
                 while ($consulta = mysqli_fetch_array($data2)) {
                     echo " <h3 class='titulo'>" . $consulta['nombre'] . "</h3>";
                 }
@@ -296,7 +296,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         } else {
             $newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generate new image name
             $newImageName .= '.' . $imageExtension;
-            $query = "UPDATE alumnos SET image = '$newImageName' WHERE id_alumno = $id";
+            $query = "UPDATE alumnos_primaria SET image = '$newImageName' WHERE id_alumno = $id";
             mysqli_query($conexion, $query);
             move_uploaded_file($tmpName, 'acciones/img/' . $newImageName);
             echo
@@ -792,7 +792,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         $idalumno = $_SESSION['id_alumno_primaria'];
         $contrasena = md5($_POST['contrasena']);
 
-        $sql_update = mysqli_query($conexion, "UPDATE alumnos SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
+        $sql_update = mysqli_query($conexion, "UPDATE alumnos_primaria SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
 
         if ($sql_update) {
             echo

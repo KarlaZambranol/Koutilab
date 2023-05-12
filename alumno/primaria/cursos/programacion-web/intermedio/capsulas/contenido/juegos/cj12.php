@@ -2,15 +2,15 @@
 session_start();
 $id_user = $_SESSION['id_alumno_primaria'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
-    header('location: ../../../../../../../../acciones/cerrarsesion.php');
+	header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsula31";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-  header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
+	header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
 }
 
 ?>
@@ -51,7 +51,7 @@ if (empty($existe) && $id_user != 1) {
 	<div class="contenido">
 
 		<a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
-			<i class="fas fa-reply"></i></button>
+				<i class="fas fa-reply"></i></button>
 		</a>
 
 		<!-- Titulo secundario -->
@@ -69,14 +69,13 @@ if (empty($existe) && $id_user != 1) {
 	</div>
 
 	<script>
-
 		let cantidadTarjetas = 24;
-        let iconos = []
-        let selecciones = []
+		let iconos = []
+		let selecciones = []
 
 		//Iconos pertenecientes a las tarjetas
-        function cargarIconos() {
-            iconos = [
+		function cargarIconos() {
+			iconos = [
 				'<i class="fas fa-hourglass-start"></i>',
 				'<i class="fa-solid fa-hourglass-end"></i>',
 				'<i class="fa-solid fa-arrows-to-circle"></i>',
@@ -89,21 +88,21 @@ if (empty($existe) && $id_user != 1) {
 				'<i class="fa-solid fa-arrow-up-wide-short"></i>',
 				'<i class="fa-solid fa-arrow-down-wide-short"></i>',
 				'<i class="fa-solid fa-xmarks-lines"></i>'
-            ]
-        }
+			]
+		}
 
 		//Generador de tablero, inicia el tiempo, carga los iconos y quita el boton de iniciar
-        function generarTablero() {
+		function generarTablero() {
 			iniciarTiempo()
-            cargarIconos()
+			cargarIconos()
 			$('#generar').remove();
-            let len = iconos.length
-            selecciones = []
-            let tablero = document.getElementById("tablero")
-            let tarjetas = []
-            
-            for (let i = 0; i < cantidadTarjetas; i++) {
-                tarjetas.push(`
+			let len = iconos.length
+			selecciones = []
+			let tablero = document.getElementById("tablero")
+			let tarjetas = []
+
+			for (let i = 0; i < cantidadTarjetas; i++) {
+				tarjetas.push(`
                 <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
                     <div class="tarjeta" id="tarjeta${i}">
                         <div class="cara trasera" id="trasera${i}">
@@ -115,74 +114,74 @@ if (empty($existe) && $id_user != 1) {
                     </div>
                 </div>        
                 `)
-                if (i % 2 == 1) {
-                    iconos.splice(0, 1)
-                }
-            }
-            tarjetas.sort(() => Math.random() - 0.5)
-            tablero.innerHTML = tarjetas.join(" ")
-        }
+				if (i % 2 == 1) {
+					iconos.splice(0, 1)
+				}
+			}
+			tarjetas.sort(() => Math.random() - 0.5)
+			tablero.innerHTML = tarjetas.join(" ")
+		}
 
 		//Selecionador de tarjetas
-        function seleccionarTarjeta(i) {
-            let tarjeta = document.getElementById("tarjeta" + i)
-            if (tarjeta.style.transform != "rotateY(180deg)") {
-                tarjeta.style.transform = "rotateY(180deg)"
-                selecciones.push(i)
-            }
-            if (selecciones.length == 2) {
-                deseleccionar(selecciones)
-                selecciones = []
-            }
-        }
+		function seleccionarTarjeta(i) {
+			let tarjeta = document.getElementById("tarjeta" + i)
+			if (tarjeta.style.transform != "rotateY(180deg)") {
+				tarjeta.style.transform = "rotateY(180deg)"
+				selecciones.push(i)
+			}
+			if (selecciones.length == 2) {
+				deseleccionar(selecciones)
+				selecciones = []
+			}
+		}
 
 		//Quitar seleccion y verificar que la tarjeta sea identica a su par
-        function deseleccionar(selecciones) {
-            setTimeout(() => {
-                let trasera1 = document.getElementById("trasera" + selecciones[0])
-                let trasera2 = document.getElementById("trasera" + selecciones[1])
-                if (trasera1.innerHTML != trasera2.innerHTML) {
-                    let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
-                    let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
-                    tarjeta1.style.transform = "rotateY(0deg)"
-                    tarjeta2.style.transform = "rotateY(0deg)"
-                }else{
-                    trasera1.style.background = "rgba(61, 172, 244, 0.5)"
-                    trasera2.style.background = "rgba(61, 172, 244, 0.5)"
-                }
+		function deseleccionar(selecciones) {
+			setTimeout(() => {
+				let trasera1 = document.getElementById("trasera" + selecciones[0])
+				let trasera2 = document.getElementById("trasera" + selecciones[1])
+				if (trasera1.innerHTML != trasera2.innerHTML) {
+					let tarjeta1 = document.getElementById("tarjeta" + selecciones[0])
+					let tarjeta2 = document.getElementById("tarjeta" + selecciones[1])
+					tarjeta1.style.transform = "rotateY(0deg)"
+					tarjeta2.style.transform = "rotateY(0deg)"
+				} else {
+					trasera1.style.background = "rgba(61, 172, 244, 0.5)"
+					trasera2.style.background = "rgba(61, 172, 244, 0.5)"
+				}
 				if (verificar()) {
 					var xmlhttp = new XMLHttpRequest();
 
 					var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 32 + "&id_curso=" + 2; //cancatenation
 					xmlhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						Swal.fire({
-						title: '¡Bien hecho!',
-						text: '¡Puntuación guardada con éxito!',
-						imageUrl: "../../../../../../img/Thumbs-Up.gif",
-						imageHeight: 350,
-						backdrop: `
+						if (this.readyState == 4 && this.status == 200) {
+							Swal.fire({
+								title: '¡Bien hecho!',
+								text: '¡Puntuación guardada con éxito!',
+								imageUrl: "../../../../../../img/Thumbs-Up.gif",
+								imageHeight: 350,
+								backdrop: `
 							rgba(0,143,255,0.6)
 							url("../../../../../../img/fondo.gif")
 							`,
-						confirmButtonColor: '#a14cd9',
-						confirmButtonText: 'Aceptar',
-						}).then((result) => {
-						if (result.isConfirmed) {
-							window.location.href = '../../../../../../rutas/ruta-pw-i.php';
+								confirmButtonColor: '#a14cd9',
+								confirmButtonText: 'Aceptar',
+							}).then((result) => {
+								if (result.isConfirmed) {
+									window.location.href = '../../../../../../rutas/ruta-pw-i.php';
+								}
+							});
 						}
-						});
-					}
 					}
 					xmlhttp.open("POST", "../../acciones/insertar_pd32.php", true);
 					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 					xmlhttp.send(param);
 				}
-            }, 1000);
-        }
- 
+			}, 1000);
+		}
+
 		//Verificar si ambas son iguales
-		function verificar(){
+		function verificar() {
 			for (let i = 0; i < cantidadTarjetas; i++) {
 				let trasera = document.getElementById("trasera" + i);
 				if (trasera.style.background != "rgba(61, 172, 244, 0.5)") {
@@ -191,8 +190,7 @@ if (empty($existe) && $id_user != 1) {
 			}
 			return true;
 		}
-
-    </script>
+	</script>
 
 	<script>
 		var segundos = 240;

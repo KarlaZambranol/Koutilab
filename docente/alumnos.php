@@ -7,18 +7,18 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_docente_primaria'])) {
 include('../acciones/conexion.php');
 
 
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes d
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_primaria d
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
 //Seleccionar nombre del grupo
-$query = "SELECT a.nombre FROM alumnos a 
-JOIN docentes d
+$query = "SELECT a.nombre FROM alumnos_primaria a 
+JOIN docentes_primaria d
 ON a.id_alumno = d.id_docente
 WHERE $id_user = d.id_docente";
 
 
-$query_grupo = "SELECT nombre_grupo FROM grupos WHERE id_docente = $id_user";
+$query_grupo = "SELECT nombre_grupo FROM grupos_primaria WHERE id_docente = $id_user";
 $result = $conexion->query($query_grupo);
 if ($result->num_rows > 0) {
     $options = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -26,19 +26,19 @@ if ($result->num_rows > 0) {
 
 
 //Seleccinar y dar permiso a grupos
-$grupo = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos WHERE id_docente = $id_user"));
+$grupo = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_primaria WHERE id_docente = $id_user"));
 
 
 //Conteo de alumnos
-$sql = "SELECT COUNT(*) id_alumno FROM alumnos a 
-JOIN docentes d
+$sql = "SELECT COUNT(*) id_alumno FROM alumnos_primaria a 
+JOIN docentes_primaria d
 ON a.id_docente = d.id_docente
-WHERE d.id_docente = $id_user";
+WHERE d.id_docente = $id_user AND a.estado = 1";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 
 //Estadisticas
-$query1 = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $id_user");
+$query1 = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user");
 $data1 = mysqli_fetch_assoc($query1);
 ?>
 
@@ -178,9 +178,7 @@ $data1 = mysqli_fetch_assoc($query1);
             <thead>
                 <tr>
                     <td><b>Nombre</b></td>
-                    <td><b>Nivel educativo</b></td>
                     <td><b>Grado escolar</b></td>
-                    <td><b>Grupo</b></td>
                     <td><b>Correo</b></td>
                     <td><b>Acción</b></td>
                 </tr>
@@ -190,10 +188,10 @@ $data1 = mysqli_fetch_assoc($query1);
                 <?php
                 include "../acciones/conexion.php";
 
-                $query_alumnos = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.nivel_educativo, a.grado_escolar, a.nombre_grupo, a.email FROM alumnos a
-                JOIN docentes d
+                $query_alumnos = mysqli_query($conexion, "SELECT a.id_alumno, a.nombre, a.grado_escolar, a.email FROM alumnos_primaria a
+                JOIN docentes_primaria d
                 ON a.id_docente = d.id_docente
-                WHERE d.id_docente = '$id_user'");
+                WHERE d.id_docente = '$id_user' AND a.estado = 1");
                 $result = mysqli_num_rows($query_alumnos);
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query_alumnos)) {
@@ -201,9 +199,7 @@ $data1 = mysqli_fetch_assoc($query1);
                 ?>
                         <tr>
                             <td><?php echo $data['nombre']; ?></td>
-                            <td><?php echo $data['nivel_educativo']; ?></td>
                             <td><?php echo $data['grado_escolar']; ?></td>
-                            <td><?php echo $data['nombre_grupo']; ?></td>
                             <td><?php echo $data['email']; ?></td>
                             <td>
                                 <a href="acciones/mostrar_alumno.php?id=<?php echo $data['id_alumno']; ?>" class="btn btn-info" style="margin-right: 5px;"><i class='fas fa-chart-line' style="color: white;"></i></a>
@@ -229,8 +225,6 @@ $data1 = mysqli_fetch_assoc($query1);
                 <div class="user-details1">
                     <input type="hidden" name="id_escuela" id="id_escuela" value="<?php echo $user['id_escuela'] ?>">
                     <input type="hidden" name="id_docente" id="id_docente" value="<?php echo $user['id_docente'] ?>">
-
-                    <input type="hidden" name="acceso_curso" id="acceso_curso" value="<?php echo $grupo['curso'] ?>">
 
                     <div class="input-box1">
                         <span class="details">Nivel educativo: </span>

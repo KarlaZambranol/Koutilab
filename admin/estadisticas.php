@@ -19,12 +19,12 @@ $resultinsitituciones = mysqli_query($conexion, $sqlinstituciones);
 $filainstituciones = mysqli_fetch_assoc($resultinsitituciones);
 
 //Contar alumnos
-$sqlalumnos = "SELECT COUNT(*) id_alumno FROM alumnos";
+$sqlalumnos = "SELECT COUNT(*) id_alumno FROM alumnos_primaria";
 $resultalumnos = mysqli_query($conexion, $sqlalumnos);
 $filaalumnos = mysqli_fetch_assoc($resultalumnos);
 
 //Contar docentes
-$sqldocentes = "SELECT COUNT(*) id_docente FROM docentes";
+$sqldocentes = "SELECT COUNT(*) id_docente FROM docentes_primaria";
 $resultdocentes = mysqli_query($conexion, $sqldocentes);
 $filadocentes = mysqli_fetch_assoc($resultdocentes);
 

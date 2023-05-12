@@ -28,18 +28,20 @@
             $idgrupo = $_GET['id'];
             $curso = $_POST['curso'];
             // Realiza una consulta SELECT para obtener los datos que deseas insertar
-            $sql = "SELECT dg.id_alumno FROM alumnos a
-            JOIN detalle_grupos dg
+            $sql = "SELECT dg.id_alumno FROM alumnos_primaria a
+            JOIN detalle_grupos_primaria dg
             ON dg.id_alumno = a.id_alumno
             WHERE dg.id_grupo = $idgrupo;";
             $resultado = $conexion->query($sql);
+
+            $insertar_detalle_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupo_cursos_primaria(id_grupo, id_curso) VALUES ('$idgrupo', '$curso')");
 
             // Verifica si la consulta SELECT tiene resultados
             if ($resultado->num_rows > 0) {
                 // Itera sobre los resultados de la consulta SELECT y ejecuta una consulta INSERT para insertar cada registro en la tabla de destino
                 while ($fila = $resultado->fetch_assoc()) {
                     $idalumno = $fila["id_alumno"];
-                    $sql_insert = "INSERT INTO acceso_cursos(curso, id_alumno) VALUES ('$curso', $idalumno)";
+                    $sql_insert = "INSERT INTO acceso_cursos_primaria(id_curso, id_alumno) VALUES ('$curso', $idalumno)";
                     $conexion->query($sql_insert);
                 }
                 header("Location: ../../docente/grupos.php");
@@ -55,7 +57,7 @@
         header("Location: ../../docente/grupos.php");
     }
     $idgrupo = $_REQUEST['id'];
-    $sql = mysqli_query($conexion, "SELECT * FROM grupos WHERE id_grupo = '$idgrupo'");
+    $sql = mysqli_query($conexion, "SELECT * FROM grupos_primaria WHERE id_grupo = '$idgrupo'");
     $result_sql = mysqli_num_rows($sql);
 
     if ($result_sql == 0) {
@@ -95,7 +97,7 @@
                                 <tbody>
                                     <?php
                                     include "../../acciones/conexion.php";
-                                    $query_alumnos = mysqli_query($conexion, "SELECT distinct ac.curso FROM alumnos a JOIN detalle_grupos dg ON dg.id_alumno = a.id_alumno JOIN acceso_cursos ac ON ac.id_alumno = dg.id_alumno WHERE dg.id_grupo = $idgrupo");
+                                    $query_alumnos = mysqli_query($conexion, "SELECT DISTINCT c.curso FROM grupos_primaria g JOIN detalle_grupo_cursos_primaria dg ON g.id_grupo = dg.id_grupo JOIN cursos_primaria c ON dg.id_curso = c.id_curso WHERE g.id_grupo = $idgrupo");
                                     $result = mysqli_num_rows($query_alumnos);
                                     if ($result > 0) {
                                         while ($data = mysqli_fetch_assoc($query_alumnos)) {
@@ -113,8 +115,8 @@
                         <div class="input-box1">
                             <span class="details">Cursos</span>
                             <select style="height: 44px;" name="curso" type="select" required>
-                                <option value="Programacion web basica">Programacion web basica</option>
-                                <option value="Programacion web intermedio">Programacion web intermedio</option>
+                                <option value="1">Programacion web basica</option>
+                                <option value="2">Programacion web intermedio</option>
                             </select>
                         </div>
 

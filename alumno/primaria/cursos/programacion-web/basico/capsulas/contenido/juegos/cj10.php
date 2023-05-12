@@ -8,7 +8,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_primaria'];
 $permiso = "capsulapago2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago c INNER JOIN detalle_capsulas_pago d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_primaria c INNER JOIN detalle_capsulas_pago_primaria d ON c.id_capsula_pago = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 1;");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
 	header("Location: ../../../../basico/capsulas/contenido/pasarela/capsula2html.php");
@@ -99,8 +99,8 @@ if (empty($existe)) {
 					<td>
 						<div class="horizontal" style="margin-top: 40px;">
 							1. Es lo que nos permite crear la etiqueta de HTML < ul>.
-							<br><br>
-							2. Nombre de la etiqueta de HTML que nos permite crear una barra de herramientas.
+								<br><br>
+								2. Nombre de la etiqueta de HTML que nos permite crear una barra de herramientas.
 						</div>
 					</td>
 					<b style="margin-left: 160px;">Verticales:</b>

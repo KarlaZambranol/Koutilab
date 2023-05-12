@@ -1,6 +1,6 @@
 <?php
   $servername = "localhost";
-    $database = "aerobotp_desarrollo";
+    $database = "aerobotp_beta";
     $username = "root";
     $password = "";
     // Create connection
@@ -9,4 +9,3 @@
     if (!$conexion) {
         echo("La conexion fallo: " . mysqli_connect_error());
     }
-?>

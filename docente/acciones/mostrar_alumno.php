@@ -27,7 +27,7 @@
     }
     //Estadisticas
     $idalumno = $_REQUEST['id'];
-    $query1 = mysqli_query($conexion, "SELECT * FROM estadisticas WHERE id_alumno = $idalumno");
+    $query1 = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $idalumno");
     $data1 = mysqli_fetch_assoc($query1);
     $result_sql = mysqli_num_rows($query1);
     if ($result_sql == 0) {

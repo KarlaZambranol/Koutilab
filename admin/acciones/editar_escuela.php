@@ -110,9 +110,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM admin WHERE id
                                 <option value="Primaria">Primaria</option>
                                 <option value="Secundaria">Secundaria</option>
                                 <option value="Preparatoria">Preparatoria</option>
-                                <option value="Primaria - Secundaria">Primaria - Secundaria</option>
-                                <option value="Secundaria - Preparatoria">Secundaria - Preparatoria</option>
-                                <option value="Todos">Los tres niveles</option>
+                                <option value="Universidad">Universidad</option>
                             </select>
                         </div>
                         <div class="input-box">

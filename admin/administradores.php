@@ -173,7 +173,6 @@ $fila = mysqli_fetch_assoc($result);
                 <tr>
                     <td><b>Usuario</b></td>
                     <td><b>Nombre</b></td>
-                    <td><b>Clave</b></td>
                     <td><b>País</b></td>
                     <td><b>Acción</b></td>
                 </tr>
@@ -191,7 +190,6 @@ $fila = mysqli_fetch_assoc($result);
                         <tr>
                             <td><?php echo $data['usuario']; ?></td>
                             <td><?php echo $data['nombre']; ?></td>
-                            <td><?php echo $data['clave']; ?></td>
                             <td><?php echo $data['pais']; ?></td>
                             <td>
                                 <a href="acciones/editar_admin.php?id=<?php echo $data['id_admin']; ?>" class="btn btn-success" style="margin-right: 5px;"><i class='fas fa-edit'></i></a>
@@ -259,27 +257,12 @@ $fila = mysqli_fetch_assoc($result);
                             <option value="Perú">Perú</option>
                         </select>
                     </div>
-                    <div class="input-box">
-                        <span class="details">Clave:</span>
-                        <input type="text" placeholder="AD-FA2A" name="clave" id="clave" value="adminsecundario" required readonly>
-                    </div>
-                    <div class="input-box1">
-                        <span class="details"></span><br>
-                        <button style="width: 150px; margin-right: 190px; margin-top: 5px;" type="button" class="btn-grd" onclick="copyToClipBoard()">Copiar clave</button>
-                    </div>
-                    <br>
+
                 </div>
                 <button class="btn-grd" type="submit" style="width: 40%;">Registrar</button>
             </form>
         </div>
     </dialog>
-    <script>
-        function copyToClipBoard() {
-            var content = document.getElementById('clave');
-            content.select();
-            document.execCommand('copy');
-        }
-    </script>
 
     <script>
         const btnAbrirModalA = document.querySelector("#btn-abrir-modalA");

@@ -25,17 +25,15 @@
 
     if (!empty($_POST)) {
         $alert = "";
-        if (empty($_POST['nombre']) || empty($_POST['nivel_educativo']) || empty($_POST['grado_escolar'])) {
+        if (empty($_POST['nombre']) || empty($_POST['grado_escolar'])) {
             $alert = '<div class="alert alert-danger" role="alert">Todo los campos son requeridos</div>';
         } else {
             $idalumno = $_GET['id'];
             $usuario = $_POST['usuario'];
             $contrasena = md5($_POST['contrasena']);
             $nombre = $_POST['nombre'];
-            $niveleducativo = $_POST['nivel_educativo'];
             $gradoescolar = $_POST['grado_escolar'];
-            $nombregrupo = $_POST['nombre_grupo'];
-            $sql_update = mysqli_query($conexion, "UPDATE alumnos SET nombre = '$nombre', usuario = '$usuario', contrasena = '$contrasena', nivel_educativo = '$niveleducativo' , grado_escolar = '$gradoescolar', nombre_grupo = '$nombregrupo' WHERE id_alumno = $idalumno");
+            $sql_update = mysqli_query($conexion, "UPDATE alumnos_primaria SET nombre = '$nombre', usuario = '$usuario', contrasena = '$contrasena', grado_escolar = '$gradoescolar' WHERE id_alumno = $idalumno");
             $alert = '<div class="alert alert-success" role="alert">Alumno actualizado</div>';
         }
     }
@@ -49,10 +47,10 @@
     }
 
     $idalumno = $_REQUEST['id'];
-    $sql = mysqli_query($conexion, "SELECT * FROM alumnos WHERE id_alumno = '$idalumno'");
+    $sql = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE id_alumno = '$idalumno'");
     $result_sql = mysqli_num_rows($sql);
     //Seleccionar nombre del grupo
-    $query = "SELECT nombre_grupo FROM grupos WHERE id_docente = $id_user";
+    $query = "SELECT nombre_grupo FROM grupos_primaria WHERE id_docente = $id_user";
     $result = $conexion->query($query);
     if ($result->num_rows > 0) {
         $options = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -65,9 +63,7 @@
             $usuario = $data['usuario'];
             $contrasena = $data['contrasena'];
             $nombre = $data['nombre'];
-            $niveleducativo = $data['nivel_educativo'];
             $gradoescolar = $data['grado_escolar'];
-            $nombregrupo = $data['nombre_grupo'];
         }
     }
     ?>
@@ -102,12 +98,6 @@
                         </div>
 
                         <div class="input-box1">
-                            <span class="details">Nivel educativo</span>
-                            <input type="text" name="nivel_educativo" id="nivel_educativo" value="<?php echo $niveleducativo; ?>" required readonly>
-
-                        </div>
-
-                        <div class="input-box1">
                             <span class="details">Grado escolar: </span>
                             <select style="height: 44px;" name="grado_escolar" type="select" required>
                                 <option><?php echo $gradoescolar; ?></option>
@@ -117,20 +107,6 @@
                                 <option value="4°">4°</option>
                                 <option value="5°">5°</option>
                                 <option value="6°">6°</option>
-                            </select>
-                        </div>
-
-                        <div class="input-box1">
-                            <span class="details">Nombre del grupo: </span>
-                            <select style="height: 44px;" type="select" name="nombre_grupo" required>
-                                <option><?php echo $nombregrupo; ?></option>
-                                <?php
-                                foreach ($options as $option) {
-                                ?>
-                                    <option><?php echo $option['nombre_grupo']; ?> </option>
-                                <?php
-                                }
-                                ?>
                             </select>
                         </div>
 

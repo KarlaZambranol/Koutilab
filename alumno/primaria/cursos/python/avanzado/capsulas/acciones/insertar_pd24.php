@@ -8,7 +8,7 @@ if (!$conexion) {
 
 //Datos permisos
 $permiso = 20;
-$insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas(id_usuario, id_permiso) VALUES ($id_user, $permiso)");
+$insertarPermisos = mysqli_query($conexion, "INSERT INTO detalle_capsulas_primaria(id_alumno, id_capsula) VALUES ($id_user, $permiso)");
 
 if ($insertarPermisos) {
     header('location: ../../../../../rutas/ruta-py-a.php');
