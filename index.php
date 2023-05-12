@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css" />
     <link rel="stylesheet" href="Comfortaa/Comfortaa-VariableFont_wght.ttf">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <script>
         $(document).ready(function() {
             $('#icon').click(function() {
@@ -24,6 +24,12 @@
             });
         });
     </script>
+    <script>
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location = "bloqueo.html";
+        }
+    </script>
+
 </head>
 
 <body>
@@ -46,7 +52,7 @@
         <div class="row">
             <div class="col"><br><br><br><br> <br>
                 <img src="img/2023 koutilab web imagenes-06.png" class="img-fluid">
-            </div> 
+            </div>
             <div class="col">
                 <img src="img/2023 koutilab web imagenes-05.png" class="img-fluid3 ima ">
                 <p style="font-size: 25px " class="g"> ¿Ya enseñas programación <br> en tu escuela?</p>
@@ -54,7 +60,7 @@
             </div>
         </div><br><br>
         <p style="font-size: 30px" class="g">Conoce Koutilab la <span style="font-size: 30px">herramientas autodidacta ideal
-        </span>para que tus alumnos <br> descubran <span style="font-size: 30px">el mundo de la programación</span>
+            </span>para que tus alumnos <br> descubran <span style="font-size: 30px">el mundo de la programación</span>
         </p>
     </section>
 
@@ -65,12 +71,12 @@
                 <p class="g ris" style="font-size: 30px; text-align: center; margin-left: 20%;" aling="center">
                     Utilizamos una ruta de aprendizaje con cápsulas de coding <br> diferentes para guiar a cada alumno en su aprendizaje de CODING.</p>
             </div>
-            </div>
+        </div>
     </section>
     <section>
         <div class="fonV">
             <video id="player" playsinline controls>
-            <source src="vid/DEMO1.mp4" type="video/mp4" />
+                <source src="vid/DEMO1.mp4" type="video/mp4" />
             </video>
         </div>
     </section>
@@ -81,7 +87,7 @@
         <div class="row">
             <div class="col r">
                 <fieldset class="ru">
-                    <img src="img/Copia de elementos kouti web-06.png" alt=""  class="elemento " height="100px" width="100px">
+                    <img src="img/Copia de elementos kouti web-06.png" alt="" class="elemento " height="100px" width="100px">
                     <div id="el1"><br><br>
                         <h4><b>Cápsulas de contenidos</b></h4>
                         <p>
@@ -90,7 +96,7 @@
                     </div>
                 </fieldset><br>
                 <fieldset class="ru">
-                    <img src="img/Copia de elementos kouti web-07.png" alt="" class="elemento"  height="100px" width="100px">
+                    <img src="img/Copia de elementos kouti web-07.png" alt="" class="elemento" height="100px" width="100px">
                     <div id="el2"><br><br>
                         <h4><b>Gamificación</b></h4>
                         <p>
@@ -99,7 +105,7 @@
                     </div>
                 </fieldset><br>
                 <fieldset class="ru">
-                    <img src="img/Copia de elementos kouti web-08.png" alt=""  class="elemento" height="100px" width="100px">
+                    <img src="img/Copia de elementos kouti web-08.png" alt="" class="elemento" height="100px" width="100px">
                     <div id="el3"><br>
                         <h4><b>FabLabs</b></h4>
                         <p>
@@ -110,10 +116,10 @@
                 </fieldset>
             </div>
             <div class="col">
-                <img class="ider" src="img/2023 koutilab web imagenes-10.png" style="margin-left: 100px;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+                <img class="ider" src="img/2023 koutilab web imagenes-10.png" style="margin-left: 100px;"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
-        </section>
-        <section>
+    </section>
+    <section>
         <div class="row">
             <div class="tit col">
                 <p><span style="font-size: 30px ">Usamos inteligencia artificial <br> para medir el desempeño de <br>cada alumno </span> </p>
@@ -164,49 +170,49 @@
     </div>
     <footer>
         <div class="content">
-          <div class="left box">
-            <div class="upper">
-              <div class="topic">Sobre nosotros</div>
-              <p>Somos una plataforma autodidacta ideal para que nuestros usuarios descubran el mundo de la programación.</p>
+            <div class="left box">
+                <div class="upper">
+                    <div class="topic">Sobre nosotros</div>
+                    <p>Somos una plataforma autodidacta ideal para que nuestros usuarios descubran el mundo de la programación.</p>
+                </div>
+                <div class="lower">
+                    <div class="topic">Contacto</div>
+                    <div class="phone">
+                        <a href="#"><i class="fas fa-phone-volume"></i>2228279092</a>
+                    </div>
+                    <div class="email">
+                        <a href="#"><i class="fas fa-envelope"></i>info@koutilab.com</a>
+                    </div>
+                </div>
             </div>
-            <div class="lower">
-              <div class="topic">Contacto</div>
-              <div class="phone">
-                <a href="#"><i class="fas fa-phone-volume"></i>2228279092</a>
-              </div>
-              <div class="email">
-                <a href="#"><i class="fas fa-envelope"></i>info@koutilab.com</a>
-              </div>
+            <div class="middle box">
+                <div class="topic">Otros servicios</div>
+                <div><a href="https://aerobotplanet.com/">Aerobot</a></div>
+                <div><a href="#"></a></div>
+                <div><a href="#">Aviso de privacidad</a></div>
+                <div><a href="#">Términos y condiciones</a></div>
             </div>
-          </div>
-          <div class="middle box">
-            <div class="topic">Otros servicios</div>
-            <div><a href="https://aerobotplanet.com/">Aerobot</a></div>
-            <div><a href="#"></a></div>
-            <div><a href="#">Aviso de privacidad</a></div>
-            <div><a href="#">Términos y condiciones</a></div>
-          </div>
-          <div class="right box">
-            <div class="topic">Registrate</div>
-            <form action="#">
-                <div class="wrap">
-                    <button class="button">Registrarse</button>
-                  </div>
-                  <br><br>
-              <div class="">
-                <button class="glow-on-hover"><a href="https://www.facebook.com/AerobotPlanet/"><i class="fab fa-facebook-f"></i></a></button>
-                <button class="glow-on-hover"><a href="https://www.instagram.com/aerobotplanet_oficial/"><i class="fab fa-instagram"></i></a></button>
-                <button class="glow-on-hover"><a href="https://www.linkedin.com/company/aerobotplanet"><i class="fab fa-linkedin-in"></i></a></button>
-                <button class="glow-on-hover"><a href="https://api.whatsapp.com/send?phone=5219712870361"><i class="fab fa-whatsapp"></i></a></button>
-              </div>
-            </form>
-          </div>
+            <div class="right box">
+                <div class="topic">Registrate</div>
+                <form action="#">
+                    <div class="wrap">
+                        <button class="button">Registrarse</button>
+                    </div>
+                    <br><br>
+                    <div class="">
+                        <button class="glow-on-hover"><a href="https://www.facebook.com/AerobotPlanet/"><i class="fab fa-facebook-f"></i></a></button>
+                        <button class="glow-on-hover"><a href="https://www.instagram.com/aerobotplanet_oficial/"><i class="fab fa-instagram"></i></a></button>
+                        <button class="glow-on-hover"><a href="https://www.linkedin.com/company/aerobotplanet"><i class="fab fa-linkedin-in"></i></a></button>
+                        <button class="glow-on-hover"><a href="https://api.whatsapp.com/send?phone=5219712870361"><i class="fab fa-whatsapp"></i></a></button>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="bottom">
-          <p>© Copyright <a href="#"><b>Aerobot</b></a> All Rights Reserved</p>
+            <p>© Copyright <a href="#"><b>Aerobot</b></a> All Rights Reserved</p>
         </div>
-      </footer>
-     
+    </footer>
+
     <script src="https://cdn.plyr.io/3.7.3/plyr.polyfilled.js"></script>
 </body>
 
