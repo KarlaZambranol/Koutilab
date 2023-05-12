@@ -24,15 +24,15 @@
     $id_user = $_SESSION['id_docente_preparatoria'];
     // Validar datos
     if (empty($_REQUEST['id'])) {
-        header("Location: ../../docente/grupos.php");
+        header("Location: ../../docente-preparatoria/grupos.php");
     }
     //Estadisticas
     $idgrupo = $_REQUEST['id'];
-    $query1 = mysqli_query($conexion, "SELECT * FROM grupos WHERE id_grupo = $idgrupo");
+    $query1 = mysqli_query($conexion, "SELECT * FROM grupos_preparatoria WHERE id_grupo = $idgrupo");
     $data1 = mysqli_fetch_assoc($query1);
     $result_sql = mysqli_num_rows($query1);
     if ($result_sql == 0) {
-        header("Location: ../../docente/grupos.php");
+        header("Location: ../../docente-preparatoria/grupos.php");
     }
 
     ?>
@@ -47,9 +47,7 @@
                 <thead>
                     <tr>
                         <td><b>Nombre</b></td>
-                        <td><b>Nivel educativo</b></td>
                         <td><b>Grado escolar</b></td>
-                        <td><b>Grupo</b></td>
                         <td><b>Trofeos</b></td>
                         <td><b>Puntaje</b></td>
                         <td><b>Práctico</b></td>
@@ -59,10 +57,10 @@
                 <tbody>
                     <?php
                     include "../../acciones/conexion.php";
-                    $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.nivel_educativo, a.grado_escolar, a.nombre_grupo, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas e
-                JOIN alumnos a
+                    $query_grupo = mysqli_query($conexion, "SELECT a.nombre, a.grado_escolar, e.trofeos, e.puntos, e.practico, e.teorico FROM estadisticas_preparatoria e
+                JOIN alumnos_preparatoria a
                 ON e.id_alumno = a.id_alumno
-                JOIN detalle_grupos dg
+                JOIN detalle_grupos_preparatoria dg
                 ON dg.id_alumno = a.id_alumno
                 WHERE dg.id_grupo = '$idgrupo';");
                     $result = mysqli_num_rows($query_grupo);
@@ -71,9 +69,7 @@
                     ?>
                             <tr>
                                 <td><?php echo $data['nombre']; ?></td>
-                                <td><?php echo $data['nivel_educativo']; ?></td>
                                 <td><?php echo $data['grado_escolar']; ?></td>
-                                <td><?php echo $data['nombre_grupo']; ?></td>
                                 <td><?php echo $data['trofeos']; ?></td>
                                 <td><?php echo $data['puntos']; ?></td>
                                 <td><?php echo $data['practico']; ?></td>

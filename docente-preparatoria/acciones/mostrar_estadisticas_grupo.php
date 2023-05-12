@@ -24,18 +24,18 @@
     $id_user = $_SESSION['id_docente_preparatoria'];
     // Validar datos
     if (empty($_REQUEST['id'])) {
-        header("Location: ../../docente/grupos.php");
+        header("Location: ../../docente-preparatoria/grupos.php");
     }
     //Estadisticas
     $idgrupo = $_REQUEST['id'];
     // $query1 = mysqli_query($conexion, "SELECT * FROM grupos WHERE id_grupo = $idgrupo");
     // $data1 = mysqli_fetch_assoc($query1);
     //Estadisticas de todos los cursos del alumno
-    $consultaEstadistica = mysqli_query($conexion, "SELECT e.trofeos, SUM(e.trofeos) AS total_trofeos, e.progreso, SUM(e.progreso) AS total_progreso, e.puntos, SUM(e.puntos) AS total_puntos, e.audiovisual, SUM(e.audiovisual) AS total_audiovisual, e.practico, SUM(e.practico) AS total_practico, e.teorico, SUM(e.teorico) AS total_teorico FROM estadisticas e JOIN detalle_grupos dg ON dg.id_alumno = e.id_alumno WHERE dg.id_grupo = $idgrupo;");
+    $consultaEstadistica = mysqli_query($conexion, "SELECT e.trofeos, SUM(e.trofeos) AS total_trofeos, e.progreso, SUM(e.progreso) AS total_progreso, e.puntos, SUM(e.puntos) AS total_puntos, e.practico, SUM(e.practico) AS total_practico, e.teorico, SUM(e.teorico) AS total_teorico FROM estadisticas_preparatoria e JOIN detalle_grupos_preparatoria dg ON dg.id_alumno = e.id_alumno WHERE dg.id_grupo = $idgrupo;");
     $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
     $result_sql = mysqli_num_rows($consultaEstadistica);
     if ($result_sql == 0) {
-        header("Location: ../../docente/grupos.php");
+        header("Location: ../../docente-preparatoria/grupos.php");
     }
 
     ?>
