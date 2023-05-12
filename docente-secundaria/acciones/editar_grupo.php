@@ -29,7 +29,7 @@
             $materia = $_POST['materia'];
             $nombregrupo = $_POST['nombre_grupo'];
             $grado = $_POST['grado'];
-            $sql_update = mysqli_query($conexion, "UPDATE grupos SET materia = '$materia', nombre_grupo = '$nombregrupo' , grado = '$grado' WHERE id_grupo = $idgrupo");
+            $sql_update = mysqli_query($conexion, "UPDATE grupos_secundaria SET materia = '$materia', nombre_grupo = '$nombregrupo' , grado = '$grado' WHERE id_grupo = $idgrupo");
             $alert = '<div class="alert alert-success" role="alert">Grupo actualizado</div>';
         }
     }
@@ -37,21 +37,21 @@
     // Mostrar Datos
 
     if (empty($_REQUEST['id'])) {
-        header("Location: ../../docente/grupos.php");
+        header("Location: ../../docente-secundaria/grupos.php");
     }
     $idgrupo = $_REQUEST['id'];
-    $sql = mysqli_query($conexion, "SELECT * FROM grupos WHERE id_grupo = '$idgrupo'");
+    $sql = mysqli_query($conexion, "SELECT * FROM grupos_secundaria WHERE id_grupo = '$idgrupo'");
     $result_sql = mysqli_num_rows($sql);
 
     //Seleccionar grado
-    $query = "SELECT grado FROM grupos WHERE id_docente = $idgrupo";
+    $query = "SELECT grado FROM grupos_secundaria WHERE id_docente = $idgrupo";
     $result = $conexion->query($query);
     if ($result->num_rows > 0) {
         $options = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
     if ($result_sql == 0) {
-        header("Location: ../../docente/grupos.php");
+        header("Location: ../../docente-secundaria/grupos.php");
     } else {
         if ($data = mysqli_fetch_array($sql)) {
             $idgrupo = $data['id_grupo'];
@@ -65,36 +65,36 @@
     <div class="row">
         <div class="col-md-7 mx-auto">
             <div class="container1" style="margin-top: 30px;">
-            <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
-                <h3 class="i-name">Editar grupo</h3>
-            </div>
+                <div class="board" style="padding: 10px; margin-left: 7px; text-align:center; width: 98%;">
+                    <h3 class="i-name">Editar grupo</h3>
+                </div>
                 <form class="" action="" method="post">
                     <div class="user-details1">
 
                         <?php echo isset($alert) ? $alert : ''; ?> <input type="hidden" name="id" value="<?php echo $idgrupo; ?>">
 
-                            <div class="input-box1">
-                                <span class="details">Matería</span>
-                                <input type="text" name="materia" id="materia" value="<?php echo $materia; ?>" required>
-                            </div>
+                        <div class="input-box1">
+                            <span class="details">Matería</span>
+                            <input type="text" name="materia" id="materia" value="<?php echo $materia; ?>" required>
+                        </div>
 
-                            <div class="input-box1">
-                                <span class="details">Nombre grupo</span>
-                                <input type="text" name="nombre_grupo" id="nombre_grupo" value="<?php echo $nombregrupo; ?>" required>
-                            </div>
+                        <div class="input-box1">
+                            <span class="details">Nombre grupo</span>
+                            <input type="text" name="nombre_grupo" id="nombre_grupo" value="<?php echo $nombregrupo; ?>" required>
+                        </div>
 
-                            <div class="input-box1">
-                                <span class="details">Grado escolar: </span>
-                                <select style="height: 44px;" name="grado" type="select" required>
-                                    <option><?php echo $grado; ?></option>
-                                    <option value="1°">1°</option>
-                                    <option value="2°">2°</option>
-                                    <option value="3°">3°</option>
-                                    <option value="4°">4°</option>
-                                    <option value="5°">5°</option>
-                                    <option value="6°">6°</option>
-                                </select>
-                            </div>
+                        <div class="input-box1">
+                            <span class="details">Grado escolar: </span>
+                            <select style="height: 44px;" name="grado" type="select" required>
+                                <option><?php echo $grado; ?></option>
+                                <option value="1°">1°</option>
+                                <option value="2°">2°</option>
+                                <option value="3°">3°</option>
+                                <option value="4°">4°</option>
+                                <option value="5°">5°</option>
+                                <option value="6°">6°</option>
+                            </select>
+                        </div>
 
                     </div>
 

@@ -6,18 +6,18 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_docente_secundaria'])) {
 }
 include('../acciones/conexion.php');
 
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes d
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM docentes_secundaria d
 JOIN escuelas e 
 ON d.id_escuela = e.id_escuela
 WHERE d.id_docente = $id_user"));
 
 
-$query = "SELECT curso FROM cursos_primaria";
+$query = "SELECT curso FROM cursos_secundaria";
 $result = $conexion->query($query);
 if ($result->num_rows > 0) {
     $options = mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
-$sql = "SELECT COUNT(*) id_grupo FROM grupos WHERE id_docente = '$id_user'";
+$sql = "SELECT COUNT(*) id_grupo FROM grupos_secundaria WHERE id_docente = '$id_user'";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
 ?>
@@ -152,7 +152,7 @@ $fila = mysqli_fetch_assoc($result);
                 <?php
                 include "../acciones/conexion.php";
 
-                $query_grupos = mysqli_query($conexion, "SELECT * FROM grupos WHERE id_docente = $id_user");
+                $query_grupos = mysqli_query($conexion, "SELECT * FROM grupos_secundaria WHERE id_docente = $id_user AND estado = 1");
                 $result = mysqli_num_rows($query_grupos);
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query_grupos)) {
@@ -206,7 +206,7 @@ $fila = mysqli_fetch_assoc($result);
             <div class="board1" style="margin-left: 7px;text-align:center; width: 98%;">
                 <h3 class="i-name">Nuevo grupo</h3>
             </div>
-            <form id="grupos" method="POST" enctype="multipart/form-data" action="acciones/insertar_grupo.php">
+            <form id="grupos" method="POST" enctype="multipart/form-data" action="acciones/insertar_grupo.php" autocomplete="off">
                 <div class="user-details1">
                     <div class="input-box1">
                         <span class="details">Materia: </span>
@@ -229,13 +229,12 @@ $fila = mysqli_fetch_assoc($result);
                         <span class="details">Curso: </span>
                         <select style="height: 44px;" name="curso" required>
                             <option>Seleccionar curso</option>
-                            <?php
-                            foreach ($options as $option) {
-                            ?>
-                                <option><?php echo $option['curso']; ?> </option>
-                            <?php
-                            }
-                            ?>
+                            <option value="1">Programación web básico</option>
+                            <option value="2">Programación web intermedio</option>
+                            <option value="3">Programación web avanzado</option>
+                            <option value="4">Python básico</option>
+                            <option value="5">Python intermedio</option>
+                            <option value="6">Python avanzado</option>
                         </select>
                     </div>
                     <div class="input-box1">
@@ -274,7 +273,7 @@ $fila = mysqli_fetch_assoc($result);
                     <tbody>
                         <?php
                         include "../acciones/conexion.php";
-                        $query_alumnos = mysqli_query($conexion, "SELECT * FROM alumnos a JOIN estadisticas e ON a.id_alumno = e.id_alumno WHERE a.id_docente = '$id_user'");
+                        $query_alumnos = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria a JOIN estadisticas_secundaria e ON a.id_alumno = e.id_alumno WHERE a.id_docente = '$id_user'");
                         $result = mysqli_num_rows($query_alumnos);
                         if ($result > 0) {
                             while ($data = mysqli_fetch_assoc($query_alumnos)) {
