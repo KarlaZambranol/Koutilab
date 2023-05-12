@@ -15,12 +15,12 @@ define('ProPayPal', 0);
 if (ProPayPal) {
     define("PayPalClientId", "*********************");
     define("PayPalSecret", "*********************");
-    define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/primaria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/preparatoria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
     define("PayPalENV", "production");
 } else {
     define("PayPalClientId", "Ae1Oau6-P8S9_nG7DK0q7u74hRYNkPSZnKSWDgBLuTIbk-mblCFjgCOxJVKW5Uf6uiYOran_5vnLu28a");
     define("PayPalSecret", "EAOYI052iYSGGT2592LeeXNvDbCq9tArRGqgWRVCAxQwf55u-wHx3VVxePzGD2j-9F29mEcbXL12mPFR");
-    define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/primaria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
+    define("PayPalBaseUrl", "http://localhost/Koutilab/alumno/preparatoria/cursos/programacion-web/basico/capsulas/contenido/pasarela/");
     define("PayPalENV", "sandbox");
 }
 $productName = "Cápsula de prueba";
@@ -29,7 +29,7 @@ $productPrice = 2;
 $productId = 1;
 $orderNumber = 1;
 $id_curso = 1;
-$id_permiso = 2;
+$id_capsula = 2;
 ?>
 <!DOCTYPE html>
 <html>
@@ -89,7 +89,7 @@ $id_permiso = 2;
                                 onAuthorize: function(data, actions) {
                                     return actions.payment.execute()
                                         .then(function() {
-                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>" + "&id_usuario=<?php echo $id_user; ?>" + "&id_permiso=<?php echo $id_permiso; ?>" + "&id_curso=<?php echo $id_curso; ?>";
+                                            window.location = "<?php echo PayPalBaseUrl; ?>orderDetails.php?payment_id=" + data.paymentID + "&item_number=<?php echo $productId; ?>" + "&item_name=<?php echo $productName; ?>" + "&payment_amount=<?php echo $productPrice; ?>" + "&payment_currency=<?php echo $currency; ?>" + "&id_alumno=<?php echo $id_user; ?>" + "&id_capsula=<?php echo $id_capsula; ?>" + "&id_curso=<?php echo $id_curso; ?>";
                                         });
                                 },
                                 style: {

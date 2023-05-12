@@ -7,7 +7,7 @@ if (empty($_SESSION['active'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['idUser'];
 $permiso = "capsula2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 2");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
@@ -49,7 +49,7 @@ if (empty($existe) && $id_user != 1) {
                                 </p>
                             </td>
                             <td class="ne">
-                                
+
                             </td>
                         </tr>
                     </tbody>
@@ -80,7 +80,7 @@ if (empty($existe) && $id_user != 1) {
                     </div>
                     <textarea onkeyup="run()" id="html-code" class="cd" placeholder="Escribe el código HTML aquí" style="width: 253px;"></textarea>
                     <textarea onkeyup="run()" id="css-code" class="cd1" placeholder="Escribe el código CSS aquí" style="width: 253px;"></textarea>
-                    <textarea onkeyup="run()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí" style="width: 253px;"></textarea> 
+                    <textarea onkeyup="run()" id="js-code" class="cd2" placeholder="Escribe el código JavaScript aquí" style="width: 253px;"></textarea>
                     <div class="editor-container" style="width: 250px; height: 250px; position:absolute; margin: -273px 0 0 863px;">
                         <div class="cd" id="editor">// Código PHP</div>
                     </div><br>

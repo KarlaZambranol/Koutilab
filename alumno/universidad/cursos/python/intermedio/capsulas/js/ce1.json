@@ -1,0 +1,75 @@
+[
+    
+    {
+        "category": "CE1",
+        "id": "1",
+        "correctAnswer": "While",
+        "incorrectAnswers": [
+            "For",
+            "<body>",
+            "else"
+        ],
+        "question": "¿Cuál de las siguientes opciones nos puede ayudar a repetir una tarea mientras sea verdadera?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "2",
+"correctAnswer": "x=1  while x<10:  print(x)  x += 1",
+        "incorrectAnswers": [
+            "x=1  while x<8:    print(x)   x += 1",
+            "x=1  while x<10:   print(x)   x += 1   (Termine de contar!)",
+            "Todas las Anteriores"
+        ],
+        "question": "¿Que lineas de codigo imprimen del numero 1 al 9?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "3",
+        "correctAnswer": "While y For",
+        "incorrectAnswers": [
+            "While",
+            "For Loop",
+            "For"
+        ],
+        "question": "¿Usan las mismas condicionales?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "4",
+        "correctAnswer": "def",
+        "incorrectAnswers": [
+            "def lopp",
+            "int",
+            "boolean"
+        ],
+        "question": "¿Para definir una función que palabra clave se utiliza?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    }
+]

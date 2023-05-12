@@ -7,7 +7,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_preparatoria'];
 $permiso = "capsula2";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas c INNER JOIN detalle_capsulas d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 3");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
   header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
@@ -57,11 +57,11 @@ if (empty($existe) && $id_user != 1) {
           --h: calc(70vh / 4);
         }
 
-        * {
+        <<<<<<< HEAD < !-- Tiempo --><div class="timer"><b style="margin-top: 10px;">Tiempo: <br><p id="tiempo"></p></b></div>< !-- Alerta --><div id="mensaje"></div>=======* {
           transition: all 0.5s;
         }
 
-        div {
+        >>>>>>>7a86a7afa248932e4aa63663186a74acb4bb34aa div {
           display: inline-block;
         }
 
