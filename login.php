@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!empty($_POST)) {
+if (isset($_POST['iniciar_sesion'])) {
     $alert = '';
     if (empty($_POST['usuario']) || empty($_POST['contrasena'])) {
         $alert = '<div class="alert alert-danger" role="alert">
@@ -420,7 +420,7 @@ if (!empty($_POST)) {
 
                         <a href="recuperar-contrasena.php" class="remember">Olvidé mi contraseña</a>
 
-                        <button type="submit" class="submit-btn" style="margin-top: -2px;">Acceder</button>
+                        <button type="submit" name="iniciar_sesion" class="submit-btn" style="margin-top: -2px;">Acceder</button>
                     </form>
                     <form action="" method="POST" id="Registrarse" class="input-group">
                         <div class="form-group">
