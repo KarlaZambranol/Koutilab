@@ -59,23 +59,26 @@ function fetchQuiz() {
                     const answer = div1.children;
                     if (answer[0].innerText == data[i].correctAnswer) {
                         score++;
-                        Swal.fire(
-                            'Buen trabajo',
-                            '¡Respuesta correcta!',
-                            'success'
-                        )
+                        Swal.fire({
+                            title: 'Buen trabajo',
+                            text: '¡Respuesta correcta!',
+                            imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                            imageHeight: 350,
+                        })
                     } else {
                         Swal.fire({
-                            icon: 'info',
                             title: 'Oops...',
                             text: '¡Verifica tu respuesta!',
+                            imageUrl: "../../../../../../img/signo.gif",
+                            imageHeight: 350,
                         })
                     }
                 } else {
                     Swal.fire({
-                        icon: 'error',
                         title: 'Oops...',
                         text: '¡No has seleccionado una respuesta!',
+                        imageUrl: "../../../../../../img/loop.gif",
+                        imageHeight: 350,
                     })
                 }
                 document.getElementById("score").innerHTML = score + "/" + (i + 1);
@@ -86,7 +89,7 @@ function fetchQuiz() {
             //next question button
             next.addEventListener("click", () => {
                 i++;
-                if (i >= 4) {
+                if (i >= 10) {
                     inform.style.display = "block";
                     save.style.display = "inline";
                     next.style.display = "none";
@@ -120,7 +123,8 @@ function fetchQuiz() {
             //save score button
             save.addEventListener("click", () => {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 14 + "&id_curso=" + 5; //cancatenation
+                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 1; //cancatenation
+
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         Swal.fire({
@@ -130,16 +134,16 @@ function fetchQuiz() {
                             imageHeight: 350,
                             backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
+                    url("../../../../../../img/fondo.gif")
                     `,
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'Aceptar',
                         }).then((result) => {
-                            window.location.href = '../../../../../../rutas/ruta-py-i.php';
+                            window.location.href = '../../../../../../rutas/ruta-py-y.php';
                         });
                     }
                 }
-                xmlhttp.open("POST", "../../acciones/insertar_pd14.php", true);
+                xmlhttp.open("POST", "../../acciones/insertar_pd26.php", true);
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xmlhttp.send(param);
             });
