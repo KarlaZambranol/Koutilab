@@ -369,7 +369,7 @@ if (!empty($_POST)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             window.location = "bloqueo.html";
         }
     </script>
@@ -472,6 +472,7 @@ if (!empty($_POST)) {
         $nombre_registrar = $_POST['nombre_registrar'];
         $usuario_registrar = $_POST['usuario_registrar'];
         $contrasena_registrar = md5($_POST['contrasena_registrar']);
+        $contrasena_correo = $_POST['contrasena_registrar'];
         $clave_registrar = $_POST['clave_registrar'];
         $email_registrar = $_POST['email_registrar'];
 
@@ -539,6 +540,70 @@ if (!empty($_POST)) {
         $query_validar_director_personal = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE usuario = '$usuario_registrar'");
         $result_validar_director_personal = mysqli_fetch_array($query_validar_director_personal);
 
+        //Validar si correo ingresado ya existe 
+
+        //Validar inicio de sesión de un admin
+
+        //Validar inicio de sesión de un alumno de primaria
+        $query_validar_alumno_primaria_correo = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE email = '$email_registrar'");
+        $result_validar_alumno_primaria_correo = mysqli_fetch_array($query_validar_alumno_primaria_correo);
+
+        //Validar inicio de sesión de un docente de primaria
+        $query_validar_docente_primaria_correo = mysqli_query($conexion, "SELECT * FROM docentes_primaria WHERE email = '$email_registrar'");
+        $result_validar_docente_primaria_correo = mysqli_fetch_array($query_validar_docente_primaria_correo);
+
+        //Validar inicio de sesión de un director de primaria
+        $query_validar_director_primaria_correo = mysqli_query($conexion, "SELECT * FROM directores_primaria WHERE email = '$email_registrar'");
+        $result_validar_director_primaria_correo = mysqli_fetch_array($query_validar_director_primaria_correo);
+
+        //Validar inicio de sesión de un alumno de secundaria
+        $query_validar_alumno_secundaria_correo = mysqli_query($conexion, "SELECT * FROM alumnos_secundaria WHERE email = '$email_registrar'");
+        $result_validar_alumno_secundaria_correo = mysqli_fetch_array($query_validar_alumno_secundaria_correo);
+
+        //Validar inicio de sesión de un docente de secundaria
+        $query_validar_docente_secundaria_correo = mysqli_query($conexion, "SELECT * FROM docentes_secundaria WHERE email = '$email_registrar'");
+        $result_validar_docente_secundaria_correo = mysqli_fetch_array($query_validar_docente_secundaria_correo);
+
+        //Validar inicio de sesión de un director de secundaria
+        $query_validar_director_secundaria_correo = mysqli_query($conexion, "SELECT * FROM directores_secundaria WHERE email = '$email_registrar'");
+        $result_validar_director_secundaria_correo = mysqli_fetch_array($query_validar_director_secundaria_correo);
+
+        //Validar inicio de sesión de un alumno de preparatoria
+        $query_validar_alumno_preparatoria_correo = mysqli_query($conexion, "SELECT * FROM alumnos_preparatoria WHERE email = '$email_registrar'");
+        $result_validar_alumno_preparatoria_correo = mysqli_fetch_array($query_validar_alumno_preparatoria_correo);
+
+        //Validar inicio de sesión de un docente de preparatoria
+        $query_validar_docente_preparatoria_correo = mysqli_query($conexion, "SELECT * FROM docentes_preparatoria WHERE email = '$email_registrar'");
+        $result_validar_docente_preparatoria_correo = mysqli_fetch_array($query_validar_docente_preparatoria_correo);
+
+        //Validar inicio de sesión de un director de preparatoria
+        $query_validar_director_preparatoria_correo = mysqli_query($conexion, "SELECT * FROM directores_preparatoria WHERE email = '$email_registrar'");
+        $result_validar_director_preparatoria_correo = mysqli_fetch_array($query_validar_director_preparatoria_correo);
+
+        //Validar inicio de sesión de un alumno de universidad
+        $query_validar_alumno_universidad_correo = mysqli_query($conexion, "SELECT * FROM alumnos_universidad WHERE email = '$email_registrar'");
+        $result_validar_alumno_universidad_correo = mysqli_fetch_array($query_validar_alumno_universidad_correo);
+
+        //Validar inicio de sesión de un docente de universidad
+        $query_validar_docente_universidad_correo = mysqli_query($conexion, "SELECT * FROM docentes_universidad WHERE email = '$email_registrar'");
+        $result_validar_docente_universidad_correo = mysqli_fetch_array($query_validar_docente_universidad_correo);
+
+        //Validar inicio de sesión de un director de universidad
+        $query_validar_director_universidad_correo = mysqli_query($conexion, "SELECT * FROM directores_universidad WHERE email = '$email_registrar'");
+        $result_validar_director_universidad_correo = mysqli_fetch_array($query_validar_director_universidad_correo);
+
+        //Validar inicio de sesión de un alumno de personal
+        $query_validar_alumno_personal_correo = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE email = '$email_registrar'");
+        $result_validar_alumno_personal_correo = mysqli_fetch_array($query_validar_alumno_personal_correo);
+
+        //Validar inicio de sesión de un docente de personal
+        $query_validar_docente_personal_correo = mysqli_query($conexion, "SELECT * FROM docentes_personal WHERE email = '$email_registrar'");
+        $result_validar_docente_personal_correo = mysqli_fetch_array($query_validar_docente_personal_correo);
+
+        //Validar inicio de sesión de un director de personal
+        $query_validar_director_personal_correo = mysqli_query($conexion, "SELECT * FROM directores_personal WHERE email = '$email_registrar'");
+        $result_validar_director_personal_correo = mysqli_fetch_array($query_validar_director_personal_correo);
+
         //Buscar si la clave pertenece a un alumno
         $query_clave_alumno = mysqli_query($conexion, "SELECT * FROM escuelas WHERE clave_alumno = '$clave_registrar'");
         $result_clave_alumno = mysqli_fetch_array($query_clave_alumno);
@@ -590,11 +655,32 @@ if (!empty($_POST)) {
         });
       </script>
         ";
+        } else if ($result_validar_alumno_primaria_correo > 0 || $result_validar_docente_primaria_correo > 0 || $result_validar_director_primaria_correo > 0 || $result_validar_alumno_secundaria_correo > 0 || $result_validar_docente_secundaria_correo > 0 || $result_validar_director_secundaria_correo > 0 || $result_validar_alumno_preparatoria_correo > 0 || $result_validar_docente_preparatoria_correo > 0 || $result_validar_director_preparatoria_correo > 0 || $result_validar_alumno_universidad_correo > 0 || $result_validar_docente_universidad_correo > 0 || $result_validar_director_universidad_correo > 0 || $result_validar_alumno_personal_correo > 0 || $result_validar_docente_personal_correo > 0 || $result_validar_director_personal_correo > 0) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Advertencia!',
+          text: 'Correo ya utilizado en otro usuario',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'login.php';
+          }
+        });
+      </script>
+        ";
         } else {
 
             if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Primaria') {
                 $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_primaria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
+
                 if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -632,6 +718,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Secundaria') {
                 $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_secundaria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
                 if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -669,6 +758,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Preparatoria') {
                 $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
                 if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -686,6 +778,7 @@ if (!empty($_POST)) {
       </script>
         ";
                 } else {
+
                     echo
                     "
       <script>
@@ -706,6 +799,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_alumno > 0 && $nivel_educativo_alumno == 'Universidad') {
                 $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_universidad(nombre, usuario, contrasena, clave, id_escuela, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_alumno, '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
                 if ($query_insert_alumno) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -743,6 +839,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Primaria') {
                 $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_primaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
                 if ($query_insert_docente) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -780,6 +879,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Secundaria') {
                 $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_secundaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
                 if ($query_insert_docente) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -817,6 +919,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Preparatoria') {
                 $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
                 if ($query_insert_docente) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -854,6 +959,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_docente > 0 && $nivel_educativo_docente == 'Universidad') {
                 $query_insert_docente = mysqli_query($conexion, "INSERT INTO docentes_universidad(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_docente, '$email_registrar')");
                 if ($query_insert_docente) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -891,6 +999,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Primaria') {
                 $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_primaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
                 if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -928,6 +1039,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Secundaria') {
                 $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_secundaria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
                 if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -965,6 +1079,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Preparatoria') {
                 $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_preparatoria(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
                 if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -1002,6 +1119,9 @@ if (!empty($_POST)) {
             } else if ($result_clave_director > 0 && $nivel_educativo_director == 'Universidad') {
                 $query_insert_director = mysqli_query($conexion, "INSERT INTO directores_universidad(nombre, usuario, contrasena, clave, id_escuela, email) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$clave_registrar', $id_escuela_director, '$email_registrar')");
                 if ($query_insert_director) {
+
+                    include('envio-correo.php');
+
                     echo
                     "
       <script>
@@ -1062,6 +1182,7 @@ if (!empty($_POST)) {
         $nombre_registrar = $_POST['nombre_registrar'];
         $usuario_registrar = $_POST['usuario_registrar'];
         $contrasena_registrar = md5($_POST['contrasena_registrar']);
+        $contrasena_correo = $_POST['contrasena_registrar'];
         $email_registrar = $_POST['email_registrar'];
 
         //Validar inicio de sesión de un admin
@@ -1149,6 +1270,9 @@ if (!empty($_POST)) {
 
             $query_insert_alumno = mysqli_query($conexion, "INSERT INTO alumnos_personal(nombre, usuario, contrasena, email, image, fondo) values ('$nombre_registrar', '$usuario_registrar', '$contrasena_registrar', '$email_registrar', 'Mascota-Aerobot-01.png', 'portada-1.png')");
             if ($query_insert_alumno) {
+
+                include('envio-correo.php');
+
                 echo
                 "
       <script>
