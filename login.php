@@ -433,7 +433,7 @@ if (isset($_POST['iniciar_sesion'])) {
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <input type="text" id="usuario_registrar" name="usuario_registrar" class="input-field" placeholder="Nombre de usuario" value="@" required>
+                            <input type="text" id="usuario_registrar" name="usuario_registrar" onkeyup="agregarArroba()" class="input-field" placeholder="@usuario" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">
@@ -1310,6 +1310,15 @@ if (isset($_POST['iniciar_sesion'])) {
         }
     }
     ?>
+
+    <script>
+        function agregarArroba() {
+            var input = document.getElementById("usuario_registrar");
+            if (!input.value.startsWith("@")) {
+                input.value = "@" + input.value;
+            }
+        }
+    </script>
 
     <script>
         // Guarda los datos del formulario en una cookie
