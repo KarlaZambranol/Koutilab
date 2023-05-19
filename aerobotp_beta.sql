@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2023 a las 05:05:17
+-- Tiempo de generación: 19-05-2023 a las 20:20:08
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -63,7 +63,14 @@ CREATE TABLE `acceso_cursos_primaria` (
 
 INSERT INTO `acceso_cursos_primaria` (`id_acceso_curso`, `id_curso`, `id_alumno`) VALUES
 (1, 1, 1),
-(2, 2, 1);
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 1),
+(6, 6, 1),
+(7, 7, 1),
+(8, 8, 1),
+(9, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -111,7 +118,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `usuario`, `contrasena`, `image`, `fondo`, `nombre`, `pais`, `estado`) VALUES
-(1, 'admin', 'acbf157754bc921e70ab30b1e79c75f5', 'admin - 2023.05.11 - 03.04.59am.png', NULL, 'admin', 'México', 1);
+(1, 'admin', 'acbf157754bc921e70ab30b1e79c75f5', '', NULL, 'admin', 'México', 1);
 
 -- --------------------------------------------------------
 
@@ -124,13 +131,9 @@ CREATE TABLE `alumnos_personal` (
   `nombre` varchar(100) DEFAULT NULL,
   `usuario` varchar(100) DEFAULT NULL,
   `contrasena` varchar(100) DEFAULT NULL,
-  `clave` varchar(100) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   `image` varchar(100) DEFAULT NULL,
-  `grado_escolar` varchar(100) DEFAULT NULL,
   `fondo` varchar(100) DEFAULT NULL,
-  `id_escuela` int(11) DEFAULT NULL,
-  `id_docente` int(11) DEFAULT NULL,
   `estado` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -181,9 +184,7 @@ CREATE TABLE `alumnos_primaria` (
 --
 
 INSERT INTO `alumnos_primaria` (`id_alumno`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `grado_escolar`, `fondo`, `id_escuela`, `id_docente`, `estado`) VALUES
-(1, 'Jaime ', '@jaime-8blo', 'acbf157754bc921e70ab30b1e79c75f5', '123-NPL55W', 'prueba@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1),
-(2, 'Jaime ', '@jaime-8blo', 'bbf2dead374654cbb32a917afd236656', '123-NPL55W', 'prueba@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1),
-(3, 'Jaime ', '@jaime-8blo', 'bbf2dead374654cbb32a917afd236656', '123-NPL55W', 'prueba@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 0);
+(1, 'Alumno Primaria', '@alumnoprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-559P1GLM', 'alumnoprimaria@gmail.com', 'Mascota-Aerobot-01.png', '1°', 'portada-1.png', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -475,6 +476,15 @@ CREATE TABLE `cursos_secundaria` (
   `curso` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `cursos_secundaria`
+--
+
+INSERT INTO `cursos_secundaria` (`id_curso`, `curso`) VALUES
+(1, 'Programación web básico'),
+(2, 'Programación intermedio'),
+(3, 'Programación avanzado');
+
 -- --------------------------------------------------------
 
 --
@@ -742,8 +752,7 @@ CREATE TABLE `detalle_grupos_primaria` (
 --
 
 INSERT INTO `detalle_grupos_primaria` (`id_detalle_grupo`, `id_alumno`, `id_grupo`) VALUES
-(1, 1, 1),
-(2, 1, 1);
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -810,9 +819,7 @@ CREATE TABLE `detalle_grupo_cursos_primaria` (
 --
 
 INSERT INTO `detalle_grupo_cursos_primaria` (`id_detalle_grupo_curso`, `id_grupo`, `id_curso`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 1, 1);
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1057,7 +1064,7 @@ CREATE TABLE `docentes_primaria` (
 --
 
 INSERT INTO `docentes_primaria` (`id_docente`, `nombre`, `usuario`, `contrasena`, `clave`, `email`, `image`, `id_escuela`, `estado`) VALUES
-(1, 'Docente Primaria', '@docenteprimaria', 'acbf157754bc921e70ab30b1e79c75f5', '123-7843V17O', 'docenteprimaria@gmail.com', NULL, 1, 1);
+(1, 'Docente Primaria', '@docenteprimaria', 'acbf157754bc921e70ab30b1e79c75f5', 'ABC-0QUOLCIE', 'docenteprimaria@gmail.com', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1125,9 +1132,7 @@ CREATE TABLE `escuelas` (
 --
 
 INSERT INTO `escuelas` (`id_escuela`, `nombre_escuela`, `cct`, `nombre_director`, `calle`, `num_exterior`, `estado`, `codigo_postal`, `nivel_educativo`, `pais`, `autorizacion`, `id_admin`, `clave_alumno`, `clave_docente`, `clave_director`, `estatus`) VALUES
-(1, 'Desarrollo', '123456', 'Desarrollo', 'Desarrollo', '99', 'Puebla', '99999', 'Primaria', 'México', 'admin', 1, '123-NPL55W', '123-7843V17O', '123-2MRVZZTZ', 1),
-(2, '', '', '', '', '', '', '', '', '', '', 1, '', '', '', 0),
-(3, 'Secundaria', '12156', 'Desarrollo', 'Desarrollo', '99', 'Puebla', '99999', 'Secundaria', 'México', 'admin', 1, '121-CNRVJM70', '121-4XGDE873', '121-M6YVMOSB', 1);
+(1, 'Primaria Desarrollo', 'ABC123', 'Director Primaria', 'Calle Primaria', '99', 'Puebla', '99999', 'Primaria', 'México', 'admin', 1, 'ABC-559P1GLM', 'ABC-0QUOLCIE', 'ABC-ZDTD6556', 1);
 
 -- --------------------------------------------------------
 
@@ -1291,7 +1296,7 @@ CREATE TABLE `grupos_primaria` (
 --
 
 INSERT INTO `grupos_primaria` (`id_grupo`, `materia`, `nombre_grupo`, `grado`, `id_docente`, `estado`) VALUES
-(1, 'Desarrollo', '1A', '1°', 1, 1);
+(1, 'Desarrollo Primaria', 'Desarrollo Primaria', '1°', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1355,13 +1360,6 @@ CREATE TABLE `sugerencias` (
   `mensaje` varchar(100) DEFAULT NULL,
   `estado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `sugerencias`
---
-
-INSERT INTO `sugerencias` (`id_sugerencia`, `nombre_escuela`, `nombre_usuario`, `asunto`, `mensaje`, `estado`) VALUES
-(1, 'Desarrollo', 'Docente Primaria', 'asdf', 'asdf', 1);
 
 --
 -- Índices para tablas volcadas
@@ -1867,7 +1865,7 @@ ALTER TABLE `acceso_cursos_preparatoria`
 -- AUTO_INCREMENT de la tabla `acceso_cursos_primaria`
 --
 ALTER TABLE `acceso_cursos_primaria`
-  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_acceso_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `acceso_cursos_secundaria`
@@ -1903,7 +1901,7 @@ ALTER TABLE `alumnos_preparatoria`
 -- AUTO_INCREMENT de la tabla `alumnos_primaria`
 --
 ALTER TABLE `alumnos_primaria`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `alumnos_secundaria`
@@ -1999,7 +1997,7 @@ ALTER TABLE `cursos_primaria`
 -- AUTO_INCREMENT de la tabla `cursos_secundaria`
 --
 ALTER TABLE `cursos_secundaria`
-  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos_universidad`
@@ -2113,7 +2111,7 @@ ALTER TABLE `detalle_grupos_preparatoria`
 -- AUTO_INCREMENT de la tabla `detalle_grupos_primaria`
 --
 ALTER TABLE `detalle_grupos_primaria`
-  MODIFY `id_detalle_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_detalle_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_grupos_secundaria`
@@ -2143,7 +2141,7 @@ ALTER TABLE `detalle_grupo_cursos_preparatoria`
 -- AUTO_INCREMENT de la tabla `detalle_grupo_cursos_primaria`
 --
 ALTER TABLE `detalle_grupo_cursos_primaria`
-  MODIFY `id_detalle_grupo_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_detalle_grupo_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_grupo_cursos_secundaria`
@@ -2251,7 +2249,7 @@ ALTER TABLE `docentes_universidad`
 -- AUTO_INCREMENT de la tabla `escuelas`
 --
 ALTER TABLE `escuelas`
-  MODIFY `id_escuela` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_escuela` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `estadisticas_personal`
@@ -2329,7 +2327,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT de la tabla `sugerencias`
 --
 ALTER TABLE `sugerencias`
-  MODIFY `id_sugerencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_sugerencia` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

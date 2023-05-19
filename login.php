@@ -401,7 +401,7 @@ if (isset($_POST['iniciar_sesion'])) {
                             <div class="input-icon">
                                 <i class="fas fa-user"></i>
                             </div>
-                            <input type="text" id="usuario_inicio" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
+                            <input type="text" id="usuario_inicio" onkeyup="agregarArrobaInicio()" name="usuario" class="input-field" placeholder="Nombre de usuario" value="<?php if (isset($user)) echo $user; ?>" required>
                         </div>
                         <div class="form-group">
                             <div class="input-icon">
@@ -1314,6 +1314,15 @@ if (isset($_POST['iniciar_sesion'])) {
     <script>
         function agregarArroba() {
             var input = document.getElementById("usuario_registrar");
+            if (!input.value.startsWith("@")) {
+                input.value = "@" + input.value;
+            }
+        }
+    </script>
+
+    <script>
+        function agregarArrobaInicio() {
+            var input = document.getElementById("usuario_inicio");
             if (!input.value.startsWith("@")) {
                 input.value = "@" + input.value;
             }
