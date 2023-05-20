@@ -33,6 +33,7 @@ if (empty($existe)) {
     <div class="body">
         <div class="container">
             <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="../../../../../../cursos/programacion-web/intermedio/capsulas/contenido/teoricas/ct2html.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
             <div class="new-g" style="text-align: center;">Cápsula práctica 1.5 HTML</div><br>
             <div class="board">
                 <table width="100%">
