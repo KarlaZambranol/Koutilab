@@ -8,6 +8,12 @@ var error = document.getElementById("error");
 var inform = document.getElementById("inform");
 var save = document.getElementById("save");
 
+//se esta llamando los sonidos de la carpeta "sonidos"
+var Correcto = document.createElement("audio");
+Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+var Incorrecto = document.createElement("audio");
+Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
 //fetch API then create the quiz
 function fetchQuiz() {
     fetch('../../js/ce1.json')
@@ -59,6 +65,9 @@ function fetchQuiz() {
                     const answer = div1.children;
                     if (answer[0].innerText == data[i].correctAnswer) {
                         score++;
+                        //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                        Correcto.play();
+
                         Swal.fire({
                             title: 'Buen trabajo',
                             text: '¡Respuesta correcta!',
@@ -66,6 +75,9 @@ function fetchQuiz() {
                             imageHeight: 350,
                         })
                     } else {
+                        //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                        Incorrecto.play();
+
                         Swal.fire({
                             title: 'Oops...',
                             text: '¡Verifica tu respuesta!',
@@ -74,6 +86,9 @@ function fetchQuiz() {
                         })
                     }
                 } else {
+                    //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                    Incorrecto.play();
+
                     Swal.fire({
                         title: 'Oops...',
                         text: '¡No has seleccionado una respuesta!',
@@ -90,6 +105,9 @@ function fetchQuiz() {
             next.addEventListener("click", () => {
                 i++;
                 if (i >= 10) {
+                    //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                    Correcto.play();
+
                     inform.style.display = "block";
                     save.style.display = "inline";
                     next.style.display = "none";
@@ -127,6 +145,9 @@ function fetchQuiz() {
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
+                        //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                        Correcto.play();
+
                         Swal.fire({
                             title: '+' + score + ' puntos',
                             text: '¡Puntuación guardada con éxito!',
@@ -149,6 +170,9 @@ function fetchQuiz() {
             });
         })
         .catch(() => {
+            //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+            Incorrecto.play();
+
             error.innerHTML = "No puedo cargar preguntas";
         });
 }

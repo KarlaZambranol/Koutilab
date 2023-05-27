@@ -56,7 +56,7 @@ if (isset($resultadoIntentos['intentos'])) {
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <a href="../../../../../../cursos/programacion-web/basico/capsulas/contenido/teoricas/ct2css.php"><button style="float: right; width: 100px; height: 40px;" class="btn-b"><b>Volver a teoría</b></button></a>
             <div class="new-g" style="text-align: center;">Cápsula práctica 2 CSS</div><br>
             <div class="board">
@@ -70,8 +70,8 @@ if (isset($resultadoIntentos['intentos'])) {
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: En un documento CSS con ayuda de un archivo HTML coloca un fondo de color,
-                                    así también como títulos de diferentes tamaños y párrafos.En el archivo CSS donde se le dará
+                                <p> En un documento CSS con ayuda de un archivo HTML coloca un fondo de color,
+                                    así también como títulos de diferentes tamaños y párrafos. En el archivo CSS donde se le dará
                                     el estilo se debe de seguir la sintaxis anteriormente mencionada, como por ejemplo debe llevar
                                     un selector,propiedad, valor y las declaraciones.
                                     < h1>
@@ -80,7 +80,7 @@ if (isset($resultadoIntentos['intentos'])) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <img src="../../../../../../img/sintaxiscsspractica.png" style="height: 200px; width: 400px;">
+                                <img src="../../../../../../img/sintaxiscsspractica.png" style="height: 220px; width: 450px;">
                             </td>
                         </tr>
                     </tbody>
@@ -96,6 +96,12 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function miFunc() {
             // checar que haya por lo menos 1 bold, italics y mark
             var puntos = <?php echo $puntosGanados; ?>;
@@ -104,21 +110,85 @@ if (isset($resultadoIntentos['intentos'])) {
             let p = frame.querySelectorAll("p").length;
 
             if (h1 > 0 && p > 0) {
-                Swal.fire({
-                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
-                    text: '¡Puntuación guardada con éxito!',
-                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                    imageHeight: 350,
-                    backdrop: `
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Correcto.play();
+
+                //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
+                if (puntos == 0) {
+                    //resultado();
+                    Swal.fire({
+                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
+                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                    confirmButtonColor: '#a14cd9',
-                    confirmButtonText: 'Aceptar',
-                }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'correcto' + '&permiso=' + 31 + '&id_curso=' + 1 + '&practico=' + 10;
-                });
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 1 + '&practico=' + 10;
+                        }
+                    });
+                } else if (puntos == 6) {
+                    Swal.fire({
+                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+
+                        if (result.isConfirmed) {
+                            window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 1 + '&practico=' + 10;
+                        }
+                    });
+                } else if (puntos == 8) {
+                    Swal.fire({
+                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 1 + '&practico=' + 10;
+                        }
+                    });
+                } else if (puntos == 10) {
+                    Swal.fire({
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 1 + '&practico=' + 10;
+                        }
+                    });
+                }
             } else {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -127,6 +197,7 @@ if (isset($resultadoIntentos['intentos'])) {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = '../../acciones/insertar_pd31.php?validar=' + 'incorrecto' + '&permiso=' + 31 + '&id_curso=' + 1 + '&practico=' + 10;
+
                     }
                 });
             }

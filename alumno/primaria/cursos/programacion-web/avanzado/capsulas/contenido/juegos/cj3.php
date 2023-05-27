@@ -38,6 +38,8 @@ if (empty($existe) && $id_user != 1) {
 	<!-- Titulo general -->
 	<div class="titulo-gen">
 		<h2 class="titulo" style="margin-left: 475px;"><b>SOPA DE LETRAS</b></h2>
+		<a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+           
 	</div>
 
 	<!-- Tiempo -->
@@ -88,6 +90,11 @@ if (empty($existe) && $id_user != 1) {
 		});
 	</script>
 	<script>
+		//se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
 		var segundos = 240;
 
 		let puntos = 0;

@@ -1,5 +1,5 @@
 <?php
-  $servername = "localhost";
+  $servername = "localhost:3306";
     $database = "aerobotp_beta";
     $username = "root";
     $password = "";

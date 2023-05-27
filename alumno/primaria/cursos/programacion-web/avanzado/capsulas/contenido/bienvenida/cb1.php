@@ -14,7 +14,8 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-    <link rel="stylesheet" href="../../css/capsula-teoria.css">
+    <link rel="stylesheet" href="../../css/capsula-teoriaa.css">
+    <link rel="stylesheet" href="../../css/carrusel.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -22,7 +23,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-pw-a.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <div class="new-g" style="text-align: center;">Bienvenida al curso</div><br>
             <section id="container-slider">
                 <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -52,12 +53,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
                     </li>
                 </ul>
                 <ul id="slider">
-                    <li style="background-image: url('../../img/bienvenidaalcurso/B1.gif'); z-index:0; opacity: 1;"></li>
-                    <li style="background-image: url('../../img/bienvenidaalcurso/B11.gif');"></li>
-                    <li style="background-image: url('../../img/bienvenidaalcurso/B111.gif');"></li>
-                    <li style="background-image: url('../../img/bienvenidaalcurso/B1111.gif');"></li>
-                    <li style="background-image: url('../../img/bienvenidaalcurso/B11111.gif');"></li>
-                    <li style="background-image: url('../../img/bienvenidaalcurso/B111111.gif');"></li>
+                            <li style="background-image: url('../../img/bienvenidaalcurso/1.gif'); z-index:0; opacity: 1;"></li>
+                            <li style="background-image: url('../../img/bienvenidaalcurso/2.gif');"></li>
+                            <li style="background-image: url('../../img/bienvenidaalcurso/3.gif');"></li>
+                            <li style="background-image: url('../../img/bienvenidaalcurso/4.gif');"></li>
+                            <li style="background-image: url('../../img/bienvenidaalcurso/5.gif');"></li>
+                            <li style="background-image: url('../../img/bienvenidaalcurso/6.gif');"></li>
                     <li style="background-image: url('../../img/PA.gif');">
                         <form id="pregunta" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd1.php">
                             <input type="hidden" name="permiso" value="1">

@@ -22,7 +22,8 @@ if (empty($existe) && $id_user != 1) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/css-juegos/drag-drop.css">
+     <link rel="stylesheet" href="../../css/css-juegos/drag-drop.css"> 
+    <!-- <link rel="stylesheet" href="../../../../basico/capsulas/css/css-juegos/drag-drop.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
@@ -32,6 +33,8 @@ if (empty($existe) && $id_user != 1) {
 </head>
 
 <body onload="iniciarTiempo();">
+<a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+           
     <!-- Titulo general -->
     <div class="titulo-gen">
         <h2 class="titulo" style="margin-left: 465px;"><b>ARRASTRAR Y SOLTAR</b></h2>
@@ -174,6 +177,12 @@ if (empty($existe) && $id_user != 1) {
     </div>
 
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         var segundos = 240;
 
         let puntos = 0;
@@ -181,6 +190,8 @@ if (empty($existe) && $id_user != 1) {
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos == 0) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
                 var xmlhttp = new XMLHttpRequest();
 
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 3; //cancatenation
@@ -238,6 +249,8 @@ if (empty($existe) && $id_user != 1) {
                     var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 7 + "&id_curso=" + 3; //cancatenation
 
                     xmlhttp.onreadystatechange = function() {
+                        //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                        Correcto.play();
                         Swal.fire({
                             title: '¡Bien hecho!',
                             text: '¡Puntuación guardada con éxito!',
@@ -259,6 +272,9 @@ if (empty($existe) && $id_user != 1) {
                     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xmlhttp.send(param);
                 } else {
+                    //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                    Incorrecto.play();
+
                     var xmlhttp = new XMLHttpRequest();
 
                     var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 7 + "&id_curso=" + 3; //cancatenation

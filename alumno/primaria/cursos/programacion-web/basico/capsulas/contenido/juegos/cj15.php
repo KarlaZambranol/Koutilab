@@ -71,7 +71,7 @@ if (isset($resultadoIntentos['intentos'])) {
 	</div>
 
 	<div class="contenido">
-		<a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
+		<a href="#" onclick="history.back(); return false;"><button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
 				<i class="fas fa-reply"></i></button></a>
 		<!-- Titulo secundario -->
 		<h5 class="titulo"><b>Busca las palabras ocultas dentro de la sopa de letras</b></h5>
@@ -96,13 +96,22 @@ if (isset($resultadoIntentos['intentos'])) {
 	</div>
 
 	<script>
-		var segundos = 240;
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
+		var segundos = 4;
 
 		let puntos = 0;
 
 		function iniciarTiempo() {
 			document.getElementById('tiempo').innerHTML = segundos + " segundos";
 			if (segundos == 0) {
+				//se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+				Incorrecto.play();
+				
 				var xmlhttp = new XMLHttpRequest();
 
 				var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 41 + "&id_curso=" + 1; //cancatenation
