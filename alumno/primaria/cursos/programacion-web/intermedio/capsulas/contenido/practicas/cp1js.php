@@ -127,8 +127,8 @@ if (isset($resultadoIntentos['intentos'])) {
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
         Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
-        var Incorrecto = document.createElement("audio");
-        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        var correcto = document.createElement("audio");
+        correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
 
         function miFunc() {
             let htmlcode = document.getElementById("html-code").value;
@@ -136,8 +136,8 @@ if (isset($resultadoIntentos['intentos'])) {
             let jscode = document.getElementById("js-code").value;
 
             if (htmlcode != 'validar') {
-                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
-                Incorrecto.play();
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                correcto.play();
 
                 Swal.fire({
                     title: 'Oops...',
@@ -146,11 +146,11 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
                     }
                 });
             } else {
-                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
                 Correcto.play();
 
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
@@ -169,7 +169,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
@@ -186,7 +186,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 8) {
@@ -203,7 +203,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 10) {
@@ -220,7 +220,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd49.php?validar=' + 'correcto' + '&permiso=' + 4 + '&id_curso=' + 2 + '&practico=' + 10;
                         }
                     });
                 }
