@@ -228,7 +228,7 @@ if (isset($resultadoIntentos['intentos'])) {
                     imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd17.php?validar=' + 'correcto' + '&permiso=' + 17 + '&id_curso=' + 3 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd17.php?validar=' + 'incorrecto' + '&permiso=' + 17 + '&id_curso=' + 3 + '&practico=' + 10;
                     }
                 });
             }
