@@ -118,7 +118,7 @@ if (empty($existe)) {
                 <a href="../cursos/python/avanzado/capsulas/contenido/juegos/cj17.php"><button class="btn54" id="game"></button></a><!--Capsula juego 7-->
 
                 <!-- TEMA 8 -->
-                <a href="../cursos/python/avanzado/capsulas/contenido/teoricas/P2/ct6-5python.php"><button class="btn55" id="teoria"></button></a><!--Capsula teorica 8->
+                <a href="../cursos/python/avanzado/capsulas/contenido/teoricas/P2/ct6-5python.php"><button class="btn55" id="teoria"></button></a><!--Capsula teorica 8-->
                 <a href="../cursos/python/avanzado/capsulas/contenido/practicas/cp18.php"><button class="btn56" id="prac"></button></a><!--Capsula practica 8-->
                 <a href="../cursos/python/avanzado/capsulas/contenido/juegos/cj18.php"><button class="btn57" id="game"></button></a><!--Capsula juego 8-->
 

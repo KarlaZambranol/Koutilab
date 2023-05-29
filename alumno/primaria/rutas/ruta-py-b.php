@@ -126,8 +126,8 @@ if (empty($existe)) {
                 <a href="../cursos/python/basico/capsulas/contenido/juegos/cj18.php"><button class="btn57" id="game"></button></a><!--Capsula juego 8-->
 
                 <!-- TEMA 9 -->
-                <a href="../cursos/python/basico/capsulas/contenido/teoricas/P2/ct6-5python.php"><button class="btn58" id="teoria"></button></a><!--Capsula teorica 9->
-                <a href="../cursos/python/basico/capsulas/contenido/practicas/cp19.php"><button class="btn59" id="prac"></button></a><!--Capsula practica 9-->
+                <a href="../cursos/python/basico/capsulas/contenido/teoricas/P2/ct6-5python.php"><button class="btn58" id="teoria"></button></a><!--Capsula teorica 9-->
+                <a href="../cursos/python/basico/capsulas/contenido/practicas/cp19.php"><button class="btn59" id="prac"></button></a><!--Capsula practica 9 -->
                 <a href="../cursos/python/basico/capsulas/contenido/juegos/cj19.php"><button class="btn60" id="game"></button></a><!--Capsula juego 9-->
 
                 <!-- TEMA 10 -->
