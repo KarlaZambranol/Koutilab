@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../acciones/cerrarsesion.php');
 }
 include "../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "7";
-$sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_secundaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
+$sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../cursos/arduino/basico/capsulas/acciones/acceso_cursos.php");

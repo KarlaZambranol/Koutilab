@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../acciones/cerrarsesion.php');
 }
 include "../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "3";
-$sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_secundaria a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
+$sql = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso'");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe)) {
     header("Location: ../cursos/programacion-web/avanzado/capsulas/acciones/acceso_cursos.php");
@@ -17,82 +17,82 @@ include "verificar-ruta-pw-a.php";
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de html
 $capsula_verificar_html1 = "capsula3";
-$sql_verificar_html1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_html1' AND d.id_curso = 3");
+$sql_verificar_html1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_html1' AND d.id_curso = 3");
 $existe_verificar_html1 = mysqli_num_rows($sql_verificar_html1);
 
 //Verificar si esta comprada la capsula 1 de html
 $capsula_comprada_html1 = "capsulapago1";
-$sql_comprada_html1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_html1' AND d.id_curso = 3;");
+$sql_comprada_html1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_html1' AND d.id_curso = 3;");
 $existe_comprada_html1 = mysqli_num_rows($sql_comprada_html1);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 2 de html
 $capsula_verificar_html2 = "capsula12";
-$sql_verificar_html2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_html2' AND d.id_curso = 3");
+$sql_verificar_html2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_html2' AND d.id_curso = 3");
 $existe_verificar_html2 = mysqli_num_rows($sql_verificar_html2);
 
 //Verificar si esta comprada la capsula 2 de html
 $capsula_comprada_html2 = "capsulapago2";
-$sql_comprada_html2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_html2' AND d.id_curso = 3;");
+$sql_comprada_html2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_html2' AND d.id_curso = 3;");
 $existe_comprada_html2 = mysqli_num_rows($sql_comprada_html2);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de css
 $capsula_verificar_css1 = "capsula16";
-$sql_verificar_css1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_css1' AND d.id_curso = 3");
+$sql_verificar_css1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_css1' AND d.id_curso = 3");
 $existe_verificar_css1 = mysqli_num_rows($sql_verificar_css1);
 
 //Verificar si esta comprada la capsula 1 de css
 $capsula_comprada_css1 = "capsulapago3";
-$sql_comprada_css1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_css1' AND d.id_curso = 3;");
+$sql_comprada_css1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_css1' AND d.id_curso = 3;");
 $existe_comprada_css1 = mysqli_num_rows($sql_comprada_css1);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 2 de css
 $capsula_verificar_css2 = "capsula29";
-$sql_verificar_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_css2' AND d.id_curso = 3");
+$sql_verificar_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_css2' AND d.id_curso = 3");
 $existe_verificar_css2 = mysqli_num_rows($sql_verificar_css2);
 
 //Verificar si esta comprada la capsula 2 de css
 $capsula_comprada_css2 = "capsulapago4";
-$sql_comprada_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_css2' AND d.id_curso = 3;");
+$sql_comprada_css2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_css2' AND d.id_curso = 3;");
 $existe_comprada_css2 = mysqli_num_rows($sql_comprada_css2);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de js
 $capsula_verificar_js1 = "capsula49";
-$sql_verificar_js1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_js1' AND d.id_curso = 3");
+$sql_verificar_js1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_js1' AND d.id_curso = 3");
 $existe_verificar_cjs1 = mysqli_num_rows($sql_verificar_js1);
 
 //Verificar si esta comprada la capsula 1 de js
 $capsula_comprada_js1 = "capsulapago4";
-$sql_comprada_js1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_js1' AND d.id_curso = 3;");
+$sql_comprada_js1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_js1' AND d.id_curso = 3;");
 $existe_comprada_js1 = mysqli_num_rows($sql_comprada_js1);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 2 de js
 $capsula_verificar_js1 = "capsula49";
-$sql_verificar_js1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_js1' AND d.id_curso = 3");
+$sql_verificar_js1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_js1' AND d.id_curso = 3");
 $existe_verificar_cjs1 = mysqli_num_rows($sql_verificar_js1);
 
 //Verificar si esta comprada la capsula 2 de js
 $capsula_comprada_js2 = "capsulapago4";
-$sql_comprada_js2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_js2' AND d.id_curso = 3;");
+$sql_comprada_js2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_js2' AND d.id_curso = 3;");
 $existe_comprada_js2 = mysqli_num_rows($sql_comprada_js2);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 1 de js
 $capsula_verificar_php1 = "capsula54";
-$sql_verificar_php1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_js1' AND d.id_curso = 3");
+$sql_verificar_php1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_js1' AND d.id_curso = 3");
 $existe_verificar_cphp1 = mysqli_num_rows($sql_verificar_php1);
 
 //Verificar si esta comprada la capsula 1 de js
 $capsula_comprada_php1 = "capsulapago5";
-$sql_comprada_php1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_js1' AND d.id_curso = 3;");
+$sql_comprada_php1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_js1' AND d.id_curso = 3;");
 $existe_comprada_php1 = mysqli_num_rows($sql_comprada_php1);
 
 //Verificar si capsula esta completada para mostrar la opcion de compra de capsula 2 de js
 $capsula_verificar_php1 = "capsula54";
-$sql_verificar_php1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_js1' AND d.id_curso = 3");
+$sql_verificar_php1 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_verificar_js1' AND d.id_curso = 3");
 $existe_verificar_cphp1 = mysqli_num_rows($sql_verificar_php1);
 
 //Verificar si esta comprada la capsula 2 de js
 $capsula_comprada_php2 = "capsulapago5";
-$sql_comprada_php2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_secundaria c INNER JOIN detalle_capsulas_pago_secundaria d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_js2' AND d.id_curso = 3;");
+$sql_comprada_php2 = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_pago_universidad c INNER JOIN detalle_capsulas_pago_universidad d ON c.id_capsula_pago = d.id_permiso WHERE d.id_usuario = $id_user AND c.nombre = '$capsula_comprada_js2' AND d.id_curso = 3;");
 $existe_comprada_php2 = mysqli_num_rows($sql_comprada_php2);
 ?>
 

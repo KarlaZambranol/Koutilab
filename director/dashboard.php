@@ -1,9 +1,9 @@
 <?php
-session_start();
-$id_user = $_SESSION['id_director_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
-  header('location: ../acciones/cerrarsesion.php');
-}
+// session_start();
+// $id_user = $_SESSION['id_director_primaria'];
+// if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
+//   header('location: ../acciones/cerrarsesion.php');
+// }
 ?>
 <!DOCTYPE html>
 
@@ -32,11 +32,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
     <div id="profile">
       <div id="photo"><img src="img/img2.jpg" alt="" /></div>
       <?php
-      $direct = $_SESSION['user'];
-      $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
-      while ($consulta = mysqli_fetch_array($data2)) {
-        echo " <div id='name'><span>" . $consulta['NombreD'] . "</span></div>";
-      }
+      // $direct = $_SESSION['user'];
+      // $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
+      // while ($consulta = mysqli_fetch_array($data2)) {
+      //   echo " <div id='name'><span>" . $consulta['NombreD'] . "</span></div>";
+      // }
       ?>
     </div>
 

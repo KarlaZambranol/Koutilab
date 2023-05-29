@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 if (empty($_SESSION['active'])) {
 	header('location: ../../../../../../../../index.php');
 }

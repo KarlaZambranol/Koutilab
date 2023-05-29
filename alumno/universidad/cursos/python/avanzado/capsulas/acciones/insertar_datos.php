@@ -2,7 +2,7 @@
 
 include('../../../../../../../acciones/conexion.php');
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 
 //Datos permisos
 $permiso = $_POST['permiso'];
@@ -25,7 +25,7 @@ $totalPuntos = $resultadoEstadistica['total_puntos'];
 $totalAudivisual = $resultadoEstadistica['total_audivisual'];
 $totalPractico = $resultadoEstadistica['total_practico'];
 $totalTeorico = $resultadoEstadistica['total_teorico'];
-$insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_secundaria SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', audivisual = '$totalAudivisual', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user");
+$insertarEstadisticas = mysqli_query($conexion, "UPDATE estadisticas_universidad SET trofeos = '$totalTrofeos', progreso = '$totalProgreso', puntos = '$totalPuntos', audivisual = '$totalAudivisual', practico = '$totalPractico', teorico = '$totalTeorico' WHERE id_alumno = $id_user");
 
 
 //Datos cursos

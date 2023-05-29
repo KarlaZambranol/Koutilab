@@ -34,11 +34,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
     <div id="profile">
       <div id="photo"><img src="img/img2.jpg" alt=""></div>
       <?php
-      $direct = $_SESSION['user'];
-      $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
-      while ($consulta = mysqli_fetch_array($data2)) {
-        echo " <div id='name'><span>" . $consulta['NombreD'] . "</span></div>";
-      }
+      // $direct = $_SESSION['user'];
+      // $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
+      // while ($consulta = mysqli_fetch_array($data2)) {
+      //   echo " <div id='name'><span>" . $consulta['NombreD'] . "</span></div>";
+      // }
       ?>
     </div>
 
@@ -111,21 +111,21 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
   <form>
     <h2>Comentarios y segerencias</h2>
     <?php
-    $direct = $_SESSION['user'];
-    $data2 = mysqli_query($conexion, "SELECT * FROM Escuelas WHERE Director=(SELECT NombreD FROM Directores WHERE UsuarioD = '$direct');");
-    while ($consulta = mysqli_fetch_array($data2)) {
-      echo " <span class='details'>Escuela: </span>
-                                  <input type='text' disabled title='Escuela' name='Escuela' value='" . $consulta['NombreEsc'] . "'>";
-    }
+    // $direct = $_SESSION['user'];
+    // $data2 = mysqli_query($conexion, "SELECT * FROM Escuelas WHERE Director=(SELECT NombreD FROM Directores WHERE UsuarioD = '$direct');");
+    // while ($consulta = mysqli_fetch_array($data2)) {
+    //   echo " <span class='details'>Escuela: </span>
+    //                               <input type='text' disabled title='Escuela' name='Escuela' value='" . $consulta['NombreEsc'] . "'>";
+    // }
     ?>
     <?php
-    $direct = $_SESSION['user'];
-    $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
-    while ($consulta = mysqli_fetch_array($data2)) {
-      echo "
-                                  <span class='details'>Nombre: </span>
-                                  <input type='text' disabled title='Nombre' name='Nombre' value='" . $consulta['NombreD'] . "'>";
-    }
+    // $direct = $_SESSION['user'];
+    // $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
+    // while ($consulta = mysqli_fetch_array($data2)) {
+    //   echo "
+    //                               <span class='details'>Nombre: </span>
+    //                               <input type='text' disabled title='Nombre' name='Nombre' value='" . $consulta['NombreD'] . "'>";
+    // }
     ?>
     <input type="text" name="Asunto" placeholder="Asunto">
     <textarea name="mensaje" placeholder="Escriba aquí su mensaje"></textarea>

@@ -32,11 +32,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
     <div id="profile">
       <div id="photo"><img src="img/img2.jpg" alt="" /></div>
       <?php
-      $direct = $_SESSION['user'];
-      $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
-      while ($consulta = mysqli_fetch_array($data2)) {
-        echo " <div id='name'><span>" . $consulta['NombreD'] . "</span></div>";
-      }
+      // $direct = $_SESSION['user'];
+      // $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
+      // while ($consulta = mysqli_fetch_array($data2)) {
+      //   echo " <div id='name'><span>" . $consulta['NombreD'] . "</span></div>";
+      // }
       ?>
     </div>
 
@@ -119,30 +119,30 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
           <i class="far fa-edit"></i>
         </button>
         <?php
-        $direct = $_SESSION['user'];
-        $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
-        while ($consulta = mysqli_fetch_array($data2)) {
-          echo " <h3 class='titulo'>" . $consulta['NombreD'] . "</h3>";
-        }
+        // $direct = $_SESSION['user'];
+        // $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
+        // while ($consulta = mysqli_fetch_array($data2)) {
+        //   echo " <h3 class='titulo'>" . $consulta['NombreD'] . "</h3>";
+        // }
         ?>
       </div>
       <div class="perfil-usuario-footer">
         <?php
-        $direct = $_SESSION['user'];
-        $data3 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
-        while ($consulta3 = mysqli_fetch_array($data3)) {
-          echo "
-                <ul class='lista-datos'>
-                  <li><i class='icono fas fa-user-tie'></i><b>Usuario:</b> " . $consulta3['UsuarioD'] . "</li>
-                  <li><i class='fa fa-envelope'></i> <b>Correo:</b>  " . $consulta3['CorreoD'] . "</li>
-                  <li><i class='fas fa-user-lock'></i> <b>Contraseña:</b> <input class='form-control' disabled name='password' type='password' value='" . $consulta3['ContrasenaD'] . "' id='password'>
-                    
-                        <button class='btn btn-primary' type='button' onclick='mostrarContrasena()'><i class='fa fa-eye'></i></button>
-                    
-                  </li>
-                  <li><i class='fa fa-phone'></i> <b>Telefono:</b> " . $consulta3['NumeroD'] . "</li>
-                </ul>";
-        }
+        // $direct = $_SESSION['user'];
+        // $data3 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
+        // while ($consulta3 = mysqli_fetch_array($data3)) {
+        //   echo "
+        //         <ul class='lista-datos'>
+        //           <li><i class='icono fas fa-user-tie'></i><b>Usuario:</b> " . $consulta3['UsuarioD'] . "</li>
+        //           <li><i class='fa fa-envelope'></i> <b>Correo:</b>  " . $consulta3['CorreoD'] . "</li>
+        //           <li><i class='fas fa-user-lock'></i> <b>Contraseña:</b> <input class='form-control' disabled name='password' type='password' value='" . $consulta3['ContrasenaD'] . "' id='password'>
+
+        //                 <button class='btn btn-primary' type='button' onclick='mostrarContrasena()'><i class='fa fa-eye'></i></button>
+
+        //           </li>
+        //           <li><i class='fa fa-phone'></i> <b>Telefono:</b> " . $consulta3['NumeroD'] . "</li>
+        //         </ul>";
+        // }
         ?>
       </div>
     </div><br>

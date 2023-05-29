@@ -35,11 +35,11 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
         <div id="profile">
             <div id="photo"><img src="img/img2.jpg" alt=""></div>
             <?php
-            $direct = $_SESSION['user'];
-            $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
-            while ($consulta = mysqli_fetch_array($data2)) {
-                echo " <div id='name'><span>" . $consulta['NombreD'] . "</span></div>";
-            }
+            // $direct = $_SESSION['user'];
+            // $data2 = mysqli_query($conexion, "SELECT * FROM Directores WHERE UsuarioD = '$direct'");
+            // while ($consulta = mysqli_fetch_array($data2)) {
+            //     echo " <div id='name'><span>" . $consulta['NombreD'] . "</span></div>";
+            // }
             ?>
         </div>
 
@@ -114,36 +114,36 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_director_primaria'])) {
         <div class="perfil-usuario-body">
             <div class="perfil-usuario-bio">
                 <?php
-                $direct = $_SESSION['user'];
-                $data2 = mysqli_query($conexion, "SELECT * FROM Escuelas WHERE Director=(SELECT NombreD FROM Directores WHERE UsuarioD = '$direct');");
-                while ($consulta = mysqli_fetch_array($data2)) {
-                    echo " <h3 class='titulo'>" . $consulta['NombreEsc'] . "</h3>
-                    
-                    <button type='button' class='boton-avatar' id='btn-abrir-modalA'>
-                        <a href='../acciones/modificar-directores?id=" . $consulta['id_Escu'] . "'><i class='far fa-edit'></i></a>
-                    </button> ";
-                }
+                // $direct = $_SESSION['user'];
+                // $data2 = mysqli_query($conexion, "SELECT * FROM Escuelas WHERE Director=(SELECT NombreD FROM Directores WHERE UsuarioD = '$direct');");
+                // while ($consulta = mysqli_fetch_array($data2)) {
+                //     echo " <h3 class='titulo'>" . $consulta['NombreEsc'] . "</h3>
+
+                //     <button type='button' class='boton-avatar' id='btn-abrir-modalA'>
+                //         <a href='../acciones/modificar-directores?id=" . $consulta['id_Escu'] . "'><i class='far fa-edit'></i></a>
+                //     </button> ";
+                // }
                 ?>
 
             </div>
             <div class="perfil-usuario-footer">
                 <?php
-                $direct = $_SESSION['user'];
-                $data2 = mysqli_query($conexion, "SELECT * FROM Escuelas WHERE Director=(SELECT NombreD FROM Directores WHERE UsuarioD = '$direct');");
-                while ($consulta = mysqli_fetch_array($data2)) {
-                    echo "
-                    <ul class='lista-datos'>
-                      <li><i class='fa fa-institution'></i><b>CCT:</b> " . $consulta['CCT'] . "</li>
-                      <li><i class='fa fa-street-view'></i> <b>Director:</b>  " . $consulta['Director'] . "</li>
-                      <li><i class='fa fa-signal'></i> <b>Nivel Educativo:</b> " . $consulta['Nivel_Educativo'] . "</li>
-                    </ul>
-                    
-                    <ul class='lista-datos'>
-                      <li><i class='fa fa-group'></i><b>Numero de Alumnos:</b> " . $consulta['NumeroAlum'] . "</li>
-                      <li><i class='fa fa-users'></i> <b>Numero de Docentes:</b>  " . $consulta['NumeroProfes'] . "</li>
-                      <li><i class='fa fa-home'></i> <b>Direccion:</b> " . $consulta['Calle'] . "&nbsp;" . $consulta['N_Exterior'] . "&nbsp;" . $consulta['Colonia'] . "&nbsp;" . $consulta['Estado'] . "&nbsp;" . $consulta['CP'] . "</li>
-                    </ul>";
-                }
+                // $direct = $_SESSION['user'];
+                // $data2 = mysqli_query($conexion, "SELECT * FROM Escuelas WHERE Director=(SELECT NombreD FROM Directores WHERE UsuarioD = '$direct');");
+                // while ($consulta = mysqli_fetch_array($data2)) {
+                //     echo "
+                //     <ul class='lista-datos'>
+                //       <li><i class='fa fa-institution'></i><b>CCT:</b> " . $consulta['CCT'] . "</li>
+                //       <li><i class='fa fa-street-view'></i> <b>Director:</b>  " . $consulta['Director'] . "</li>
+                //       <li><i class='fa fa-signal'></i> <b>Nivel Educativo:</b> " . $consulta['Nivel_Educativo'] . "</li>
+                //     </ul>
+
+                //     <ul class='lista-datos'>
+                //       <li><i class='fa fa-group'></i><b>Numero de Alumnos:</b> " . $consulta['NumeroAlum'] . "</li>
+                //       <li><i class='fa fa-users'></i> <b>Numero de Docentes:</b>  " . $consulta['NumeroProfes'] . "</li>
+                //       <li><i class='fa fa-home'></i> <b>Direccion:</b> " . $consulta['Calle'] . "&nbsp;" . $consulta['N_Exterior'] . "&nbsp;" . $consulta['Colonia'] . "&nbsp;" . $consulta['Estado'] . "&nbsp;" . $consulta['CP'] . "</li>
+                //     </ul>";
+                // }
                 ?>
             </div>
         </div>

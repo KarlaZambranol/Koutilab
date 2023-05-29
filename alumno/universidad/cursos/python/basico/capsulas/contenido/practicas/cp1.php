@@ -1,13 +1,13 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_secundaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
+$id_user = $_SESSION['id_alumno_universidad'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_secundaria'];
+$id_user = $_SESSION['id_alumno_universidad'];
 $permiso = "capsula3";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_secundaria c INNER JOIN detalle_capsulas_secundaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
@@ -51,7 +51,7 @@ if (empty($existe) && $id_user != 1) {
                                                 <br> <br>
                                                 Ejemplos de como debe quedar:<br> <br>
                                                 <b>Jimena Ibarra</b><br>
-                                                voy en la secundaria solecitos<br>
+                                                voy en la universidad solecitos<br>
                                                 mi comida favorita es la pizza <br>
                                                 <br> <br>
                                                 <b>Lolo Perez</b><br>
