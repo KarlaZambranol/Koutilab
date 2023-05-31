@@ -24,57 +24,57 @@ if (isset($_POST['Mascota-Aerobot-01'])) {
 
 switch ($portada) {
     case 1:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-01.png' WHERE id_alumno = '$id_user'");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-01.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
     case 2:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-02.png' WHERE id_alumno = '$id_user'");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-02.png' WHERE id_alumno = '$id_user'");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
     case 3:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-03.png' WHERE id_alumno = $id_user");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-03.png' WHERE id_alumno = $id_user");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
     case 4:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-04.png' WHERE id_alumno = $id_user");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-04.png' WHERE id_alumno = $id_user");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
     case 5:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-05.png' WHERE id_alumno = $id_user");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-05.png' WHERE id_alumno = $id_user");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
     case 6:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-06.png' WHERE id_alumno = $id_user");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-06.png' WHERE id_alumno = $id_user");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
     case 7:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-07.png' WHERE id_alumno = $id_user");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-07.png' WHERE id_alumno = $id_user");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
     case 8:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-08.png' WHERE id_alumno = $id_user");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-08.png' WHERE id_alumno = $id_user");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
     case 9:
-        $cambio = mysqli_query($conexion, "UPDATE alumnos_primaria SET image = 'Mascota-Aerobot-09.png' WHERE id_alumno = $id_user");
+        $cambio = mysqli_query($conexion, "UPDATE alumnos_personal SET image = 'Mascota-Aerobot-09.png' WHERE id_alumno = $id_user");
         if ($cambio) {
-            header("Location: ../../primaria/perfil.php");
+            header("Location: ../../personal/perfil.php");
         }
         break;
 }

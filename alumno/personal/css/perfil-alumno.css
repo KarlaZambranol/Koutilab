@@ -24,25 +24,30 @@ body {
   overflow-x: hidden; /*Para evitar desplazarse a la derecha*/
 }
 
-body::-webkit-scrollbar, .latd::-webkit-scrollbar{
+body::-webkit-scrollbar,
+.latd::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
-body::-webkit-scrollbar:vertical, .latd::-webkit-scrollbar{
+body::-webkit-scrollbar:vertical,
+.latd::-webkit-scrollbar {
   width: 10px;
 }
 
 body::-webkit-scrollbar-button:increment,
-body::-webkit-scrollbar-button, .latd::-webkit-scrollbar-button:increment,
+body::-webkit-scrollbar-button,
+.latd::-webkit-scrollbar-button:increment,
 .latd::-webkit-scrollbar-button {
   display: none;
 }
 
-body::-webkit-scrollbar:horizontal, .latd::-webkit-scrollbar:horizontal{
+body::-webkit-scrollbar:horizontal,
+.latd::-webkit-scrollbar:horizontal {
   height: 10px;
 }
 
-body::-webkit-scrollbar-thumb, .latd::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb,
+.latd::-webkit-scrollbar-thumb {
   background: rgba(129, 179, 243);
   border-radius: 20px;
   border: 2px solid #f1f2f3;
@@ -64,7 +69,7 @@ body::-webkit-scrollbar-track {
 /*seccion de la foto de perfil*/
 .seccion-perfil-usuario .perfil-usuario-header {
   width: 100%;
-  display:flex;
+  display: flex;
   justify-content: center;
   margin-bottom: 1.25rem;
 }
@@ -72,7 +77,7 @@ body::-webkit-scrollbar-track {
 .seccion-perfil-usuario .perfil-usuario-portada {
   display: flex;
   position: relative;
-  width: 100%;  /*Modifica el tamaño de la portada*/
+  width: 100%; /*Modifica el tamaño de la portada*/
   height: 19rem;
   border-radius: 0 0 23px 25px;
   /*margin-left: -8px;
@@ -100,7 +105,7 @@ body::-webkit-scrollbar-track {
   margin-right: 4rem;
   background: transparent;
   box-shadow: 0 0 10px rgba(61, 172, 244);
-  width:40px;
+  width: 40px;
   height: 40px;
   line-height: 40px;
   text-align: center;
@@ -120,7 +125,9 @@ body::-webkit-scrollbar-track {
   box-shadow: 0 0 12px rgba(132, 196, 44, 0.6);
   position: absolute;
   bottom: 15px;
-  left: calc(10% - 59px); /*indicacion que cambia el posicionamiento del icono de perfil*/
+  left: calc(
+    10% - 59px
+  ); /*indicacion que cambia el posicionamiento del icono de perfil*/
   z-index: 2;
 }
 
@@ -151,8 +158,8 @@ body::-webkit-scrollbar-track {
 /*Modifica el btn "Cerrar sesión"*/
 .seccion-perfil-usuario .perfil-usuario-body .perfil-usuario-bio .boton-avatar {
   position: absolute;
-  right: -25rem;  /*posicionamiento del btn cerrar sesion*/
-  top:  15px;
+  right: -25rem; /*posicionamiento del btn cerrar sesion*/
+  top: 15px;
   border: 0px;
   width: 330px;
   height: 9px;
@@ -182,24 +189,23 @@ body::-webkit-scrollbar-track {
   width: 126px;
   position: relative;
   margin: auto;
-  
 }
 
 /*icono posicion del icono de la camara*/
 .perfil-usuario-header .upload .round {
-  position:absolute;
+  position: absolute;
   bottom: 0;
   right: -14px;
   background: white;
   box-shadow: 0 0 10px rgba(61, 172, 244);
-  width:40px;
+  width: 40px;
   height: 40px;
   line-height: 40px;
   text-align: center;
   border-radius: 75%;
   overflow: hidden;
 }
-.perfil-usuario-header .upload .round:hover{
+.perfil-usuario-header .upload .round:hover {
   border-radius: 75%;
   background: skyblue;
 }
@@ -220,7 +226,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 /*Da estilo al nombre de Usuario*/
-.titulo{
+.titulo {
   background-color: rgba(255, 255, 255, 0.836);
   border-radius: 15px;
   box-shadow: #82b2f3 0px 10px 5px;
@@ -228,12 +234,11 @@ input[type="file"]::-webkit-file-upload-button {
   padding: 5px;
 }
 
-
-/*Pestaña del usuario "Alumno primaria"*/
+/*Pestaña del usuario "Alumno personal"*/
 .seccion-perfil-usuario .perfil-usuario-body .titulo {
   align-items: center;
   width: 88%;
-  font-size: 1.30em;
+  font-size: 1.3em;
   margin-bottom: 0.4rem; /*Se modifca el tamño del recuadro*/
 }
 
@@ -242,10 +247,10 @@ input[type="file"]::-webkit-file-upload-button {
   font-size: 35px;
 }
 
-/*Contenedor del recuadro de alumno de primaria, incluye el btn cerrar Sesion*/
+/*Contenedor del recuadro de alumno de personal, incluye el btn cerrar Sesion*/
 .seccion-perfil-usuario .perfil-usuario-bio {
-  display:flex;
-  flex-wrap:unset;
+  display: flex;
+  flex-wrap: unset;
   padding: 0.8rem;
   /*
   box-shadow: 0 0 4px rgba(61, 172, 244, 0.6);
@@ -257,7 +262,7 @@ input[type="file"]::-webkit-file-upload-button {
   background: transparent;
 }
 .seccion-perfil-usuario .perfil-usuario-footer {
-  display:block;
+  display: block;
   flex-wrap: wrap;
   align-content: left;
   padding: 1.1rem 1rem;
@@ -299,21 +304,28 @@ input[type="file"]::-webkit-file-upload-button {
   }
 }
 .body {
-  display:flex;
+  display: flex;
   min-height: 56vh;
 }
 
 .lati {
   position: relative;
   width: 18rem;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   padding: 1.3rem 2rem;
   border-radius: 18px;
   margin-left: 12px;
   margin-right: 25px;
   height: 100%;
-  background: linear-gradient(25deg,#82b2f3,#bcb8a1,#85c32e,#95aec4,#bcc8a1);
+  background: linear-gradient(
+    25deg,
+    #82b2f3,
+    #bcb8a1,
+    #85c32e,
+    #95aec4,
+    #bcc8a1
+  );
   box-shadow: 0 0 9px #000;
   margin-top: 5px;
 }
@@ -348,7 +360,7 @@ input[type="file"]::-webkit-file-upload-button {
   overflow: hidden;
   transition: 0.12s;
 }
-.lati .dos1:hover{
+.lati .dos1:hover {
   border-radius: 5px;
   color: black;
   transition: all;
@@ -368,14 +380,14 @@ input[type="file"]::-webkit-file-upload-button {
   vertical-align: middle;
 }
 
-.adquirido{
+.adquirido {
   position: relative;
   width: 130rem; /*posicionamiento del listado de cursos*/
   /*display: flex;
   flex-wrap: wrap;*/
   padding: 1.3rem 1rem;
   box-shadow: 0 0 9px #000;
-  background: linear-gradient(65deg,#3faaf5,#fff,#85c32e,#bcc8a1,#73c4fc);
+  background: linear-gradient(65deg, #3faaf5, #fff, #85c32e, #bcc8a1, #73c4fc);
   border-radius: 25px;
   margin-top: 6px; /*Cambio de espaciado*/
   height: auto;
@@ -386,7 +398,7 @@ input[type="file"]::-webkit-file-upload-button {
   height: 100%;
 }
 
-.cursos-adq{
+.cursos-adq {
   display: flex;
   width: 100%;
 }
@@ -400,7 +412,7 @@ input[type="file"]::-webkit-file-upload-button {
   padding: 1.3rem 0.5rem;
   box-shadow: 0 0 9px #000;
   /*background: linear-gradient(90deg, rgba(61,172,244,.4) 19%, rgba(255,255,255,.6) 56%, rgba(132,196,44,.4) 88%);*/
-  background: linear-gradient(65deg,#3faaf5,#fff,#85c32e,#bcc8a1,#73c4fc);
+  background: linear-gradient(65deg, #3faaf5, #fff, #85c32e, #bcc8a1, #73c4fc);
   border-radius: 25px;
   margin-top: 8px; /*Cambio de espaciado*/
   height: auto;
@@ -408,12 +420,12 @@ input[type="file"]::-webkit-file-upload-button {
   height: 100%;
 }
 
-.latd .card{
+.latd .card {
   margin: -15rem;
   width: 12rem;
   display: flex;
-  height: 16rem;  /*Cambia el tamaño del recuadro del curso*/
-  border-radius: 35px;  /*Redondeo de la tarjeta*/
+  height: 16rem; /*Cambia el tamaño del recuadro del curso*/
+  border-radius: 35px; /*Redondeo de la tarjeta*/
   text-align: center;
   overflow: hidden;
   transition: 0.12s;
@@ -421,19 +433,19 @@ input[type="file"]::-webkit-file-upload-button {
   background-color: #fff;
   margin-right: 2px;
   margin-left: 10px;
-  margin-bottom: 20px;  /*Cambia el espaciado entre trajetas*/
+  margin-bottom: 20px; /*Cambia el espaciado entre trajetas*/
 }
 
-.latd .card:hover{
+.latd .card:hover {
   border-radius: 5px;
   color: black;
   transition: all;
 }
 .latd .card a {
-  text-decoration:dashed;
+  text-decoration: dashed;
 }
 
- input{
+input {
   border: none;
   outline: none;
   padding: 12px 16px;
@@ -446,27 +458,26 @@ input[type="file"]::-webkit-file-upload-button {
   align-content: center;
   display: flex;
 }
- input:hover{
+input:hover {
   background-color: #ffffff;
   color: #3dacf4;
 }
-.img{
+.img {
   width: 1.8rem;
   height: 1.8rem;
   margin-right: 2px;
 }
 
-.search-ctn{
-    display: flex;
-    align-items: center;
-    padding: 5rem;
-    border: 1px solid transparent;
-    border-radius: 5rem;
-    outline: none;
-    width: 12px;
-    margin-bottom: 20px;  /*Cambia el espaciado entre trajetas*/
+.search-ctn {
+  display: flex;
+  align-items: center;
+  padding: 5rem;
+  border: 1px solid transparent;
+  border-radius: 5rem;
+  outline: none;
+  width: 12px;
+  margin-bottom: 20px; /*Cambia el espaciado entre trajetas*/
 }
-
 
 .titlec {
   width: 100%;
@@ -474,19 +485,21 @@ input[type="file"]::-webkit-file-upload-button {
   padding: 8px;
   display: flex;
   justify-content: center;
-  margin-bottom: 1.52rem;  /*cambia el posicionamiento que contiene el espaciado de los recuadros del curso*/
+  margin-bottom: 1.52rem; /*cambia el posicionamiento que contiene el espaciado de los recuadros del curso*/
   margin-bottom: 0;
 }
-.titlec:hover{
+.titlec:hover {
   color: white;
 }
 
-.latd .card:hover, .latd .filterDiv:hover, .adquirido .filterDiv:hover{
+.latd .card:hover,
+.latd .filterDiv:hover,
+.adquirido .filterDiv:hover {
   transform: translateY(-10px);
   box-shadow: 0 5px 15px black;
 }
 
-.latd .card::before{
+.latd .card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -497,28 +510,28 @@ input[type="file"]::-webkit-file-upload-button {
   z-index: 1;
 }
 
-.latd .card .container
-{
+.latd .card .container {
   display: grid;
   grid-template-columns: repeat(1, 160px);
   grid-gap: 80px;
   margin: auto 0;
 }
 
-.latd .card .container .box{
+.latd .card .container .box {
   width: 100%;
   scale: 90%;
   padding-top: 15px;
 }
 
-.latd .card .container .box h2, 
-.filterDiv .container .box h2{
+.latd .card .container .box h2,
+.filterDiv .container .box h2 {
   display: block;
   text-align: center;
-  color:darkslategray; /*Para cambiar el color de los titulos de curso*/
+  color: darkslategray; /*Para cambiar el color de los titulos de curso*/
 }
 
-.latd .card .container .box .chart, .latd .filterDiv .container .box .chart{
+.latd .card .container .box .chart,
+.latd .filterDiv .container .box .chart {
   position: relative;
   width: 100%;
   height: 100%;
@@ -529,7 +542,7 @@ input[type="file"]::-webkit-file-upload-button {
   color: #000000;
 }
 
-.latd .card .container .box canvas{
+.latd .card .container .box canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -538,7 +551,8 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 @media (max-width: 750px) {
-  .card, .filterDiv {
+  .card,
+  .filterDiv {
     margin-top: 20px;
     width: 90%;
   }
@@ -852,7 +866,7 @@ input[type=file]::-webkit-file-upload-button{
   box-shadow: 0 0 12px rgba(132, 196, 44, 0.8);
 }
 
-.user-details1 .input-box1 input[type="text"]:hover{
+.user-details1 .input-box1 input[type="text"]:hover {
   cursor: text;
 }
 
@@ -871,11 +885,11 @@ input[type=file]::-webkit-file-upload-button{
   outline: none;
   border-radius: 35px;
 }
-.btn-filter-ctn{
+.btn-filter-ctn {
   width: 100%;
   text-align: center;
 }
-.filterDiv{
+.filterDiv {
   width: 18rem;
   display: flex;
   justify-content: center;
@@ -893,12 +907,12 @@ input[type=file]::-webkit-file-upload-button{
   display: none;
 }
 
-.adquirido .filterDiv{
+.adquirido .filterDiv {
   /*margin: -83rem;*/
   width: 12rem;
   display: flex;
-  height: 16rem;  /*Cambia el tamaño del recuadro del curso*/
-  border-radius: 35px;  /*Redondeo de la tarjeta*/
+  height: 16rem; /*Cambia el tamaño del recuadro del curso*/
+  border-radius: 35px; /*Redondeo de la tarjeta*/
   text-align: center;
   overflow: hidden;
   transition: 0.12s;
@@ -907,12 +921,11 @@ input[type=file]::-webkit-file-upload-button{
   margin: 10px; /*Cambia el espaciado entre trajetas*/
   margin-top: 0;
 }
-.filterDiv a, 
-.filterDiv a:visited{
+.filterDiv a,
+.filterDiv a:visited {
   text-decoration: none;
   color: black;
 }
-
 
 .show {
   display: block;
@@ -950,33 +963,33 @@ input[type=file]::-webkit-file-upload-button{
 }
 
 /*Da estilo a las tarjetas de cada curso de la galería*/
-#galeria{
+#galeria {
   height: 15rem;
   text-align: center;
 }
 
-.BusquedaRapida{
+.BusquedaRapida {
   display: contents;
 }
 
 /*Estilo de la barra de búsqueda*/
-.search-ctn{
+.search-ctn {
   width: 100%;
   padding: 15px;
   color: #3dacf4;
   margin-bottom: 0;
 }
 
-.search-ctn input{
+.search-ctn input {
   color: #3dacf4;
   width: 100%;
 }
 
-.search-ctn input:hover{
+.search-ctn input:hover {
   cursor: text;
 }
 
-.logout{
+.logout {
   width: 200px;
   font-size: 15px;
   font-weight: bold;
@@ -987,93 +1000,92 @@ input[type=file]::-webkit-file-upload-button{
   margin-top: 0px;
   padding: 5px;
   float: right;
-  
+
   margin-right: 60px;
 }
 
-.logout a{
+.logout a {
   text-decoration: none;
   color: red;
-  
 }
 
-.logout a:visited{
+.logout a:visited {
   color: red;
 }
 
-.upload-img{
+.upload-img {
   width: 100%;
   text-align: center;
 }
 
-.upload-img input[type="file"]{
+.upload-img input[type="file"] {
   color: #85c32e;
   background-color: white;
   border: 1px solid #85c32e;
   margin-top: 20%;
 }
 
-.upload-img input[type="file"]:hover{
+.upload-img input[type="file"]:hover {
   background-color: #85c32e;
   color: white;
 }
 
-.upload-img button{
+.upload-img button {
   padding: 10px;
   border-radius: 15px;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
-.upload-img button:hover{
+.upload-img button:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
 
-.all-ctn{
+.all-ctn {
   display: flex;
   width: 100%;
   margin-bottom: 15px;
 }
 
-.lati{
+.lati {
   width: 20%;
   height: 700px;
 }
 
-.adquirido{
+.adquirido {
   width: 50%;
   height: 700px;
 }
 
-.latd{
+.latd {
   width: 25%;
   height: 700px;
   overflow: auto;
 }
 
-.filterDiv{
+.filterDiv {
   margin-top: 10px;
 }
 
-.latd .filterDiv{
+.latd .filterDiv {
   margin: 15px;
 }
 
-.user-details1{
+.user-details1 {
   text-align: center;
   margin-top: 10px;
 }
 
-.user-details1 input:hover{
+.user-details1 input:hover {
   box-shadow: #82b2f3 0px 10px 5px;
 }
 
-.user-details1 input[type="submit"]{
+.user-details1 input[type="submit"] {
   margin-left: 40%;
   margin-top: 15px;
 }
 
-.user-details1 input[type="text"]{
+.user-details1 input[type="text"] {
   margin-left: 15%;
 }

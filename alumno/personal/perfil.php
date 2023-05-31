@@ -1,69 +1,69 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_primaria'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
+$id_user = $_SESSION['id_alumno_personal'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_personal'])) {
     header('location: ../../acciones/cerrarsesion.php');
 }
 
 include('../../acciones/conexion.php');
 
 //Estadisticas de todos los cursos del alumno
-$consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_primaria WHERE id_alumno = $id_user");
+$consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_personal WHERE id_alumno = $id_user");
 $resultadoEstadistica = mysqli_fetch_assoc($consultaEstadistica);
 
 //Estadisticas programacion web basica
-$query_programacion_web_basica = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 1");
+$query_programacion_web_basica = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 1");
 $data_programacion_web_basica = mysqli_fetch_assoc($query_programacion_web_basica);
 
 //Estadisticas programacion web intermedio
-$query_programacion_web_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 2");
+$query_programacion_web_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 2");
 $data_programacion_web_intermedio = mysqli_fetch_assoc($query_programacion_web_intermedio);
 
 //Estadisticas programacion web avanzado
-$query_programacion_web_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 3");
+$query_programacion_web_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 3");
 $data_programacion_web_avanzado = mysqli_fetch_assoc($query_programacion_web_avanzado);
 
 //Estadisticas python basico
-$query_python_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 4");
+$query_python_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 4");
 $data_python_basico = mysqli_fetch_assoc($query_python_basico);
 
 //Estadisticas python intermedio
-$query_python_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 5");
+$query_python_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 5");
 $data_python_intermedio = mysqli_fetch_assoc($query_python_intermedio);
 
 //Estadisticas python avanzado
-$query_python_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 6");
+$query_python_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 6");
 $data_python_avanzado = mysqli_fetch_assoc($query_python_avanzado);
 
 //Estadisticas arduino basico
-$query_arduino_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 7");
+$query_arduino_basico = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 7");
 $data_arduino_basico = mysqli_fetch_assoc($query_arduino_basico);
 
 //Estadisticas arduino intermedio
-$query_arduino_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 8");
+$query_arduino_intermedio = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 8");
 $data_arduino_intermedio = mysqli_fetch_assoc($query_arduino_intermedio);
 
 //Estadisticas arduino avanzado
-$query_arduino_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_primaria WHERE id_alumno = $id_user AND id_curso = 9");
+$query_arduino_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_personal WHERE id_alumno = $id_user AND id_curso = 9");
 $data_arduino_avanzado = mysqli_fetch_assoc($query_arduino_avanzado);
 
 //Información solo de alumno
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_primaria a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_personal a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
 
 //Información para alumno - escuela
-$user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM alumnos_primaria a
+$user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM alumnos_personal a
 JOIN escuelas e 
 ON a.id_escuela = e.id_escuela
 WHERE a.id_alumno = $id_user"));
 
 //Información para alumno - docente
-$user_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT d.* FROM alumnos_primaria a
-JOIN docentes_primaria d 
+$user_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT d.* FROM alumnos_personal a
+JOIN docentes_personal d 
 ON a.id_docente = d.id_docente
 WHERE a.id_alumno = $id_user"));
 
 //Conteo de cursos
-$sql = "SELECT COUNT(*) id_alumno FROM acceso_cursos_primaria
+$sql = "SELECT COUNT(*) id_alumno FROM acceso_cursos_personal
 WHERE id_alumno = $id_user";
 $result = mysqli_query($conexion, $sql);
 $fila = mysqli_fetch_assoc($result);
@@ -150,7 +150,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
                 </button>
                 <?php
-                $data2 = mysqli_query($conexion, "SELECT * FROM alumnos_primaria WHERE id_alumno = '$id_user'");
+                $data2 = mysqli_query($conexion, "SELECT * FROM alumnos_personal WHERE id_alumno = '$id_user'");
                 while ($consulta = mysqli_fetch_array($data2)) {
                     echo " <h3 class='titulo'>" . $consulta['nombre'] . "</h3>";
                 }
@@ -161,9 +161,9 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
     <div class="body">
         <div class="all-ctn">
-        <div class="lati">
-            <!--listado de informacion-->
-            <!--<div class="dos">
+            <div class="lati">
+                <!--listado de informacion-->
+                <!--<div class="dos">
                 <ul class="lista-datos">
                     <li><i class="fas fa-school"></i> <b>&nbsp;Escuela:</b> <?php echo $user_escuela["nombre_escuela"] ?></li>
                     <li><i class="fas fa-graduation-cap"></i> <b>&nbsp;Nivel educativo:</b> <?php echo $user["nivel_educativo"] ?></li>
@@ -172,17 +172,17 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 </ul>
             </div>-->
 
-            <!--Apartado de estadísticas-->
-            <div class="dos1" style="margin-top: 20px;">
-                <ul class="lista-datos">
-                    <div class="val-box">
-                        <canvas id="myChart1" style="margin-left: 5%;"></canvas>
-                    </div>
-                </ul>
-            </div>
+                <!--Apartado de estadísticas-->
+                <div class="dos1" style="margin-top: 20px;">
+                    <ul class="lista-datos">
+                        <div class="val-box">
+                            <canvas id="myChart1" style="margin-left: 5%;"></canvas>
+                        </div>
+                    </ul>
+                </div>
 
-            <!--Apartado de trofeos-->
-            <!--<div class="dos1">
+                <!--Apartado de trofeos-->
+                <!--<div class="dos1">
                 <ul class="lista-datos">
                     <li><i class="fas fa-award"></i> &nbsp;<b>Trofeos:</b> <?php echo $resultadoEstadistica["trofeos"] ?> de <?php echo $totalTrofeos ?> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i> <i class="fas fa-trophy-alt"></i></li><br>
                     <li><i class='fas fa-chart-line'></i></i> &nbsp;<b>Puntaje:</b> <?php echo $resultadoEstadistica["puntos"] ?> de <?php echo $totalPuntaje ?> </li><br>
@@ -191,115 +191,118 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                 </ul>
             </div>-->
 
-            <!--Apartado de contraseña-->
-            <div class="dos1" style="margin-top: 30px; margin-bottom: 30px;">
-                <ul class="lista-datos">
-                    <li><b>Cambiar contraseña:</b></li>
-                    <li>
-                        <form enctype="multipart/form-data" action="" method="post">
-                            <div class="user-details1">
-                                <div class="input-box1" style="width: auto; scale: 85%; margin-top:8px; margin-left: -45px;">
-                                    <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
-                                    <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn" style="width: 80px; font-size: 15px; text-align: center;">
+                <!--Apartado de contraseña-->
+                <div class="dos1" style="margin-top: 30px; margin-bottom: 30px;">
+                    <ul class="lista-datos">
+                        <li><b>Cambiar contraseña:</b></li>
+                        <li>
+                            <form enctype="multipart/form-data" action="" method="post">
+                                <div class="user-details1">
+                                    <div class="input-box1" style="width: auto; scale: 85%; margin-top:8px; margin-left: -45px;">
+                                        <input type="text" name="contrasena" value="" placeholder="Nueva contraseña">
+                                        <input type="submit" name="enviarcontrasena" value="Actualizar" class="btn" style="width: 80px; font-size: 15px; text-align: center;">
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
 
-        </div>
-        <div class="adquirido">
-            <div class="titlec"><h2>CURSOS ADQUIRIDOS</h2></div> <br>
-            <div class="cursos-adq">
-            <div class="filterDiv"> <!--Se añaden nuevas clases necesarias para la filtración-->
-                <a href="rutas/ruta-pw-b.php">
-                    <div class="container">
-                        <div class="box">
-                            <!--<div class="chart" style="width: 100px;" data-percent="<?php if (isset($data_programacion_web_basica)) echo $data_programacion_web_basica['progreso']; ?>" data-scale-color="#ffb400">
+            </div>
+            <div class="adquirido">
+                <div class="titlec">
+                    <h2>CURSOS ADQUIRIDOS</h2>
+                </div> <br>
+                <div class="cursos-adq">
+                    <div class="filterDiv"> <!--Se añaden nuevas clases necesarias para la filtración-->
+                        <a href="rutas/ruta-pw-b.php">
+                            <div class="container">
+                                <div class="box">
+                                    <!--<div class="chart" style="width: 100px;" data-percent="<?php if (isset($data_programacion_web_basica)) echo $data_programacion_web_basica['progreso']; ?>" data-scale-color="#ffb400">
                                 <?php if (isset($data_programacion_web_basica)) echo $data_programacion_web_basica['progreso']; ?>%
                             </div>-->
-                            <h2>Diseño web básico</h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="filterDiv">
-                <a href="rutas/ruta-pw-i.php">
-                    <div class="container">
-                        <div class="box">
-                            <!--<div class="chart" data-percent="<?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>" data-scale-color="#ffb400">
-                                <?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>%
-                            </div>-->
-                            <h2>Diseño web intermedio</h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="filterDiv">
-                <a href="rutas/ruta-pw-a.php">
-                    <div class="container">
-                        <div class="box">
-                            <!--<div class="chart" data-percent="<?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>" data-scale-color="#ffb400">
-                                <?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>%
-                            </div>-->
-                            <h2>Diseño web avanzado</h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            </div>
-        </div>
-        <div class="latd">
-            <div class="titlec">
-                <h2>GALERÍA DE CURSOS</h2><!--Se modifico el titulo del contenedor-->
-            </div>
-            <!--Filtrando por categorías predefinidas-->
-            <div id="btnFilterContainer" class="btn-filter-ctn">
-                <button class="btn active" onclick="filterSelection('todos')"> Todos</button>
-                <button class="btn" onclick="filterSelection('programacion')">Programación</button>
-                <button class="btn" onclick="filterSelection('Arduino')">Arduino</button>
-                <button class="btn" onclick="filterSelection('basico')">Básico</button>
-                <button class="btn" onclick="filterSelection('intermedio')">Intermedio</button>
-                <button class="btn" onclick="filterSelection('avanzado')">Avanzado</button>
-            </div>
-            <!--Implementando buscador-->
-            <div class="search-ctn">
-                <span><img class="img" src="img/lupa.png" alt="lupa" width="25px"></span>
-                <input id="FiltrarContenido" type="text" placeholder="Nombre de curso..." aria-label="Curso">
-            </div>
-            <div class="BusquedaRapida"> <!--Para implementar la búsqueda dinámica-->
-                <?php
-                $consulta = "SELECT * FROM cursos_primaria";
-                $resultado = mysqli_query($conexion, $consulta);
-                $contador = 0;
-
-                while ($curso = mysqli_fetch_assoc($resultado)) { //Agregando cada curso de la BD
-                    $contador++; ?>
-                    <div class="filterDiv programacion {{<?php echo $curso["curso"] ?>}}" id="galeria">
-                        <a href="#">
-                            <div class="container" style="color: darkslategray;">
-                                <div class="box">
-                                    <h2><?php echo $curso["curso"] ?></h2>
-                                    <br>
-                                    <img src="img/basePortada.jpeg" alt="ilustración curso" width="100px">
-                                    <p>Aquí va la descripción de cada curso</p>
+                                    <h2>Diseño web básico</h2>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                <?php } ?>
+                    <div class="filterDiv">
+                        <a href="rutas/ruta-pw-i.php">
+                            <div class="container">
+                                <div class="box">
+                                    <!--<div class="chart" data-percent="<?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_programacion_web_intermedio)) echo $data_programacion_web_intermedio['progreso']; ?>%
+                            </div>-->
+                                    <h2>Diseño web intermedio</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
+                    <div class="filterDiv">
+                        <a href="rutas/ruta-pw-a.php">
+                            <div class="container">
+                                <div class="box">
+                                    <!--<div class="chart" data-percent="<?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>%
+                            </div>-->
+                                    <h2>Diseño web avanzado</h2>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="latd">
+                <div class="titlec">
+                    <h2>GALERÍA DE CURSOS</h2><!--Se modifico el titulo del contenedor-->
+                </div>
+                <!--Filtrando por categorías predefinidas-->
+                <div id="btnFilterContainer" class="btn-filter-ctn">
+                    <button class="btn active" onclick="filterSelection('todos')"> Todos</button>
+                    <button class="btn" onclick="filterSelection('programacion')">Programación</button>
+                    <button class="btn" onclick="filterSelection('Arduino')">Arduino</button>
+                    <button class="btn" onclick="filterSelection('basico')">Básico</button>
+                    <button class="btn" onclick="filterSelection('intermedio')">Intermedio</button>
+                    <button class="btn" onclick="filterSelection('avanzado')">Avanzado</button>
+                </div>
+                <!--Implementando buscador-->
+                <div class="search-ctn">
+                    <span><img class="img" src="img/lupa.png" alt="lupa" width="25px"></span>
+                    <input id="FiltrarContenido" type="text" placeholder="Nombre de curso..." aria-label="Curso">
+                </div>
+                <div class="BusquedaRapida"> <!--Para implementar la búsqueda dinámica-->
+                    <?php
+                    $consulta = "SELECT * FROM cursos_personal";
+                    $resultado = mysqli_query($conexion, $consulta);
+                    $contador = 0;
+
+                    while ($curso = mysqli_fetch_assoc($resultado)) { //Agregando cada curso de la BD
+                        $contador++; ?>
+                        <div class="filterDiv programacion {{<?php echo $curso["curso"] ?>}}" id="galeria">
+                            <a href="#">
+                                <div class="container" style="color: darkslategray;">
+                                    <div class="box">
+                                        <h2><?php echo $curso["curso"] ?></h2>
+                                        <br>
+                                        <img src="img/basePortada.jpeg" alt="ilustración curso" width="100px">
+                                        <p>Aquí va la descripción de cada curso</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    <?php } ?>
+
+                </div>
             </div>
         </div>
-        </div>
-        
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script> //Inicio de proceso de filtración
+    <script>
+        //Inicio de proceso de filtración
         filterSelection("todos") //Cuando se elije ver todos
 
         function filterSelection(c) { //Cuando se filtra por categorías, paso de parámetro
@@ -628,7 +631,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         $tmpName = $_FILES["image"]["tmp_name"]; //Nombre temporal
 
         // Validación de la imagen
-        $validImageExtension = ['jpg', 'jpeg', 'png','avif','webp']; //Extensiones válidas
+        $validImageExtension = ['jpg', 'jpeg', 'png', 'avif', 'webp']; //Extensiones válidas
         $imageExtension = explode('.', $imageName); //array - nombre de imagen
         $imageExtension = strtolower(end($imageExtension)); //conversión a minúsculas para validación
         if (!in_array($imageExtension, $validImageExtension)) {
@@ -669,7 +672,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
         } else { //Si se cumplen las condiciones
             $newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generando nuevo nombre de imagen
             $newImageName .= '.' . $imageExtension; //agregando extensión
-            $query = "UPDATE alumnos_primaria SET image = '$newImageName' WHERE id_alumno = $id"; //Actualizando imagen en BD
+            $query = "UPDATE alumnos_personal SET image = '$newImageName' WHERE id_alumno = $id"; //Actualizando imagen en BD
             mysqli_query($conexion, $query); //Ejecutando
             move_uploaded_file($tmpName, 'acciones/img/' . $newImageName); //añadiendo archivo al direcctorio indicado
             echo
@@ -707,10 +710,10 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
 
     <?php
     if (isset($_POST['enviarcontrasena'])) {
-        $idalumno = $_SESSION['id_alumno_primaria'];
+        $idalumno = $_SESSION['id_alumno_personal'];
         $contrasena = md5($_POST['contrasena']);
 
-        $sql_update = mysqli_query($conexion, "UPDATE alumnos_primaria SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
+        $sql_update = mysqli_query($conexion, "UPDATE alumnos_personal SET contrasena = '$contrasena' WHERE id_alumno = '$idalumno'");
 
         if ($sql_update) {
             echo
