@@ -126,7 +126,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd18.php?validar=' + 'incorrecto' + '&permiso=' + 18 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd18.php?validar=' + 'correcto' + '&permiso=' + 18 + '&id_curso=' + 1 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {

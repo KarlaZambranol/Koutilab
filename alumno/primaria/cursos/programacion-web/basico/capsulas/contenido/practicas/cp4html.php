@@ -128,7 +128,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd12.php?validar=' + 'incorrecto' + '&permiso=' + 12 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd12.php?validar=' + 'correcto' + '&permiso=' + 12 + '&id_curso=' + 1 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {

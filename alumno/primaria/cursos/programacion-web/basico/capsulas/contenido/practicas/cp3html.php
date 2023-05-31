@@ -132,7 +132,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'incorrecto' + '&permiso=' + 9 + '&id_curso=' + 1 + '&practico=' + 10;
+                            window.location.href = '../../acciones/insertar_pd9.php?validar=' + 'correcto' + '&permiso=' + 9 + '&id_curso=' + 1 + '&practico=' + 10;
                         }
                     });
                 } else if (puntos == 6) {
