@@ -48,19 +48,7 @@ $query_arduino_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_pe
 $data_arduino_avanzado = mysqli_fetch_assoc($query_arduino_avanzado);
 
 //Información solo de alumno
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_personal a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
-
-//Información para alumno - escuela
-$user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM alumnos_personal a
-JOIN escuelas e 
-ON a.id_escuela = e.id_escuela
-WHERE a.id_alumno = $id_user"));
-
-//Información para alumno - docente
-$user_docente = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT d.* FROM alumnos_personal a
-JOIN docentes_personal d 
-ON a.id_docente = d.id_docente
-WHERE a.id_alumno = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_personal a WHERE id_alumno = $id_user"));
 
 //Conteo de cursos
 $sql = "SELECT COUNT(*) id_alumno FROM acceso_cursos_personal
@@ -162,15 +150,6 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
     <div class="body">
         <div class="all-ctn">
             <div class="lati">
-                <!--listado de informacion-->
-                <!--<div class="dos">
-                <ul class="lista-datos">
-                    <li><i class="fas fa-school"></i> <b>&nbsp;Escuela:</b> <?php echo $user_escuela["nombre_escuela"] ?></li>
-                    <li><i class="fas fa-graduation-cap"></i> <b>&nbsp;Nivel educativo:</b> <?php echo $user["nivel_educativo"] ?></li>
-                    <li><i class="fas fa-fingerprint"></i> <b>&nbsp;&nbsp;CCT:</b> <?php echo $user_escuela["cct"] ?></li>
-                    <li><i class="fas fa-user-tie"></i> <b>&nbsp; Profesor:</b> <?php echo $user_docente["nombre"] ?></li>
-                </ul>
-            </div>-->
 
                 <!--Apartado de estadísticas-->
                 <div class="dos1" style="margin-top: 20px;">
