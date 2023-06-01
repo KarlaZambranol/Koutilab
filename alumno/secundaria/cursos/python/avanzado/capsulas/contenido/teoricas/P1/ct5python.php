@@ -97,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P1/T5/60.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd20.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd20.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1> ¿Què linea de codigo se ocupa para cerrar el archivo? </h1>
                                     <div>

@@ -86,7 +86,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../img/CT555.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd8.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd8.php">
                                     <h2>Para poder avanzar, completa la siguiente tarea:.</h2>
                                     <h1>Resuelve algún ejercicio anterior</h1>
                                     <input type="hidden" name="permiso" value="8">

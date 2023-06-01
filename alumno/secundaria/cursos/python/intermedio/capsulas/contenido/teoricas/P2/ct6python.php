@@ -97,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../../img/P2/T6/137.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd45.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd45.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1> ¿Qué son las excepciones?</h1>
                                     <div>

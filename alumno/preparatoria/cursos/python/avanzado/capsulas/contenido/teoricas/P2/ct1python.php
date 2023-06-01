@@ -97,7 +97,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P2/T1/95.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd27.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../../acciones/insertar_pd27.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
                                     <h1>¿Què metodo es el correcto para eliminar los strings vacios?</h1>
                                     <div>
