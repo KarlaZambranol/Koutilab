@@ -6,13 +6,36 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 }
 include "../../../../../../../../acciones/conexion.php";
 $id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula9";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+$permiso = "capsula3";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
 }
+//Verificar si ya se tiene permiso y no dar puntos de más
+//Verificar si permiso_intento es correcto
+$permiso_intento = 28;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$result_sql_permisos = mysqli_num_rows($sql_permisos);
+//Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
+//Contar total de intentos
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
+if (isset($resultadoIntentos['intentos'])) {
+    $totalIntentos = $resultadoIntentos['intentos'];
+    if ($totalIntentos == 2 && $result_sql_permisos == 0) {
+        $puntosGanados = 8;
+    } else if ($totalIntentos == 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 6;
+    } else if ($totalIntentos > 3 && $result_sql_permisos == 0) {
+        $puntosGanados = 0;
+    } else {
+        $puntosGanados = 0;
+    }
+} else {
+    $puntosGanados = 10;
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,97 +55,166 @@ if (empty($existe) && $id_user != 1) {
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <div class="new-g" style="text-align: center;">Cápsula práctica 3</div><br>
             <div class="board">
                 <table width="100%">
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Imagen Muestra</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="nombre">
-                                <p>Instrucciones: 1. haga 1 lista, que contenga el nombre de 5 compañeros
-                                    de la escuela, esta lista debe ser no ordenada.
-                                    <br>
-                                    Ejemplos de como debe quedar:<br>
-                                <ul style="margin-left: 40px;">
-                                    <li>Juan</li>
-                                    <li>Diego</li>
-                                    <li>Ana</li>
-                                    <li>Rosa</li>
-                                    <li>Maria</li>
-                                </ul>
-                                <br>
-                                2. haga 1 lista, que contenga el nombre de 5 sus 5 juguetes favoritos,
-                                Estos juguetes deben estar ordenados, es claramente subjetivo
-                                y no afecta el orden al resultado.
-                                <br>
-                                Ejemplos de como debe quedar:<br>
-                                <ol style="margin-left: 40px;">
-                                    <li>Carrito</li>
-                                    <li>Muñeca</li>
-                                    <li>Lego</li>
-                                    <li>Patines</i>
-                                    <li>Pelota</li>
-                                </ol>
+                                <p> Escribe un comentario en esta línea que describa el propósito del siguiente código. area = (base * altura) / 2
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../vid/CV3.mp4" type="video/mp4" />
-                                </video>
+                                <img src="../../img/code3.png" ">
+                                </img>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-
             </div>
             <div class="">
                 <h3>EDITOR DE CÓDIGO</h3>
-                <textarea onkeyup="actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
-                <iframe class="editor" id="editor" srcdoc=" "></iframe>
+                <!--
+                <textarea onkeyup=" actualizar()" class="cd" id="cd" placeholder="Escribe el código aquí"></textarea>
+                                <iframe class="editor" id="editor" srcdoc=" "></iframe> -->
+                                <button type="button" class="btn-grd" onclick="copyToClipBoard()" style="width: 5%; padding: 5px; margin: -30px 60px -20px 1050px; scale: 80%;"><i class="fas fa-paste fa-2x"></i></button>
+
+                                <div class="editor-container">
+                                    <div class="cd" id="editor"></div>
+                                </div>
             </div>
-            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;" disabled>Evaluar</button></a>
+            <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>
+    <script src="../../js/codePy.js"></script>
+    <script src="../../js/fund.js"></script>
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         function miFunc() {
-            var frame = document.getElementById("editor").contentWindow.document;
-            var ulist = frame.querySelector("ul").querySelectorAll("li").length;
-            var olist = frame.querySelector("ol").querySelectorAll("li").length;
-            if (ulist == 5 && olist == 5) {
+
+            let ta = document.getElementById('editor').innerText
+            // evaluacion del string
+            let esCorrecto = ta == '1\n2\n3\n4\n5\ndef es_par(numero):\n    if numero % 2 == 0:\n        return True\n    else:\n        return False';
+
+            if (!esCorrecto) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+
                 Swal.fire({
-                    title: '¡Bien hecho!',
-                    text: '¡Puntuación guardada con éxito!',
-                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                    imageHeight: 350,
-                    backdrop: `
-                    rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo-estrellas.jpeg")
-                    `,
-                    confirmButtonColor: '#a14cd9',
-                    confirmButtonText: 'Aceptar',
-                }).then((result) => {
-                    window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'correcto' + '&permiso=' + 10 + '&id_curso=' + 4 + '&practico=' + 10;
-                });
-            } else {
-                Swal.fire({
-                    icon: 'info',
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../img/signo.gif",
+                    imageHeight: 350,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = '../../acciones/insertar_pd10.php?validar=' + 'incorrecto' + '&permiso=' + 10 + '&id_curso=' + 4 + '&practico=' + 10;
+                        window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
                     }
                 });
+            } else {
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Correcto.play();
+
+                //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
+                if (puntos == 0) {
+                    //resultado();
+                    Swal.fire({
+                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
+                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
+                        }
+                    });
+                } else if (puntos == 6) {
+                    Swal.fire({
+                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
+                        }
+                    });
+                } else if (puntos == 8) {
+                    Swal.fire({
+                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
+                        }
+                    });
+                } else if (puntos == 10) {
+                    Swal.fire({
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos prácticos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '../../acciones/insertar_pd4.php?validar=' + 'incorrecto' + '&permiso=' + 4 + '&id_curso=' + 6 + '&practico=' + 10;
+                        }
+                    });
+                }
             }
         }
     </script>
-    <script src="../../js/fund.js"></script>
+
+    <script>
+        function copyToClipBoard() {
+            // Crea un input para poder copiar el texto dentro       
+            let copyText = document.getElementById('editor').innerText
+            const textArea = document.createElement('textarea');
+            textArea.textContent = copyText;
+            document.body.append(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            // Delete created Element       
+            textArea.remove()
+        }
+    </script>
     <script>
         function disableIE() {
             if (document.all) {

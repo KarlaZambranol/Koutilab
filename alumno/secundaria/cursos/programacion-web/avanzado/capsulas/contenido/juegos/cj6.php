@@ -32,7 +32,7 @@ if (empty($existe) && $id_user != 1) {
 <body>
   <div class="body">
     <div class="container">
-      <a href="../../../../../../rutas/ruta-pw-a.php"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
+      <a href="#" onclick="history.back(); return false;"><button style="float: left; position: relative" class="btn-b" id="btn-cerrar-modalV">
           <i class="fas fa-reply"></i></button></a><br /><br />
       <div class="new-g" style="text-align: center">Memorama</div>
       <br />
@@ -57,7 +57,7 @@ if (empty($existe) && $id_user != 1) {
           --h: calc(70vh / 4);
         }
 
-        <<<<<<< HEAD < !-- Tiempo --><div class="timer"><b style="margin-top: 10px;">Tiempo: <br><p id="tiempo"></p></b></div>< !-- Alerta --><div id="mensaje"></div>=======* {
+        <<<< HEAD < !-- Tiempo --><div class="timer"><b style="margin-top: 10px;">Tiempo: <br><p id="tiempo"></p></b></div>< !-- Alerta --><div id="mensaje"></div>=======* {
           transition: all 0.5s;
         }
 
@@ -143,6 +143,12 @@ if (empty($existe) && $id_user != 1) {
   <!-- JS -->
   <!-- parte lógica -->
   <script>
+    //se esta llamando los sonidos de la carpeta "sonidos"
+    var Correcto = document.createElement("audio");
+    Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+    var Incorrecto = document.createElement("audio");
+    Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
     let iconos = [];
     let selecciones = [];
     let tiempo = 60000;
@@ -254,6 +260,8 @@ if (empty($existe) && $id_user != 1) {
           }
           cronometro.innerHTML = sg;
           if (sg == 0) {
+            //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+            Incorrecto.play();
             Swal.fire({
               title: "Perdiste",
               text: "se te acabo el tiempo, Puntos" + puntos,
@@ -304,6 +312,8 @@ if (empty($existe) && $id_user != 1) {
             var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 19 + "&id_curso=" + 3; //cancatenation
             xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Correcto.play();
                 Swal.fire({
                   title: '¡Bien hecho!',
                   text: '¡Puntuación guardada con éxito!',

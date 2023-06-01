@@ -2,12 +2,13 @@
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Parametros",
+        "correctAnswer": "filter()",
         "incorrectAnswers": [
-            "No tienen componentes",
-            "Variables"
+            "split()",
+            "remove()",
+            "clear()"
         ],
-        "question": "¿Las funciones que componente tienen?",
+        "question": "¿Cuál es la función en Python que se utiliza para eliminar los strings vacíos de una lista?",
         "tags": [
             "language"
         ],
@@ -19,12 +20,13 @@
     {
         "category": "CE1",
         "id": "2",
-        "correctAnswer": "Para contar con mas informacion dentro de la funcion",
+        "correctAnswer": "Asignación simultánea.",
         "incorrectAnswers": [
-            "Para que sea facil de entender una funcion",
-            "No tengo idea"
+            "Asignación de variables.",
+            "Asignación múltiple.",
+            "Asignación en línea."
         ],
-        "question": "¿Para que nos sirve un parametro?",
+        "question": "¿Cómo se llama la técnica en Python que permite asignar múltiples valores a múltiples variables en una sola línea de código?",
         "tags": [
             "language"
         ],
@@ -36,12 +38,13 @@
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "Verdadero",
+        "correctAnswer": "Asignando el valor a una variable y luego asignando esa variable a las demás variables.",
         "incorrectAnswers": [
-            "No recuerdo",
-            "Falso"
+            "Utilizando la función same_value().",
+            "Utilizando la función assign_value().",
+            "Es imposible asignar un mismo valor a múltiples variables en Python."
         ],
-        "question": "Los parametros son como los ingredientes que necesitas para hacer un pastel.",
+        "question": "¿Cuál es la forma correcta de asignar un mismo valor a múltiples variables en Python?",
         "tags": [
             "language"
         ],
@@ -53,13 +56,13 @@
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "especificos",
+        "correctAnswer": "list1, list2, list3 = [1, 2], [3, 4], [5, 6]",
         "incorrectAnswers": [
-            "dificiles",
-            "adaptables",
-            "adicionales"
+            "list1 = [1, 2], list2 = [3, 4], list3 = [5, 6]",
+            "list1 = [1, 2], list2 = [3, 4], [5, 6]",
+            "list1, list2, list3 = [1, 2], [3, 4], 5, 6"
         ],
-        "question": "Los parametros son ______________ para cada funcion.",
+        "question": "¿Cuál es la forma correcta de asignar valores a múltiples listas en Python?",
         "tags": [
             "language"
         ],
@@ -71,13 +74,103 @@
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "2",
+        "correctAnswer": "int()",
         "incorrectAnswers": [
-            "5",
-            "1",
-            "3"
+            "str()",
+            "bool()",
+            "float()"
         ],
-        "question": "Esta funcion def sumar(a,b) ¿Cuantos parametros tiene?",
+        "question": "¿Cuál es la función en Python para convertir un valor a un entero?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Utilizando el método 'set()' con la lista como argumento.",
+        "incorrectAnswers": [
+            "Utilizando el método 'to_set()' de la lista.",
+            "Utilizando el método 'as_set()' de la lista.",
+            "Utilizando el método 'convert_set()' con la lista como argumento."
+        ],
+        "question": "¿Cómo se puede convertir una lista en un conjunto (set) en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "lista[0][1]",
+        "incorrectAnswers": [
+            "lista[1]",
+            "lista[2][1]",
+            "lista[1][0]"
+        ],
+        "question": "¿Cómo se accede al segundo elemento de una lista anidada en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "Las características y acciones asociadas a un objeto en Python.",
+        "incorrectAnswers": [
+            "Los nombres de las variables que almacenan datos en Python.",
+            "Una función que devuelve un valor en Python.",
+            "Los elementos de una lista en Python."
+        ],
+        "question": "¿Qué son los atributos y métodos en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Funciones especiales que agregan nuevas características a otras funciones existentes.",
+        "incorrectAnswers": [
+            "Funciones que decoran el código con comentarios adicionales para hacerlo más legible.",
+            "Archivos que contienen estilos de diseño predefinidos para una aplicación.",
+            "Clases que permiten crear múltiples instancias de objetos similares."
+        ],
+        "question": "¿Qué son los decoradores en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Clases que se utilizan para definir y crear otras clases.",
+        "incorrectAnswers": [
+            "Funciones especiales que se utilizan para modificar el comportamiento de una clase.",
+            "Funciones que se utilizan para decorar y modificar funciones o métodos existentes.",
+            "Clases que se utilizan para crear y manipular objetos complejos."
+        ],
+        "question": "¿Qué son las metaclases en Python?",
         "tags": [
             "language"
         ],

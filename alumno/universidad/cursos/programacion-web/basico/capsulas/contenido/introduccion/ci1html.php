@@ -14,7 +14,8 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-    <link rel="stylesheet" href="../../css/capsula-teoria.css">
+    <link rel="stylesheet" href="../../css/capsula-teoria.css" />
+    <link rel="stylesheet" href="../../css/carrusel.css" />
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -22,7 +23,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <div class="new-g" style="text-align: center;">Introducción al Lenguaje HTML</div><br>
             <section id="container-slider">
                 <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -49,12 +50,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
                     </li>
                 </ul>
                 <ul id="slider">
-                    <li style="background-image: url('../../img/introduccionhtml/CIN1.gif'); z-index:0; opacity: 1;"></li>
-                    <li style="background-image: url('../../img/introduccionhtml/CIN11.gif');"></li>
-                    <li style="background-image: url('../../img/introduccionhtml/CIN111.gif');"></li>
-                    <li style="background-image: url('../../img/introduccionhtml/CIN1111.gif');"></li>
-                    <li style="background-image: url('../../img/introduccionhtml/CIN11111.gif');"></li>
-                    <li style="background-image: url('../../img/introduccionhtml/CIN111111.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/7.gif'); z-index:0; opacity: 1;"></li>
+                    <li style="background-image: url('../../img/html/In/8.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/9.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/10.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/11.gif');"></li>
+                    <li style="background-image: url('../../img/html/In/12.gif');"></li>
 
                 </ul>
             </section>

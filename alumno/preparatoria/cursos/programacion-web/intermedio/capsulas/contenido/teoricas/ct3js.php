@@ -15,7 +15,7 @@ if (empty($existe) && $id_user != 1) {
 
 //Verificar si ya se tiene permiso y no dar puntos de más
 $permiso_intento = 2;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_preparatoria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
@@ -46,19 +46,20 @@ if (isset($resultadoIntentos['intentos'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-    <link rel="stylesheet" href="../../css/capsula-teoria.css" />
+    <link rel="stylesheet" href="../../css/capsula-teoriaa.css" />
+    <link rel="stylesheet" href="../../css/carrusel.css" />
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
     <script src="https://cdn.plyr.io/3.7.2/plyr.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalerT3@11"></script>
 
 </head>
 
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-pw-i.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <div class="new-g" style="text-align: center;">Cápsula teórica 3 JS</div><br>
             <section id="container-slider">
                 <section id="container-slider">
@@ -89,12 +90,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/teoria3js/CT3.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/teoria3js/CT33.gif');"></li>
-                        <li style="background-image: url('../../img/teoria3js/CT333.gif');"></li>
-                        <li style="background-image: url('../../img/teoria3js/CT3333.gif');"></li>
-                        <li style="background-image: url('../../img/teoria3js/CT33333.gif');"></li>
-                        <li style="background-image: url('../../img/teoria3js/CT333333.gif');"></li>
+                        <li style="background-image: url('../../img/js/T3/139.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/js/T3/140.gif');"></li>
+                        <li style="background-image: url('../../img/js/T3/141.gif');"></li>
+                        <li style="background-image: url('../../img/js/T3/142.gif');"></li>
+                        <li style="background-image: url('../../img/js/T3/143.gif');"></li>
+                        <li style="background-image: url('../../img/js/T3/144.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
                                 <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd54.php">
@@ -140,6 +141,12 @@ if (isset($resultadoIntentos['intentos'])) {
         });
     </script>
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         //checar respuesta
 
         var puntos = <?php echo $puntosGanados; ?>;
@@ -155,26 +162,92 @@ if (isset($resultadoIntentos['intentos'])) {
 
         function comprueba() {
             if (checkbox1.checked) {
-                Swal.fire({
-                    title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teoricos',
-                    text: '¡Puntuación guardada con éxito!',
-                    imageUrl: "../../../../../../img/Thumbs-Up.gif",
-                    imageHeight: 350,
-                    backdrop: `
+                //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                Correcto.play();
+
+                //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
+                if (puntos == 0) {
+                    //resultado();
+                    Swal.fire({
+                        title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
+                        text: '¡Más de 3 intentos, no es posible sumar puntos!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
                     rgba(0,143,255,0.6)
                     url("../../../../../../img/fondo.gif")
                     `,
-                    confirmButtonColor: '#a14cd9',
-                    confirmButtonText: 'Aceptar',
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        var inputValidar = document.getElementById("validar");
-                        inputValidar.value = "correcto";
-                        document.getElementById('evaluar').submit();
-                    }
-
-                });
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            var inputValidar = document.getElementById("validar");
+                            inputValidar.value = "correcto";
+                            document.getElementById('evaluar').submit();
+                        }
+                    });
+                } else if (puntos == 6) {
+                    Swal.fire({
+                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            var inputValidar = document.getElementById("validar");
+                            inputValidar.value = "correcto";
+                            document.getElementById('evaluar').submit();
+                        }
+                    });
+                } else if (puntos == 8) {
+                    Swal.fire({
+                        title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            var inputValidar = document.getElementById("validar");
+                            inputValidar.value = "correcto";
+                            document.getElementById('evaluar').submit();
+                        }
+                    });
+                } else if (puntos == 10) {
+                    Swal.fire({
+                        title: '¡Excelente sigue asi! ' + 'Obtuviste ' + puntos + ' puntos teóricos',
+                        text: '¡Puntuación guardada con éxito!',
+                        imageUrl: "../../../../../../img/Thumbs-Up.gif",
+                        imageHeight: 350,
+                        backdrop: `
+                    rgba(0,143,255,0.6)
+                    url("../../../../../../img/fondo.gif")
+                    `,
+                        confirmButtonColor: '#a14cd9',
+                        confirmButtonText: 'Aceptar',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            var inputValidar = document.getElementById("validar");
+                            inputValidar.value = "correcto";
+                            document.getElementById('evaluar').submit();
+                        }
+                    });
+                }
             } else if (checkbox2.checked) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -186,6 +259,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else if (checkbox3.checked) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',
@@ -197,6 +273,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     }
                 });
             } else if (checkbox4.checked) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+
                 Swal.fire({
                     title: 'Oops...',
                     text: '¡Verifica tu respuesta!',

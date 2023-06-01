@@ -174,6 +174,12 @@ if (empty($existe) && $id_user != 1) {
     </div>
 
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         var segundos = 240;
 
         let puntos = 0;
@@ -181,6 +187,9 @@ if (empty($existe) && $id_user != 1) {
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos == 0) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+
                 var xmlhttp = new XMLHttpRequest();
 
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 3; //cancatenation
@@ -238,6 +247,9 @@ if (empty($existe) && $id_user != 1) {
                     var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 22 + "&id_curso=" + 3; //cancatenation
 
                     xmlhttp.onreadystatechange = function() {
+                        //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                        Correcto.play();
+
                         Swal.fire({
                             title: '¡Bien hecho!',
                             text: '¡Puntuación guardada con éxito!',
@@ -259,6 +271,8 @@ if (empty($existe) && $id_user != 1) {
                     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xmlhttp.send(param);
                 } else {
+                    //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                    Incorrecto.play();
                     var xmlhttp = new XMLHttpRequest();
 
                     var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 22 + "&id_curso=" + 3; //cancatenation

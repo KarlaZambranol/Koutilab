@@ -2,13 +2,13 @@
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Escribir instrucciones",
+        "correctAnswer": "or",
         "incorrectAnswers": [
-            "Dejar comentarios",
-            "Utilizar variables",
-            "style:''"
+            "and",
+            "not",
+            "xor"
         ],
-        "question": "¿Qué se debe de hacer en Python para que la computadora lo entienda (codigo)?",
+        "question": "¿Qué operador lógico se usa en Python para verificar si al menos una de dos expresiones booleanas es verdadera?",
         "tags": [
             "language"
         ],
@@ -20,13 +20,13 @@
     {
         "category": "CE1",
         "id": "2",
-        "correctAnswer": "Comando",
+        "correctAnswer": "=",
         "incorrectAnswers": [
-            "Variable",
-            "Dato",
-            "No recuerdo"
+            ":",
+            "->",
+            "=>"
         ],
-        "question": "Print ¿Qué es?",
+        "question": "¿Qué operador se utiliza en Python para asignar un valor a una variable?",
         "tags": [
             "language"
         ],
@@ -38,13 +38,13 @@
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "Hola me llamo Juan Diego y estoy estudiando Derecho, mucho gusto",
+        "correctAnswer": "is",
         "incorrectAnswers": [
-            "y estoy estudiando Derecho, mucho gusto",
-            "Hola me llamo Juan Diego",
-            "No sé"
+            "is not",
+            "==",
+            "!="
         ],
-    "question": "Que salida de pantalla tendra el siguiente codigo: nombre='Juan Diego'\ncarrera='Derecho'\nprint('Hola me llamo'Juan Diego'+nombre+'y estudio'+carrera+',mucho gusto'",
+        "question": "¿Qué operador se utiliza en Python para verificar si dos objetos tienen el mismo identificador?",
         "tags": [
             "language"
         ],
@@ -56,13 +56,13 @@
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "Para imprimir cosas en la pantalla",
+        "correctAnswer": "Usando dos puntos : para delimitar el encabezado de la sentencia, seguido por indentación para delimitar su cuerpo.",
         "incorrectAnswers": [
-            "Para dibujar",
-            "Para retornar cosas",
-            "Para hacer una operacion"
+            "Usando llaves {} para delimitar el cuerpo de la sentencia.",
+            "Usando paréntesis () para delimitar el cuerpo de la sentencia.",
+            "Usando corchetes [] para delimitar el cuerpo de la sentencia."
         ],
-        "question": "¿Para que utilizamos el comando 'Print'?",
+        "question": "¿Cómo se define una sentencia compuesta en Python?",
         "tags": [
             "language"
         ],
@@ -74,13 +74,13 @@
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "print ('Gabriel Coding' 'Think Twice, Code Once')",
+        "correctAnswer": "Para especificar un valor que una función debe devolver.",
         "incorrectAnswers": [
-            "print('Gabriel Coding')",
-            "print ('Gabriel Coding', 'Think Twice, Code Once', sep = ' - ')",
-            "print ('Gabriel Coding', 'Think Twice, Code Once', sep = ' - ', end = '.')"
+            "Para interrumpir la ejecución de un ciclo.",
+            "Para definir una función que se ejecutará en un momento posterior.",
+            "Para imprimir un mensaje en la pantalla."
         ],
-        "question": "¿Cuál es una sentencia 'print()' con argumentos?",
+        "question": "¿Cuál es el propósito de la sentencia return en Python?",
         "tags": [
             "language"
         ],
@@ -92,13 +92,13 @@
     {
         "category": "CE1",
         "id": "6",
-        "correctAnswer": "print('Gabriel Coding')",
+        "correctAnswer": "if",
         "incorrectAnswers": [
-            "print ('Gabriel Coding' 'Think Twice, Code Once')",
-            "print ('Gabriel Coding', 'Think Twice, Code Once",
-            "print ('Gabriel Coding', 'Think Twice, Code Once', sep = ' - ', end = '.')"
+            "for",
+            "while",
+            "try/except"
         ],
-        "question": "¿Cuál es una sentencia 'print()' básica?",
+        "question": "¿Cuál es la estructura condicional básica en Python?",
         "tags": [
             "language"
         ],
@@ -110,13 +110,67 @@
     {
         "category": "CE1",
         "id": "7",
-        "correctAnswer": "lista=['jose',5,'Maria']*5\nprint(lista[:])",
+        "correctAnswer": "Para ejecutar diferentes bloques de código según una o varias condiciones.",
         "incorrectAnswers": [
-            "lista=['jose',5,'Maria']*5",
-            "print(lista[:])",
-            "style:'h1{ color=red;'}"
+            "Para iterar sobre una secuencia de valores.",
+            "Para manejar excepciones en el código.",
+            "Para repetir un bloque de código mientras se cumple una condición."
         ],
-        "question": "¿Cuál es la opción correcta de imprimir una lista?",
+        "question": "¿Cuál es el propósito de la estructura if/else/elif en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "for",
+        "incorrectAnswers": [
+            "if/else/elif",
+            "try/except",
+            "while"
+        ],
+        "question": "¿Qué estructura de control se utiliza en Python para iterar sobre una secuencia de valores?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Repite un bloque de código mientras se cumple una condición.",
+        "incorrectAnswers": [
+            "Itera sobre una secuencia de valores.",
+            "Ejecuta un bloque de código una vez y luego sale del ciclo.",
+            "Maneja excepciones en el código."
+        ],
+        "question": "¿Qué hace la estructura while en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Itera sobre una secuencia de valores.",
+        "incorrectAnswers": [
+            "Repite un bloque de código mientras se cumple una condición.",
+            "Ejecuta un bloque de código una vez y luego sale del ciclo.",
+            "Maneja excepciones en el código."
+        ],
+        "question": "¿Qué hace la estructura for en Python?",
         "tags": [
             "language"
         ],

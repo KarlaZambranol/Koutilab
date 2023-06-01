@@ -1,15 +1,14 @@
 [
-    
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Datos",
+        "correctAnswer": "print('Hola Mundo')",
         "incorrectAnswers": [
-            "Variables",
-            "Conjuntos",
-            "Clases"
+            "Print('Hola Mundo')",
+            "printf('Hola Mundo')",
+            "echo('Hola Mundo')"
         ],
-        "question": "¿Cómo se llama la información con la que trabaja Python?",
+        "question": "¿Cuál es la sintaxis correcta para imprimir la cadena de caracteres 'Hola Mundo' en Python?",
         "tags": [
             "language"
         ],
@@ -21,13 +20,13 @@
     {
         "category": "CE1",
         "id": "2",
-        "correctAnswer": "Int, Spring y Bool",
+        "correctAnswer": "x = 5",
         "incorrectAnswers": [
-            "'True' y 'False'",
-            "'Hola', 'Adios' y 'e'",
-            "'1', '2', '3', '4', etc."
+            "x = '5'",
+            "x = 5.0",
+            "x == 5"
         ],
-        "question": "¿Cuál es la clasificación de los diferentes tipos de datos?",
+        "question": "¿Cuál es la sintaxis correcta para asignar el valor entero 5 a la variable 'x' en Python?",
         "tags": [
             "language"
         ],
@@ -39,13 +38,13 @@
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "Operaciones matemáticas",
+        "correctAnswer": "# Este es un comentario",
         "incorrectAnswers": [
-            "Textos",
-            "Poemas",
-            "Dibujos"
+            "// Este es un comentario",
+            "/* Este es un comentario */",
+            "<!-- Este es un comentario -->"
         ],
-        "question": "¿Qué otra cosa se puede hacer en Python?",
+        "question": "¿Cuál es la sintaxis correcta para agregar un comentario en Python?",
         "tags": [
             "language"
         ],
@@ -57,13 +56,13 @@
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "int",
+        "correctAnswer": "if",
         "incorrectAnswers": [
-            "string",
-            "boolean",
-            "varchar"
+            "run",
+            "check",
+            "execute"
         ],
-        "question": "¿Con que dato se pueden hacer las operaciones matemáticas?",
+        "question": "¿Cuál de las siguientes opciones es una palabra reservada en Python?",
         "tags": [
             "language"
         ],
@@ -75,13 +74,13 @@
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "'Suma', 'Resta', 'Multiplicación' y 'División'",
+        "correctAnswer": "variable_name = 'value'",
         "incorrectAnswers": [
-            "Suma",
-            "Resta",
-            "División"
+            "value = variable_name",
+            "variable name = 'value'",
+            "Value = variable_name"
         ],
-        "question": "Ejemplos de operaciones matemáticas",
+        "question": "¿Cuál es la forma correcta de definir una variable en Python?",
         "tags": [
             "language"
         ],
@@ -93,13 +92,13 @@
     {
         "category": "CE1",
         "id": "6",
-        "correctAnswer": "100 ---> int",
+        "correctAnswer": "string",
         "incorrectAnswers": [
-            "'14' ---> 'int'",
-            "int ---> 89",
-            "'Koutilab' ---> int"
+            "char",
+            "decimal",
+            "array"
         ],
-        "question": "Selecciona un ejemplo de 'int'",
+        "question": "¿Cuál de los siguientes es un tipo de dato válido en Python?",
         "tags": [
             "language"
         ],
@@ -111,13 +110,13 @@
     {
         "category": "CE1",
         "id": "7",
-        "correctAnswer": "'Koutilab' ---> string",
+        "correctAnswer": "complex",
         "incorrectAnswers": [
-            "Koutilab ---> int",
-            "string ---> Koutilab",
-            "9 ---> string"
+            "string",
+            "boolean",
+            "list"
         ],
-        "question": "Selecciona un ejemplo de 'string'",
+        "question": "¿Cuál de los siguientes es un tipo de datos numéricos en Python?",
         "tags": [
             "language"
         ],
@@ -129,13 +128,13 @@
     {
         "category": "CE1",
         "id": "8",
-        "correctAnswer": "False ---> bool",
+        "correctAnswer": "%",
         "incorrectAnswers": [
-            "False ---> 'bool'",
-            "'False' ---> bool",
-            "'False' ---> 'bool'"
+            "^",
+            "&",
+            "~"
         ],
-        "question": "Selecciona un ejemplo de 'bool'",
+        "question": "¿Cuál de los siguientes es un operador aritmético válido en Python?",
         "tags": [
             "language"
         ],
@@ -147,13 +146,13 @@
     {
         "category": "CE1",
         "id": "9",
-        "correctAnswer": "(4+2)/3 = 2",
+        "correctAnswer": "in",
         "incorrectAnswers": [
-            "int ---> 4+2",
-            "4+2 ---> int",
-            "string ---> 4/2"
+            "not",
+            "and",
+            "or"
         ],
-        "question": "Ejemplos de operadores",
+        "question": "¿Cuál de los siguientes operadores de pertenencia se usa para verificar si un elemento está presente en una lista en Python?",
         "tags": [
             "language"
         ],
@@ -165,13 +164,13 @@
     {
         "category": "CE1",
         "id": "10",
-        "correctAnswer": "5*2+10=13",
+        "correctAnswer": "==",
         "incorrectAnswers": [
-            "int ---> 5*2+10=13",
-            "5*2+10=13 ---> int",
-            "bool ---> 5*2+10=13"
+            "=",
+            "!=",
+            "<>"
         ],
-        "question": "Ejemplos de operadores",
+        "question": "¿Qué operador se usa en Python para verificar si dos valores son iguales?",
         "tags": [
             "language"
         ],

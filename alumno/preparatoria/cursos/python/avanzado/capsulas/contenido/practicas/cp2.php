@@ -10,7 +10,7 @@ $permiso = "capsula19";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_preparatoria c INNER JOIN detalle_capsulas_preparatoria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
 }
 
 ?>
@@ -39,7 +39,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Imagen Muestra</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,9 +50,9 @@ if (empty($existe) && $id_user != 1) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../../../../../vid/funcion-2.mp4" type="video/mp4" />
-                                </video>
+                                <img class="js-player" src="../../img/cp2avanzado.png">
+
+                                </img>
                             </td>
                         </tr>
                     </tbody>
@@ -66,7 +66,7 @@ if (empty($existe) && $id_user != 1) {
                 <button type="button" class="btn-grd" onclick="copyToClipBoard()" style="width: 5%; padding: 5px; margin: -30px 60px -20px 1050px; scale: 80%;"><i class="fas fa-paste fa-2x"></i></button>
 
                 <div class="editor-container">
-                    <div class="cd" id="editor"># Programación avanzada con Python</div>
+                    <div class="cd" id="editor"></div>
                 </div>
             </div>
             <a style="text-decoration: none;"><button onclick="miFunc()" type="submit" class="btn-grd" id="update" style="width: 20%; margin-top:1%;">Evaluar</button></a>

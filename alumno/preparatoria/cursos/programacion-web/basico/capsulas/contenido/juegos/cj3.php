@@ -74,7 +74,7 @@ if (isset($resultadoIntentos['intentos'])) {
 
     <!-- Contenido donde se encuentran las imagenes y los espacios donde van a ir -->
     <div class="contenido">
-        <a href="../../../../../../rutas/ruta-pw-b.php">
+        <a href="#" onclick="history.back(); return false;">
             <button style="float: left; position: relative; margin: 10px 0 0 10px;" class="btn-b" id="btn-cerrar-modalV">
                 <i class="fas fa-reply"></i>
             </button>
@@ -202,6 +202,12 @@ if (isset($resultadoIntentos['intentos'])) {
     </div>
 
     <script>
+        //se esta llamando los sonidos de la carpeta "sonidos"
+        var Correcto = document.createElement("audio");
+        Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+        var Incorrecto = document.createElement("audio");
+        Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
+
         var segundos = 240;
 
         let puntos = 0;
@@ -209,6 +215,9 @@ if (isset($resultadoIntentos['intentos'])) {
         function iniciarTiempo() {
             document.getElementById('tiempo').innerHTML = segundos + " segundos";
             if (segundos == 0) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+
                 var xmlhttp = new XMLHttpRequest();
 
                 var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 1; //cancatenation
@@ -266,6 +275,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 10 + "&id_curso=" + 1; //cancatenation
 
                     xmlhttp.onreadystatechange = function() {
+                        //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                        Correcto.play();
+
                         Swal.fire({
                             title: '¡Bien hecho! ' + 'Obtuviste ' + puntos + ' trofeos',
                             text: '¡Puntuación guardada con éxito!',
@@ -287,6 +299,9 @@ if (isset($resultadoIntentos['intentos'])) {
                     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xmlhttp.send(param);
                 } else {
+                    //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                    Incorrecto.play();
+
                     var xmlhttp = new XMLHttpRequest();
 
                     var param = "score=" + 0 + "&validar=" + 'incorrecto' + "&permiso=" + 10 + "&id_curso=" + 1; //cancatenation

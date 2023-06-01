@@ -10,7 +10,7 @@ $permiso = "capsula8";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 5");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-  header("Location: ../../../../intermedio/CAPSULAS/acciones/capsulas.php");
+  header("Location: ../../../../intermedio/capsulas/acciones/capsulas.php");
 }
 ?>
 
@@ -34,7 +34,7 @@ if (empty($existe) && $id_user != 1) {
 <body>
   <div class="body">
     <div class="container">
-      <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+      <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
       <div class="new-g" style="text-align: center;">Evaluación 2</div><br>
       <div class="quiz-wrapper">
         <hr>

@@ -23,7 +23,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_secundaria'])) {
 <body>
   <div class="body">
     <div class="container">
-      <a href="../../../../../../rutas/ruta-py-i.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+      <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
       <div class="new-g" style="text-align:center;">Bienvenido al curso</div><br>
       <video class="js-player" poster="thumbnail.jpg" playsinline controls>
         <source src="../../vid/B.mp4" type="video/mp4" />

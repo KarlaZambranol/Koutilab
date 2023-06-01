@@ -13,7 +13,8 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-    <link rel="stylesheet" href="../../css/capsula-teoria.css" />
+    <link rel="stylesheet" href="../../css/capsula-teoriaa.css">
+    <link rel="stylesheet" href="../../css/carrusel.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
@@ -23,7 +24,7 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-pw-a.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <div class="new-g" style="text-align: center;">Introducción JavaScript</div><br>
             <section id="container-slider">
                 <section id="container-slider">
@@ -54,12 +55,12 @@ if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/introduccionjs/IN1.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/introduccionjs/IN11.gif');"></li>
-                        <li style="background-image: url('../../img/introduccionjs/IN111.gif');"></li>
-                        <li style="background-image: url('../../img/introduccionjs/IN1111.gif');"></li>
-                        <li style="background-image: url('../../img/introduccionjs/IN11111.gif');"></li>
-                        <li style="background-image: url('../../img/introduccionjs/IN111111.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/91.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/js/In/92.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/93.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/94.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/95.gif');"></li>
+                        <li style="background-image: url('../../img/js/In/96.gif');"></li>
                     </ul>
                 </section>
         </div>

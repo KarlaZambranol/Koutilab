@@ -16,6 +16,7 @@ include "../../../../../../../../acciones/conexion.php";
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
     <link rel="stylesheet" href="../../css/capsula-teoria.css" />
+    <link rel="stylesheet" href="../../css/carrusel.css" />
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
@@ -25,7 +26,7 @@ include "../../../../../../../../acciones/conexion.php";
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-pw-b.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <div class="new-g" style="text-align: center;">Introducción CSS</div><br>
             <section id="container-slider">
                 <section id="container-slider">
@@ -56,12 +57,12 @@ include "../../../../../../../../acciones/conexion.php";
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/introduccioncss/CIN1.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/introduccioncss/CIN11.gif');"></li>
-                        <li style="background-image: url('../../img/introduccioncss/CIN111.gif');"></li>
-                        <li style="background-image: url('../../img/introduccioncss/CIN1111.gif');"></li>
-                        <li style="background-image: url('../../img/introduccioncss/CIN11111.gif');"></li>
-                        <li style="background-image: url('../../img/introduccioncss/CIN111111.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/84.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/css/In/85.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/86.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/87.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/88.gif');"></li>
+                        <li style="background-image: url('../../img/css/In/89.gif');"></li>
                     </ul>
                 </section>
         </div>

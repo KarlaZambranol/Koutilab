@@ -211,6 +211,13 @@
     * resets the game state to start a new word.
     *
     */
+
+    
+		//se esta llamando los sonidos de la carpeta "sonidos"
+		var Correcto = document.createElement("audio");
+		Correcto.src = "../../../../../../../../acciones/sonidos/correcto.mp3";
+		var Incorrecto = document.createElement("audio");
+		Incorrecto.src = "../../../../../../../../acciones/sonidos/incorrecto.mp3";
     var endTurn = function () {
 
       // see if we formed a valid word
@@ -229,6 +236,8 @@
           var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 4 + "&id_curso=" + 1; //cancatenation
 
           xmlhttp.onreadystatechange = function () {
+            //se llama a "sonido" y reproducimos el sonido de que esta correcto
+            Correcto.play();
             Swal.fire({
               title: '¡Bien hecho!',
               text: '¡Puntuación guardada con éxito!',

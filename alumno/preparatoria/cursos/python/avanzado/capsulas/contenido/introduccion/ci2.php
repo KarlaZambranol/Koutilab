@@ -1,21 +1,22 @@
 <?php
 session_start();
 $id_user = $_SESSION['id_alumno_preparatoria'];
-if (empty($_SESSION['active'])) {
-    header('location: ../../../../../../../../index.php');
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_preparatoria'])) {
+    header('location: ../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../acciones/conexion.php";
 
 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE css>
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-    <link rel="stylesheet" href="../../css/capsula-teoria.css" />
+    <link rel="stylesheet" href="../../css/capsula-teoriaa.css">
+    <link rel="stylesheet" href="../../css/carrusel.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
@@ -25,8 +26,8 @@ include "../../../../../../../../acciones/conexion.php";
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-py-a.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
-            <div class="new-g" style="text-align: center;">Introducción</div><br>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <div class="new-g" style="text-align: center;">Introducción Python Avanzado</div><br>
             <section id="container-slider">
                 <section id="container-slider">
                     <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
@@ -42,10 +43,41 @@ include "../../../../../../../../acciones/conexion.php";
                         <li>
                             <a itlist="itList_3" href="#"></a>
                         </li>
+                        <li>
+                            <a itlist="itList_4" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_5" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_6" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_7" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_8" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_9" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_10" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_11" href="#"></a>
+                        </li>
+                        <li>
+                            <a itlist="itList_12" href="#"></a>
+                        </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/CI2.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/CI22.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/84.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/P2/In/85.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/86.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/87.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/88.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/89.gif');"></li>
                     </ul>
                 </section>
         </div>

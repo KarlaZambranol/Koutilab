@@ -106,7 +106,7 @@ $id_capsula = 3;
             </div>
             <div class="button-box">
                 <button type="button" class="toggle-btn">
-                    <a href="../../../../../../rutas/ruta-pw-b.php" type="button">Regresar a la ruta</a>
+                    <a href="#" onclick="history.back(); return false;" type="button">Regresar a la ruta</a>
                 </button>
             </div>
         </div>

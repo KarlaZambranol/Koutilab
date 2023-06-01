@@ -15,7 +15,8 @@ include "../../../../../../../../acciones/conexion.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KOUTILAB</title>
     <link rel="shortcut icon" href="../../../../../../img/lgk.png">
-    <link rel="stylesheet" href="../../css/capsula-teoria.css" />
+    <link rel="stylesheet" href="../../css/capsula-teoriaaa.css" />
+    <link rel="stylesheet" href="../../css/carrusel.css">
     <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />
@@ -25,7 +26,7 @@ include "../../../../../../../../acciones/conexion.php";
 <body>
     <div class="body">
         <div class="container">
-            <a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+            <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
             <div class="new-g" style="text-align: center;">Introducción 2 Python Básico</div><br>
             <section id="container-slider">
                 <section id="container-slider">
@@ -50,11 +51,12 @@ include "../../../../../../../../acciones/conexion.php";
                         </li>
                     </ul>
                     <ul id="slider">
-                        <li style="background-image: url('../../img/CI2.gif'); z-index:0; opacity: 1;"></li>
-                        <li style="background-image: url('../../img/CI22.gif');"></li>
-                        <li style="background-image: url('../../img/CI222.gif');"></li>
-                        <li style="background-image: url('../../img/CI2222.gif');"></li>+
-                        <li style="background-image: url('../../img/CI22222.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/84.gif'); z-index:0; opacity: 1;"></li>
+                        <li style="background-image: url('../../img/P2/In/85.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/86.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/87.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/88.gif');"></li>
+                        <li style="background-image: url('../../img/P2/In/89.gif');"></li>
                     </ul>
                 </section>
         </div>

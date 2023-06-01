@@ -10,7 +10,7 @@ $permiso = "capsula3";
 $sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
-    header("Location: ../../../../basico/capsulas/acciones/capsulas.php");
+    header("Location: ../../../../avanzado/capsulas/acciones/capsulas.php");
 }
 
 ?>
@@ -39,7 +39,7 @@ if (empty($existe) && $id_user != 1) {
                     <thead>
                         <tr>
                             <td>Instrucciones</td>
-                            <td>Video práctica</td>
+                            <td>Imagen Muestra</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,9 +50,9 @@ if (empty($existe) && $id_user != 1) {
                                 </p>
                             </td>
                             <td class="ne">
-                                <video class="js-player" poster="thumbnail.jpg" playsinline controls style="height: 350px; width:100%; border: 1px solid black;">
-                                    <source src="../../../../../../vid/funcion-1.mp4" type="video/mp4" />
-                                </video>
+                                <img class="js-player" src="../../img/cp1avanzado.png">
+
+                                </img>
                             </td>
                         </tr>
                     </tbody>

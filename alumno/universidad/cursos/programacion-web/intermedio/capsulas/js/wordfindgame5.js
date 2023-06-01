@@ -229,6 +229,8 @@
           var param = "score=" + 10 + "&validar=" + 'correcto' + "&permiso=" + 9 + "&id_curso=" + 2; //cancatenation
 
           xmlhttp.onreadystatechange = function() {
+            //se llama a "sonido" y reproducimos el sonido de que esta correcto
+            Correcto.play();
             Swal.fire({
               title: '¡Bien hecho!',
               text: '¡Puntuación guardada con éxito!',

@@ -1,15 +1,14 @@
 [
-    
     {
         "category": "CE1",
         "id": "1",
-        "correctAnswer": "Funciones",
+        "correctAnswer": "x = 10",
         "incorrectAnswers": [
-            "Variables",
-            "Constantes",
-            "Todas las Anteriores"
+            "x = '10'",
+            "10 = x",
+            "'x' = 10"
         ],
-        "question": "Lo utilizamos como receta para hacer cosas en un codigo",
+        "question": "¿Cuál es la forma correcta de asignar un valor a una variable en Python?",
         "tags": [
             "language"
         ],
@@ -21,12 +20,13 @@
     {
         "category": "CE1",
         "id": "2",
-"correctAnswer": "Verdadero",
+        "correctAnswer": "Usando corchetes y la clave como índice del valor en el diccionario.",
         "incorrectAnswers": [
-            "Falso",
-            "Todas las Anteriores"
+            "Usando corchetes y la posición del valor en el diccionario.",
+            "Usando paréntesis y la posición de la clave en el diccionario.",
+            "Usando paréntesis y la clave como índice del valor en el diccionario."
         ],
-        "question": "¿Las funciones son un grupo de instrucciones que se pueden reutilizar una y otra vez?",
+        "question": "¿Cómo se accede al valor asociado a una clave en un diccionario en Python?",
         "tags": [
             "language"
         ],
@@ -38,12 +38,13 @@
     {
         "category": "CE1",
         "id": "3",
-        "correctAnswer": "Verdadero",
+        "correctAnswer": "Son bloques de código que se ejecutan cuando se les llama.",
         "incorrectAnswers": [
-            "Falso",
-            "No estoy segur@"
+            "Son valores numéricos que se utilizan para realizar cálculos.",
+            "Son herramientas para crear interfaces de usuario.",
+            "Son palabras clave que se utilizan para declarar variables."
         ],
-        "question": "¿La funcion print(), input() con incorporadas?",
+        "question": "¿Qué son las funciones en Python?",
         "tags": [
             "language"
         ],
@@ -55,13 +56,13 @@
     {
         "category": "CE1",
         "id": "4",
-        "correctAnswer": "Incorporadas y las que nosotros definimos para despues utilizarnos",
+        "correctAnswer": "Funciones predefinidas por el usuario.",
         "incorrectAnswers": [
-            "Incorporadas",
-            "print()",
-            "No recuedo"
+            "Funciones integradas en Python.",
+            "Funciones que se utilizan para leer y escribir archivos.",
+            "Funciones que se utilizan para crear gráficos en Python."
         ],
-        "question": "¿Cuales son los dos tipos de funciones?",
+        "question": "¿Qué son las funciones propias en Python?",
         "tags": [
             "language"
         ],
@@ -73,13 +74,103 @@
     {
         "category": "CE1",
         "id": "5",
-        "correctAnswer": "Definicion y Llamada",
+        "correctAnswer": "len()",
         "incorrectAnswers": [
-            "Incorporadas",
-            "def()",
-            "Llamada"
+            "length()",
+            "size()",
+            "count()"
         ],
-        "question": "¿Cuales son las dos partes de una funcion?",
+        "question": "¿Qué función en Python se utiliza para calcular la longitud de una lista?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "6",
+        "correctAnswer": "Funciones anónimas que no tienen un nombre definido y se pueden usar para realizar una tarea específica en una sola línea de código.",
+        "incorrectAnswers": [
+            "Funciones predefinidas en Python que se pueden llamar en cualquier momento.",
+            "Funciones que se ejecutan solo una vez y no se pueden llamar de nuevo.",
+            "Funciones que solo se pueden ejecutar en una terminal de Python."
+        ],
+        "question": "¿Qué son las funciones Lambda en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "7",
+        "correctAnswer": "write()",
+        "incorrectAnswers": [
+            "read()",
+            "append()",
+            "close()"
+        ],
+        "question": "¿Qué función de Python se utiliza para abrir un archivo en modo de escritura?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "8",
+        "correctAnswer": "matplotlib",
+        "incorrectAnswers": [
+            "math",
+            "graphics",
+            "os"
+        ],
+        "question": "¿Cuál es el módulo en Python que se utiliza para crear gráficos y visualizaciones?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "9",
+        "correctAnswer": "Buscar patrones específicos en una cadena.",
+        "incorrectAnswers": [
+            "Convertir una cadena en una lista de caracteres.",
+            "Realizar operaciones matemáticas con números enteros y decimales.",
+            "Crear y manipular diccionarios."
+        ],
+        "question": "¿Cuál es el objetivo principal de las expresiones regulares en Python?",
+        "tags": [
+            "language"
+        ],
+        "type": "Multiple Choice",
+        "difficulty": "hard",
+        "regions": [],
+        "isNiche": false
+    },
+    {
+        "category": "CE1",
+        "id": "10",
+        "correctAnswer": "Son una forma de definir una secuencia de caracteres que coincide con un patrón determinado.",
+        "incorrectAnswers": [
+            "Son funciones de Python que permiten realizar cálculos matemáticos avanzados.",
+            "Son una manera de ordenar y clasificar los datos en Python.",
+            "Son un tipo de variables que contienen valores numéricos o de texto."
+        ],
+        "question": "¿Qué son las expresiones regulares en Python?",
         "tags": [
             "language"
         ],

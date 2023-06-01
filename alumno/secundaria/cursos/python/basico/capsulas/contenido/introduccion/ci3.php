@@ -25,7 +25,7 @@ include "../../../../../../../../acciones/conexion.php";
 <body>
   <div class="body">
     <div class="container">
-      <a href="../../../../../../rutas/ruta-py-b.php"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
+      <a href="#" onclick="history.back(); return false;"><button style="float: left;" class="btn-b" id="btn-cerrar-modalV"><i class="fas fa-reply"></i></button></a>
       <div class="new-g" style="text-align:center;">Introducción 3 Python Básico</div><br>
       <section id="container-slider">
         <section id="container-slider">
