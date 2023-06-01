@@ -216,6 +216,42 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
                 </a>
             </div>
+            <div class="card">
+                <a href="rutas/ruta-py-b.php">
+                    <div class="container">
+                        <div class="box">
+                            <div class="chart" data-percent="<?php if (isset($data_python_basico)) echo $data_python_basico['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_python_basico)) echo $data_python_basico['progreso']; ?>%
+                            </div>
+                            <h2>Python básico</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="rutas/ruta-py-i.php">
+                    <div class="container">
+                        <div class="box">
+                            <div class="chart" data-percent="<?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>%
+                            </div>
+                            <h2>Python intermedio</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="rutas/ruta-py-a.php">
+                    <div class="container">
+                        <div class="box">
+                            <div class="chart" data-percent="<?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>%
+                            </div>
+                            <h2>Python avanzado</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

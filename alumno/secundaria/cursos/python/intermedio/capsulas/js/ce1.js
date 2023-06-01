@@ -138,7 +138,8 @@ function fetchQuiz() {
             //save score button
             save.addEventListener("click", () => {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 1; //cancatenation
+                //cambiar permiso y el id curso
+                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 5; //cancatenation
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -156,7 +157,7 @@ function fetchQuiz() {
                             confirmButtonColor: '#3085d6',
                             confirmButtonText: 'Aceptar',
                         }).then((result) => {
-                            window.location.href = '../../../../../../rutas/ruta-py-y.php';
+                            window.location.href = '../../../../../../rutas/ruta-py-i.php';
                         });
                     }
                 }

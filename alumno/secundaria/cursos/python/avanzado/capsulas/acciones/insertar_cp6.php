@@ -18,7 +18,7 @@ $result_sql_permisos = mysqli_num_rows($sql_permisos);
 
 //Verificar si la pregunta es correcta
 if ($pregunta != 'correcto') {
-    header('location: ../contenido/juegos/cj10.php');
+    header('location: ../contenido/juegos/cp2.php');
 }
 
 if ($pregunta == 'correcto' && $result_sql_permisos <= 4) {

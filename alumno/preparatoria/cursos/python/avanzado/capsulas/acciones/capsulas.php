@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KOUTILAB</title>
   <link rel="shortcut icon" href="../../../../../img/lgk.png">
-  <link rel="stylesheet" href="../css/capsula.css" />
+  <link rel="stylesheet" href="../css/capsula-teoria.css" />
   <script src="https://kit.fontawesome.com/53845e078c.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" />

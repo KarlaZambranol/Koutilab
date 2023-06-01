@@ -141,7 +141,7 @@ function fetchQuiz() {
             //save score button
             save.addEventListener("click", () => {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 1; //cancatenation
+                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 6; //cancatenation
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {

@@ -4,10 +4,40 @@ $id_user = $_SESSION['id_alumno_universidad'];
 if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
     header('location: ../../acciones/cerrarsesion.php');
 }
-
 include('../../acciones/conexion.php');
-// $query = mysqli_query($conexion, "SELECT * FROM cursos WHERE id_alumno = $id_user");
+// $query = mysqli_query($conexion, "SELECT * FROM cursos_universidad WHERE id_alumno = $id_user");
 // $data = mysqli_fetch_assoc($query);
+
+//Verificar si ya se tiene permiso en ruta 1
+$permiso_ruta_r1 = "1";
+$sql_verificar_r1 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r1'");
+$existe_verificar_r1 = mysqli_num_rows($sql_verificar_r1);
+
+//Verificar si ya se tiene permiso en ruta 2
+$permiso_ruta_r2 = "2";
+$sql_verificar_r2 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r2'");
+$existe_verificar_r2 = mysqli_num_rows($sql_verificar_r2);
+
+//Verificar si ya se tiene permiso en ruta 3
+$permiso_ruta_r3 = "3";
+$sql_verificar_r3 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r3'");
+$existe_verificar_r3 = mysqli_num_rows($sql_verificar_r3);
+
+//Verificar si ya se tiene permiso en ruta 4
+$permiso_ruta_r4 = "4";
+$sql_verificar_r4 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r4'");
+$existe_verificar_r4 = mysqli_num_rows($sql_verificar_r4);
+
+//Verificar si ya se tiene permiso en ruta 5
+$permiso_ruta_r5 = "5";
+$sql_verificar_r5 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r5'");
+$existe_verificar_r5 = mysqli_num_rows($sql_verificar_r5);
+
+//Verificar si ya se tiene permiso en ruta 6
+$permiso_ruta_r6 = "6";
+$sql_verificar_r6 = mysqli_query($conexion, "SELECT a.* FROM acceso_cursos_universidad a WHERE a.id_alumno = $id_user AND a.id_curso = '$permiso_ruta_r6'");
+$existe_verificar_r6 = mysqli_num_rows($sql_verificar_r6);
+
 
 //Estadisticas de todos los cursos del alumno
 $consultaEstadistica = mysqli_query($conexion, "SELECT trofeos, SUM(trofeos) AS total_trofeos, progreso, SUM(progreso) AS total_progreso, puntos, SUM(puntos) AS total_puntos, practico, SUM(practico) AS total_practico, teorico, SUM(teorico) AS total_teorico FROM estadisticas_universidad WHERE id_alumno = $id_user");
@@ -50,7 +80,7 @@ $query_arduino_avanzado = mysqli_query($conexion, "SELECT * FROM estadisticas_un
 $data_arduino_avanzado = mysqli_fetch_assoc($query_arduino_avanzado);
 
 //Información solo de alumno
-$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_universidad a JOIN escuelas e ON a.id_escuela = e.id_escuela WHERE id_alumno = $id_user"));
+$user = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM alumnos_universidad a JOIN escuelas e ON a.id_escuela = e.id_escuela  WHERE id_alumno = $id_user"));
 
 //Información para alumno - escuela
 $user_escuela = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT e.* FROM alumnos_universidad a
@@ -140,7 +170,23 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     <li><i class="fas fa-school"></i> <b>&nbsp;Escuela:</b> <?php echo $user_escuela["nombre_escuela"] ?></li>
                     <li><i class="fas fa-graduation-cap"></i> <b>&nbsp;Nivel educativo:</b> <?php echo $user["nivel_educativo"] ?></li>
                     <li><i class="fas fa-fingerprint"></i> <b>&nbsp;&nbsp;CCT:</b> <?php echo $user_escuela["cct"] ?></li>
-                    <li><i class="fas fa-user-tie"></i> <b>&nbsp; Profesor:</b> <?php echo $user_docente["nombre"] ?></li>
+                    <li><i class="fas fa-user-tie"></i> <b>&nbsp; Profesor:</b> <?php if (isset($user_docente)) echo $user_docente["nombre"]; ?></li>
+                </ul>
+            </div>
+
+            <div class="dos1">
+                <ul class="lista-datos">
+                    <li><b>&nbsp;Unirse a un grupo:</b></li>
+                    <li>
+                        <form enctype="multipart/form-data" action="" method="post">
+                            <div class="user-details1">
+                                <div class="input-box1" style="width: auto; scale: 80%; margin-top:-20px; margin-left: -25px;">
+                                    <input type="text" name="clavegrupo" value="" placeholder="Clave de grupo">
+                                    <input type="submit" name="enviarclave" value="Unirse" class="btn-grd" style="scale: 80%; width: 60%;">
+                                </div>
+                            </div>
+                        </form>
+                    </li>
                 </ul>
             </div>
 
@@ -180,7 +226,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
             <div class="titlec">
                 <h2>CURSOS</h2>
             </div>
-            <div class="card">
+            <div class="card" <?php echo 'style="' . (($existe_verificar_r1 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-pw-b.php">
                     <div class="container">
                         <div class="box">
@@ -192,7 +238,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
                 </a>
             </div>
-            <div class="card">
+            <div class="card" <?php echo 'style="' . (($existe_verificar_r2 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-pw-i.php">
                     <div class="container">
                         <div class="box">
@@ -204,7 +250,7 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                     </div>
                 </a>
             </div>
-            <div class="card">
+            <div class="card" <?php echo 'style="' . (($existe_verificar_r3 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
                 <a href="rutas/ruta-pw-a.php">
                     <div class="container">
                         <div class="box">
@@ -212,6 +258,42 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
                                 <?php if (isset($data_programacion_web_avanzado)) echo $data_programacion_web_avanzado['progreso']; ?>%
                             </div>
                             <h2>Diseño web avanzado</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card" <?php echo 'style="' . (($existe_verificar_r4 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                <a href="rutas/ruta-py-b.php">
+                    <div class="container">
+                        <div class="box">
+                            <div class="chart" data-percent="<?php if (isset($data_python_basica)) echo $data_python_basica['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_python_basica)) echo $data_python_basica['progreso']; ?>%
+                            </div>
+                            <h2>Python básico</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card" <?php echo 'style="' . (($existe_verificar_r5 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                <a href="rutas/ruta-py-i.php">
+                    <div class="container">
+                        <div class="box">
+                            <div class="chart" data-percent="<?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_python_intermedio)) echo $data_python_intermedio['progreso']; ?>%
+                            </div>
+                            <h2>Python intermedio</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="card" <?php echo 'style="' . (($existe_verificar_r6 > 0) ? 'opacity: 1;' : 'display: none;') . '"'; ?>>
+                <a href="rutas/ruta-py-a.php">
+                    <div class="container">
+                        <div class="box">
+                            <div class="chart" data-percent="<?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>" data-scale-color="#ffb400">
+                                <?php if (isset($data_python_avanzado)) echo $data_python_avanzado['progreso']; ?>%
+                            </div>
+                            <h2>Python avanzado</h2>
                         </div>
                     </div>
                 </a>
@@ -818,6 +900,73 @@ $totalTeorico = ((int)$fila['id_alumno']) * 1000;
       Swal.fire({
           title: '¡Advertencia!',
           text: 'Cambio de contraseña no exitosa',
+          icon: 'info',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Reintentar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+        }
+    }
+    ?>
+
+    <?php
+    if (isset($_POST['enviarclave'])) {
+        $idalumno = $_SESSION['id_alumno_universidad'];
+        $clavegrupo = $_POST['clavegrupo'];
+
+        $data_alumno = mysqli_fetch_assoc(mysqli_query($conexion, "SELECT * FROM grupos_universidad WHERE clave = '$clavegrupo'"));
+        if (isset($data_alumno['id_grupo'])) {
+            $id_grupo_alumno = $data_alumno['id_grupo'];
+            $insertar_grupo = mysqli_query($conexion, "INSERT INTO detalle_grupos_universidad(id_alumno, id_grupo) VALUES ($idalumno, $id_grupo_alumno)");
+        }
+        if (isset($data_alumno['id_docente'])) {
+            $id_docente_alumno = $data_alumno['id_docente'];
+            $sql_update = mysqli_query($conexion, "UPDATE alumnos_universidad SET id_docente = $id_docente_alumno WHERE id_alumno = $idalumno");
+        }
+
+        if (isset($data_alumno['id_grupo'])) {
+            $sql = "SELECT DISTINCT c.id_curso FROM grupos_universidad g JOIN detalle_grupo_cursos_universidad dg ON g.id_grupo = dg.id_grupo JOIN cursos_universidad c ON dg.id_curso = c.id_curso WHERE g.clave = '$clavegrupo'";
+            $resultado = $conexion->query($sql);
+
+            if ($resultado->num_rows > 0) {
+                // Itera sobre los resultados de la consulta SELECT y ejecuta una consulta INSERT para insertar cada registro en la tabla de destino
+                while ($fila = $resultado->fetch_assoc()) {
+                    $idcurso = $fila["id_curso"];
+                    $insertar_acceso_curso = "INSERT INTO acceso_cursos_universidad(id_curso, id_alumno) VALUES ('$idcurso', $idalumno)";
+                    $conexion->query($insertar_acceso_curso);
+                }
+            }
+        }
+
+        if ($insertar_grupo && $insertar_acceso_curso && $sql_update) {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: 'Excelente!',
+          text: 'Registro de grupo exitoso',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+              window.location.href = 'perfil.php';
+          }
+        });
+      </script>
+        ";
+        } else {
+            echo
+            "
+      <script>
+      Swal.fire({
+          title: '¡Revisa bien tu clave!',
+          text: 'Registro de grupo no exitoso',
           icon: 'info',
           confirmButtonColor: '#3085d6',
           confirmButtonText: 'Reintentar',

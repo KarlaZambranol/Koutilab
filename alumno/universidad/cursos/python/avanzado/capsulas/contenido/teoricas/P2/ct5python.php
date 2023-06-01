@@ -1,26 +1,26 @@
 <?php
 session_start();
-$id_user = $_SESSION['id_alumno_universidad'];
-if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_universidad'])) {
+$id_user = $_SESSION['id_alumno_primaria'];
+if (empty($_SESSION['active']) || empty($_SESSION['id_alumno_primaria'])) {
     header('location: ../../../../../../../../../acciones/cerrarsesion.php');
 }
 include "../../../../../../../../../acciones/conexion.php";
-$id_user = $_SESSION['id_alumno_universidad'];
-$permiso = "capsula1";
-$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_universidad c INNER JOIN detalle_capsulas_universidad d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 4");
+$id_user = $_SESSION['id_alumno_primaria'];
+$permiso = "capsula38";
+$sql = mysqli_query($conexion, "SELECT c.*, d.* FROM capsulas_primaria c INNER JOIN detalle_capsulas_primaria d ON c.id_capsula = d.id_capsula WHERE d.id_alumno = $id_user AND c.nombre = '$permiso' AND d.id_curso = 6");
 $existe = mysqli_fetch_all($sql);
 if (empty($existe) && $id_user != 1) {
     header("Location: ../../../../../avanzado/capsulas/acciones/capsulas.php");
 }
 //Verificar si ya se tiene permiso y no dar puntos de más
 //Verificar si permiso_intento es correcto
-$permiso_intento = 28;
-$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_universidad WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 1");
+$permiso_intento = 39;
+$sql_permisos = mysqli_query($conexion, "SELECT * FROM detalle_capsulas_primaria WHERE id_capsula = $permiso_intento AND id_alumno = '$id_user' AND id_curso = 6");
 $result_sql_permisos = mysqli_num_rows($sql_permisos);
 //Script para poder ver cuantos intentos lleva el alumno en la capsula y mostrar cuantos puntos gano dependiendo los intentos
 
 //Contar total de intentos
-$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_universidad WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 1");
+$consultaIntentos = mysqli_query($conexion, "SELECT intentos FROM detalle_intentos_primaria WHERE id_capsula = $permiso_intento AND id_alumno = $id_user AND id_curso = 6");
 $resultadoIntentos = mysqli_fetch_assoc($consultaIntentos);
 if (isset($resultadoIntentos['intentos'])) {
     $totalIntentos = $resultadoIntentos['intentos'];
@@ -97,15 +97,29 @@ if (isset($resultadoIntentos['intentos'])) {
                         <li style="background-image: url('../../../img/P2/T5/123.gif');"></li>
                         <li>
                             <div style="width:80%; margin-left:10%; ">
-                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd2.php">
+                                <form class="forms" id="evaluar" method="POST" enctype="multipart/form-data" action="../../acciones/insertar_pd39.php">
                                     <h2>Para poder avanzar, responde la siguiente pregunta.</h2>
-                                    <h1>Escribe el nombre de un tipo de dato.</h1>
-                                    <input type="hidden" name="permiso" value="2">
+                                    <h1> ¿Qué es la conversiòn de tipos de datos en Python?</h1>
+                                    <div>
+                                        <input type="checkbox" id="checkbox1" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox1">Es una operaciòn importante que permite convertir un tipo de dato a otro tipo.</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox2" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox2">Se refiere a la capacidad de combinar múltiples tipos de datos en uno solo.</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox3" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox3">Se refiere a la transformación de datos en un formato no legible por los humanos.</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="checkbox4" class="check-box" style="scale: 90%;">
+                                        <label for="checkbox4">Se refiere a la capacidad de realizar operaciones matemáticas avanzadas con diferentes tipos de datos.</label>
+                                    </div>
+                                    <input type="hidden" name="permiso" value="39">
                                     <input type="hidden" name="teorico" value="10">
-                                    <input type="hidden" name="id_curso" value="4">
+                                    <input type="hidden" name="id_curso" value="6">
                                     <input type="hidden" name="validar" id="validar" value="incorrecto">
-                                    <textarea name="pregunta" onkeydown="actualizar1()" id="pregunta" placeholder="Escriba aquí su respuesta" rows="5" cols="40"></textarea>
-                                    <button onclick="miFunc(); return false;" type="submit" class="btn-grd" id="update" disabled>Evaluar</button>
                                 </form>
                             </div>
                         </li>
@@ -114,26 +128,42 @@ if (isset($resultadoIntentos['intentos'])) {
         </div>
     </div>
     <script>
+        window.addEventListener("load", function() {
+            var form = document.querySelector("form");
+            var fields = form.querySelectorAll("div");
+            var randomIndex = Math.floor(Math.random() * fields.length);
+
+            for (var i = 0; i < fields.length; i++) {
+                var index = (i + randomIndex) % fields.length;
+                form.appendChild(fields[index]);
+            }
+        });
+    </script>
+    <script>
         //se esta llamando los sonidos de la carpeta "sonidos"
         var Correcto = document.createElement("audio");
         Correcto.src = "../../../../../../../../../acciones/sonidos/correcto.mp3";
         var Incorrecto = document.createElement("audio");
         Incorrecto.src = "../../../../../../../../../acciones/sonidos/incorrecto.mp3";
+        //checar respuesta
 
-        function miFunc() {
-            //checar respuesta
+        var puntos = <?php echo $puntosGanados; ?>;
+        var checkbox1 = document.getElementById('checkbox1');
+        var checkbox2 = document.getElementById('checkbox2');
+        var checkbox3 = document.getElementById('checkbox3');
+        var checkbox4 = document.getElementById('checkbox4');
 
-            let ta = document.getElementById('pregunta').value;
-            // evaluacion del string
-            let opciones = ["int", "bool", "string"];
-            let esCorrecto = opciones.includes(opciones);
+        checkbox1.addEventListener("change", comprueba, true);
+        checkbox2.addEventListener("change", comprueba, true);
+        checkbox3.addEventListener("change", comprueba, true);
+        checkbox4.addEventListener("change", comprueba, true);
 
-            if (esCorrecto) {
-                //se llama a "sonido" y reproducimos el sonido de que esta correcto
-                Correcto.play();
-
+        function comprueba() {
+            if (checkbox1.checked) {
                 //UNA SERIE DE CONDICIONALES ANIDADAS LAS CUALES VALIDAN NUESTROS 4 POSIBLES RESULTADOS Y MANDA LA ALERTA CORRESPONDIENTE
                 if (puntos == 0) {
+                    //se llama a "sonido" y reproducimos el sonido de que esta correcto
+                    Correcto.play();
                     //resultado();
                     Swal.fire({
                         title: 'Bien hecho al fin lo lograste. ¡Debes mejorar!',
@@ -142,7 +172,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         imageHeight: 350,
                         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
+                    url("../../../../../../../img/fondo.gif")
                     `,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: 'Aceptar',
@@ -163,11 +193,12 @@ if (isset($resultadoIntentos['intentos'])) {
                         imageHeight: 350,
                         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
+                    url("../../../../../../../img/fondo.gif")
                     `,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: 'Aceptar',
                     }).then((result) => {
+
                         if (result.isConfirmed) {
                             var inputValidar = document.getElementById("validar");
                             inputValidar.value = "correcto";
@@ -184,7 +215,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         imageHeight: 350,
                         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
+                    url("../../../../../../../img/fondo.gif")
                     `,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: 'Aceptar',
@@ -205,7 +236,7 @@ if (isset($resultadoIntentos['intentos'])) {
                         imageHeight: 350,
                         backdrop: `
                     rgba(0,143,255,0.6)
-                    url("../../../../../../img/fondo.gif")
+                    url("../../../../../../../img/fondo.gif")
                     `,
                         confirmButtonColor: '#a14cd9',
                         confirmButtonText: 'Aceptar',
@@ -217,7 +248,34 @@ if (isset($resultadoIntentos['intentos'])) {
                         }
                     });
                 }
-            } else {
+
+            } else if (checkbox2.checked) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('evaluar').submit();
+                    }
+                });
+            } else if (checkbox3.checked) {
+                //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
+                Incorrecto.play();
+                Swal.fire({
+                    title: 'Oops...',
+                    text: '¡Verifica tu respuesta!',
+                    imageUrl: "../../../../../../../img/signo.gif",
+                    imageHeight: 350,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('evaluar').submit();
+                    }
+                });
+            } else if (checkbox4.checked) {
                 //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
                 Incorrecto.play();
                 Swal.fire({
