@@ -115,8 +115,12 @@
                         <div class="input-box1">
                             <span class="details">Cursos</span>
                             <select style="height: 44px;" name="curso" type="select" required>
-                                <option value="1">Programacion web basica</option>
-                                <option value="2">Programacion web intermedio</option>
+                                <option value="1">Programación web básico</option>
+                                <option value="2">Programación web intermedio</option>
+                                <option value="3">Programación web avanzado</option>
+                                <option value="4">Python básico</option>
+                                <option value="5">Python intermedio</option>
+                                <option value="6">Python avanzado</option>
                             </select>
                         </div>
 
