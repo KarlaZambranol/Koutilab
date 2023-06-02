@@ -141,7 +141,7 @@ function fetchQuiz() {
             //save score button
             save.addEventListener("click", () => {
                 var xmlhttp = new XMLHttpRequest();
-                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 1; //cancatenation
+                var param = "score=" + score + "&validar=" + 'correcto' + "&permiso=" + 26 + "&id_curso=" + 4; //cancatenation
 
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -172,7 +172,7 @@ function fetchQuiz() {
         .catch(() => {
             //se llama a "sonido" y reproducimos el sonido de que esta incorrecto
             Incorrecto.play();
-            
+
             error.innerHTML = "No puedo cargar preguntas";
         });
 }
